@@ -1,0 +1,38 @@
+mqtt:
+  enabled: false
+
+detect:
+  enabled: false
+
+record:
+  enabled: true
+  retain:
+    days: 1
+    mode: motion
+
+snapshots:
+  enabled: true
+  retain:
+    default: 14
+
+go2rtc:
+  streams: {}
+
+cameras: {}
+  # Adiciona aqui cada câmera manualmente, exemplo:
+  #
+  # minha_camera:
+  #   ffmpeg:
+  #     inputs:
+  #       - path: rtsp://user:pass@IP:554/caminho_principal
+  #         roles:
+  #           - record
+  #       - path: rtsp://user:pass@IP:554/caminho_substream
+  #         roles:
+  #           - detect
+  #   detect:
+  #     enabled: false
+  #     width: 640
+  #     height: 360
+  #   record:
+  #     enabled: true
