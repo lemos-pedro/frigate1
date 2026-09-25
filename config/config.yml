@@ -1,3 +1,10 @@
+auth:
+  enabled: false
+
+detectors:
+  cpu_detector:
+    type: cpu
+
 mqtt:
   enabled: false
 
@@ -6,9 +13,14 @@ detect:
 
 record:
   enabled: true
-  retain:
-    days: 1
-    mode: motion
+  alerts:
+    retain:
+      days: 1
+      mode: motion
+  detections:
+    retain:
+      days: 1
+      mode: motion
 
 snapshots:
   enabled: true
@@ -16,23 +28,75 @@ snapshots:
     default: 14
 
 go2rtc:
-  streams: {}
+  streams:
+    URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
+    MU_CAMBAX: rtsp://noc:QYXF84o2@192.168.184.20:554/stream
+    B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
+    BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
+    BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
+    NEGRÃO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
+    
 
-cameras: {}
-  # Adiciona aqui cada câmera manualmente, exemplo:
-  #
-  # minha_camera:
-  #   ffmpeg:
-  #     inputs:
-  #       - path: rtsp://user:pass@IP:554/caminho_principal
-  #         roles:
-  #           - record
-  #       - path: rtsp://user:pass@IP:554/caminho_substream
-  #         roles:
-  #           - detect
-  #   detect:
-  #     enabled: false
-  #     width: 640
-  #     height: 360
-  #   record:
-  #     enabled: true
+cameras:
+  URB_KATAPA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
+          roles:
+            - record
+    detect:
+      enabled: false
+
+  MU_CAMBAX:
+    ffmpeg:
+      inputs:
+        - path: rtsp://noc:QYXF84o2@192.168.184.20:554/stream
+          roles:
+            - record
+    detect:
+      enabled: false
+
+    B_4ABRIL_N:
+      ffmpeg:
+        inputs:
+          - path: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
+            roles:
+              - record
+      detect:
+        enabled: false
+
+    BEIRA_ALT2:
+      ffmpeg:
+        inputs:
+          - path: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
+            roles:
+              - record
+      detect:
+        enabled: false
+
+    BR_4ABRIL2:
+      ffmpeg:
+        inputs:
+          - path: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
+            roles:
+              - record
+      detect:
+        enabled: false
+
+    NEGRÃO_S:
+      ffmpeg:
+        inputs:
+          - path: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
+            roles:
+              - record
+      detect:
+        enabled: false
+
+    200_CASAS:
+      ffmpeg:
+        inputs:
+          - path: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
+            roles:
+              - record
+      detect:
+        enabled: false
