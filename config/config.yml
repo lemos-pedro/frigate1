@@ -1,15 +1,15 @@
 auth:
+  enabled: true
+
+mqtt:
   enabled: false
 
 detectors:
   cpu_detector:
     type: cpu
 
-mqtt:
-  enabled: false
-
-detect:
-  enabled: false
+ffmpeg:
+  hwaccel_args: preset-vaapi   # <-- se o servidor NAO tiver GPU Intel, APAGUE esta linha
 
 record:
   enabled: true
@@ -21,6 +21,8 @@ record:
     retain:
       days: 1
       mode: motion
+  continuous:
+    days: 7
 
 snapshots:
   enabled: true
@@ -30,73 +32,113 @@ snapshots:
 go2rtc:
   streams:
     URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
-    MU_CAMBAX: rtsp://noc:QYXF84o2@192.168.184.20:554/stream
+    MU_CAMBAXI: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
     B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
     BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
     BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
-    NEGRÃO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
-    
+    NEGRAO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
+    COXI: rtsp://noc:QYXF84o2@192.168.210.20:554/stream
+    NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
 
 cameras:
   URB_KATAPA:
     ffmpeg:
       inputs:
-        - path: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
-          roles:
-            - record
+        - path: rtsp://192.168.153.20:554/URB_KATAPA
+          input_args: preset-rtsp-restream
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    audio:
+      listen:
+        - fire_alarm
+    zones:
+      caixa_1:
+        coordinates: 0.373,0.476,0.368,0.554,0.41,0.554,0.406,0.482
+        enabled: true
+        inertia: 3
+        loitering_time: 0
+        friendly_name: caixa 1
+    record:
+      continuous:
+        days: 7
+    onvif:
+      user: Ariclene.lemos
+      password: Towercore2026
 
-  MU_CAMBAX:
+  MU_CAMBAXI:
     ffmpeg:
       inputs:
-        - path: rtsp://noc:QYXF84o2@192.168.184.20:554/stream
-          roles:
-            - record
+        - path: rtsp://192.168.104.20:554/MU_CAMBAXI
+          input_args: preset-rtsp-restream
+          roles: [record]
     detect:
       enabled: false
 
-    B_4ABRIL_N:
-      ffmpeg:
-        inputs:
-          - path: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
-            roles:
-              - record
-      detect:
-        enabled: false
+  B_4ABRIL_N:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.113.20:554/B_4ABRIL_N
+          input_args: preset-rtsp-restream
+          roles: [record]
+    detect:
+      enabled: false
 
-    BEIRA_ALT2:
-      ffmpeg:
-        inputs:
-          - path: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
-            roles:
-              - record
-      detect:
-        enabled: false
+  BEIRA_ALT2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.111.20:554/BEIRA_ALT2
+          input_args: preset-rtsp-restream
+          roles: [record]
+    detect:
+      enabled: false
 
-    BR_4ABRIL2:
-      ffmpeg:
-        inputs:
-          - path: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
-            roles:
-              - record
-      detect:
-        enabled: false
+  BR_4ABRIL2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.112.20:554/BR_4ABRIL2
+          input_args: preset-rtsp-restream
+          roles: [record]
+    detect:
+      enabled: false
 
-    NEGRÃO_S:
-      ffmpeg:
-        inputs:
-          - path: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
-            roles:
-              - record
-      detect:
-        enabled: false
+  NEGRAO_S:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.115.20:554/NEGRAO_S
+          input_args: preset-rtsp-restream
+          roles: [record]
+    detect:
+      enabled: false
 
-    200_CASAS:
-      ffmpeg:
-        inputs:
-          - path: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
-            roles:
-              - record
-      detect:
-        enabled: false
+  COXI:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.210.20:554/COXI
+          input_args: preset-rtsp-restream
+          roles: [record]
+    detect:
+      enabled: false
+
+  # stream problemativo - timestamps invalidos da camera
+  NOVAURBAN4:
+    ffmpeg:
+      inputs:
+        - path: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: false
+
+version: 0.18-0
+
+profiles:
+  viewer:
+    friendly_name: viewer
+
+ui:
+  timezone: Africa/Luanda
+  time_format: 24hour
