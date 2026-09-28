@@ -8,9 +8,6 @@ detectors:
   cpu_detector:
     type: cpu
 
-ffmpeg:
-  hwaccel_args: preset-vaapi   # <-- se o servidor NAO tiver GPU Intel, APAGUE esta linha
-
 record:
   enabled: true
   alerts:
@@ -32,7 +29,7 @@ snapshots:
 go2rtc:
   streams:
     URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
-    MU_CAMBAXI: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
+    MU_CAMBAX: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
     B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
     BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
     BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
@@ -44,7 +41,7 @@ cameras:
   URB_KATAPA:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.153.20:554/URB_KATAPA
+        - path: rtsp://127.0.0.1:8554/URB_KATAPA
           input_args: preset-rtsp-restream
           roles: [record, detect]
     detect:
@@ -69,10 +66,10 @@ cameras:
       user: Ariclene.lemos
       password: Towercore2026
 
-  MU_CAMBAXI:
+  MU_CAMBAX:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.104.20:554/MU_CAMBAXI
+        - path: rtsp://127.0.0.1:8554/MU_CAMBAX
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
@@ -81,7 +78,7 @@ cameras:
   B_4ABRIL_N:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.113.20:554/B_4ABRIL_N
+        - path: rtsp://127.0.0.1:8554/B_4ABRIL_N
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
@@ -90,7 +87,7 @@ cameras:
   BEIRA_ALT2:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.111.20:554/BEIRA_ALT2
+        - path: rtsp://127.0.0.1:8554/BEIRA_ALT2
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
@@ -99,7 +96,7 @@ cameras:
   BR_4ABRIL2:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.112.20:554/BR_4ABRIL2
+        - path: rtsp://127.0.0.1:8554/BR_4ABRIL2
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
@@ -108,7 +105,7 @@ cameras:
   NEGRAO_S:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.115.20:554/NEGRAO_S
+        - path: rtsp://127.0.0.1:8554/NEGRAO_S
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
@@ -117,7 +114,7 @@ cameras:
   COXI:
     ffmpeg:
       inputs:
-        - path: rtsp://192.168.210.20:554/COXI
+        - path: rtsp://127.0.0.1:8554/COXI
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
