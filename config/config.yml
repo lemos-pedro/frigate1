@@ -136,6 +136,7 @@ profiles:
   viewer:
     friendly_name: viewer
 
+
 ui:
   timezone: Africa/Luanda
   time_format: 24hour
