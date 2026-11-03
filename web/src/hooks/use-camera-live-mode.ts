@@ -1,4 +1,4 @@
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import { useCallback, useEffect, useState, useMemo } from "react";
 import useSWR from "swr";
 import { LivePlayerMode } from "@/types/live";
@@ -10,7 +10,7 @@ export default function useCameraLiveMode(
   windowVisible: boolean,
   activeStreams?: { [cameraName: string]: string },
 ) {
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   // Compute which streams need metadata (restreamed streams only)
   const restreamedStreamNames = useMemo(() => {

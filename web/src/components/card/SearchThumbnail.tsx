@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { useApiHost } from "@/api";
 import { getIconForLabel } from "@/utils/iconUtil";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { isIOS, isSafari } from "react-device-detect";
 import Chip from "@/components/indicators/Chip";
 import useImageLoaded from "@/hooks/use-image-loaded";
@@ -24,7 +24,7 @@ export default function SearchThumbnail({
   onClick,
 }: SearchThumbnailProps) {
   const apiHost = useApiHost();
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const [imgRef, imgLoaded, onImgLoad] = useImageLoaded();
 
   // interactions

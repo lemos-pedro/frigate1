@@ -1,7 +1,7 @@
 {
   "time": {
     "untilForTime": "Until {{time}}",
-    "untilForRestart": "Until Frigate restarts.",
+    "untilForRestart": "Until AMSS restarts.",
     "untilRestart": "Until restart",
     "never": "Never",
     "ago": "{{timeAgo}} ago",
@@ -112,7 +112,7 @@
   },
   "field": {
     "optional": "Optional",
-    "internalID": "The Internal ID Frigate uses in the configuration and database"
+    "internalID": "The Internal ID AMSS uses in the configuration and database"
   },
   "button": {
     "add": "Add",
@@ -242,9 +242,9 @@
     "help": "Help",
     "documentation": {
       "title": "Documentation",
-      "label": "Frigate documentation"
+      "label": "AMSS documentation"
     },
-    "restart": "Restart Frigate",
+    "restart": "Restart AMSS",
     "live": {
       "title": "Live",
       "allCameras": "All Cameras",
@@ -287,7 +287,7 @@
     "title": "Role",
     "admin": "Admin",
     "viewer": "Viewer",
-    "desc": "Admins have full access to all features in the Frigate UI. Viewers are limited to viewing cameras, review items, and historical footage in the UI."
+    "desc": "Admins have full access to all features in the AMSS UI. Viewers are limited to viewing cameras, review items, and historical footage in the UI."
   },
   "pagination": {
     "label": "pagination",
@@ -302,12 +302,12 @@
     "more": "More pages"
   },
   "accessDenied": {
-    "documentTitle": "Access Denied - Frigate",
+    "documentTitle": "Access Denied - AMSS",
     "title": "Access Denied",
     "desc": "You don't have permission to view this page."
   },
   "notFound": {
-    "documentTitle": "Not Found - Frigate",
+    "documentTitle": "Not Found - AMSS",
     "title": "404",
     "desc": "Page not found"
   },

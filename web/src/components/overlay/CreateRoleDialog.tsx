@@ -24,7 +24,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTranslation } from "react-i18next";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { CameraNameLabel } from "../camera/FriendlyNameLabel";
 import { isReplayCamera } from "@/utils/cameraUtil";
 import { isDesktop, isMobile } from "react-device-detect";
@@ -39,7 +39,7 @@ import {
 
 type CreateRoleOverlayProps = {
   show: boolean;
-  config: FrigateConfig;
+  config: AmssConfig;
   onCreate: (role: string, cameras: string[]) => void;
   onCancel: () => void;
 };

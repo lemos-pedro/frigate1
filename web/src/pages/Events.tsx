@@ -5,7 +5,7 @@ import { useCameraPreviews } from "@/hooks/use-camera-previews";
 import { useTimezone } from "@/hooks/use-date-utils";
 import { useOverlayState, useSearchEffect } from "@/hooks/use-overlay-state";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { RecordingStartingPoint } from "@/types/record";
 import {
   RecordingsSummary,
@@ -28,7 +28,7 @@ import {
 import EventView from "@/views/events/EventView";
 import MotionSearchView from "@/views/motion-search/MotionSearchView";
 import { RecordingView } from "@/views/recording/RecordingView";
-import { useFrigateReviews } from "@/api/ws";
+import { useAmssReviews } from "@/api/ws";
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -38,7 +38,7 @@ import useSWR from "swr";
 export default function Events() {
   const { t } = useTranslation(["views/events"]);
 
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const timezone = useTimezone(config);
@@ -402,7 +402,7 @@ export default function Events() {
   }, [reviews]);
 
   // update review items in place when a review segment ends
-  const reviewUpdate = useFrigateReviews();
+  const reviewUpdate = useAmssReviews();
   const [endedReviews, setEndedReviews] = useState(
     new Map<string, ReviewSegment>(),
   );

@@ -23,13 +23,13 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Trans, useTranslation } from "react-i18next";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { CameraNameLabel } from "@/components/camera/FriendlyNameLabel";
 import { isReplayCamera } from "@/utils/cameraUtil";
 
 type EditRoleCamerasOverlayProps = {
   show: boolean;
-  config: FrigateConfig;
+  config: AmssConfig;
   role: string;
   currentCameras: string[];
   onSave: (cameras: string[]) => void;

@@ -1,5 +1,5 @@
 import type { RendererComponent } from "@/components/config-form/sectionExtras/registry";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 
 export type JsonPrimitive = string | number | boolean | null;
 
@@ -14,7 +14,7 @@ export type JsonArray = JsonValue[];
 export type ConfigSectionData = JsonObject;
 
 export type HiddenFieldContext = {
-  fullConfig: FrigateConfig;
+  fullConfig: AmssConfig;
   fullCameraConfig?: CameraConfig;
   level: "global" | "camera" | "replay";
   cameraName?: string;
@@ -47,7 +47,7 @@ export type ConfigFormContext = {
   hiddenFields?: string[];
   onFormDataChange?: (data: ConfigSectionData) => void;
   fullCameraConfig?: CameraConfig;
-  fullConfig?: FrigateConfig;
+  fullConfig?: AmssConfig;
   i18nNamespace?: string;
   sectionI18nPrefix?: string;
   sectionDocs?: string;

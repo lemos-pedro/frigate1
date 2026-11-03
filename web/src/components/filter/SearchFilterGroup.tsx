@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { DropdownMenuSeparator } from "../ui/dropdown-menu";
 import { getEndOfDayTimestamp } from "@/utils/dateUtil";
@@ -43,7 +43,7 @@ export default function SearchFilterGroup({
   onUpdateFilter,
 }: SearchFilterGroupProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const allowedCameras = useAllowedCameras();
@@ -255,7 +255,7 @@ function GeneralFilterButton({
   updateLabelFilter,
 }: GeneralFilterButtonProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const [open, setOpen] = useState(false);
@@ -374,7 +374,7 @@ export function GeneralFilterContent({
   onClose,
 }: GeneralFilterContentProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
 

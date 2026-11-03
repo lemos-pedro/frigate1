@@ -1,23 +1,23 @@
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import {
   CameraDetectThreshold,
   CameraFfmpegThreshold,
   InferenceThreshold,
 } from "@/types/graph";
-import { FrigateStats, PotentialProblem } from "@/types/stats";
+import { AmssStats, PotentialProblem } from "@/types/stats";
 import { useMemo } from "react";
 import useSWR from "swr";
 import useDeepMemo from "./use-deep-memo";
 import { capitalizeAll, capitalizeFirstLetter } from "@/utils/stringUtil";
 import { isReplayCamera } from "@/utils/cameraUtil";
-import { useFrigateStats, useJobStatus } from "@/api/ws";
+import { useAmssStats, useJobStatus } from "@/api/ws";
 import { useIsAdmin } from "./use-is-admin";
 
 import { useTranslation } from "react-i18next";
 
-export default function useStats(stats: FrigateStats | undefined) {
+export default function useStats(stats: AmssStats | undefined) {
   const { t } = useTranslation(["views/system"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const isAdmin = useIsAdmin();
 
   // Pass isAdmin as revalidateOnFocus so non-admins never send the jobState snapshot pull
@@ -160,11 +160,11 @@ export default function useStats(stats: FrigateStats | undefined) {
   return { potentialProblems };
 }
 
-export function useAutoFrigateStats() {
-  const { data: initialStats } = useSWR<FrigateStats>("stats", {
+export function useAutoAmssStats() {
+  const { data: initialStats } = useSWR<AmssStats>("stats", {
     revalidateOnFocus: false,
   });
-  const latestStats = useFrigateStats();
+  const latestStats = useAmssStats();
 
   const stats = useMemo(() => {
     if (latestStats) {

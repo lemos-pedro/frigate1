@@ -70,7 +70,7 @@ import { useIsAdmin } from "@/hooks/use-is-admin";
 import SetPasswordDialog from "../overlay/SetPasswordDialog";
 import { toast } from "sonner";
 import axios from "axios";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import type { ProfilesApiResponse } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
 import { Badge } from "@/components/ui/badge";
@@ -92,7 +92,7 @@ export default function GeneralSettings({
   const { t } = useTranslation(["common", "views/settings"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: profile } = useSWR("profile");
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { data: profilesData, mutate: updateProfiles } =
     useSWR<ProfilesApiResponse>("profiles");
   const logoutUrl = config?.proxy?.logout_url || "/api/logout";
@@ -759,7 +759,7 @@ export default function GeneralSettings({
                 className={
                   isDesktop ? "cursor-pointer" : "flex items-center p-2 text-sm"
                 }
-                aria-label="Frigate Github"
+                aria-label="AMSS Github"
               >
                 <LuGithub className="mr-2 size-4" />
                 <span>GitHub</span>

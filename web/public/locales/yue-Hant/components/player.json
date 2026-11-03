@@ -1,9 +1,9 @@
 {
   "noRecordingsFoundForThisTime": "此時間段內沒有錄影",
   "noPreviewFound": "找不到預覽",
-  "submitFrigatePlus": {
+  "submitAMSSPlus": {
     "submit": "提交",
-    "title": "提交此畫面至 Frigate+？"
+    "title": "提交此畫面至 AMSS+？"
   },
   "streamOffline": {
     "desc": "{{cameraName}} 的 <code>detect</code> 串流未接收到任何畫面，請檢查錯誤日誌",
@@ -40,10 +40,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "成功提交畫面至 Frigate+"
+      "submittedAMSSPlus": "成功提交畫面至 AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "提交畫面至 Frigate+ 失敗"
+      "submitAMSSPlusFailed": "提交畫面至 AMSS+ 失敗"
     }
   },
   "noPreviewFoundFor": "找不到 {{cameraName}} 的預覽",

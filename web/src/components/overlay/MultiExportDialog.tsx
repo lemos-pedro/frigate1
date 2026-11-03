@@ -42,7 +42,7 @@ import {
   BatchExportResult,
   ExportCase,
 } from "@/types/export";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { REVIEW_PADDING, ReviewSegment } from "@/types/review";
 import { resolveCameraName } from "@/hooks/use-camera-friendly-name";
 import { useDateLocale } from "@/hooks/use-date-locale";
@@ -68,7 +68,7 @@ export default function MultiExportDialog({
   const navigate = useNavigate();
   const isAdmin = useIsAdmin();
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   // Only admins can attach exports to an existing case (enforced server-side
   // by POST /exports/batch). Skip fetching the case list entirely for
   // non-admins — they can only ever use the "Create new case" branch.

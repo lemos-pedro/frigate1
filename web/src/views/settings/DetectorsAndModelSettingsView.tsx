@@ -36,7 +36,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { AmssConfig } from "@/types/amssConfig";
 import type {
   SectionStatus,
   SettingsPageProps,
@@ -65,7 +65,7 @@ type PageState = {
   customModel: ConfigSectionData;
 };
 
-type FrigatePlusModel = {
+type AmssPlusModel = {
   id: string;
   type: string;
   name: string;
@@ -114,7 +114,7 @@ const STATUS_BAR_KEY = "detectors_and_model";
 
 const EMPTY_PENDING: Record<string, ConfigSectionData> = {};
 
-const deriveInitialState = (config: FrigateConfig): PageState => {
+const deriveInitialState = (config: AmssConfig): PageState => {
   const plusModelId = config.model?.plus?.id;
   const modelPath = config.model?.path;
   const plusEnabled = Boolean(config.plus?.enabled);
@@ -165,7 +165,7 @@ export default function DetectorsAndModelSettingsView({
 }: SettingsPageProps) {
   const { t } = useTranslation(["views/settings", "common"]);
   const { getLocaleDocUrl } = useDocDomain();
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { mutate: globalMutate } = useSWRConfig();
   const { addMessage, removeMessage } = useContext(StatusBarMessagesContext)!;
 
@@ -197,13 +197,13 @@ export default function DetectorsAndModelSettingsView({
   const plusEnabled = Boolean(config?.plus?.enabled);
 
   const { data: availableModels = {}, isLoading: isLoadingModels } = useSWR<
-    Record<string, FrigatePlusModel>
+    Record<string, AmssPlusModel>
   >(plusEnabled ? "/plus/models" : null, {
     fallbackData: {},
     fetcher: async (url) => {
       const res = await axios.get(url, { withCredentials: true });
       return res.data.reduce(
-        (obj: Record<string, FrigatePlusModel>, model: FrigatePlusModel) => {
+        (obj: Record<string, AmssPlusModel>, model: AmssPlusModel) => {
           obj[model.id] = model;
           return obj;
         },
@@ -288,7 +288,7 @@ export default function DetectorsAndModelSettingsView({
   }, [currentDetectorType]);
 
   const isModelCompatible = useCallback(
-    (model: FrigatePlusModel) =>
+    (model: AmssPlusModel) =>
       currentDetectorType
         ? model.supportedDetectors.includes(currentDetectorType)
         : true,

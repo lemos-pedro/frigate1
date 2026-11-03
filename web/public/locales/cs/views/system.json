@@ -116,7 +116,7 @@
       "intelGpuWarning": {
         "title": "Upozornění Intel GPU Stats",
         "message": "Statistiky GPU nedostupné",
-        "description": "Toto je známá chyba v nástrojích Intel pro hlášení statistik GPU (intel_gpu_top), která selhává a opakovaně vrací využití GPU 0 %, a to i v případech, kdy na (i)GPU správně běží hardwarová akcelerace a detekce objektů. Nejedná se o chybu Frigate. Můžete restartovat hostitele, abyste problém dočasně vyřešili a potvrdili, že GPU funguje správně. Toto neovlivňuje výkon."
+        "description": "Toto je známá chyba v nástrojích Intel pro hlášení statistik GPU (intel_gpu_top), která selhává a opakovaně vrací využití GPU 0 %, a to i v případech, kdy na (i)GPU správně běží hardwarová akcelerace a detekce objektů. Nejedná se o chybu AMSS. Můžete restartovat hostitele, abyste problém dočasně vyřešili a potvrdili, že GPU funguje správně. Toto neovlivňuje výkon."
       }
     },
     "otherProcesses": {
@@ -139,7 +139,7 @@
       "title": "Úložiště kamery",
       "unused": {
         "title": "Nepoužité",
-        "tips": "Tato hodnota nemusí přesně reprezentovat volné místo dostupné pro Frigate, pokud máte na disku uloženy další soubory kromě nahrávek Frigate. Frigate nesleduje využití úložiště mimo své nahrávky."
+        "tips": "Tato hodnota nemusí přesně reprezentovat volné místo dostupné pro AMSS, pokud máte na disku uloženy další soubory kromě nahrávek AMSS. AMSS nesleduje využití úložiště mimo své nahrávky."
       },
       "bandwidth": "Šířka pásma",
       "unusedStorageInformation": "Informace o nepoužitém úložišti",
@@ -148,7 +148,7 @@
     "recordings": {
       "title": "Záznamy",
       "earliestRecording": "Nejstarší dostupná nahrávka:",
-      "tips": "Tato hodnota uvádí celkové využití disku záznamy uloženými v databázi Frigate. Frigate nesleduje využití disku ostatními soubory na vašem disku."
+      "tips": "Tato hodnota uvádí celkové využití disku záznamy uloženými v databázi AMSS. AMSS nesleduje využití disku ostatními soubory na vašem disku."
     },
     "title": "Úložiště",
     "overview": "Přehled",
@@ -159,14 +159,14 @@
   },
   "lastRefreshed": "Poslední aktualizace: ",
   "documentTitle": {
-    "cameras": "Statistiky kamer – Frigate",
-    "storage": "Statistiky uložiště - Frigate",
-    "general": "Obecné statistiky - Frigate",
-    "enrichments": "Statistiky obohacení - Frigate",
+    "cameras": "Statistiky kamer – AMSS",
+    "storage": "Statistiky uložiště - AMSS",
+    "general": "Obecné statistiky - AMSS",
+    "enrichments": "Statistiky obohacení - AMSS",
     "logs": {
-      "frigate": "Protokoly Frigate - Frigate",
-      "go2rtc": "Protokoly Go2RTC - Frigate",
-      "nginx": "Protokoly Nginx - Frigate"
+      "frigate": "Protokoly AMSS - AMSS",
+      "go2rtc": "Protokoly Go2RTC - AMSS",
+      "nginx": "Protokoly Nginx - AMSS"
     }
   },
   "title": "Systém",

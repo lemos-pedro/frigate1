@@ -1,19 +1,19 @@
 {
   "documentTitle": {
-    "default": "Nustatymai - Frigate",
-    "authentication": "Autentifikavimo Nustatymai - Frigate",
-    "camera": "Kameros Nustatymai - Frigate",
-    "object": "Debug - Frigate",
-    "general": "Išvaizdos Parametrai - Frigate",
-    "frigatePlus": "Frigate+ Nustatymai - Frigate",
-    "notifications": "Pranešimų Nustatymai - Frigate",
-    "motionTuner": "Judesio Derinimas - Frigate",
-    "enrichments": "Patobulinimų Nustatymai - Frigate",
-    "masksAndZones": "Maskavimo ir Zonų redaktorius - Frigate",
-    "cameraManagement": "Valdyti Kameras - Frigate",
-    "cameraReview": "Kameros Peržiūros Nustatymai - Frigate",
-    "globalConfig": "Visuotiniai Parametrai — Frigate",
-    "cameraConfig": "Kameros Parametrai — Frigate"
+    "default": "Nustatymai - AMSS",
+    "authentication": "Autentifikavimo Nustatymai - AMSS",
+    "camera": "Kameros Nustatymai - AMSS",
+    "object": "Debug - AMSS",
+    "general": "Išvaizdos Parametrai - AMSS",
+    "frigatePlus": "AMSS+ Nustatymai - AMSS",
+    "notifications": "Pranešimų Nustatymai - AMSS",
+    "motionTuner": "Judesio Derinimas - AMSS",
+    "enrichments": "Patobulinimų Nustatymai - AMSS",
+    "masksAndZones": "Maskavimo ir Zonų redaktorius - AMSS",
+    "cameraManagement": "Valdyti Kameras - AMSS",
+    "cameraReview": "Kameros Peržiūros Nustatymai - AMSS",
+    "globalConfig": "Visuotiniai Parametrai — AMSS",
+    "cameraConfig": "Kameros Parametrai — AMSS"
   },
   "menu": {
     "ui": "UI",
@@ -24,7 +24,7 @@
     "debug": "Debug",
     "users": "Vartotojai",
     "notifications": "Pranešimai",
-    "frigateplus": "Frigate+",
+    "frigateplus": "AMSS+",
     "triggers": "Trigeriai",
     "roles": "Rolės",
     "cameraManagement": "Valdymas",
@@ -107,7 +107,7 @@
     },
     "semanticSearch": {
       "title": "Semantic Paieška",
-      "desc": "Frigate Semantic Paieška leidžia jums atrasti sekamus objektus tarp peržiūrų, naudojant arba pačius paveiksliuks, vartotojo pateiktus tekstinius aprašymus arba automatiškai sugeneruotas reikšmes.",
+      "desc": "AMSS Semantic Paieška leidžia jums atrasti sekamus objektus tarp peržiūrų, naudojant arba pačius paveiksliuks, vartotojo pateiktus tekstinius aprašymus arba automatiškai sugeneruotas reikšmes.",
       "reindexNow": {
         "label": "Perindeksuoti Dabar",
         "desc": "Perindeksavimas sugeneruos įterpinius visiems sekamiems objektams. Šis procesas veiks fone ir priklausomai nuo jūsų turimo sekamų objektų kiekio gali maksimaliai apkrauti jūsų CPU bei užtrukti nemažai laiko.",
@@ -133,7 +133,7 @@
     },
     "faceRecognition": {
       "title": "Veidų Atpažinimas",
-      "desc": "Veidų atpažinimas leidžia priskirti vardus žmonėms ir kai jų veidai atpažįstami Frigate priskirs žmogaus vardą kaip sub etiketę. Ši informacija prieinama vartotojo sąsajoje, filtruose, taip ir pranešimuose.",
+      "desc": "Veidų atpažinimas leidžia priskirti vardus žmonėms ir kai jų veidai atpažįstami AMSS priskirs žmogaus vardą kaip sub etiketę. Ši informacija prieinama vartotojo sąsajoje, filtruose, taip ir pranešimuose.",
       "modelSize": {
         "label": "Modelio Dydis",
         "desc": "Modelio dydis naudojamas veidų atpažinimui.",
@@ -149,11 +149,11 @@
     },
     "licensePlateRecognition": {
       "title": "Registracijos Numerių Atpažinimas",
-      "desc": "Frigate gali atpažinti automobilių registracijos numerius ir automatiškai pridėti aptikitus simbolius į \"recognized_license_plate\" laukelį arba žinoma pavadinima kaip sub_etiketę \"mašina\" tipo objektams. Dažnas panaudojimas būtų nuskaityti numerius mašinų įvažiuojančių į įvažiavimą arba mašinų pravažiuojančių gatve."
+      "desc": "AMSS gali atpažinti automobilių registracijos numerius ir automatiškai pridėti aptikitus simbolius į \"recognized_license_plate\" laukelį arba žinoma pavadinima kaip sub_etiketę \"mašina\" tipo objektams. Dažnas panaudojimas būtų nuskaityti numerius mašinų įvažiuojančių į įvažiavimą arba mašinų pravažiuojančių gatve."
     },
     "restart_required": "Privaloma perkrauti (Patobulinimų nustatymai pakeisti)",
     "toast": {
-      "success": "Patobulinimų nustaty buvo pakeisti. Kad pkyčiai būtų pritaikyti perkraukite Frigate.",
+      "success": "Patobulinimų nustaty buvo pakeisti. Kad pkyčiai būtų pritaikyti perkraukite AMSS.",
       "error": "Nepavyko išsaugoti konfiguracijos pakeitimų: {{errorMessage}}"
     }
   },
@@ -161,16 +161,16 @@
     "title": "Kamerų Nustatymai",
     "streams": {
       "title": "Transliacijos",
-      "desc": "Laikinai išjunkite kamerą kol Frigate bus perkrautas. Išjungiant kamerą visiškai sustabdo Frigate veiklą šiai kamerai. Nebus aptikimų, įrašų ar debug informacijos.<br /><em>Pastaba: Tai neišjungs go2rtc sratų.</em>"
+      "desc": "Laikinai išjunkite kamerą kol AMSS bus perkrautas. Išjungiant kamerą visiškai sustabdo AMSS veiklą šiai kamerai. Nebus aptikimų, įrašų ar debug informacijos.<br /><em>Pastaba: Tai neišjungs go2rtc sratų.</em>"
     },
     "review": {
-      "desc": "Trumpam įjungti/išjungti įspėjimus ir aptikimus šiai kamerai iki kol Frigate bus perkrautas. Kai išjungta, naujos peržiūros nebus kuriamos. ",
+      "desc": "Trumpam įjungti/išjungti įspėjimus ir aptikimus šiai kamerai iki kol AMSS bus perkrautas. Kai išjungta, naujos peržiūros nebus kuriamos. ",
       "detections": "Aptikimai ",
       "title": "Peržiūra",
       "alerts": "Įspėjimai "
     },
     "reviewClassification": {
-      "desc": "Frigate kategorizuoja peržiūras į Įspėjimus ir Aptikimus. Pagal nutylėjimą, visi <em>žmonių</em> ir <em>mašinų</em> objektai yra vertinami kaip įspėjimai. Jūs galite detalizuoti peržiūrų kategorizavimą priskiriant objektas privalomas zonas.",
+      "desc": "AMSS kategorizuoja peržiūras į Įspėjimus ir Aptikimus. Pagal nutylėjimą, visi <em>žmonių</em> ir <em>mašinų</em> objektai yra vertinami kaip įspėjimai. Jūs galite detalizuoti peržiūrų kategorizavimą priskiriant objektas privalomas zonas.",
       "zoneObjectAlertsTips": "Visi {{alertsLabels}} objektai aptikti {{zone}} ir {{cameraName}} bus rodomi kaip Įspėjimai.",
       "objectDetectionsTips": "Visi {{detectionsLabels}} objektai nekategorizuoti {{cameraName}} bus rodomi kaip Aptikimai nepriklausomai kurioje zonoje ji yra.",
       "zoneObjectDetectionsTips": {
@@ -186,7 +186,7 @@
       "unsavedChanges": "Neišsaugoti Apžvalgos Klasifikavimo nustatymai kamerai {{camera}}",
       "selectAlertsZones": "Pasirinkti zonas Įspėjimams",
       "toast": {
-        "success": "Apžvalgų Klasifikavimo konfiguracija buvo išsaugota. Restartuoti Frigate kad pokyčiai būtų pritaikyti."
+        "success": "Apžvalgų Klasifikavimo konfiguracija buvo išsaugota. Restartuoti AMSS kad pokyčiai būtų pritaikyti."
       }
     },
     "cameraConfig": {
@@ -233,7 +233,7 @@
       "point_few": "{{count}} taškai",
       "point_other": "{{count}} taškų",
       "label": "Zonos",
-      "documentTitle": "Redaguoti Zonas - Frigate",
+      "documentTitle": "Redaguoti Zonas - AMSS",
       "desc": {
         "title": "Zonos leidžia apibrėžti specifinį kadro plotą tam, kad galėtumėte įvardinti ar objektas yra tam tikrame plote.",
         "documentation": "Dokumentacija"
@@ -297,7 +297,7 @@
         "title": "Judesio maskuoti dengia {{polygonArea}}% kameros ploto. Didelės judesio maskuotės nerekomenduojamos."
       },
       "label": "Judesio Maskuotė",
-      "documentTitle": "Redaguoti Judesio Maskuotę - Frigate",
+      "documentTitle": "Redaguoti Judesio Maskuotę - AMSS",
       "add": "Nauja Judesio Maskuotė",
       "edit": "Redaguoti Judesio Maskuotę",
       "clickDrawPolygon": "Spragtelti kad piešti poligoną ant atvaizdo.",
@@ -313,7 +313,7 @@
       "point_few": "{{count}} taškai",
       "point_other": "{{count}} taškų",
       "label": "Objekto Maskuotė",
-      "documentTitle": "Redaguoti Objekto Maskuotę - Frigate",
+      "documentTitle": "Redaguoti Objekto Maskuotę - AMSS",
       "desc": {
         "title": "Objektų filtravimo maskuotės naudojamos išfiltruoti klaidingus teigiamus rezultatus pagal vietą parinktam objekto tipui.",
         "documentation": "Dokumentacija"
@@ -403,7 +403,7 @@
     "title": "Judesių Aptikimų Derinimas",
     "unsavedChanges": "Neišsaugoti Judesių Derinimo pokyčiai ({{camera}})",
     "desc": {
-      "title": "Frigate naudoja judesių aptikimą kaip pirmos eilės patikrinimą įvertinti ar yra kadre kažkas, kam verta būtų atlikti objektų atpažinimą.",
+      "title": "AMSS naudoja judesių aptikimą kaip pirmos eilės patikrinimą įvertinti ar yra kadre kažkas, kam verta būtų atlikti objektų atpažinimą.",
       "documentation": "Skaityti Judesių Derinimo Gidą"
     },
     "Threshold": {
@@ -423,7 +423,7 @@
     }
   },
   "debug": {
-    "detectorDesc": "Frigate naudoja jūsų detektorius ({{detectors}}) objektų aptikimui jūsų kameros transliacijoje.",
+    "detectorDesc": "AMSS naudoja jūsų detektorius ({{detectors}}) objektų aptikimui jūsų kameros transliacijoje.",
     "audio": {
       "noAudioDetections": "Nėra Garso aptikimų",
       "title": "Garsas",
@@ -523,7 +523,7 @@
       },
       "createUser": {
         "title": "Sukurti Naują Vartotoją",
-        "desc": "Pridėti naują vartotojo paskyrą ir nurodyti prieigos roles prie Frigate funkcijų.",
+        "desc": "Pridėti naują vartotojo paskyrą ir nurodyti prieigos roles prie AMSS funkcijų.",
         "usernameOnlyInclude": "Vartotojo vardas gali būti sudarytas iš raidžių, skaičių, . arba _",
         "confirmPassword": "Prašome patvirtinti slaptažodį"
       },
@@ -551,7 +551,7 @@
     "title": "Vartotojai",
     "management": {
       "title": "Vartotojų Valdymas",
-      "desc": "Valdyti šios Frigate aplinkos vartotojų paskyras."
+      "desc": "Valdyti šios AMSS aplinkos vartotojų paskyras."
     },
     "addUser": "Pridėti Vartotoją",
     "updatePassword": "Atkurti Slaptažodį",
@@ -629,7 +629,7 @@
         },
         "actions": {
           "title": "Veiksmai",
-          "desc": "Pagal nutylėjimą, Frigate sukuria MQTT žinutę visiem trigeriams. Subetiketės prideda trigerio pavadinimą prie objekto etiketės. Atributai, tai paieškai pasiekiami metaduomenys saugomi atskirai sekamų objektų metaduomenyse.",
+          "desc": "Pagal nutylėjimą, AMSS sukuria MQTT žinutę visiem trigeriams. Subetiketės prideda trigerio pavadinimą prie objekto etiketės. Atributai, tai paieškai pasiekiami metaduomenys saugomi atskirai sekamų objektų metaduomenyse.",
           "error": {
             "min": "Bent vienas veiksmas privalo būti parinktas."
           }
@@ -687,11 +687,11 @@
     "title": "Pranešimai",
     "notificationSettings": {
       "title": "Pranešimų Nustatymai",
-      "desc": "Frigate praneįimai sukurti veikti su push pranešimais į įrenginį kai naršoma per naršyklę arba įdiegta kaip PWA."
+      "desc": "AMSS praneįimai sukurti veikti su push pranešimais į įrenginį kai naršoma per naršyklę arba įdiegta kaip PWA."
     },
     "notificationUnavailable": {
       "title": "Pranešimai Negalimi",
-      "desc": "Web push pranešimai reikalauja saugios aplinkos (<code>https://...</code>). Tai yra naršyklės apribojimai. Atsidarykit Frigate saugiu kanalu kad galėtumėte naudotis pranešimais."
+      "desc": "Web push pranešimai reikalauja saugios aplinkos (<code>https://...</code>). Tai yra naršyklės apribojimai. Atsidarykit AMSS saugiu kanalu kad galėtumėte naudotis pranešimais."
     },
     "globalSettings": {
       "title": "Visuotiniai Nustatymai",
@@ -728,7 +728,7 @@
     "cancelSuspension": "Atšaukti Sustabdymą",
     "toast": {
       "success": {
-        "registered": "Sėkmingai užregistruota pranešimams. Frigate perkrovimas yra būtinas, kad nors kokie pranešimai būtų išsiųsti (net ir bandomieji).",
+        "registered": "Sėkmingai užregistruota pranešimams. AMSS perkrovimas yra būtinas, kad nors kokie pranešimai būtų išsiųsti (net ir bandomieji).",
         "settingSaved": "Pranešimų nustatymai buvo išsaugoti."
       },
       "error": {
@@ -737,18 +737,18 @@
     }
   },
   "frigatePlus": {
-    "title": "Frigate+ Nustatymai",
+    "title": "AMSS+ Nustatymai",
     "apiKey": {
-      "title": "Frigate+ API raktas",
-      "validated": "Frigate+ API raktas aptiktas ir patvirtintas",
-      "notValidated": "Frigate+ API raktas neaptiktas ir nepatvirtintas",
-      "desc": "Frigate+ API raktas įgalina integraciją su Frigate+ paslauga.",
-      "plusLink": "Skaityti daugiau apie Frigate+"
+      "title": "AMSS+ API raktas",
+      "validated": "AMSS+ API raktas aptiktas ir patvirtintas",
+      "notValidated": "AMSS+ API raktas neaptiktas ir nepatvirtintas",
+      "desc": "AMSS+ API raktas įgalina integraciją su AMSS+ paslauga.",
+      "plusLink": "Skaityti daugiau apie AMSS+"
     },
     "snapshotConfig": {
       "title": "Momentinių kadrų Konfiguravimas",
-      "desc": "Pateikti į Frigate+ reikalauja abiejų, momentinių kadrų ir <code>švarios_kopijos</code>momentinių kadrų įjungimo jūsų konfiguracijoje.",
-      "cleanCopyWarning": "Kai kurios kameros turi momentinius kadrus įjungtus tačiau švari kopija išjungta. Turite įjungti <code>švarią_kopiją</code> savo momentinės kopijos nustatymuose, kad galėtumėte teikti paveikslėlius į Frigate+.",
+      "desc": "Pateikti į AMSS+ reikalauja abiejų, momentinių kadrų ir <code>švarios_kopijos</code>momentinių kadrų įjungimo jūsų konfiguracijoje.",
+      "cleanCopyWarning": "Kai kurios kameros turi momentinius kadrus įjungtus tačiau švari kopija išjungta. Turite įjungti <code>švarią_kopiją</code> savo momentinės kopijos nustatymuose, kad galėtumėte teikti paveikslėlius į AMSS+.",
       "table": {
         "camera": "Kamera",
         "snapshots": "Momentiniai Kadrai",
@@ -770,12 +770,12 @@
       "error": "Nepavyko užkrauti modelio informacijos",
       "availableModels": "Pireinami Modeliai",
       "loadingAvailableModels": "Kraunami prieinami modeliai…",
-      "modelSelect": "Jūsų prieinami modeliai iš Frigate+ gali būti pasirinkti čia. Pastaba, pasirinkiti galite modelius tik tuos kurie suderinami su esamu detektoriumi."
+      "modelSelect": "Jūsų prieinami modeliai iš AMSS+ gali būti pasirinkti čia. Pastaba, pasirinkiti galite modelius tik tuos kurie suderinami su esamu detektoriumi."
     },
-    "unsavedChanges": "Neišsaugoti Frigate+ nustatymų pokyčiai",
-    "restart_required": "Perkrovimas privalomas (Frigate+ modeliai pakeisti)",
+    "unsavedChanges": "Neišsaugoti AMSS+ nustatymų pokyčiai",
+    "restart_required": "Perkrovimas privalomas (AMSS+ modeliai pakeisti)",
     "toast": {
-      "success": "Frigate+ nustatymai buvo išsaugoti. Perkraukite Frigate kad pritaikytumėte pokyčius.",
+      "success": "AMSS+ nustatymai buvo išsaugoti. Perkraukite AMSS kad pritaikytumėte pokyčius.",
       "error": "Nepavyko išsaugoti konfiguraijos pokyčių: {{errorMessage}}"
     }
   },
@@ -838,12 +838,12 @@
     },
     "management": {
       "title": "Žiūrovo Rolės Valdymas",
-      "desc": "Valdyti šios Frigate aplinkos specializuotas žiūrovo roles ir kamerų prieigos leidimus."
+      "desc": "Valdyti šios AMSS aplinkos specializuotas žiūrovo roles ir kamerų prieigos leidimus."
     }
   },
   "cameraWizard": {
     "title": "Pridėti Kamerą",
-    "description": "Sekite žemiau nurodytus žingsnius norėdami pridėti naują kamerą prie savo Frigate.",
+    "description": "Sekite žemiau nurodytus žingsnius norėdami pridėti naują kamerą prie savo AMSS.",
     "steps": {
       "nameAndConnection": "Pavadinimas ir Jungtis",
       "streamConfiguration": "Transliacijos Nustatymai",

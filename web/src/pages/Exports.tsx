@@ -43,7 +43,7 @@ import {
 } from "@/types/export";
 import OptionAndInputDialog from "@/components/overlay/dialog/OptionAndInputDialog";
 import axios from "axios";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 
 import {
   MutableRefObject,
@@ -1079,7 +1079,7 @@ function CaseView({
   onAddExport,
 }: CaseViewProps) {
   const { t } = useTranslation(["views/exports", "common"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const timeFormat = useTimeFormat(config);
   const createdAt = useFormattedTimestamp(
     selectedCase.created_at,

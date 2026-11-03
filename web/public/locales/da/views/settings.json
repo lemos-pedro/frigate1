@@ -1,17 +1,17 @@
 {
   "documentTitle": {
-    "default": "Indstillinger - Frigate",
-    "authentication": "Bruger Indstillinger - Frigate",
-    "camera": "Kamera indstillinger - Frigate",
-    "object": "Debug - Frigate",
-    "cameraManagement": "Administrér kameraer - Frigate",
-    "cameraReview": "Indstillinger for kameragennemgang - Frigate",
-    "enrichments": "Indstillinger for berigelser - Frigate",
-    "masksAndZones": "Maske- og zoneeditor - Frigate",
-    "motionTuner": "Bevægelsesjustering - Frigate",
-    "general": "Brugergrænsefladeindstillinger - Frigate",
-    "frigatePlus": "Frigate+ Indstillinger - Frigate",
-    "notifications": "Notifikations indstillinger - Frigate"
+    "default": "Indstillinger - AMSS",
+    "authentication": "Bruger Indstillinger - AMSS",
+    "camera": "Kamera indstillinger - AMSS",
+    "object": "Debug - AMSS",
+    "cameraManagement": "Administrér kameraer - AMSS",
+    "cameraReview": "Indstillinger for kameragennemgang - AMSS",
+    "enrichments": "Indstillinger for berigelser - AMSS",
+    "masksAndZones": "Maske- og zoneeditor - AMSS",
+    "motionTuner": "Bevægelsesjustering - AMSS",
+    "general": "Brugergrænsefladeindstillinger - AMSS",
+    "frigatePlus": "AMSS+ Indstillinger - AMSS",
+    "notifications": "Notifikations indstillinger - AMSS"
   },
   "menu": {
     "ui": "Brugergrænseflade",

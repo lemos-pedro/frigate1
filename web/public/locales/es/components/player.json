@@ -1,9 +1,9 @@
 {
   "noPreviewFound": "No se encontró vista previa",
   "noPreviewFoundFor": "No se encontró vista previa para {{cameraName}}",
-  "submitFrigatePlus": {
+  "submitAMSSPlus": {
     "submit": "Enviar",
-    "title": "¿Enviar este fotograma a Frigate+?",
+    "title": "¿Enviar este fotograma a AMSS+?",
     "previewError": "No se pudo cargar la vista previa de la instantánea. Es posible que la grabación no esté disponible en este momento."
   },
   "streamOffline": {
@@ -41,10 +41,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Fotograma enviado correctamente a Frigate+"
+      "submittedAMSSPlus": "Fotograma enviado correctamente a AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Error al enviar el fotograma a Frigate+"
+      "submitAMSSPlusFailed": "Error al enviar el fotograma a AMSS+"
     }
   },
   "livePlayerRequiredIOSVersion": "Se requiere iOS 17.1 o superior para este tipo de transmisión en vivo.",

@@ -261,12 +261,16 @@ function Logs() {
   const handleScroll = useMemo(
     () =>
       debounce(() => {
-        const scrollThreshold =
-          lazyLogRef.current?.listRef.current?.findEndIndex() ?? 10;
-        const startIndex =
-          lazyLogRef.current?.listRef.current?.findStartIndex() ?? 0;
-        const endIndex =
-          lazyLogRef.current?.listRef.current?.findEndIndex() ?? 0;
+        // The virtual list exposes find helpers not present in its public type.
+        const list = lazyLogRef.current?.listRef.current as
+          | {
+              findEndIndex: () => number;
+              findStartIndex: () => number;
+            }
+          | undefined;
+        const scrollThreshold = list?.findEndIndex() ?? 10;
+        const startIndex = list?.findStartIndex() ?? 0;
+        const endIndex = list?.findEndIndex() ?? 0;
         const pageSize = endIndex - startIndex;
         if (
           scrollThreshold < pageSize + pageSize / 2 &&

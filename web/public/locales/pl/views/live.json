@@ -1,8 +1,8 @@
 {
   "documentTitle": {
-    "default": "Transmisja - Frigate"
+    "default": "Transmisja - AMSS"
   },
-  "documentTitle.withCamera": "{{camera}}- Na żywo - Frigate",
+  "documentTitle.withCamera": "{{camera}}- Na żywo - AMSS",
   "lowBandwidthMode": "Tryb niskiej przepustowości",
   "twoWayTalk": {
     "enable": "Włącz komunikację dwukierunkową",
@@ -176,7 +176,7 @@
   },
   "noCameras": {
     "buttonText": "Dodaj kamerę",
-    "description": "Zacznij od podłączenia kamery do Frigate.",
+    "description": "Zacznij od podłączenia kamery do AMSS.",
     "title": "Nie skonfigurowano żadnej kamery",
     "restricted": {
       "title": "Brak dostępnych kamer",
@@ -185,7 +185,7 @@
     "default": {
       "title": "Nie skonfigurowano żadnej kamery",
       "buttonText": "Dodaj kamerę",
-      "description": "Zacznij od podłączenia kamery do Frigate."
+      "description": "Zacznij od podłączenia kamery do AMSS."
     },
     "group": {
       "title": "Brak kamer w grupie",

@@ -47,11 +47,11 @@
     },
     "safe_mode": {
         "label": "Tryb bezpieczny",
-        "description": "Po włączeniu Frigate uruchomi się w trybie awaryjnym z ograniczonymi funkcjami, co ułatwi rozwiązywanie problemów."
+        "description": "Po włączeniu AMSS uruchomi się w trybie awaryjnym z ograniczonymi funkcjami, co ułatwi rozwiązywanie problemów."
     },
     "environment_vars": {
         "label": "Zmienne środowiskowe",
-        "description": "Pary klucz-wartość zmiennych środowiskowych, które należy ustawić dla procesu Frigate w systemie Home Assistant. Użytkownicy niekorzystający z Home Assistant powinni zamiast tego skorzystać z konfiguracji zmiennych środowiskowych w Dockerze."
+        "description": "Pary klucz-wartość zmiennych środowiskowych, które należy ustawić dla procesu AMSS w systemie Home Assistant. Użytkownicy niekorzystający z Home Assistant powinni zamiast tego skorzystać z konfiguracji zmiennych środowiskowych w Dockerze."
     },
     "logger": {
         "label": "Rejestrowanie",
@@ -70,7 +70,7 @@
         "description": "Ustawienia związane z uwierzytelnianiem i sesjami, w tym opcje dotyczące plików cookie i ograniczeń częstotliwości.",
         "enabled": {
             "label": "Włącz uwierzytelnianie",
-            "description": "Włącz natywne uwierzytelnianie dla interfejsu Frigate."
+            "description": "Włącz natywne uwierzytelnianie dla interfejsu AMSS."
         }
     },
     "birdseye": {

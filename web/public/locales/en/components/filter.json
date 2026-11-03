@@ -48,9 +48,9 @@
     "label": "Features",
     "hasSnapshot": "Has a snapshot",
     "hasVideoClip": "Has a video clip",
-    "submittedToFrigatePlus": {
-      "label": "Submitted to Frigate+",
-      "tips": "You must first filter on tracked objects that have a snapshot.<br /><br />Tracked objects without a snapshot cannot be submitted to Frigate+."
+    "submittedToAMSSPlus": {
+      "label": "Submitted to AMSS+",
+      "tips": "You must first filter on tracked objects that have a snapshot.<br /><br />Tracked objects without a snapshot cannot be submitted to AMSS+."
     }
   },
   "sort": {

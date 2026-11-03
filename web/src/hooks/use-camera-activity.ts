@@ -1,18 +1,18 @@
 import {
   useAudioDetections,
   useEnabledState,
-  useFrigateEvents,
+  useAmssEvents,
   useInitialCameraState,
   useMotionActivity,
 } from "@/api/ws";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import { MotionData, ReviewSegment } from "@/types/review";
 import { useEffect, useMemo, useState } from "react";
 import { AudioDetection, ObjectType } from "@/types/ws";
 import { useTimelineUtils } from "./use-timeline-utils";
 import useDeepMemo from "./use-deep-memo";
 import { isEqual } from "lodash";
-import { useAutoFrigateStats } from "./use-stats";
+import { useAutoAmssStats } from "./use-stats";
 import useSWR from "swr";
 import { getAttributeLabels } from "@/utils/iconUtil";
 
@@ -34,7 +34,7 @@ export function useCameraActivity(
   camera: CameraConfig | undefined,
   revalidateOnFocus: boolean = true,
 ): useCameraActivityReturn {
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const attributeLabels = useMemo(() => {
@@ -85,7 +85,7 @@ export function useCameraActivity(
 
   const { payload: cameraEnabled } = useEnabledState(camera?.name ?? "");
   const { payload: detectingMotion } = useMotionActivity(camera?.name ?? "");
-  const { payload: event } = useFrigateEvents();
+  const { payload: event } = useAmssEvents();
   const updatedEvent = useDeepMemo(event);
 
   useEffect(() => {
@@ -165,7 +165,7 @@ export function useCameraActivity(
 
   // determine if camera is offline
 
-  const stats = useAutoFrigateStats();
+  const stats = useAutoAmssStats();
 
   const offline = useMemo(() => {
     if (!stats) {

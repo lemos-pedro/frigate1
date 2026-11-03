@@ -1,29 +1,29 @@
 {
   "restart": {
-    "title": "Czy na pewno chcesz ponownie uruchomić Frigate?",
+    "title": "Czy na pewno chcesz ponownie uruchomić AMSS?",
     "button": "Uruchom ponownie",
     "restarting": {
-      "title": "Frigate uruchamia się ponownie",
+      "title": "AMSS uruchamia się ponownie",
       "content": "Strona odświeży się za {{countdown}} sekund.",
       "button": "Wymuś odświeżenie"
     },
-    "description": "Spowoduje to chwilowe zatrzymanie Frigate i ponowne uruchomienie."
+    "description": "Spowoduje to chwilowe zatrzymanie AMSS i ponowne uruchomienie."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Wyślij do Frigate+",
+        "label": "Wyślij do AMSS+",
         "desc": "Obiekty w miejscach, których chcesz unikać, nie są fałszywymi alarmami. Zgłaszanie ich jako fałszywe alarmy zdezorientuje model."
       },
       "review": {
         "true": {
-          "label": "Potwierdź tę etykietę dla Frigate Plus",
+          "label": "Potwierdź tę etykietę dla AMSS Plus",
           "true_one": "To jest {{label}}",
           "true_few": "To są {{label}}",
           "true_many": "To są {{label}}"
         },
         "false": {
-          "label": "Nie potwierdzaj tej etykiety dla Frigate Plus",
+          "label": "Nie potwierdzaj tej etykiety dla AMSS Plus",
           "false_one": "To nie jest {{label}}",
           "false_few": "To nie są {{label}}",
           "false_many": "To nie są {{label}}"
@@ -35,10 +35,10 @@
           "ask_a": "Czy ten obiekt to <code>{{label}}</code>?",
           "ask_an": "Czy ten obiekt to <code>{{label}}</code>?",
           "ask_full": "Czy ten obiekt to <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Potwierdź tę etykietę dla Frigate Plus"
+          "label": "Potwierdź tę etykietę dla AMSS Plus"
         },
         "toast": {
-          "error": "Nie udało się przesłać do Frigate+. Sprawdź połączenie sieciowe i spróbuj ponownie."
+          "error": "Nie udało się przesłać do AMSS+. Sprawdź połączenie sieciowe i spróbuj ponownie."
         }
       }
     },
@@ -175,10 +175,10 @@
     "shareTimestamp": {
       "label": "Udostępnij znacznik czasu",
       "title": "Udostępnij znacznik czasu",
-      "description": "Udostępnij adres URL z aktualnym znacznikiem czasu pozycji odtwarzacza lub wybierz niestandardowy znacznik czasu. Należy pamiętać, że nie jest to publiczny link udostępniania i jest dostępny wyłącznie dla użytkowników mających dostęp do Frigate i tej kamery.",
+      "description": "Udostępnij adres URL z aktualnym znacznikiem czasu pozycji odtwarzacza lub wybierz niestandardowy znacznik czasu. Należy pamiętać, że nie jest to publiczny link udostępniania i jest dostępny wyłącznie dla użytkowników mających dostęp do AMSS i tej kamery.",
       "custom": "Własny znacznik czasu",
       "button": "Udostępnij adres URL ze znacznikiem czasu",
-      "shareTitle": "Znacznik czasu przeglądu Frigate: {{camera}}"
+      "shareTitle": "Znacznik czasu przeglądu AMSS: {{camera}}"
     }
   },
   "streaming": {

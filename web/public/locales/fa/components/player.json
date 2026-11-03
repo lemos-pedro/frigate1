@@ -2,7 +2,7 @@
   "noRecordingsFoundForThisTime": "ویدیویی برای این زمان وجود ندارد",
   "noPreviewFound": "پیش‌نمایش پیدا نشد",
   "noPreviewFoundFor": "هیچ پیش‌نمایشی برای {{cameraName}} پیدا نشد",
-  "submitFrigatePlus": {
+  "submitAMSSPlus": {
     "title": "این فریم به فریگیت+ ارسال شود؟",
     "submit": "ارسال",
     "previewError": "نمی توان پیش نمایش عکس فوری را بارگذاری کرد. ممکن است ضبط در این زمان در دسترس نباشد."
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "فریم با موفقیت به Frigate+ ارسال شد"
+      "submittedAMSSPlus": "فریم با موفقیت به AMSS+ ارسال شد"
     },
     "error": {
-      "submitFrigatePlusFailed": "ارسال فریم به Frigate+ ناموفق بود"
+      "submitAMSSPlusFailed": "ارسال فریم به AMSS+ ناموفق بود"
     }
   },
   "cameraOff": "دوربین خاموش است"

@@ -6,7 +6,7 @@
     },
     "friendly_name": {
         "label": "Kutsumanimi",
-        "description": "Kameran kutsumanimeä käytetään Frigaten käyttöliittymässä"
+        "description": "Kameran kutsumanimeä käytetään AMSSn käyttöliittymässä"
     },
     "enabled": {
         "description": "Käytössä"

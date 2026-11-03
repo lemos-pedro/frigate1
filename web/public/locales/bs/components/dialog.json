@@ -1,10 +1,10 @@
 {
   "restart": {
-    "title": "Sigurni li ste da želite ponovno pokrenuti Frigate?",
-    "description": "Ovo privremeno zaustavi Frigate dok se ponovno pokreće.",
+    "title": "Sigurni li ste da želite ponovno pokrenuti AMSS?",
+    "description": "Ovo privremeno zaustavi AMSS dok se ponovno pokreće.",
     "button": "Ponovno pokretanje",
     "restarting": {
-      "title": "Frigate se ponovo pokreće",
+      "title": "AMSS se ponovo pokreće",
       "content": "Ova stranica će se ponovno učitati za {{countdown}} sekundi.",
       "button": "Silovito ponovno učitavanje sada"
     }
@@ -12,12 +12,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Pošalji na Frigate+",
+        "label": "Pošalji na AMSS+",
         "desc": "Predmeti u lokacijama koje želite izbjeći nisu lažni pozitivi. Pošiljanje ih kao lažne pozitive zbunjuje model."
       },
       "review": {
         "question": {
-          "label": "Potvrdite ovu oznaku za Frigate Plus",
+          "label": "Potvrdite ovu oznaku za AMSS Plus",
           "ask_a": "Je li ovaj objekt <code>{{label}}</code>?",
           "ask_an": "Je li ovaj objekt <code>{{label}}</code>?",
           "ask_full": "Je li ovaj objekt <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -164,10 +164,10 @@
     "shareTimestamp": {
       "label": "Dijeli vremensku oznaku",
       "title": "Dijeli vremensku oznaku",
-      "description": "Dijelite URL označen vremenom trenutne pozicije igrača ili odaberite prilagođenu vremensku oznaku. Napomena: ovo nije javni URL za dijeljenje i dostupan je samo korisnicima koji imaju pristup Frigate i ovoj kameri.",
+      "description": "Dijelite URL označen vremenom trenutne pozicije igrača ili odaberite prilagođenu vremensku oznaku. Napomena: ovo nije javni URL za dijeljenje i dostupan je samo korisnicima koji imaju pristup AMSS i ovoj kameri.",
       "custom": "Prilagođena vremenska oznaka",
       "button": "URL za dijeljenje vremenske oznake",
-      "shareTitle": "Vremenska oznaka pregleda Frigate: {{camera}}"
+      "shareTitle": "Vremenska oznaka pregleda AMSS: {{camera}}"
     },
     "confirmDelete": {
       "title": "Potvrdi brisanje",

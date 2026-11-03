@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Klasifikavimo Modeliai - Frigate",
+  "documentTitle": "Klasifikavimo Modeliai - AMSS",
   "button": {
     "deleteClassificationAttempts": "Trinti Klasisifikavimo Nuotraukas",
     "renameCategory": "Pervadinti Klasę",
@@ -31,7 +31,7 @@
       "deleteImageFailed": "Nepavyko ištrinti:{{errorMessage}}",
       "deleteCategoryFailed": "Nepavyko ištrinti klasės:{{errorMessage}}",
       "categorizeFailed": "Nepavyko kategorizuoti nuotraukos:{{errorMessage}}",
-      "trainingFailed": "Modelio treniravimas nepavyko. Patikrinkite Frigate log'ų detales.",
+      "trainingFailed": "Modelio treniravimas nepavyko. Patikrinkite AMSS log'ų detales.",
       "deleteModelFailed": "Nepavyko ištrinti modelio: {{errorMessage}}",
       "trainingFailedToStart": "Nepavyko pradėti modelio treniravimo: {{errorMessage}}",
       "updateModelFailed": "Nepavyko atnaujinti modelio: {{errorMessage}}",
@@ -119,7 +119,7 @@
       "selectImagesDescription": "Spauskite ant paveikslėlių, kad juos pasirinkti. Spauskite Tęsti kai su šia klase baigsite.",
       "generating": {
         "title": "Generuojami Pavyzdiniai Paveikslėliai",
-        "description": "Frigate traukia iš jūsų įrašų reprezentatyvius paveikslėlius. Tai gali užtrukti..."
+        "description": "AMSS traukia iš jūsų įrašų reprezentatyvius paveikslėlius. Tai gali užtrukti..."
       },
       "training": {
         "title": "Modelio Apmokymas",

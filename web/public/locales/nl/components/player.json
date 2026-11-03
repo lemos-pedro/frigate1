@@ -28,8 +28,8 @@
     },
     "decodedFrames": "Gedecodeerde frames:"
   },
-  "submitFrigatePlus": {
-    "title": "Dit frame indienen bij Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Dit frame indienen bij AMSS+?",
     "submit": "Indienen",
     "previewError": "Het was niet mogelijk om de snapshot preview te laden. De opname is mogelijk niet beschikbaar op dit moment."
   },
@@ -43,10 +43,10 @@
   "cameraDisabled": "Camera is uitgeschakeld",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Frame succesvol ingediend bij Frigate+"
+      "submittedAMSSPlus": "Frame succesvol ingediend bij AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Het is niet gelukt om een frame naar Frigate+ te sturen"
+      "submitAMSSPlusFailed": "Het is niet gelukt om een frame naar AMSS+ te sturen"
     }
   },
   "cameraOff": "De camera staat uit"

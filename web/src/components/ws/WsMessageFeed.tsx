@@ -7,7 +7,7 @@ import WsMessageRow from "./WsMessageRow";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FaEraser, FaFilter, FaPause, FaPlay, FaVideo } from "react-icons/fa";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -158,7 +158,7 @@ export default function WsMessageFeed({
     cameraFilter: selectedCameras,
   });
 
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
 

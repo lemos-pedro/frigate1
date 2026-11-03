@@ -46,9 +46,9 @@
     "label": "機能",
     "hasSnapshot": "スナップショットあり",
     "hasVideoClip": "ビデオクリップあり",
-    "submittedToFrigatePlus": {
-      "label": "Frigate+ に送信済み",
-      "tips": "まずスナップショットのある追跡オブジェクトでフィルターしてください。<br /><br />スナップショットのない追跡オブジェクトは Frigate+ に送信できません。"
+    "submittedToAMSSPlus": {
+      "label": "AMSS+ に送信済み",
+      "tips": "まずスナップショットのある追跡オブジェクトでフィルターしてください。<br /><br />スナップショットのない追跡オブジェクトは AMSS+ に送信できません。"
     }
   },
   "sort": {

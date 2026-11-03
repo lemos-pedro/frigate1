@@ -1,29 +1,29 @@
 {
   "restart": {
-    "title": "Вы уверены, что хотите перезапустить Frigate?",
+    "title": "Вы уверены, что хотите перезапустить AMSS?",
     "button": "Перезапуск",
     "restarting": {
-      "title": "Frigate перезапускается",
+      "title": "AMSS перезапускается",
       "content": "Эта страница перезагрузится через {{countdown}} сек.",
       "button": "Принудительная перезагрузка"
     },
-    "description": "Это перезагрузки перезагрузит Frigate."
+    "description": "Это перезагрузки перезагрузит AMSS."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Отправить в Frigate+",
+        "label": "Отправить в AMSS+",
         "desc": "Объекты в местах, которых вы хотите избежать, не являются ложными срабатываниями. Отправка их как ложных срабатываний запутает модель."
       },
       "review": {
         "true": {
-          "label": "Подтвердите метку для Frigate Plus",
+          "label": "Подтвердите метку для AMSS Plus",
           "true_one": "Это {{label}}",
           "true_few": "Это {{label}}",
           "true_many": "Это {{label}}"
         },
         "false": {
-          "label": "Не подтверждать эту метку для Frigate Plus",
+          "label": "Не подтверждать эту метку для AMSS Plus",
           "false_one": "Это не {{label}}",
           "false_few": "Это не {{label}}",
           "false_many": "Это не {{label}}"
@@ -33,12 +33,12 @@
         },
         "question": {
           "ask_an": "Это объект — <code>{{label}}</code> ?",
-          "label": "Подтвердить эту метку для Frigate Plus",
+          "label": "Подтвердить эту метку для AMSS Plus",
           "ask_a": "Это объект — <code>{{label}}</code>?",
           "ask_full": "Это объект — <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
         },
         "toast": {
-          "error": "Не удалось подключиться к Frigate+. Пожалуйста, проверьте настройки сети и попробуйте еще раз."
+          "error": "Не удалось подключиться к AMSS+. Пожалуйста, проверьте настройки сети и попробуйте еще раз."
         }
       }
     },

@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "@/context/auth-context";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { isReplayCamera } from "@/utils/cameraUtil";
 
 export function useAllowedCameras() {
   const { auth } = useContext(AuthContext);
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
 

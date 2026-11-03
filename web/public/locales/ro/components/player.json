@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nu au fost gasite inregistrari in perioada de timp mentionata",
   "noPreviewFound": "Nu a fost gasita o Previzualizare",
   "noPreviewFoundFor": "Nu există previzualizari pentru {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Trimiteti acest cadru catre Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Trimiteti acest cadru catre AMSS+?",
     "submit": "Trimite",
     "previewError": "Nu s-a putut încărca previzualizarea snapshot-ului. S-ar putea ca înregistrarea să nu fie disponibilă în acest moment."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "error": {
-      "submitFrigatePlusFailed": "Eraoare trimitere Cadru catre Frigate+"
+      "submitAMSSPlusFailed": "Eraoare trimitere Cadru catre AMSS+"
     },
     "success": {
-      "submittedFrigatePlus": "Cadru trimis cu Succes catre Frigate+"
+      "submittedAMSSPlus": "Cadru trimis cu Succes catre AMSS+"
     }
   },
   "cameraOff": "Camera este oprită"

@@ -1,6 +1,6 @@
 import TimeAgo from "../dynamic/TimeAgo";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { useFormattedTimestamp, use24HourTime } from "@/hooks/use-date-utils";
 import { SearchResult } from "@/types/search";
 import ActivityIndicator from "../indicators/activity-indicator";
@@ -26,7 +26,7 @@ export default function SearchThumbnailFooter({
   addTrigger,
 }: SearchThumbnailProps) {
   const { t } = useTranslation(["views/search"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   // date
   const is24Hour = use24HourTime(config);

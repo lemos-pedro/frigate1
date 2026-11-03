@@ -28,8 +28,8 @@ import {
 } from "@/components/ui/select";
 import {
   CustomClassificationModelConfig,
-  FrigateConfig,
-} from "@/types/frigateConfig";
+  AmssConfig,
+} from "@/types/amssConfig";
 import { ClassificationDatasetResponse } from "@/types/classification";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -78,7 +78,7 @@ export default function ClassificationModelEditDialog({
   onSuccess,
 }: ClassificationModelEditDialogProps) {
   const { t } = useTranslation(["views/classificationModel"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const [isSaving, setIsSaving] = useState(false);
 
   const isStateModel = model.state_config !== undefined;

@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Kamera Statistik - Frigate",
-    "storage": "Lagrings Statistik - Frigate",
+    "cameras": "Kamera Statistik - AMSS",
+    "storage": "Lagrings Statistik - AMSS",
     "logs": {
-      "frigate": "Frigate Logs - Frigate",
-      "go2rtc": "Go2RTC Logs - Frigate",
-      "nginx": "Nginx Logs - Frigate"
+      "frigate": "AMSS Logs - AMSS",
+      "go2rtc": "Go2RTC Logs - AMSS",
+      "nginx": "Nginx Logs - AMSS"
     },
-    "general": "Generelle statistikker - Frigate",
-    "enrichments": "Beredningsstatistikker - Frigate"
+    "general": "Generelle statistikker - AMSS",
+    "enrichments": "Beredningsstatistikker - AMSS"
   },
   "title": "System",
   "logs": {
@@ -76,7 +76,7 @@
     "overview": "Overblik",
     "recordings": {
       "title": "Optagelser",
-      "tips": "Denne værdi repræsenterer den samlede lagerplads, der bruges af optagelserne i Frigates database. Frigate sporer ikke lagerpladsforbruget for alle filer på din disk.",
+      "tips": "Denne værdi repræsenterer den samlede lagerplads, der bruges af optagelserne i AMSSs database. AMSS sporer ikke lagerpladsforbruget for alle filer på din disk.",
       "earliestRecording": "Tidligste optagelse til rådighed:"
     },
     "shm": {
@@ -92,7 +92,7 @@
       "bandwidth": "Båndbredde",
       "unused": {
         "title": "Ubrugt",
-        "tips": "Denne værdi repræsenterer muligvis ikke nøjagtigt den ledige plads, der er tilgængelig for Frigate, hvis du har andre filer gemt på dit drev ud over Frigates optagelser. Frigate sporer ikke lagerforbrug ud over sine optagelser."
+        "tips": "Denne værdi repræsenterer muligvis ikke nøjagtigt den ledige plads, der er tilgængelig for AMSS, hvis du har andre filer gemt på dit drev ud over AMSSs optagelser. AMSS sporer ikke lagerforbrug ud over sine optagelser."
       }
     }
   },

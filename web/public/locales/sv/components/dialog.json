@@ -2,17 +2,17 @@
   "restart": {
     "button": "Starta om",
     "restarting": {
-      "title": "Frigate startar om",
+      "title": "AMSS startar om",
       "content": "Sidan uppdateras om {{countdown}} sekunder.",
       "button": "Tvinga omladdning nu"
     },
-    "title": "Är du säker på att du vill starta om Frigate?",
-    "description": "Frigate stoppas tillfälligt under omstarten."
+    "title": "Är du säker på att du vill starta om AMSS?",
+    "description": "AMSS stoppas tillfälligt under omstarten."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Skicka till Frigate+",
+        "label": "Skicka till AMSS+",
         "desc": "Objekt på platser du vill undvika är inte falska positiva resultat. Att skicka in dem som falska positiva resultat kommer att förvirra modellen."
       },
       "review": {
@@ -20,13 +20,13 @@
           "ask_a": "Är detta objekt en/ett <code>{{label}}</code>?",
           "ask_an": "Är detta objekt en/ett <code>{{label}}</code>?",
           "ask_full": "Är detta objekt en/ett <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Bekräfta etiketten för Frigate+"
+          "label": "Bekräfta etiketten för AMSS+"
         },
         "state": {
           "submitted": "Inskickad"
         },
         "toast": {
-          "error": "Det gick inte att skicka till Frigate+. Kontrollera nätverksanslutningen och försök igen."
+          "error": "Det gick inte att skicka till AMSS+. Kontrollera nätverksanslutningen och försök igen."
         }
       }
     },
@@ -183,10 +183,10 @@
     "shareTimestamp": {
       "label": "Dela tidsstämpel",
       "title": "Dela tidsstämpel",
-      "description": "Dela en tidsstämplad URL för spelarens nuvarande position eller välj en anpassad tidsstämpel. Observera att detta inte är en offentlig delnings-URL och endast är tillgänglig för användare med åtkomst till Frigate och den här kameran.",
+      "description": "Dela en tidsstämplad URL för spelarens nuvarande position eller välj en anpassad tidsstämpel. Observera att detta inte är en offentlig delnings-URL och endast är tillgänglig för användare med åtkomst till AMSS och den här kameran.",
       "custom": "Anpassad tidsstämpel",
       "button": "Dela URL med tidsstämpel",
-      "shareTitle": "Tidsstämpel för Frigate-granskning: {{camera}}"
+      "shareTitle": "Tidsstämpel för AMSS-granskning: {{camera}}"
     }
   },
   "imagePicker": {

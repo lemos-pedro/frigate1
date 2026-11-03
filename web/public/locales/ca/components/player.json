@@ -30,8 +30,8 @@
   "noRecordingsFoundForThisTime": "No s'han trobat enregistraments en aquesta hora",
   "noPreviewFound": "No s'ha trobat previsualització",
   "noPreviewFoundFor": "No s'ha trobat cap previsualització per a {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Enviar aquesta imatge a Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Enviar aquesta imatge a AMSS+?",
     "submit": "Enviar",
     "previewError": "No s'ha pogut carregar la vista prèvia de la instantània. És possible que l'enregistrament no estigui disponible en aquest moment."
   },
@@ -43,10 +43,10 @@
   "cameraDisabled": "La càmera està desactivada",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Fotograma enviat correctament a Frigate+"
+      "submittedAMSSPlus": "Fotograma enviat correctament a AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Error al enviar fotograma a Frigate+"
+      "submitAMSSPlusFailed": "Error al enviar fotograma a AMSS+"
     }
   },
   "cameraOff": "La càmera està apagada"

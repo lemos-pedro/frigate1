@@ -12,7 +12,7 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import VideoControls from "./VideoControls";
 import { VideoResolutionType } from "@/types/live";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { AxiosResponse } from "axios";
 import { toast } from "sonner";
 import { useOverlayState } from "@/hooks/use-overlay-state";
@@ -92,7 +92,7 @@ export default function HlsVideoPlayer({
   transformedOverlay,
 }: HlsVideoPlayerProps) {
   const { t } = useTranslation("components/player");
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const isAdmin = useIsAdmin();
 
   // for detail stream context in History
@@ -374,11 +374,11 @@ export default function HlsVideoPlayer({
               const resp = await onUploadFrame(frameTime);
 
               if (resp && resp.status == 200) {
-                toast.success(t("toast.success.submittedFrigatePlus"), {
+                toast.success(t("toast.success.submittedAmssPlus"), {
                   position: "top-center",
                 });
               } else {
-                toast.success(t("toast.error.submitFrigatePlusFailed"), {
+                toast.success(t("toast.error.submitAmssPlusFailed"), {
                   position: "top-center",
                 });
               }

@@ -1,19 +1,19 @@
 {
   "restart": {
-    "title": "Sind Sie sicher, dass Sie Frigate neustarten wollen?",
+    "title": "Sind Sie sicher, dass Sie AMSS neustarten wollen?",
     "restarting": {
-      "title": "Frigate startet neu",
+      "title": "AMSS startet neu",
       "content": "Diese Seite wird in {{countdown}} Sekunde(n) aktualisiert.",
       "button": "Neuladen erzwingen"
     },
     "button": "Neustarten",
-    "description": "Dies wird Frigate kurz stoppen, während es neu startet."
+    "description": "Dies wird AMSS kurz stoppen, während es neu startet."
   },
   "explore": {
     "plus": {
       "review": {
         "true": {
-          "label": "Bestätigen Sie das Label für Frigate Plus",
+          "label": "Bestätigen Sie das Label für AMSS Plus",
           "true_one": "Das ist ein/eine {{label}}",
           "true_other": "Dies sind {{label}}"
         },
@@ -23,17 +23,17 @@
         "false": {
           "false_one": "Das ist kein(e) {{label}}",
           "false_other": "Das sind kein(e) {{label}}",
-          "label": "Bestätige dieses Label nicht für Frigate Plus"
+          "label": "Bestätige dieses Label nicht für AMSS Plus"
         },
         "question": {
-          "label": "Bestätige diese Beschriftung für Frigate Plus",
+          "label": "Bestätige diese Beschriftung für AMSS Plus",
           "ask_a": "Ist dieses Objekt ein <code>{{label}}</code>?",
           "ask_an": "Ist dieses Objekt ein <code>{{label}}</code>?",
           "ask_full": "Ist dieses Objekt ein <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
         }
       },
       "submitToPlus": {
-        "label": "An Frigate+ übermitteln",
+        "label": "An AMSS+ übermitteln",
         "desc": "Objekte an Orten die du vermeiden möchtest, sind keine Fehlalarme. Wenn du sie als Fehlalarme meldest, verwirrst du das Modell."
       }
     },
@@ -189,7 +189,7 @@
     "shareTimestamp": {
       "label": "Zeitstempel teilen",
       "title": "Zeitstempel teilen",
-      "description": "Teile eine URL mit Zeitstempel, die die aktuelle Position des Players angibt, oder wähle einen benutzerdefinierten Zeitstempel aus. Beachte, dass es sich hierbei nicht um eine öffentliche Freigabe-URL handelt und dass nur Benutzer Zugriff darauf haben, die Zugriff auf Frigate und diese Kamera haben.",
+      "description": "Teile eine URL mit Zeitstempel, die die aktuelle Position des Players angibt, oder wähle einen benutzerdefinierten Zeitstempel aus. Beachte, dass es sich hierbei nicht um eine öffentliche Freigabe-URL handelt und dass nur Benutzer Zugriff darauf haben, die Zugriff auf AMSS und diese Kamera haben.",
       "custom": "Benutzerdefinierter Zeitstempel",
       "button": "URL des Zeitstempels teilen",
       "shareTitle": "Zeitstempel der Fregattenbewertung: {{camera}}"

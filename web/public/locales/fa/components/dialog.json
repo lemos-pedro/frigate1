@@ -1,6 +1,6 @@
 {
   "restart": {
-    "title": "آیا برای راه اندازی مجدد Frigate مطمئن هستید؟",
+    "title": "آیا برای راه اندازی مجدد AMSS مطمئن هستید؟",
     "button": "ری‌استارت",
     "restarting": {
       "title": "فریگیت در حال ری‌استارت شدن",
@@ -11,12 +11,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "ارسال به Frigate+",
+        "label": "ارسال به AMSS+",
         "desc": "اشیایی که در مکان‌هایی هستند که می‌خواهید از آن‌ها اجتناب کنید، «مثبت کاذب» محسوب نمی‌شوند. ارسال آن‌ها به‌عنوان مثبت کاذب باعث می‌شود مدل دچار سردرگمی شود."
       },
       "review": {
         "question": {
-          "label": "این برچسب را برای Frigate Plus تأیید کنید",
+          "label": "این برچسب را برای AMSS Plus تأیید کنید",
           "ask_a": "آیا این شیء <code>{{label}}</code> است؟",
           "ask_an": "آیا این شیء یک <code>{{label}}</code> است؟",
           "ask_full": "آیا این شیء یک <code>{{untranslatedLabel}}</code> ({{translatedLabel}}) است؟"

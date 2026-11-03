@@ -798,7 +798,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Kalibrer ved start",
-                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. Frigate vil oppdatere konfigurasjonen etter kalibrering."
+                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. AMSS vil oppdatere konfigurasjonen etter kalibrering."
             },
             "zooming": {
                 "label": "Zoom-modus",
@@ -851,7 +851,7 @@
         "label": "Opprinnelig kamerastatus"
     },
     "friendly_name": {
-        "description": "Kameraets visningsnavn i Frigate-grensesnittet",
+        "description": "Kameraets visningsnavn i AMSS-grensesnittet",
         "label": "Visningsnavn"
     },
     "label": "Kamerakonfigurasjon",
@@ -865,7 +865,7 @@
     },
     "ui": {
         "dashboard": {
-            "description": "Velg om dette kameraet skal være synlig i Frigate-grensesnittet. Deaktivering krever manuell redigering av konfigurasjonen for å vise kameraet igjen.",
+            "description": "Velg om dette kameraet skal være synlig i AMSS-grensesnittet. Deaktivering krever manuell redigering av konfigurasjonen for å vise kameraet igjen.",
             "label": "Vis i grensesnitt"
         },
         "description": "Sortering og synlighet for kameraet i grensesnittet. Påvirker standard dashbord. For mer detaljert kontroll, bruk kameragrupper.",

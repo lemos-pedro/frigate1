@@ -5,7 +5,7 @@ import { FaArrowRight, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineRestartAlt, MdUndo } from "react-icons/md";
 import { LuHand, LuPencil } from "react-icons/lu";
 
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { TimeRange } from "@/types/timeline";
 import { RecordingsSummary } from "@/types/review";
 import { ASPECT_PORTRAIT_LAYOUT, ASPECT_WIDE_LAYOUT } from "@/types/record";
@@ -59,7 +59,7 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 type MotionSearchDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  config: FrigateConfig;
+  config: AmssConfig;
   cameras: string[];
   selectedCamera: string | null;
   onCameraSelect: (camera: string) => void;
@@ -564,7 +564,7 @@ function SearchRangeSelector({
     return time;
   }, [range, defaultRange, timezoneOffset, localTimeOffset]);
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const is24Hour = use24HourTime(config);
 
   const formattedStart = useFormattedTimestamp(

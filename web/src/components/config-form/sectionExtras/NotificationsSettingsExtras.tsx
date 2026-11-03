@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { StatusBarMessagesContext } from "@/context/statusbar-provider";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import {
@@ -85,7 +85,7 @@ export default function NotificationsSettingsExtras({
   const { addMessage, removeMessage } = useContext(StatusBarMessagesContext)!;
 
   // config
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
 
@@ -733,7 +733,7 @@ export default function NotificationsSettingsExtras({
 }
 
 type CameraNotificationSwitchProps = {
-  config?: FrigateConfig;
+  config?: AmssConfig;
   camera: string;
 };
 

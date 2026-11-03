@@ -1,5 +1,5 @@
 {
-    "documentTitle": "Wyszukiwanie zdarzeń ruchu - Frigate",
+    "documentTitle": "Wyszukiwanie zdarzeń ruchu - AMSS",
     "title": "Wyszukiwanie zdarzeń ruchu",
     "description": "Narysuj wielokąt aby wyznaczyć obszar zainteresowania, a następnie określ przedział czasowy w którym chcesz wyszukać zmiany ruchu w tym obszarze.",
     "selectCamera": "Ładowanie wyszukiwania zdarzeń ruchu",

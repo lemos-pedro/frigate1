@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { Preview } from "@/types/preview";
 import { PreviewPlayback } from "@/types/playback";
 import { isCurrentHour } from "@/utils/dateUtil";
@@ -147,7 +147,7 @@ function PreviewVideoPlayer({
   setCurrentHourFrame,
 }: PreviewVideoPlayerProps) {
   const { t } = useTranslation(["components/player"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   const cameraName = useCameraFriendlyName(camera);
   // controlling playback

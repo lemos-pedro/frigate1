@@ -1,26 +1,26 @@
 {
   "documentTitle": {
-    "camera": "Kamera-asetukset - Frigate",
-    "classification": "Klassifiointiasetukset - Frigate",
-    "masksAndZones": "Peite ja vyöhykemuokkain - Frigate",
-    "motionTuner": "Liikesäädin - Frigate",
-    "default": "Asetukset - Frigate",
-    "general": "Yleiset asetukset - Frigate",
-    "frigatePlus": "Frigate+ asetukset - Frigate",
-    "object": "Virheenjäljitys - Frigate",
-    "authentication": "Autentikointiasetukset - Frigate",
-    "notifications": "Ilmoitusasetukset - Frigate",
-    "enrichments": "Laajennusasetukset – Frigate",
-    "cameraManagement": "Hallitse Kameroita - Frigate",
-    "globalConfig": "Globaali konfiguraatio - Frigate",
-    "cameraConfig": "Kamera konfiguraatio - Frigate"
+    "camera": "Kamera-asetukset - AMSS",
+    "classification": "Klassifiointiasetukset - AMSS",
+    "masksAndZones": "Peite ja vyöhykemuokkain - AMSS",
+    "motionTuner": "Liikesäädin - AMSS",
+    "default": "Asetukset - AMSS",
+    "general": "Yleiset asetukset - AMSS",
+    "frigatePlus": "AMSS+ asetukset - AMSS",
+    "object": "Virheenjäljitys - AMSS",
+    "authentication": "Autentikointiasetukset - AMSS",
+    "notifications": "Ilmoitusasetukset - AMSS",
+    "enrichments": "Laajennusasetukset – AMSS",
+    "cameraManagement": "Hallitse Kameroita - AMSS",
+    "globalConfig": "Globaali konfiguraatio - AMSS",
+    "cameraConfig": "Kamera konfiguraatio - AMSS"
   },
   "menu": {
     "ui": "Käyttöliittymä",
     "cameras": "Kameroiden asetukset",
     "users": "Käyttäjät",
     "classification": "Klassifiointi",
-    "frigateplus": "Frigate+",
+    "frigateplus": "AMSS+",
     "masksAndZones": "Maskit / alueet",
     "debug": "Debuggaus",
     "motionTuner": "Liikesäädin",
@@ -115,7 +115,7 @@
       },
       "title": "Semanttinen haku",
       "readTheDocumentation": "Lue dokumentaatio",
-      "desc": "Frigaten semanttisen haun kanssa voit hakea seurattuja kohteita esikatseluista joko kuvasta itsestään, käyttäjän määrittelemän teksti-kuvauksen perusteella tai automaattisesti generoidun kuvauksen kanssa."
+      "desc": "AMSSn semanttisen haun kanssa voit hakea seurattuja kohteita esikatseluista joko kuvasta itsestään, käyttäjän määrittelemän teksti-kuvauksen perusteella tai automaattisesti generoidun kuvauksen kanssa."
     },
     "faceRecognition": {
       "title": "Kasvojentunnistus",
@@ -132,15 +132,15 @@
           "desc": "Valitessa <em>suuri</em> käytetään ArcFace mallia kasvojen upotukseen joka ajetaan automaattisesti grafiikkaprosessorilla mikäli mahdollista."
         }
       },
-      "desc": "Kasvojentunnistus sallii nimien antamisen ihmisille ja kun heidän kasvonsa tunnistetaan Frigate antaa henkilölle nimen ala-viittenä. Tämä tieto sisällytetään käyttöliittymään, filttereihin sekä ilmoituksiin."
+      "desc": "Kasvojentunnistus sallii nimien antamisen ihmisille ja kun heidän kasvonsa tunnistetaan AMSS antaa henkilölle nimen ala-viittenä. Tämä tieto sisällytetään käyttöliittymään, filttereihin sekä ilmoituksiin."
     },
     "licensePlateRecognition": {
       "title": "Rekisterikilven tunnistus",
-      "desc": "Frigate voi tunnistaa ajoneuvojen rekisterikilpiä ja lisätä tunnistetut kirjaimet automaattisesti recognized_license_plate -kenttään tai tunnettu nimi sub_label kohteisiin joiden tyyppi on ajoneuvo. Yleinen käyttökohde on lukea pihatielle ajavien tai kadulla ohiajavien ajoneuvojen rekisterikilvet.",
+      "desc": "AMSS voi tunnistaa ajoneuvojen rekisterikilpiä ja lisätä tunnistetut kirjaimet automaattisesti recognized_license_plate -kenttään tai tunnettu nimi sub_label kohteisiin joiden tyyppi on ajoneuvo. Yleinen käyttökohde on lukea pihatielle ajavien tai kadulla ohiajavien ajoneuvojen rekisterikilvet.",
       "readTheDocumentation": "Lue dokumentaatio"
     },
     "toast": {
-      "success": "Klassifiointiasetukset on tallennettu. Käynnistä Frigate uudelleen saadaksesi ne käyttöön.",
+      "success": "Klassifiointiasetukset on tallennettu. Käynnistä AMSS uudelleen saadaksesi ne käyttöön.",
       "error": "Konfiguraatio muutoksia ei voitu tallentaa: {{errorMessage}}"
     },
     "restart_required": "Tarvitaan uudelleenkäynnistys (luokitusasetuksia muutettu)",
@@ -153,11 +153,11 @@
     "title": "Kamera-asetukset",
     "streams": {
       "title": "Striimit",
-      "desc": "Poista kamera käytöstä väliaikaisesti, kunnes Frigate uudelleenkäynnistetään. Kameran poiskytkeminen lopettaa kameran videostriimien käsittelyn. Havainnot, tallennus ja debuggaus ovat pois käytöstä.<br /><em>Huom: tämä ei poista käytöstä go2rtc uusinta striimejä.</em>"
+      "desc": "Poista kamera käytöstä väliaikaisesti, kunnes AMSS uudelleenkäynnistetään. Kameran poiskytkeminen lopettaa kameran videostriimien käsittelyn. Havainnot, tallennus ja debuggaus ovat pois käytöstä.<br /><em>Huom: tämä ei poista käytöstä go2rtc uusinta striimejä.</em>"
     },
     "review": {
       "title": "Katselu",
-      "desc": "Kytke väliaikaisesti päälle/pois hälytykset ja tunnistus tälle kameralle, kunnes Frigate käynnistetään uudelleen. Kun ne ovat pois päältä, uusia katseltavia tapahtumia ei luoda. ",
+      "desc": "Kytke väliaikaisesti päälle/pois hälytykset ja tunnistus tälle kameralle, kunnes AMSS käynnistetään uudelleen. Kun ne ovat pois päältä, uusia katseltavia tapahtumia ei luoda. ",
       "alerts": "Hälytykset ",
       "detections": "Tunnistukset "
     },
@@ -174,11 +174,11 @@
         "regardlessOfZoneObjectDetectionsTips": "Kaikki {{detectionsLabels}} objektit joita ei ole kategorisoitu lähteessä {{cameraName}} näytetään Tunnistuksina niiden vyöhykkeestä huolimatta."
       },
       "selectAlertsZones": "Valitse vyöhykkeet Hälytystä varten",
-      "desc": "Frigate kategorisoi tahtumia Hälytyksiksi ja Tunnistuksiksi. Vakiona kaikki <em>henkilö</em> sekä <em>ajoneuvo</em> objektit käsitellään Hälytyksinä. Voit kategorisoida uudelleen katseltavat tapahtumat antamalla niille vaaditut alueet.",
+      "desc": "AMSS kategorisoi tahtumia Hälytyksiksi ja Tunnistuksiksi. Vakiona kaikki <em>henkilö</em> sekä <em>ajoneuvo</em> objektit käsitellään Hälytyksinä. Voit kategorisoida uudelleen katseltavat tapahtumat antamalla niille vaaditut alueet.",
       "limitDetections": "Rajoita tunnistukset tiettyihin vyöhykkeisiin",
       "selectDetectionsZones": "Valitse vyöhykkeet tunnistusta varten",
       "toast": {
-        "success": "Luokittelumäärityksen tarkistus on tallennettu. Käynnistä Frigate uudelleen muutosten käyttöönottamiseksi."
+        "success": "Luokittelumäärityksen tarkistus on tallennettu. Käynnistä AMSS uudelleen muutosten käyttöönottamiseksi."
       }
     },
     "cameraConfig": {
@@ -240,7 +240,7 @@
     },
     "zones": {
       "label": "Vyöhykkeet",
-      "documentTitle": "Muokkaa vyöhykkeitä - Frigate",
+      "documentTitle": "Muokkaa vyöhykkeitä - AMSS",
       "edit": "Myokkaa vyöhykettä",
       "inertia": {
         "title": "Inertia",
@@ -304,7 +304,7 @@
         "documentation": "Lue dokumentaatio",
         "title": "Liikepeittoja käytetään estämään ei-toivottujen liiketyyppien (esimerkiksi puiden oksat, kameroiden aikaleimat) aiheuttamat tunnistukset. Liikepeittoja tulisi käyttää <em>hyvin säästeliäästi</em>, sillä liiallinen maskaus vaikeuttaa kohteiden seurantaa."
       },
-      "documentTitle": "Muokkaa liikepeittoa - Frigate",
+      "documentTitle": "Muokkaa liikepeittoa - AMSS",
       "desc": {
         "title": "Liikepeittoa käytetään estämään ei-toivottujen liiketyyppien aiheuttamat tunnistukset. Liiallinen peittäminen vaikeuttaa kohteiden seurantaa.",
         "documentation": "Dokumentaatio"
@@ -339,7 +339,7 @@
           "noName": "Kohdepeitto on tallennettu. Käynnistä Frigatti uudelleen muutosten käyttöönottamiseksi."
         }
       },
-      "documentTitle": "Muokkaa kohdepeittoa - Frigate",
+      "documentTitle": "Muokkaa kohdepeittoa - AMSS",
       "desc": {
         "title": "Objektisuodatinpeittoja käytetään suodattamaan pois väärät positiiviset tulokset tietylle kohdetyypille sijainnin perusteella.",
         "documentation": "Dokumentaatio"
@@ -392,7 +392,7 @@
     "title": "Käyttäjät",
     "management": {
       "title": "Käyttäjien hallinta",
-      "desc": "Hallinnoi tämän Frigate-instanssin käyttäjätilejä."
+      "desc": "Hallinnoi tämän AMSS-instanssin käyttäjätilejä."
     },
     "addUser": "Lisää käyttäjä",
     "updatePassword": "Päivitä salasana",
@@ -437,7 +437,7 @@
   "motionDetectionTuner": {
     "title": "Liiketunnistuksen säätäminen",
     "desc": {
-      "title": "Frigate käyttää liiketunnistusta ensimmäisenä tarkistuksena nähdäkseen, tapahtuuko kuvassa jotain, mikä kannattaisi tarkistaa objektitunnistuksella.",
+      "title": "AMSS käyttää liiketunnistusta ensimmäisenä tarkistuksena nähdäkseen, tapahtuuko kuvassa jotain, mikä kannattaisi tarkistaa objektitunnistuksella.",
       "documentation": "Lue liikkeensäädön opas"
     },
     "Threshold": {
@@ -518,7 +518,7 @@
         },
         "actions": {
           "title": "Toiminnot",
-          "desc": "Oletuksena Frigate lähettää MQTT-viestin kaikille laukaisimille. Valitse lisätoiminto, joka suoritetaan, kun tämä laukaisija laukeaa.",
+          "desc": "Oletuksena AMSS lähettää MQTT-viestin kaikille laukaisimille. Valitse lisätoiminto, joka suoritetaan, kun tämä laukaisija laukeaa.",
           "error": {
             "min": "Vähintään yksi toiminto on valittava."
           }
@@ -552,7 +552,7 @@
         "desc": "Semanttisen haun upotuksiin käytetyn mallin koko."
       },
       "title": "Semanttinen haku",
-      "desc": "Semanttisen haun avulla Frigatessa voit etsiä seurattavia kohteita tarkistettavista kohteista joko kuvan, käyttäjän määrittämän tekstikuvauksen tai automaattisesti luodun kuvauksen avulla.",
+      "desc": "Semanttisen haun avulla AMSSssa voit etsiä seurattavia kohteita tarkistettavista kohteista joko kuvan, käyttäjän määrittämän tekstikuvauksen tai automaattisesti luodun kuvauksen avulla.",
       "reindexNow": {
         "label": "Uudelleenindeksoi nyt",
         "desc": "Uudelleindeksointi luo uudelleen upotukset kaikille seuratuille objekteille. Tämä prosessi suoritetaan taustalla ja voi kuormittaa prosessorin maksimiin ja viedä melko paljon aikaa riippuen seurattujen objektien määrästä.",
@@ -561,7 +561,7 @@
     },
     "faceRecognition": {
       "title": "Kasvojentunnistus",
-      "desc": "Kasvojentunnistuksen avulla ihmisille voidaan antaa nimiä, ja kun heidän kasvonsa tunnistetaan, Frigate lisää henkilön nimen alaluokaksi. Nämä tiedot näkyvät käyttöliittymässä, suodattimissa ja ilmoituksissa.",
+      "desc": "Kasvojentunnistuksen avulla ihmisille voidaan antaa nimiä, ja kun heidän kasvonsa tunnistetaan, AMSS lisää henkilön nimen alaluokaksi. Nämä tiedot näkyvät käyttöliittymässä, suodattimissa ja ilmoituksissa.",
       "modelSize": {
         "label": "Mallin koko",
         "desc": "Kasvojentunnistuksessa käytettävän mallin koko.",

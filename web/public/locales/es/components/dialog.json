@@ -1,23 +1,23 @@
 {
   "restart": {
     "restarting": {
-      "title": "Frigate se está reiniciando",
+      "title": "AMSS se está reiniciando",
       "button": "Forzar recarga ahora",
       "content": "Esta página se recargará en {{countdown}} segundos."
     },
-    "title": "¿Estás seguro de que quieres reiniciar Frigate?",
+    "title": "¿Estás seguro de que quieres reiniciar AMSS?",
     "button": "Reiniciar",
-    "description": "Esto detendrá brevemente Frigate mientras se reinicia."
+    "description": "Esto detendrá brevemente AMSS mientras se reinicia."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Enviar a Frigate+",
+        "label": "Enviar a AMSS+",
         "desc": "Los objetos en ubicaciones que deseas evitar no son falsos positivos. Enviarlos como falsos positivos confundirá al modelo."
       },
       "review": {
         "false": {
-          "label": "No confirmar esta etiqueta para Frigate Plus",
+          "label": "No confirmar esta etiqueta para AMSS Plus",
           "false_one": "Esto no es un {{label}}",
           "false_many": "Esto no es un {{label}}",
           "false_other": "Esto no es un {{label}}"
@@ -26,19 +26,19 @@
           "true_one": "Esto es un {{label}}",
           "true_many": "Esto es un {{label}}",
           "true_other": "Esto es un {{label}}",
-          "label": "Confirmar esta etiqueta para Frigate+"
+          "label": "Confirmar esta etiqueta para AMSS+"
         },
         "state": {
           "submitted": "Enviado"
         },
         "question": {
-          "label": "Confirmar esta etiqueta para Frigate Plus",
+          "label": "Confirmar esta etiqueta para AMSS Plus",
           "ask_a": "¿Es este objeto un <code>{{label}}</code>?",
           "ask_an": "¿Es este objeto un <code>{{label}}</code>?",
           "ask_full": "¿Es este objeto un <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
         },
         "toast": {
-          "error": "Error al enviarlo a Frigate+. Por favor, comprueba tu conexión a internet y prueba de nuevo."
+          "error": "Error al enviarlo a AMSS+. Por favor, comprueba tu conexión a internet y prueba de nuevo."
         }
       }
     },
@@ -202,12 +202,12 @@
       "markAsUnreviewed": "Marcar como no revisado"
     },
     "shareTimestamp": {
-      "description": "Comparta una URL con marca de tiempo de la posición actual del reproductor o elija una marca de tiempo personalizada. Tenga en cuenta que esta no es una URL pública para compartir y solo es accesible para los usuarios que tienen acceso a Frigate y a esta cámara.",
+      "description": "Comparta una URL con marca de tiempo de la posición actual del reproductor o elija una marca de tiempo personalizada. Tenga en cuenta que esta no es una URL pública para compartir y solo es accesible para los usuarios que tienen acceso a AMSS y a esta cámara.",
       "label": "Compartir marca de tiempo",
       "title": "Compartir marca de tiempo",
       "custom": "Marca de tiempo personalizada",
       "button": "Compartir URL de la marca de tiempo",
-      "shareTitle": "Marca de tiempo de revisión de Frigate: {{camera}}"
+      "shareTitle": "Marca de tiempo de revisión de AMSS: {{camera}}"
     }
   },
   "imagePicker": {

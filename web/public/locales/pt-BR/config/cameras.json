@@ -5,7 +5,7 @@
     },
     "friendly_name": {
         "label": "Nome amigável",
-        "description": "Nome amigável da câmera utilizado na Interface de Usuário do Frigate"
+        "description": "Nome amigável da câmera utilizado na Interface de Usuário do AMSS"
     },
     "enabled": {
         "label": "Habilitado",

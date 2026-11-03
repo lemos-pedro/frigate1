@@ -1,8 +1,8 @@
 {
   "noRecordingsFoundForThisTime": "Не найдено ни одной записи",
   "noPreviewFound": "Предпросмотр не найден",
-  "submitFrigatePlus": {
-    "title": "Отправить этот кадр в Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Отправить этот кадр в AMSS+?",
     "submit": "Отправить"
   },
   "noPreviewFoundFor": "Не найдено предпросмотра для {{cameraName}}",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "error": {
-      "submitFrigatePlusFailed": "Не удалось отправить кадр в Frigate+"
+      "submitAMSSPlusFailed": "Не удалось отправить кадр в AMSS+"
     },
     "success": {
-      "submittedFrigatePlus": "Кадр успешно загружен в Frigate+"
+      "submittedAMSSPlus": "Кадр успешно загружен в AMSS+"
     }
   }
 }

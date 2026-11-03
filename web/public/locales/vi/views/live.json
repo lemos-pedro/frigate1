@@ -1,6 +1,6 @@
 {
-  "documentTitle": "Trực tiếp - Frigate",
-  "documentTitle.withCamera": "{{camera}} - Trực tiếp - Frigate",
+  "documentTitle": "Trực tiếp - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Trực tiếp - AMSS",
   "lowBandwidthMode": "Chế độ băng thông thấp",
   "twoWayTalk": {
     "enable": "Bật đàm thoại hai chiều",
@@ -179,7 +179,7 @@
   },
   "noCameras": {
     "title": "Không có camera nào được cấu hình",
-    "description": "Bắt đầu bằng cách kết nối một camera với Frigate.",
+    "description": "Bắt đầu bằng cách kết nối một camera với AMSS.",
     "buttonText": "Thêm Camera",
     "restricted": {
       "title": "Không có Camera nào khả dụng",

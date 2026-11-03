@@ -6,7 +6,7 @@
     },
     "friendly_name": {
         "label": "Visningsnamn",
-        "description": "Kamerans visningsnamn i Frigates gränssnitt"
+        "description": "Kamerans visningsnamn i AMSSs gränssnitt"
     },
     "enabled": {
         "label": "Aktiverad",

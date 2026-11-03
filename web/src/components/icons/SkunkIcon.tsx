@@ -5,7 +5,7 @@ import { SVGProps } from "react";
  *
  * react-icons has no skunk in any of its packs. The usable stand-ins are
  * either squirrels, which are indistinguishable from the `squirrel` label, or
- * animals such as porcupine and hedgehog that are themselves Frigate+
+ * animals such as porcupine and hedgehog that are themselves AMSS+
  * candidate labels.
  *
  * Adapted from "skunk silhouette" by dear_theophilus, published by Openclipart

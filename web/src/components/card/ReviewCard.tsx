@@ -1,6 +1,6 @@
 import { baseUrl } from "@/api/baseUrl";
 import { useFormattedTimestamp, use24HourTime } from "@/hooks/use-date-utils";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { REVIEW_PADDING, ReviewSegment } from "@/types/review";
 import { getIconForLabel } from "@/utils/iconUtil";
 import { isDesktop, isIOS, isSafari } from "react-device-detect";
@@ -53,7 +53,7 @@ export default function ReviewCard({
   onClick,
 }: ReviewCardProps) {
   const { t } = useTranslation(["components/dialog"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const [imgRef, imgLoaded, onImgLoad] = useImageLoaded();
   const is24Hour = use24HourTime(config);
   const formattedDate = useFormattedTimestamp(

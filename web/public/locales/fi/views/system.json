@@ -27,15 +27,15 @@
     }
   },
   "documentTitle": {
-    "cameras": "Kameroiden tilastot - Frigate",
+    "cameras": "Kameroiden tilastot - AMSS",
     "storage": "Tallenteiden tilastot - Fgirage",
-    "general": "Yleiset tilastot - Frigate",
-    "enrichments": "Rikastetut tilastot - Frigate",
+    "general": "Yleiset tilastot - AMSS",
+    "enrichments": "Rikastetut tilastot - AMSS",
     "logs": {
-      "frigate": "Frigaten lokit - Frigate",
-      "go2rtc": "Go2RTC lokit - Frigate",
-      "nginx": "Nginx lokit - Frigate",
-      "websocket": "Viestilokit - Frigate"
+      "frigate": "AMSSn lokit - AMSS",
+      "go2rtc": "Go2RTC lokit - AMSS",
+      "nginx": "Nginx lokit - AMSS",
+      "websocket": "Viestilokit - AMSS"
     }
   },
   "title": "Järjestelmä",

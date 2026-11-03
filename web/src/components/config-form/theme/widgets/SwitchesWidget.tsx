@@ -10,7 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { LuChevronDown, LuChevronRight } from "react-icons/lu";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import { ConfigFormContext } from "@/types/configForm";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +25,7 @@ type FormContext = Pick<
   | "level"
 > & {
   fullCameraConfig?: CameraConfig;
-  fullConfig?: FrigateConfig;
+  fullConfig?: AmssConfig;
 };
 
 export type { FormContext };

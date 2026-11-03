@@ -1,10 +1,10 @@
-import type { FrigateConfig, CameraConfig } from "@/types/frigateConfig";
+import type { AmssConfig, CameraConfig } from "@/types/amssConfig";
 import type { ConfigSectionData } from "@/types/configForm";
 import type { SectionConfig } from "../sections/BaseSection";
 
 /** Context provided to message condition functions */
 export type MessageConditionContext = {
-  fullConfig: FrigateConfig;
+  fullConfig: AmssConfig;
   fullCameraConfig?: CameraConfig;
   level: "global" | "camera";
   cameraName?: string;

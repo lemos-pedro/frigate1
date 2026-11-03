@@ -53,9 +53,9 @@
     "label": "Vaata uusi ülevaatamiseks mõeldud kirjeid",
     "button": "Uued ülevaatamiseks mõeldud kirjed"
   },
-  "documentTitle": "Ülevaatamine - Frigate",
+  "documentTitle": "Ülevaatamine - AMSS",
   "recordings": {
-    "documentTitle": "Salvestised - Frigate",
+    "documentTitle": "Salvestised - AMSS",
     "invalidSharedLink": "Töötlemisvea tõttu ei õnnestu avada ajatempliga salvestuse linki.",
     "invalidSharedCamera": "Tundmatu või volituseta kaamera tõttu ei õnnestu avada ajatempliga salvestuse linki."
   },

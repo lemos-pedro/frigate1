@@ -1,9 +1,9 @@
 {
   "noPreviewFound": "Pratinjau Tidak Ditemukan",
   "noPreviewFoundFor": "Tidak ada Pratinjau untuk {{cameraName}}",
-  "submitFrigatePlus": {
+  "submitAMSSPlus": {
     "submit": "Kirim",
-    "title": "Kirim frame ini ke Frigate+?"
+    "title": "Kirim frame ini ke AMSS+?"
   },
   "noRecordingsFoundForThisTime": "Tidak ada rekaman ditemukan pada waktu ini",
   "livePlayerRequiredIOSVersion": "iOS 17.1 atau yang lebih tinggi diperlukan untuk tipe siaran langsung ini.",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Berhasil mengirim frame ke Frigate+"
+      "submittedAMSSPlus": "Berhasil mengirim frame ke AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Gagal mengirim frame ke Frigate+"
+      "submitAMSSPlusFailed": "Gagal mengirim frame ke AMSS+"
     }
   }
 }

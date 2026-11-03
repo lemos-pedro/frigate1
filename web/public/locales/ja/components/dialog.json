@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Frigate を再起動してもよろしいですか？",
+    "title": "AMSS を再起動してもよろしいですか？",
     "restarting": {
-      "title": "Frigate を再起動中",
+      "title": "AMSS を再起動中",
       "content": "このページは {{countdown}} 秒後に再読み込みされます。",
       "button": "今すぐ強制再読み込み"
     },
     "button": "再起動",
-    "description": "再起動の間、Frigateが一時的に停止します。"
+    "description": "再起動の間、AMSSが一時的に停止します。"
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Frigate+ に送信",
+        "label": "AMSS+ に送信",
         "desc": "回避したい場所でのオブジェクトは誤検知ではありません。誤検知として送信するとモデルが混乱します。"
       },
       "review": {
         "question": {
-          "label": "Frigate Plus 用ラベルの確認",
+          "label": "AMSS Plus 用ラベルの確認",
           "ask_a": "このオブジェクトは <code>{{label}}</code> ですか？",
           "ask_an": "このオブジェクトは <code>{{label}}</code> ですか？",
           "ask_full": "このオブジェクトは <code>{{untranslatedLabel}}</code>（{{translatedLabel}}）ですか？"
@@ -26,7 +26,7 @@
           "submitted": "送信済み"
         },
         "toast": {
-          "error": "Frigate+への送信に失敗しました。ネットワーク接続を確認して、もう一度お試しください。"
+          "error": "AMSS+への送信に失敗しました。ネットワーク接続を確認して、もう一度お試しください。"
         }
       }
     },
@@ -173,10 +173,10 @@
     "shareTimestamp": {
       "label": "タイムスタンプを共有",
       "title": "タイムスタンプを共有",
-      "description": "現在のプレーヤー位置をタイムスタンプ付き URL で共有するか、任意のタイムスタンプを指定できます。これは公開リンクではなく、Frigate とこのカメラへのアクセス権を持つユーザーのみアクセスできます。",
+      "description": "現在のプレーヤー位置をタイムスタンプ付き URL で共有するか、任意のタイムスタンプを指定できます。これは公開リンクではなく、AMSS とこのカメラへのアクセス権を持つユーザーのみアクセスできます。",
       "custom": "カスタムタイムスタンプ",
       "button": "タイムスタンプ URL を共有",
-      "shareTitle": "Frigate レビュータイムスタンプ: {{camera}}"
+      "shareTitle": "AMSS レビュータイムスタンプ: {{camera}}"
     }
   },
   "imagePicker": {

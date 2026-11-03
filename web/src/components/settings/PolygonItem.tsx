@@ -26,7 +26,7 @@ import { useCallback, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { removeRequiredZoneQuery, reviewQueries } from "@/utils/zoneEdutUtil";
 import IconWrapper from "../ui/icon-wrapper";
 import { buttonVariants } from "@/components/ui/button";
@@ -71,7 +71,7 @@ export default function PolygonItem({
 }: PolygonItemProps) {
   const { t } = useTranslation("views/settings");
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<AmssConfig>("config");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const { payload: motionMaskState, send: sendMotionMaskState } =
     useMotionMaskState(polygon.camera, polygon.name);

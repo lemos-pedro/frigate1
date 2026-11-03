@@ -1,7 +1,7 @@
 {
   "noRecordingsFoundForThisTime": "Nisu pronađene snimke za ovo vrijeme",
-  "submitFrigatePlus": {
-    "title": "Pošalji ovaj kadar u Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Pošalji ovaj kadar u AMSS+?",
     "submit": "Pošalji"
   },
   "cameraDisabled": "Kamera je onemogućena",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Kadar je uspješno poslan u Frigate+"
+      "submittedAMSSPlus": "Kadar je uspješno poslan u AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Neuspješno slanje kadra u Frigate+"
+      "submitAMSSPlusFailed": "Neuspješno slanje kadra u AMSS+"
     }
   }
 }

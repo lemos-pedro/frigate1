@@ -46,7 +46,7 @@
     },
     "friendly_name": {
         "label": "表示名",
-        "description": "Frigate UIで使用されるカメラの表示名"
+        "description": "AMSS UIで使用されるカメラの表示名"
     },
     "audio_transcription": {
         "label": "音声文字起こし",
@@ -848,7 +848,7 @@
         },
         "ignore_time_mismatch": {
             "label": "時刻差異を無視",
-            "description": "ONVIF 通信時に、カメラと Frigate サーバー間の時刻同期差異を無視します。"
+            "description": "ONVIF 通信時に、カメラと AMSS サーバー間の時刻同期差異を無視します。"
         }
     },
     "best_image_timeout": {
@@ -868,7 +868,7 @@
         },
         "dashboard": {
             "label": "UI に表示",
-            "description": "このカメラを Frigate UI 全体に表示するかを切り替えます。無効化した場合、再表示するには設定ファイルを手動編集する必要があります。"
+            "description": "このカメラを AMSS UI 全体に表示するかを切り替えます。無効化した場合、再表示するには設定ファイルを手動編集する必要があります。"
         },
         "review": {
             "label": "再生画面に表示",
@@ -884,7 +884,7 @@
         "description": "ゾーンを使うとフレーム内の特定領域を定義でき、オブジェクトがその領域内にあるかを判定できます。",
         "friendly_name": {
             "label": "ゾーン名",
-            "description": "Frigate UI に表示されるユーザー向けのゾーン名。未設定の場合、ゾーン名の整形版が使用されます。"
+            "description": "AMSS UI に表示されるユーザー向けのゾーン名。未設定の場合、ゾーン名の整形版が使用されます。"
         },
         "enabled": {
             "label": "有効",

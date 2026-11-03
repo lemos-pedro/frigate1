@@ -5,11 +5,11 @@
     },
     "safe_mode": {
         "label": "Trygg modus",
-        "description": "Når aktivert, start Frigate i trygg modus med redusert funksjonalitet for feilsøking."
+        "description": "Når aktivert, start AMSS i trygg modus med redusert funksjonalitet for feilsøking."
     },
     "environment_vars": {
         "label": "Miljøvariabler",
-        "description": "Nøkkel-/verdipar for miljøvariabler som skal settes for Frigate-prosessen i Home Assistant OS. Brukere uten HAOS må bruke miljøvariabelkonfigurasjon i Docker i stedet."
+        "description": "Nøkkel-/verdipar for miljøvariabler som skal settes for AMSS-prosessen i Home Assistant OS. Brukere uten HAOS må bruke miljøvariabelkonfigurasjon i Docker i stedet."
     },
     "logger": {
         "label": "Logging",
@@ -28,7 +28,7 @@
         "description": "Innstillinger for autentisering og økter, inkludert alternativer for informasjonskapsler (cookies) og hastighetsbegrensning.",
         "enabled": {
             "label": "Aktiver autentisering",
-            "description": "Aktiver innebygd autentisering for Frigate-grensesnittet."
+            "description": "Aktiver innebygd autentisering for AMSS-grensesnittet."
         },
         "reset_admin_password": {
             "label": "Nullstill admin-passord",
@@ -73,10 +73,10 @@
     },
     "database": {
         "label": "Database",
-        "description": "Innstillinger for SQLite-databasen som brukes av Frigate til å lagre sporede objekter og metadata for opptak.",
+        "description": "Innstillinger for SQLite-databasen som brukes av AMSS til å lagre sporede objekter og metadata for opptak.",
         "path": {
             "label": "Sti til database",
-            "description": "Sti i filsystemet der Frigates SQLite-databasefil vil bli lagret."
+            "description": "Sti i filsystemet der AMSSs SQLite-databasefil vil bli lagret."
         }
     },
     "go2rtc": {
@@ -100,7 +100,7 @@
         },
         "topic_prefix": {
             "label": "Emne-prefiks",
-            "description": "MQTT-emneprefiks for alle Frigate-emner; må være unikt hvis man kjører flere instanser."
+            "description": "MQTT-emneprefiks for alle AMSS-emner; må være unikt hvis man kjører flere instanser."
         },
         "client_id": {
             "label": "Klient-ID",
@@ -161,13 +161,13 @@
     },
     "networking": {
         "label": "Nettverk",
-        "description": "Nettverksrelaterte innstillinger, som aktivering av IPv6 for Frigate-endepunkter.",
+        "description": "Nettverksrelaterte innstillinger, som aktivering av IPv6 for AMSS-endepunkter.",
         "ipv6": {
             "label": "IPv6-konfigurasjon",
-            "description": "IPv6-spesifikke innstillinger for Frigates nettverkstjenester.",
+            "description": "IPv6-spesifikke innstillinger for AMSSs nettverkstjenester.",
             "enabled": {
                 "label": "Aktiver IPv6",
-                "description": "Aktiver IPv6-støtte for Frigate-tjenester (API og brukergrensesnitt) der det er aktuelt."
+                "description": "Aktiver IPv6-støtte for AMSS-tjenester (API og brukergrensesnitt) der det er aktuelt."
             }
         },
         "listen": {
@@ -175,20 +175,20 @@
             "description": "Konfigurasjon for interne og eksterne lytteporter. Dette er for avanserte brukere. For de fleste brukstilfeller anbefales det å endre port-seksjonen i din Docker compose-fil i stedet.",
             "internal": {
                 "label": "Intern port",
-                "description": "Intern lytteport for Frigate (standard 5000)."
+                "description": "Intern lytteport for AMSS (standard 5000)."
             },
             "external": {
                 "label": "Ekstern port",
-                "description": "Ekstern lytteport for Frigate (standard 8971)."
+                "description": "Ekstern lytteport for AMSS (standard 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proxy",
-        "description": "Innstillinger for å integrere Frigate bak en reverse proxy som sender videre hoder for autentiserte brukere.",
+        "description": "Innstillinger for å integrere AMSS bak en reverse proxy som sender videre hoder for autentiserte brukere.",
         "header_map": {
             "label": "Tilordning av hoder (Header mapping)",
-            "description": "Tilordne innkommende proxy-hoder til Frigates bruker- og rollefelt for proxy-basert autentisering.",
+            "description": "Tilordne innkommende proxy-hoder til AMSSs bruker- og rollefelt for proxy-basert autentisering.",
             "user": {
                 "label": "Bruker-hode (User header)",
                 "description": "Hode (header) som inneholder det autentiserte brukernavnet fra oppstrøms proxy."
@@ -199,7 +199,7 @@
             },
             "role_map": {
                 "label": "Rolletilordning",
-                "description": "Tilordne gruppeverdier fra oppstrøms proxy til Frigate-roller (for eksempel tilordne admin-grupper til admin-rollen)."
+                "description": "Tilordne gruppeverdier fra oppstrøms proxy til AMSS-roller (for eksempel tilordne admin-grupper til admin-rollen)."
             }
         },
         "logout_url": {
@@ -248,15 +248,15 @@
         },
         "version_check": {
             "label": "Versjonskontroll",
-            "description": "Aktiver en utgående sjekk for å oppdage om en nyere versjon av Frigate er tilgjengelig."
+            "description": "Aktiver en utgående sjekk for å oppdage om en nyere versjon av AMSS er tilgjengelig."
         }
     },
     "tls": {
         "label": "TLS",
-        "description": "TLS-innstillinger for Frigates web-endepunkter (port 8971).",
+        "description": "TLS-innstillinger for AMSSs web-endepunkter (port 8971).",
         "enabled": {
             "label": "Aktiver TLS",
-            "description": "Aktiver TLS for Frigates web-grensesnitt og API på den konfigurerte TLS-porten."
+            "description": "Aktiver TLS for AMSSs web-grensesnitt og API på den konfigurerte TLS-porten."
         }
     },
     "ui": {
@@ -294,7 +294,7 @@
             "description": "Detektorspesifikke konfigurasjonsalternativer for modell (sti, inndatastørrelse, osv.).",
             "path": {
                 "label": "Sti til egendefinert objektdetektormodell",
-                "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for Frigate+-modeller)."
+                "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for AMSS+-modeller)."
             },
             "labelmap_path": {
                 "label": "Etikettkart (labelmap) for egendefinert detektor",
@@ -467,7 +467,7 @@
         "description": "Innstillinger for å konfigurere en egendefinert objektdeteksjonsmodell og dens inndataform.",
         "path": {
             "label": "Sti til egendefinert objektdeteksjonsmodell",
-            "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for Frigate+-modeller)."
+            "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for AMSS+-modeller)."
         },
         "labelmap_path": {
             "label": "Etikettkart (labelmap) for egendefinert detektor",
@@ -1556,7 +1556,7 @@
         },
         "dashboard": {
             "label": "Vis i grensesnitt",
-            "description": "Velg om dette kameraet skal være synlig i Frigate-grensesnittet. Deaktivering krever manuell redigering av konfigurasjonen for å vise kameraet igjen."
+            "description": "Velg om dette kameraet skal være synlig i AMSS-grensesnittet. Deaktivering krever manuell redigering av konfigurasjonen for å vise kameraet igjen."
         },
         "review": {
             "label": "Vis i inspeksjon",
@@ -1599,7 +1599,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Kalibrer ved start",
-                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. Frigate vil oppdatere konfigurasjonen etter kalibrering."
+                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. AMSS vil oppdatere konfigurasjonen etter kalibrering."
             },
             "zooming": {
                 "label": "Zoom-modus",

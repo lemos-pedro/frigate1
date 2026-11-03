@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Šim laika brīdim nav atrasti ieraksti",
   "noPreviewFound": "Priekšskatījums nav atrasts",
   "noPreviewFoundFor": "{{cameraName}} nav atrasts priekšskatījums",
-  "submitFrigatePlus": {
-    "title": "Nosūtīt šo kadru uz Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Nosūtīt šo kadru uz AMSS+?",
     "submit": "Iesniegt",
     "previewError": "Nevar ielādēt atēla priekškatījumu. Ieraksts var nebūt pieejams, šōbrīd."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Kadrs veiksmīgi iesniegts pakalpojumam Frigate+"
+      "submittedAMSSPlus": "Kadrs veiksmīgi iesniegts pakalpojumam AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Neizdevās iesniegt kadru Frigate+"
+      "submitAMSSPlusFailed": "Neizdevās iesniegt kadru AMSS+"
     }
   },
   "cameraOff": "Kamera ir izslēgta"

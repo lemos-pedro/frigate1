@@ -11,7 +11,7 @@ import KeyframeAnalysisSection from "./KeyframeAnalysisSection";
 import { Ffprobe, KeyframeAnalysis } from "@/types/stats";
 import { Button } from "../ui/button";
 import copy from "copy-to-clipboard";
-import { CameraConfig } from "@/types/frigateConfig";
+import { CameraConfig } from "@/types/amssConfig";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";

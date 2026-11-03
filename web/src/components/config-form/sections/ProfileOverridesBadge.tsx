@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { useTranslation } from "react-i18next";
 
 import { useProfileSectionDeltas } from "@/hooks/use-config-override";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { AmssConfig } from "@/types/amssConfig";
 import { OverrideDeltaPopover } from "./OverrideDeltaPopover";
 
 type Props = {
@@ -23,7 +23,7 @@ export function ProfileOverridesBadge({
   profileBorderColor,
   className,
 }: Props) {
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { t } = useTranslation(["views/settings"]);
   const deltas = useProfileSectionDeltas(
     config,

@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Haluatko varmasti käynnistää Frigaten uudelleen?",
+    "title": "Haluatko varmasti käynnistää AMSSn uudelleen?",
     "button": "Uudelleenkäynnistys",
     "restarting": {
       "title": "Fregatti käynnistyy uudelleen",
       "content": "Tämä sivu latautuu uudelleen {{countdown}} sekunnin kuluttua.",
       "button": "Pakota uudelleenlataus nyt"
     },
-    "description": "Tämä sammuttaa Frigaten lyhyeksi aikaa uudelleenkäynnistyksen ajaksi."
+    "description": "Tämä sammuttaa AMSSn lyhyeksi aikaa uudelleenkäynnistyksen ajaksi."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Lähetä Frigate+:lle",
+        "label": "Lähetä AMSS+:lle",
         "desc": "Välttämissäsi paikoissa olevat kohteet eivät ole vääriä positiivisia. Niiden lähettäminen väärinä positiivisina sekoittaa mallia."
       },
       "review": {
         "question": {
-          "label": "Vahvista tämä nimike Frigate Plussalle",
+          "label": "Vahvista tämä nimike AMSS Plussalle",
           "ask_a": "Onko kohde <code>{{label}}</code>?",
           "ask_an": "Onko tämä kohde <code>{{label}}</code>?",
           "ask_full": "Onko tämä kohde <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"

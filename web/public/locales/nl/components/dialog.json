@@ -1,42 +1,42 @@
 {
   "restart": {
-    "title": "Weet je zeker dat je Frigate opnieuw wilt opstarten?",
+    "title": "Weet je zeker dat je AMSS opnieuw wilt opstarten?",
     "button": "Herstart",
     "restarting": {
-      "title": "Frigate wordt opnieuw gestart",
+      "title": "AMSS wordt opnieuw gestart",
       "button": "Forceer herladen nu",
       "content": "Deze pagina zal herladen in {{countdown}} seconden."
     },
-    "description": "Dit zal Frigate kort stoppen terwijl het opnieuw opstart."
+    "description": "Dit zal AMSS kort stoppen terwijl het opnieuw opstart."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Verzenden naar Frigate+",
+        "label": "Verzenden naar AMSS+",
         "desc": "Objecten op locaties die je wilt vermijden, zijn geen vals-positieven. Als je ze als vals-positieven indient, brengt dit het model in verwarring."
       },
       "review": {
         "true": {
           "true_one": "Dit is een {{label}}",
           "true_other": "Dit zijn {{label}}",
-          "label": "Bevestig dit label voor Frigate Plus"
+          "label": "Bevestig dit label voor AMSS Plus"
         },
         "false": {
           "false_one": "Dit is geen {{label}}",
           "false_other": "Dit zijn geen {{label}}",
-          "label": "Bevestig dit label niet voor Frigate Plus"
+          "label": "Bevestig dit label niet voor AMSS Plus"
         },
         "state": {
           "submitted": "Ingediend"
         },
         "question": {
           "ask_an": "Is dit object een <code>{{label}}</code>?",
-          "label": "Bevestig dit label voor Frigate Plus",
+          "label": "Bevestig dit label voor AMSS Plus",
           "ask_a": "Is dit object een <code>{{label}}</code>?",
           "ask_full": "Is dit object een <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
         },
         "toast": {
-          "error": "Gefaald bij Frigate+ in te dienen. Controleer je netwerkverbinding en probeer opnieuw."
+          "error": "Gefaald bij AMSS+ in te dienen. Controleer je netwerkverbinding en probeer opnieuw."
         }
       }
     },
@@ -182,10 +182,10 @@
     "shareTimestamp": {
       "label": "Tijdstempel delen",
       "title": "Tijdstempel delen",
-      "description": "Deel een URL met tijdstempel van de huidige positie in de afspeler of kies een aangepaste tijdstempel. Let op: dit is geen openbare deel-URL en is alleen toegankelijk voor gebruikers die toegang hebben tot Frigate en deze camera.",
+      "description": "Deel een URL met tijdstempel van de huidige positie in de afspeler of kies een aangepaste tijdstempel. Let op: dit is geen openbare deel-URL en is alleen toegankelijk voor gebruikers die toegang hebben tot AMSS en deze camera.",
       "custom": "Aangepaste tijdstempel",
       "button": "Deel tijdstempel URL",
-      "shareTitle": "Frigate Beoordelingstijdstempel: {{camera}}"
+      "shareTitle": "AMSS Beoordelingstijdstempel: {{camera}}"
     }
   },
   "imagePicker": {

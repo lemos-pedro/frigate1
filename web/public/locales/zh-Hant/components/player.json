@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "此時間段內沒有錄影",
   "noPreviewFound": "找不到預覽",
   "noPreviewFoundFor": "找不到 {{cameraName}} 的預覽",
-  "submitFrigatePlus": {
-    "title": "提交此畫面至 Frigate+？",
+  "submitAMSSPlus": {
+    "title": "提交此畫面至 AMSS+？",
     "submit": "提交",
     "previewError": "無法載入快照預覽。該錄製當前可能不可用。"
   },
@@ -43,10 +43,10 @@
   "livePlayerRequiredIOSVersion": "此串流類型需要 IOS 17.1 或以上版本。",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "成功提交畫面至 Frigate+"
+      "submittedAMSSPlus": "成功提交畫面至 AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "提交畫面至 Frigate+ 失敗"
+      "submitAMSSPlusFailed": "提交畫面至 AMSS+ 失敗"
     }
   },
   "cameraOff": "攝影機關機"

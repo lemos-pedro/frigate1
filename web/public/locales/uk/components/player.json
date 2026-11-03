@@ -31,8 +31,8 @@
     "decodedFrames": "Декодовані кадри:"
   },
   "noPreviewFound": "Попередній перегляд не знайдені",
-  "submitFrigatePlus": {
-    "title": "Відправити це зображення Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Відправити це зображення AMSS+?",
     "submit": "Посилати"
   },
   "streamOffline": {
@@ -42,10 +42,10 @@
   "cameraDisabled": "Камера вимкнена",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Зображення успішно завантажено до Frigate+"
+      "submittedAMSSPlus": "Зображення успішно завантажено до AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Не вдалося надіслати фрейм Frigate+"
+      "submitAMSSPlusFailed": "Не вдалося надіслати фрейм AMSS+"
     }
   },
   "cameraOff": "Камера вимкнена"

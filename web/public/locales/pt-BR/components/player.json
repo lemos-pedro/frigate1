@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nenhuma gravação encontrada para este horário",
   "noPreviewFound": "Nenhuma pré-visualização encontrada",
   "noPreviewFoundFor": "Nenhuma Pré-Visualização Encontrada em {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Enviar esse frame para Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Enviar esse frame para AMSS+?",
     "submit": "Enviar",
     "previewError": "Não foi possível carregar a prévia do instantâneo. A gravação pode não estar disponível no momento."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Quadro enviado ao Frigate+ com sucesso"
+      "submittedAMSSPlus": "Quadro enviado ao AMSS+ com sucesso"
     },
     "error": {
-      "submitFrigatePlusFailed": "Falha em submeter quadro ao Frigate+"
+      "submitAMSSPlusFailed": "Falha em submeter quadro ao AMSS+"
     }
   },
   "cameraOff": "A câmera está desligada"

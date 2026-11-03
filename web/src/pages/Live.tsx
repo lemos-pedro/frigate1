@@ -2,7 +2,7 @@ import { useFullscreen } from "@/hooks/use-fullscreen";
 import useKeyboardListener from "@/hooks/use-keyboard-listener";
 import { useHashState, useSearchEffect } from "@/hooks/use-overlay-state";
 import { useUserPersistedOverlayState } from "@/hooks/use-overlay-state";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import LiveBirdseyeView from "@/views/live/LiveBirdseyeView";
 import LiveCameraView from "@/views/live/LiveCameraView";
 import LiveDashboardView from "@/views/live/LiveDashboardView";
@@ -15,7 +15,7 @@ import { useHasFullCameraAccess } from "@/hooks/use-has-full-camera-access";
 
 function Live() {
   const { t } = useTranslation(["views/live"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const hasFullCameraAccess = useHasFullCameraAccess();
 
   // selection

@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "V tomto období nebyly nalezeny žádné záznamy",
   "noPreviewFound": "Náhled nenalezen",
   "noPreviewFoundFor": "Náhled nenalezen pro {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Odeslat tento snímek do služby Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Odeslat tento snímek do služby AMSS+?",
     "submit": "Odeslat"
   },
   "livePlayerRequiredIOSVersion": "Pro tento typ živého přenosu je vyžadován systém iOS 17.1 nebo novější.",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Snimek byl úspěšně odeslán službě Frigate+"
+      "submittedAMSSPlus": "Snimek byl úspěšně odeslán službě AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Nepodařilo se odeslat snímek službě Frigate+"
+      "submitAMSSPlusFailed": "Nepodařilo se odeslat snímek službě AMSS+"
     }
   }
 }

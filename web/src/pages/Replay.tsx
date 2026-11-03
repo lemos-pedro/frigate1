@@ -32,7 +32,7 @@ import { useCameraActivity } from "@/hooks/use-camera-activity";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/ui/heading";
 import { Toaster } from "@/components/ui/sonner";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import { getIconForLabel } from "@/utils/iconUtil";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { Card } from "@/components/ui/card";
@@ -174,7 +174,7 @@ export default function Replay() {
   }, [refreshStatus, t]);
 
   // Camera activity for the replay camera
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const replayCameraName = status?.replay_camera ?? "";
@@ -632,7 +632,7 @@ export default function Replay() {
 type ObjectListProps = {
   cameraConfig?: CameraConfig;
   objects?: ObjectType[];
-  config?: FrigateConfig;
+  config?: AmssConfig;
 };
 
 function ObjectList({ cameraConfig, objects, config }: ObjectListProps) {

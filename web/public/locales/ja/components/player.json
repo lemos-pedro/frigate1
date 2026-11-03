@@ -6,8 +6,8 @@
     "title": "ストリームオフライン",
     "desc": "{{cameraName}} の <code>detect</code> ストリームでフレームが受信されていません。エラーログを確認してください"
   },
-  "submitFrigatePlus": {
-    "title": "このフレームを Frigate+ に送信しますか？",
+  "submitAMSSPlus": {
+    "title": "このフレームを AMSS+ に送信しますか？",
     "submit": "送信",
     "previewError": "スナップショットのプレビューを読み込めませんでした。現在、この録画は利用できない可能性があります。"
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "フレームを Frigate+ に送信しました"
+      "submittedAMSSPlus": "フレームを AMSS+ に送信しました"
     },
     "error": {
-      "submitFrigatePlusFailed": "フレームの Frigate+ への送信に失敗しました"
+      "submitAMSSPlusFailed": "フレームの AMSS+ への送信に失敗しました"
     }
   },
   "cameraOff": "カメラはオフです"

@@ -31,8 +31,8 @@
   },
   "noPreviewFound": "Nie znaleziono podglądu",
   "noPreviewFoundFor": "Nie znaleziono podglądu dla {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Wyślij tę klatkę do Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Wyślij tę klatkę do AMSS+?",
     "submit": "Wyślij",
     "previewError": "Nie udało się załadować podglądu nagrania. Nagranie może być niedostępne w podanym czasie."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Pomyślnie wysłano klatkę do Frigate+"
+      "submittedAMSSPlus": "Pomyślnie wysłano klatkę do AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Nie udało się wysłać klatki do Frigate+"
+      "submitAMSSPlusFailed": "Nie udało się wysłać klatki do AMSS+"
     }
   },
   "cameraOff": "Kamera jest wyłączona"

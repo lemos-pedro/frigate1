@@ -13,7 +13,7 @@ import { useFullscreen } from "@/hooks/use-fullscreen";
 import { Event } from "@/types/event";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { TrackingDetailsSequence } from "@/types/timeline";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { use24HourTime } from "@/hooks/use-date-utils";
 import { getIconForLabel } from "@/utils/iconUtil";
@@ -113,7 +113,7 @@ export function TrackingDetails({
     },
   );
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   // Fetch recording segments for the event's time range to handle motion-only gaps.
   // Use the source offset (stable per event) so recordings don't refetch on every
@@ -933,7 +933,7 @@ function LifecycleIconRow({
   annotationOffset,
 }: LifecycleIconRowProps) {
   const { t } = useTranslation(["views/explore", "components/player"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const [isOpen, setIsOpen] = useState(false);
   const [showAdvancedScores, setShowAdvancedScores] = useState(false);
   const navigate = useNavigate();
@@ -1243,7 +1243,7 @@ function LifecycleIconRow({
                             }
 
                             toast.success(
-                              t("toast.success.submittedFrigatePlus", {
+                              t("toast.success.submittedAmssPlus", {
                                 ns: "components/player",
                               }),
                               {
@@ -1252,7 +1252,7 @@ function LifecycleIconRow({
                             );
                           } catch {
                             toast.error(
-                              t("toast.error.submitFrigatePlusFailed", {
+                              t("toast.error.submitAmssPlusFailed", {
                                 ns: "components/player",
                               }),
                               {

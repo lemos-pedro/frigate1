@@ -7,7 +7,7 @@ import { Reorder, useDragControls } from "framer-motion";
 import { LuCheck, LuGripVertical } from "react-icons/lu";
 import { SplitCardRow } from "@/components/card/SettingsGroupCard";
 import { CameraNameLabel } from "@/components/camera/FriendlyNameLabel";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { cn } from "@/lib/utils";
 import type { SectionRendererProps } from "./registry";
 
@@ -20,7 +20,7 @@ export default function BirdseyeCameraReorder({
 }: SectionRendererProps) {
   const { t } = useTranslation(["views/settings", "common"]);
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<AmssConfig>("config");
 
   const birdseyeCameras = useMemo(() => {
     if (!config) return [];

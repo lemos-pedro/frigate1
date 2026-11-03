@@ -5,7 +5,7 @@ import axios from "axios";
 import { isDesktop, isMobile } from "react-device-detect";
 import { baseUrl } from "@/api/baseUrl";
 import Logo from "@/components/Logo";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { TimeRange } from "@/types/timeline";
 import { RecordingsSummary } from "@/types/review";
 import { ExportMode } from "@/types/filter";
@@ -77,7 +77,7 @@ import { useNavigate } from "react-router-dom";
 import { LuSearch, LuChevronRight, LuX } from "react-icons/lu";
 
 type MotionSearchViewProps = {
-  config: FrigateConfig;
+  config: AmssConfig;
   cameras: string[];
   selectedCamera: string | null;
   onCameraSelect: (camera: string) => void;

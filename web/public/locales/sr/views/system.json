@@ -1,13 +1,13 @@
 {
   "documentTitle": {
-    "cameras": "Statusi kamera - Frigate",
-    "storage": "Statistika skladištenja - Frigate",
+    "cameras": "Statusi kamera - AMSS",
+    "storage": "Statistika skladištenja - AMSS",
     "general": "Општа статистика - Фригејт",
-    "enrichments": "Statistika obogaćivanja - Frigate",
+    "enrichments": "Statistika obogaćivanja - AMSS",
     "logs": {
-      "frigate": "Frigate logovi - Frigate",
-      "go2rtc": "Go2RTC dnevnici - Frigate",
-      "nginx": "Nginx logovi - Frigate"
+      "frigate": "AMSS logovi - AMSS",
+      "go2rtc": "Go2RTC dnevnici - AMSS",
+      "nginx": "Nginx logovi - AMSS"
     }
   },
   "title": "Sistem",

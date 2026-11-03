@@ -30,8 +30,8 @@
   },
   "noPreviewFound": "Ingen forhåndsvisning funnet",
   "noPreviewFoundFor": "Ingen forhåndsvisning funnet for {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Send dette bildet til Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Send dette bildet til AMSS+?",
     "submit": "Send",
     "previewError": "Kunne ikke laste forhåndsvisning av stillbilde. Opptaket er kanskje ikke tilgjengelig for øyeblikket."
   },
@@ -43,10 +43,10 @@
   "cameraDisabled": "Kameraet er deaktivert",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Bildet ble sendt til Frigate+"
+      "submittedAMSSPlus": "Bildet ble sendt til AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Kunne ikke sende bildet til Frigate+"
+      "submitAMSSPlusFailed": "Kunne ikke sende bildet til AMSS+"
     }
   },
   "cameraOff": "Kameraet er av"

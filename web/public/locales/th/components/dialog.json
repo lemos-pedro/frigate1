@@ -49,19 +49,19 @@
   "restart": {
     "restarting": {
       "button": "โหลดหน้าใหม่ตอนนี้",
-      "title": "Frigate กำลังรีสตาร์ท",
+      "title": "AMSS กำลังรีสตาร์ท",
       "content": "หน้านี้จะถูกโหลดในอีก {{countdown}} วินาที."
     },
-    "title": "คุณแน่ใจหรือว่าต้องการรีสตาร์ท Frigate?",
+    "title": "คุณแน่ใจหรือว่าต้องการรีสตาร์ท AMSS?",
     "button": "รีสตาร์ท",
-    "description": "Frigate จะหยุดทำงานชั่วขณะในระหว่างรีสตาร์ท"
+    "description": "AMSS จะหยุดทำงานชั่วขณะในระหว่างรีสตาร์ท"
   },
   "explore": {
     "plus": {
       "review": {
         "question": {
           "ask_full": "วัตถุนี้คือ <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "ยืนยันหมวดหมู่นี้สําหรับ Frigate+",
+          "label": "ยืนยันหมวดหมู่นี้สําหรับ AMSS+",
           "ask_a": "วัตถุนี้คือ <code>{{label}}</code>?",
           "ask_an": "วัตถุนี้คือ <code>{{label}}</code>?"
         },
@@ -70,7 +70,7 @@
         }
       },
       "submitToPlus": {
-        "label": "ส่งไปยัง Frigate+"
+        "label": "ส่งไปยัง AMSS+"
       }
     },
     "video": {

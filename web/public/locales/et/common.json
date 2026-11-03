@@ -2,7 +2,7 @@
   "time": {
     "untilForTime": "Kuni {{time}}",
     "today": "Täna",
-    "untilForRestart": "Kuni Frigate käivitub uuesti.",
+    "untilForRestart": "Kuni AMSS käivitub uuesti.",
     "untilRestart": "Kuni uuesti käivitamiseni",
     "ago": "{{timeAgo}} tagasi",
     "justNow": "Hetk tagasi",
@@ -172,9 +172,9 @@
     "help": "Abiteave",
     "documentation": {
       "title": "Dokumentatsioon",
-      "label": "Frigate'i dokumentatsioon"
+      "label": "AMSS'i dokumentatsioon"
     },
-    "restart": "Käivita Frigate uuesti",
+    "restart": "Käivita AMSS uuesti",
     "review": "Ülevaatamine",
     "explore": "Uuri",
     "export": "Ekspordi",
@@ -270,7 +270,7 @@
   },
   "field": {
     "optional": "Valikuline",
-    "internalID": "Seadistustes ja andmebaasis kasutatav Frigate'i sisemine tunnus"
+    "internalID": "Seadistustes ja andmebaasis kasutatav AMSS'i sisemine tunnus"
   },
   "toast": {
     "copyUrlToClipboard": "Võrguaadress on kopeeritud lõikelauale.",
@@ -287,7 +287,7 @@
     "title": "Roll",
     "admin": "Peakasutaja",
     "viewer": "Vaataja",
-    "desc": "Peakasutajatel on Frigate'i kasutajaliideses kõik õigused. Vaatajad võivad vaid kaamerate pilti vaadata, objekte ülevaadata ning otsida arhiivist vanu videoid."
+    "desc": "Peakasutajatel on AMSS'i kasutajaliideses kõik õigused. Vaatajad võivad vaid kaamerate pilti vaadata, objekte ülevaadata ning otsida arhiivist vanu videoid."
   },
   "pagination": {
     "label": "lehenummerdus",
@@ -302,12 +302,12 @@
     "more": "Järgnevad lehed"
   },
   "accessDenied": {
-    "documentTitle": "Ligipääs on keelatud - Frigate",
+    "documentTitle": "Ligipääs on keelatud - AMSS",
     "title": "Ligipääs on keelatud",
     "desc": "Sul pole õigusi selle lehe vaatamiseks."
   },
   "notFound": {
-    "documentTitle": "Lehte ei leidu - Frigate",
+    "documentTitle": "Lehte ei leidu - AMSS",
     "title": "404",
     "desc": "Veebilehte ei leidu"
   },

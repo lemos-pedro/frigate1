@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import useSWR from "swr";
 
 export interface DetailStreamContextType {
@@ -73,7 +73,7 @@ export function DetailStreamProvider({
     }
   };
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   const [annotationOffset, setAnnotationOffset] = useState<number>(() => {
     if (!config) return 0;

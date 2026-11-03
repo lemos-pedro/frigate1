@@ -1,17 +1,17 @@
 {
   "documentTitle": {
-    "default": "Ρυθμίσεις - Frigate",
-    "authentication": "Ρυθμίσεις ελέγχου ταυτοποίησης - Frigate",
-    "camera": "Ρυθμίσεις Κάμερας - Frigate",
-    "enrichments": "Ρυθμίσεις εμπλουτισμού - Frigate",
-    "masksAndZones": "Ρυθμίσεις Μασκών και Ζωνών - Frigate",
-    "motionTuner": "Ρύθμιση Κίνησης - Frigate",
-    "object": "Επίλυση σφαλμάτων - Frigate",
-    "general": "Ρυθμίσεις UI - Frigate",
-    "frigatePlus": "Ρυθμίσεις Frigate+ - Frigate",
+    "default": "Ρυθμίσεις - AMSS",
+    "authentication": "Ρυθμίσεις ελέγχου ταυτοποίησης - AMSS",
+    "camera": "Ρυθμίσεις Κάμερας - AMSS",
+    "enrichments": "Ρυθμίσεις εμπλουτισμού - AMSS",
+    "masksAndZones": "Ρυθμίσεις Μασκών και Ζωνών - AMSS",
+    "motionTuner": "Ρύθμιση Κίνησης - AMSS",
+    "object": "Επίλυση σφαλμάτων - AMSS",
+    "general": "Ρυθμίσεις UI - AMSS",
+    "frigatePlus": "Ρυθμίσεις AMSS+ - AMSS",
     "notifications": "Ρυθμίσεις Ειδοποιήσεων",
-    "cameraManagement": "Διαχείριση καμερών - Frigate",
-    "cameraReview": "Ρυθμίσεις αξιολόγησης κάμερας - Frigate"
+    "cameraManagement": "Διαχείριση καμερών - AMSS",
+    "cameraReview": "Ρυθμίσεις αξιολόγησης κάμερας - AMSS"
   },
   "masksAndZones": {
     "zones": {

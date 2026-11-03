@@ -1,6 +1,6 @@
 {
-  "documentTitle": "Tiešraide - Frigate",
-  "documentTitle.withCamera": "{{camera}} - Tiešraide - Frigate",
+  "documentTitle": "Tiešraide - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Tiešraide - AMSS",
   "lowBandwidthMode": "Eko režīms",
   "twoWayTalk": {
     "enable": "Iespējot divvirzienu saziņu",

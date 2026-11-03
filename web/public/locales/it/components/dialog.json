@@ -1,29 +1,29 @@
 {
   "restart": {
-    "title": "Sei sicuro di voler riavviare Frigate?",
+    "title": "Sei sicuro di voler riavviare AMSS?",
     "button": "Riavvia",
     "restarting": {
-      "title": "Frigate si sta riavviando",
+      "title": "AMSS si sta riavviando",
       "content": "Questa pagina si ricaricherà in {{countdown}} secondi.",
       "button": "Forza ricarica ora"
     },
-    "description": "Questo fermerà brevemente Frigate mentre si riavvia."
+    "description": "Questo fermerà brevemente AMSS mentre si riavvia."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Invia a Frigate+",
+        "label": "Invia a AMSS+",
         "desc": "Gli oggetti in posizioni che si desidera evitare non sono falsi positivi. Inviarli come falsi positivi confonderà il modello."
       },
       "review": {
         "false": {
-          "label": "Non confermare questa etichetta per Frigate Plus",
+          "label": "Non confermare questa etichetta per AMSS Plus",
           "false_one": "Questo non è un {{label}}",
           "false_many": "Questi non sono un {{label}}",
           "false_other": "Questi non sono un {{label}}"
         },
         "true": {
-          "label": "Conferma questa etichetta per Frigate Plus",
+          "label": "Conferma questa etichetta per AMSS Plus",
           "true_one": "Questo è un {{label}}",
           "true_many": "Questi sono {{label}}",
           "true_other": "Questi sono {{label}}"
@@ -32,7 +32,7 @@
           "submitted": "Inviato"
         },
         "question": {
-          "label": "Conferma questa etichetta per Frigate Plus",
+          "label": "Conferma questa etichetta per AMSS Plus",
           "ask_a": "Questo oggetto è un <code>{{label}}</code>?",
           "ask_an": "Questo oggetto è un <code>{{label}}</code>?",
           "ask_full": "Questo oggetto è un <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -193,10 +193,10 @@
     "shareTimestamp": {
       "label": "Condividi orario",
       "title": "Condividi orario",
-      "description": "Condividi un URL con l'orario della posizione attuale del lettore oppure scegli un orario personalizzato. Tieni presente che questo URL non è pubblico ed è accessibile solo agli utenti che hanno accesso a Frigate e a questa telecamera.",
+      "description": "Condividi un URL con l'orario della posizione attuale del lettore oppure scegli un orario personalizzato. Tieni presente che questo URL non è pubblico ed è accessibile solo agli utenti che hanno accesso a AMSS e a questa telecamera.",
       "custom": "Orario personalizzato",
       "button": "URL dell'orario di condivisione",
-      "shareTitle": "Orario revisione Frigate: {{camera}}"
+      "shareTitle": "Orario revisione AMSS: {{camera}}"
     }
   },
   "imagePicker": {

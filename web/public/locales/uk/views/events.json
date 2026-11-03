@@ -25,9 +25,9 @@
     "aria": "Выбрати події",
     "noFoundForTimePeriod": "За цей період подій не знайдено."
   },
-  "documentTitle": "Перегляд подiя - Frigate",
+  "documentTitle": "Перегляд подiя - AMSS",
   "recordings": {
-    "documentTitle": "Записи - Frigate"
+    "documentTitle": "Записи - AMSS"
   },
   "calendarFilter": {
     "last24Hours": "Останні 24 години"

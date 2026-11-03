@@ -32,7 +32,7 @@ import {
 import useOptimisticState from "@/hooks/use-optimistic-state";
 import { isMobile } from "react-device-detect";
 import { FaVideo } from "react-icons/fa";
-import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import type { ConfigSectionData, JsonObject } from "@/types/configForm";
 import isEqual from "lodash/isEqual";
 import { maskCredentials } from "@/utils/credentialMask";
@@ -47,7 +47,7 @@ import UsersView from "@/views/settings/UsersView";
 import RolesView from "@/views/settings/RolesView";
 import UiSettingsView from "@/views/settings/UiSettingsView";
 import ProfilesView from "@/views/settings/ProfilesView";
-import FrigatePlusSettingsView from "@/views/settings/FrigatePlusSettingsView";
+import AmssPlusSettingsView from "@/views/settings/AmssPlusSettingsView";
 import MediaSyncSettingsView from "@/views/settings/MediaSyncSettingsView";
 import RegionGridSettingsView from "@/views/settings/RegionGridSettingsView";
 import Go2RtcStreamsSettingsView from "@/views/settings/Go2RtcStreamsSettingsView";
@@ -441,7 +441,7 @@ const settingsGroups = [
   },
   {
     label: "frigateplus",
-    items: [{ key: "frigateplus", component: FrigatePlusSettingsView }],
+    items: [{ key: "frigateplus", component: AmssPlusSettingsView }],
   },
   {
     label: "maintenance",
@@ -653,7 +653,7 @@ export default function Settings() {
     });
   }, [pageToggle]);
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { data: profilesData } = useSWR<ProfilesApiResponse>("profiles");
 
   const [searchParams] = useSearchParams();

@@ -1,8 +1,8 @@
 {
   "noRecordingsFoundForThisTime": "Keine Aufnahmen für diesen Zeitpunkt gefunden",
   "noPreviewFound": "Keine Vorschau gefunden",
-  "submitFrigatePlus": {
-    "title": "Dieses Bild an Frigate+ senden?",
+  "submitAMSSPlus": {
+    "title": "Dieses Bild an AMSS+ senden?",
     "submit": "Absenden",
     "previewError": "Schnappschuss Vorschau konnte nicht geladen werden. Die Aufnahme ist möglicherweise derzeit nicht verfügbar."
   },
@@ -42,10 +42,10 @@
   },
   "toast": {
     "error": {
-      "submitFrigatePlusFailed": "Bild an Frigate+ senden gescheitert"
+      "submitAMSSPlusFailed": "Bild an AMSS+ senden gescheitert"
     },
     "success": {
-      "submittedFrigatePlus": "Bild erfolgreich an Frigate+ gesendet"
+      "submittedAMSSPlus": "Bild erfolgreich an AMSS+ gesendet"
     }
   },
   "noPreviewFoundFor": "Keine Vorschau für {{cameraName}} gefunden",

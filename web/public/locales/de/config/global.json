@@ -5,7 +5,7 @@
     },
     "safe_mode": {
         "label": "abgesicherter Modus",
-        "description": "Wenn aktiviert, startet Frigate im abgesicherten Modus mit reduzierten Features für die Fehlersuche."
+        "description": "Wenn aktiviert, startet AMSS im abgesicherten Modus mit reduzierten Features für die Fehlersuche."
     },
     "audio": {
         "label": "Audioereignisse",
@@ -45,7 +45,7 @@
     },
     "environment_vars": {
         "label": "Umgebungsvariablen",
-        "description": "Schlüssel-/Wertpaare für Umgebungsvariablen des Frigate-Prozesses in Home Assistant OS. Nicht-HAOS Benutzer müssen anstatt dessen Docker Umgebungsvariablen nutzen."
+        "description": "Schlüssel-/Wertpaare für Umgebungsvariablen des AMSS-Prozesses in Home Assistant OS. Nicht-HAOS Benutzer müssen anstatt dessen Docker Umgebungsvariablen nutzen."
     },
     "logger": {
         "label": "Protokollierung",
@@ -64,7 +64,7 @@
         "description": "Einstellungen für die Authentifizierung und Sitzungen, einschließlich Optionen für Cookies und Limits.",
         "enabled": {
             "label": "Authentifizierung aktivieren",
-            "description": "Aktivierung native Authentifizierung für Frigate UI."
+            "description": "Aktivierung native Authentifizierung für AMSS UI."
         },
         "reset_admin_password": {
             "label": "Zurücksetzen vom Admin Passwort",
@@ -185,10 +185,10 @@
     },
     "database": {
         "label": "Datenbank",
-        "description": "Einstellungen für die SQLite-Datenbank, die von Frigate zum Speichern von verfolgten Objekten und Aufzeichnungsmetadaten verwendet wird.",
+        "description": "Einstellungen für die SQLite-Datenbank, die von AMSS zum Speichern von verfolgten Objekten und Aufzeichnungsmetadaten verwendet wird.",
         "path": {
             "label": "Pfad zur Datenbank",
-            "description": "Dateisystempfad, in dem die Frigate-SQLite-Datenbankdatei gespeichert wird."
+            "description": "Dateisystempfad, in dem die AMSS-SQLite-Datenbankdatei gespeichert wird."
         }
     },
     "detect": {
@@ -272,7 +272,7 @@
         },
         "topic_prefix": {
             "label": "Themenpräfix",
-            "description": "MQTT-Themenpräfix für alle Frigate-Themen; muss bei Ausführung mehrerer Instanzen eindeutig sein."
+            "description": "MQTT-Themenpräfix für alle AMSS-Themen; muss bei Ausführung mehrerer Instanzen eindeutig sein."
         },
         "client_id": {
             "label": "Klient ID",
@@ -445,13 +445,13 @@
     },
     "networking": {
         "label": "Vernetzung",
-        "description": "Netzwerkbezogene Einstellungen wie die Aktivierung von IPv6 für Frigate-Endpunkte.",
+        "description": "Netzwerkbezogene Einstellungen wie die Aktivierung von IPv6 für AMSS-Endpunkte.",
         "ipv6": {
             "label": "IPv6-Konfiguration",
-            "description": "IPv6-spezifische Einstellungen für Frigate-Netzwerkdienste.",
+            "description": "IPv6-spezifische Einstellungen für AMSS-Netzwerkdienste.",
             "enabled": {
                 "label": "IPv6 aktivieren",
-                "description": "Aktivieren Sie die IPv6-Unterstützung für Frigate-Dienste (API und Benutzeroberfläche), wo dies möglich ist."
+                "description": "Aktivieren Sie die IPv6-Unterstützung für AMSS-Dienste (API und Benutzeroberfläche), wo dies möglich ist."
             }
         },
         "listen": {
@@ -459,20 +459,20 @@
             "description": "Konfiguration für interne und externe Listening-Ports. Dies ist für fortgeschrittene Benutzer gedacht. Für die meisten Anwendungsfälle wird empfohlen, den Abschnitt „Ports“ Ihrer Docker-Compose-Datei zu ändern.",
             "internal": {
                 "label": "interne port",
-                "description": "Interner Listening-Port für Frigate (Standard 5000)."
+                "description": "Interner Listening-Port für AMSS (Standard 5000)."
             },
             "external": {
                 "label": "Externer Anschluss",
-                "description": "Externer Listening-Port für Frigate (Standard 8971)."
+                "description": "Externer Listening-Port für AMSS (Standard 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proxy",
-        "description": "Einstellungen für die Integration von Frigate hinter einem Reverse-Proxy, der authentifizierte Benutzer-Header weiterleitet.",
+        "description": "Einstellungen für die Integration von AMSS hinter einem Reverse-Proxy, der authentifizierte Benutzer-Header weiterleitet.",
         "header_map": {
             "label": "Header-Zuordnung",
-            "description": "Ordnen Sie eingehende Proxy-Header den Frigate-Benutzer- und Rollenfeldern für die proxybasierte Authentifizierung zu.",
+            "description": "Ordnen Sie eingehende Proxy-Header den AMSS-Benutzer- und Rollenfeldern für die proxybasierte Authentifizierung zu.",
             "user": {
                 "label": "Benutzerkopfzeile",
                 "description": "Header, der den vom Upstream-Proxy bereitgestellten authentifizierten Benutzernamen enthält."
@@ -483,7 +483,7 @@
             },
             "role_map": {
                 "label": "Rollenabbildung",
-                "description": "Ordnen Sie die Werte der Upstream-Gruppe den Frigate-Rollen zu (z. B. ordnen Sie Admin-Gruppen der Admin-Rolle zu)."
+                "description": "Ordnen Sie die Werte der Upstream-Gruppe den AMSS-Rollen zu (z. B. ordnen Sie Admin-Gruppen der Admin-Rolle zu)."
             }
         },
         "logout_url": {
@@ -548,7 +548,7 @@
         },
         "version_check": {
             "label": "Versionscheck",
-            "description": "Aktivieren Sie eine Outbound-Prüfung, um festzustellen, ob eine neuere Version von Frigate verfügbar ist."
+            "description": "Aktivieren Sie eine Outbound-Prüfung, um festzustellen, ob eine neuere Version von AMSS verfügbar ist."
         }
     },
     "lpr": {
@@ -674,10 +674,10 @@
     },
     "tls": {
         "label": "TLS",
-        "description": "TLS-Einstellungen für die Website von Frigate (Port 8971).",
+        "description": "TLS-Einstellungen für die Website von AMSS (Port 8971).",
         "enabled": {
             "label": "Aktivieren TLS",
-            "description": "Aktivieren Sie TLS für die Web-Benutzeroberfläche und die API von Frigate auf dem konfigurierten TLS-Port."
+            "description": "Aktivieren Sie TLS für die Web-Benutzeroberfläche und die API von AMSS auf dem konfigurierten TLS-Port."
         }
     },
     "ui": {
@@ -722,7 +722,7 @@
                 "description": "Detektorspezifische Modellkonfigurationsoptionen (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -781,7 +781,7 @@
                 "description": "Detektorspezifische Modellkonfigurationsoptionen (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -848,7 +848,7 @@
                 "description": "Detektorspezifische Optionen zur Modellkonfiguration (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekt-Erkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -915,7 +915,7 @@
                 "description": "Detektorspezifische Optionen zur Modellkonfiguration (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekt-Erkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -974,7 +974,7 @@
                 "description": "Detektorspezifische Optionen zur Modellkonfiguration (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -1046,7 +1046,7 @@
                 "description": "Detektorspezifische Optionen zur Modellkonfiguration (Pfad, Eingabegröße usw.).",
                 "path": {
                     "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                    "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
                 },
                 "labelmap_path": {
                     "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -1087,7 +1087,7 @@
             "description": "Detektorspezifische Optionen zur Modellkonfiguration (Pfad, Eingabegröße usw.). Detektorspezifische Modellkonfiguration.",
             "path": {
                 "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-                "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+                "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
             },
             "labelmap_path": {
                 "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -1526,7 +1526,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Beim Start kalibrieren",
-                "description": "Messen Sie die Drehzahlen der PTZ-Motoren beim Start, um die Nachführgenauigkeit zu verbessern. Frigate aktualisiert die Konfiguration nach der Kalibrierung mit den Bewegungsgewichten."
+                "description": "Messen Sie die Drehzahlen der PTZ-Motoren beim Start, um die Nachführgenauigkeit zu verbessern. AMSS aktualisiert die Konfiguration nach der Kalibrierung mit den Bewegungsgewichten."
             },
             "zooming": {
                 "label": "Zoom-Modus",
@@ -1577,7 +1577,7 @@
         },
         "ignore_time_mismatch": {
             "label": "Zeitabweichung ignorieren",
-            "description": "Ignoriere Zeitunterschiede zwischen Kamera und Frigate-Server bei der ONVIF-Kommunikation."
+            "description": "Ignoriere Zeitunterschiede zwischen Kamera und AMSS-Server bei der ONVIF-Kommunikation."
         },
         "profile": {
             "label": "ONVIF Profile",
@@ -1693,7 +1693,7 @@
         "description": "Einstellungen zur Konfiguration eines benutzerdefinierten Objekterkennungsmodells und seiner Eingabeform.",
         "path": {
             "label": "Pfad zum benutzerdefinierten Objekterkennungsmodell",
-            "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für Frigate+-Modelle)."
+            "description": "Pfad zu einer benutzerdefinierten Erkennungsmodelldatei (oder plus://<model_id> für AMSS+-Modelle)."
         },
         "labelmap_path": {
             "label": "Label-Karte für benutzerdefinierten Objektdetektor",
@@ -1933,7 +1933,7 @@
         },
         "dashboard": {
             "label": "In der Benutzeroberfläche anzeigen",
-            "description": "Schalte ein, ob diese Kamera überall in der Benutzeroberfläche von „Frigate“ sichtbar ist. Wenn du diese Option deaktivierst, musst du die Konfiguration manuell bearbeiten, um diese Kamera wieder in der Benutzeroberfläche anzuzeigen."
+            "description": "Schalte ein, ob diese Kamera überall in der Benutzeroberfläche von „AMSS“ sichtbar ist. Wenn du diese Option deaktivierst, musst du die Konfiguration manuell bearbeiten, um diese Kamera wieder in der Benutzeroberfläche anzuzeigen."
         },
         "review": {
             "label": "In der Überprüfung anzeigen",

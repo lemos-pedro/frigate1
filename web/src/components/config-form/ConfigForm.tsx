@@ -3,7 +3,7 @@ import Form from "@rjsf/shadcn";
 import validator from "@rjsf/validator-ajv8";
 import type { FormValidation, RJSFSchema, UiSchema } from "@rjsf/utils";
 import type { IChangeEvent } from "@rjsf/core";
-import { frigateTheme } from "./theme";
+import { amssTheme } from "./theme";
 import { transformSchema } from "@/lib/config-schema";
 import { createErrorTransformer } from "@/lib/config-schema/errorMessages";
 import { useMemo, useCallback } from "react";
@@ -361,7 +361,7 @@ export function ConfigForm({
         formContext={extendedFormContext}
         transformErrors={errorTransformer}
         customValidate={customValidate}
-        {...frigateTheme}
+        {...amssTheme}
       />
     </div>
   );

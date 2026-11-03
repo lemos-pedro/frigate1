@@ -169,7 +169,7 @@
     },
     "friendly_name": {
         "label": "Przyjazna nazwa",
-        "description": "Przyjazna nazwa kamery używana w interfejsie Frigate"
+        "description": "Przyjazna nazwa kamery używana w interfejsie AMSS"
     },
     "enabled": {
         "label": "Włączone",

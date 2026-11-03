@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Er du sikker på at du vil starte Frigate på nytt?",
+    "title": "Er du sikker på at du vil starte AMSS på nytt?",
     "button": "Start på nytt",
     "restarting": {
-      "title": "Frigate starter på nytt",
+      "title": "AMSS starter på nytt",
       "button": "Tving omlasting nå",
       "content": "Denne siden vil lastes inn på nytt om {{countdown}} sekunder."
     },
-    "description": "Dette vil stoppe Frigate et øyeblikk mens det starter på nytt."
+    "description": "Dette vil stoppe AMSS et øyeblikk mens det starter på nytt."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Send til Frigate+",
+        "label": "Send til AMSS+",
         "desc": "Objekter på steder du vil unngå er ikke falske positiver. Å sende dem som falske positiver vil forvirre modellen."
       },
       "review": {
         "true": {
-          "label": "Bekreft denne merkelappen for Frigate Plus",
+          "label": "Bekreft denne merkelappen for AMSS Plus",
           "true_one": "Dette er en {{label}}",
           "true_other": "Dette er en {{label}}"
         },
@@ -25,18 +25,18 @@
           "submitted": "Sendt inn"
         },
         "false": {
-          "label": "Ikke bekreft denne merkelappen for Frigate Plus",
+          "label": "Ikke bekreft denne merkelappen for AMSS Plus",
           "false_one": "Dette er ikke en {{label}}",
           "false_other": "Dette er ikke en {{label}}"
         },
         "question": {
-          "label": "Bekreft denne etiketten for Frigate Plus",
+          "label": "Bekreft denne etiketten for AMSS Plus",
           "ask_an": "Er dette objekt en <code>{{label}}</code>?",
           "ask_a": "Er dette objektet en <code>{{label}}</code>?",
           "ask_full": "Er dette objekt en <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
         },
         "toast": {
-          "error": "Kunne ikke sende til Frigate+. Vennligst sjekk nettverksforbindelsen din og prøv igjen."
+          "error": "Kunne ikke sende til AMSS+. Vennligst sjekk nettverksforbindelsen din og prøv igjen."
         }
       }
     },
@@ -191,12 +191,12 @@
       "markAsUnreviewed": "Merk som ikke inspisert"
     },
     "shareTimestamp": {
-      "description": "Del en tidsstemplet URL fra avspillerens nåværende posisjon, eller velg et egendefinert tidsstempel. Merk at dette ikke er en offentlig delingslenke, og at den kun er tilgjengelig for brukere med tilgang til Frigate og dette kameraet.",
+      "description": "Del en tidsstemplet URL fra avspillerens nåværende posisjon, eller velg et egendefinert tidsstempel. Merk at dette ikke er en offentlig delingslenke, og at den kun er tilgjengelig for brukere med tilgang til AMSS og dette kameraet.",
       "custom": "Egendefinert tidsstempel",
       "title": "Del tidsstempel",
       "label": "Del tidsstempel",
       "button": "Del URL med tidsstempel",
-      "shareTitle": "Tidsstempel for Frigate-inspeksjon: {{camera}}"
+      "shareTitle": "Tidsstempel for AMSS-inspeksjon: {{camera}}"
     }
   },
   "imagePicker": {

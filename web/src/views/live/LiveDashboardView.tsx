@@ -1,4 +1,4 @@
-import { useFrigateReviews } from "@/api/ws";
+import { useAmssReviews } from "@/api/ws";
 import Logo from "@/components/Logo";
 import { CameraGroupSelector } from "@/components/filter/CameraGroupSelector";
 import { LiveGridIcon, LiveListIcon } from "@/components/icons/LiveIcons";
@@ -18,8 +18,8 @@ import { useUserPersistence } from "@/hooks/use-user-persistence";
 import {
   AllGroupsStreamingSettings,
   CameraConfig,
-  FrigateConfig,
-} from "@/types/frigateConfig";
+  AmssConfig,
+} from "@/types/amssConfig";
 import { ReviewSegment } from "@/types/review";
 import {
   useCallback,
@@ -75,7 +75,7 @@ export default function LiveDashboardView({
 }: LiveDashboardViewProps) {
   const { t } = useTranslation(["views/live"]);
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   // layout
 
@@ -90,7 +90,7 @@ export default function LiveDashboardView({
 
   // recent events
 
-  const eventUpdate = useFrigateReviews();
+  const eventUpdate = useAmssReviews();
   const allowedCameras = useAllowedCameras();
 
   const alertCameras = useMemo(() => {

@@ -1,7 +1,7 @@
 {
   "documentTitle": {
-    "default": "Uživo - Frigate",
-    "withCamera": "{{camera}} - Uživo - Frigate"
+    "default": "Uživo - AMSS",
+    "withCamera": "{{camera}} - Uživo - AMSS"
   },
   "lowBandwidthMode": "Nizopojasni režim",
   "twoWayTalk": {
@@ -179,7 +179,7 @@
   },
   "noCameras": {
     "title": "Nema konfiguriranih kamera",
-    "description": "Počnite tako što ćete povezati kameru s Frigate.",
+    "description": "Počnite tako što ćete povezati kameru s AMSS.",
     "buttonText": "Dodaj kameru",
     "restricted": {
       "title": "Nema dostupnih kamera",
@@ -187,7 +187,7 @@
     },
     "default": {
       "title": "Nema konfiguriranih kamera",
-      "description": "Počnite tako što ćete povezati kameru s Frigate.",
+      "description": "Počnite tako što ćete povezati kameru s AMSS.",
       "buttonText": "Dodaj kameru"
     },
     "group": {

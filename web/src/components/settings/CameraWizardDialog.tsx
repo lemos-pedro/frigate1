@@ -176,7 +176,7 @@ export default function CameraWizardDialog({
         wizardData.cameraName,
       );
 
-      // Convert wizard data to Frigate config format
+      // Convert wizard data to AMSS config format
       const configData: CameraConfigData = {
         cameras: {
           [finalCameraName]: {

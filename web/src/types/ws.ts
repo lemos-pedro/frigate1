@@ -1,6 +1,6 @@
 import { ReviewSegment } from "./review";
 
-type FrigateObjectState = {
+type AmssObjectState = {
   id: string;
   camera: string;
   frame_time: number;
@@ -29,16 +29,16 @@ type FrigateObjectState = {
   };
 };
 
-export interface FrigateReview {
+export interface AmssReview {
   type: "new" | "update" | "end" | "genai";
   before: ReviewSegment;
   after: ReviewSegment;
 }
 
-export interface FrigateEvent {
+export interface AmssEvent {
   type: "new" | "update" | "end";
-  before: FrigateObjectState;
-  after: FrigateObjectState;
+  before: AmssObjectState;
+  after: AmssObjectState;
 }
 
 export type ObjectType = {
@@ -57,7 +57,7 @@ export type AudioDetection = {
   score: number;
 };
 
-export interface FrigateCameraState {
+export interface AmssCameraState {
   config: {
     enabled: boolean;
     detect: boolean;
@@ -77,7 +77,7 @@ export interface FrigateCameraState {
   objects: ObjectType[];
   audio_detections: AudioDetection[];
 }
-export interface FrigateAudioDetections {
+export interface AmssAudioDetections {
   [camera: string]: AudioDetection[];
 }
 

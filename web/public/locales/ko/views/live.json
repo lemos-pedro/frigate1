@@ -1,6 +1,6 @@
 {
-  "documentTitle": "실시간 보기 - Frigate",
-  "documentTitle.withCamera": "{{camera}} - 실시간 보기 - Frigate",
+  "documentTitle": "실시간 보기 - AMSS",
+  "documentTitle.withCamera": "{{camera}} - 실시간 보기 - AMSS",
   "lowBandwidthMode": "저대역폭 모드",
   "twoWayTalk": {
     "enable": "양방향 말하기 활성화",
@@ -180,7 +180,7 @@
     },
     "default": {
       "title": "설정된 카메라 없음",
-      "description": "카메라를 연결하여 Frigate을 시작하세요.",
+      "description": "카메라를 연결하여 AMSS을 시작하세요.",
       "buttonText": "카메라 추가"
     },
     "group": {

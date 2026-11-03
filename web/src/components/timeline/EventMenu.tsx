@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Event } from "@/types/event";
 import { REVIEW_PADDING } from "@/types/review";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { useCallback, useState } from "react";
 import { useIsAdmin } from "@/hooks/use-is-admin";
 import axios from "axios";
@@ -22,7 +22,7 @@ import { Button } from "../ui/button";
 
 type EventMenuProps = {
   event: Event;
-  config?: FrigateConfig;
+  config?: AmssConfig;
   onOpenUpload?: (e: Event) => void;
   onOpenSimilarity?: (e: Event) => void;
   isSelected?: boolean;

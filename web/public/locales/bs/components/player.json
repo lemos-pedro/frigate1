@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nisu pronađeni snimci za ovo vrijeme",
   "noPreviewFound": "Nije pronađen pregled",
   "noPreviewFoundFor": "Nije pronađen pregled za {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Pošalji ovaj okvir Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Pošalji ovaj okvir AMSS+?",
     "submit": "Pošalji",
     "previewError": "Nije moguće učitati prikaz snimke. Snimka možda trenutno nije dostupna."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Uspješno je poslano okvir Frigate+"
+      "submittedAMSSPlus": "Uspješno je poslano okvir AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Neuspješno slanje okvira Frigate+"
+      "submitAMSSPlusFailed": "Neuspješno slanje okvira AMSS+"
     }
   }
 }

@@ -3,7 +3,7 @@
     "title": "Vai esi pārliecināts, ka vēlies pārstartēt Frigati?",
     "button": "Pārstartēt",
     "restarting": {
-      "title": "Frigate tiek pārstartēta",
+      "title": "AMSS tiek pārstartēta",
       "content": "Šī lapa tiks atkārtoti ielādēta pēc {{countdown}} sekundēm.",
       "button": "Atjaunot tagad"
     }
@@ -11,12 +11,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Sūtīt uz Frigate+",
+        "label": "Sūtīt uz AMSS+",
         "desc": "Objekti vietās, no kurām vēlaties izvairīties, nav kļūdaini pozitīvi. To iesniegšana kā kļūdaini pozitīvi radīs modelim neskaidrības."
       },
       "review": {
         "question": {
-          "label": "Apstipriniet šo tagu pakalpojumam Frigate Plus",
+          "label": "Apstipriniet šo tagu pakalpojumam AMSS Plus",
           "ask_a": "Vai šis objekts<code>{{label}}</code>?",
           "ask_an": "Vai šis objekts ir<code>{{label}}</code>?",
           "ask_full": "Vai šis objekts<code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"

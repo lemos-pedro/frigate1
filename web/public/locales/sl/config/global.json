@@ -859,7 +859,7 @@
         },
         "topic_prefix": {
             "label": "Predpona teme (Topic prefix)",
-            "description": "Predpona teme MQTT za vse teme Frigate; mora biti edinstvena, če poganjaš več instanc."
+            "description": "Predpona teme MQTT za vse teme AMSS; mora biti edinstvena, če poganjaš več instanc."
         },
         "client_id": {
             "label": "ID odjemalca",
@@ -996,11 +996,11 @@
     },
     "safe_mode": {
         "label": "Varni način",
-        "description": "Ko je omogočeno, se Frigate zažene v varnem načinu z omejenimi funkcijami za odpravljanje težav."
+        "description": "Ko je omogočeno, se AMSS zažene v varnem načinu z omejenimi funkcijami za odpravljanje težav."
     },
     "environment_vars": {
         "label": "Okoljske spremenljivke",
-        "description": "Pari ključ/vrednost okoljskih spremenljivk, ki se nastavijo za proces Frigate v sistemu Home Assistant OS. Uporabniki, ki ne uporabljajo HAOS, morajo namesto tega uporabiti konfiguracijo okoljskih spremenljivk Docker."
+        "description": "Pari ključ/vrednost okoljskih spremenljivk, ki se nastavijo za proces AMSS v sistemu Home Assistant OS. Uporabniki, ki ne uporabljajo HAOS, morajo namesto tega uporabiti konfiguracijo okoljskih spremenljivk Docker."
     },
     "logger": {
         "label": "Beleženje (Logging)",
@@ -1019,7 +1019,7 @@
         "description": "Nastavitve avtentikacije in sej, vključno z možnostmi piškotkov in omejevanjem hitrosti zahtev.",
         "enabled": {
             "label": "Omogoči avtentikacijo",
-            "description": "Omogoči izvorno avtentikacijo za uporabniški vmesnik Frigate."
+            "description": "Omogoči izvorno avtentikacijo za uporabniški vmesnik AMSS."
         },
         "reset_admin_password": {
             "label": "Ponastavi geslo skrbnika",
@@ -1064,10 +1064,10 @@
     },
     "database": {
         "label": "Zbirka podatkov",
-        "description": "Nastavitve za zbirko podatkov SQLite, ki jo Frigate uporablja za shranjevanje sledenih objektov in metapodatkov posnetkov.",
+        "description": "Nastavitve za zbirko podatkov SQLite, ki jo AMSS uporablja za shranjevanje sledenih objektov in metapodatkov posnetkov.",
         "path": {
             "label": "Pot do zbirke podatkov",
-            "description": "Pot v datotečnem sistemu, kjer bo shranjena SQLite datoteka zbirke podatkov Frigate."
+            "description": "Pot v datotečnem sistemu, kjer bo shranjena SQLite datoteka zbirke podatkov AMSS."
         }
     },
     "go2rtc": {
@@ -1076,13 +1076,13 @@
     },
     "networking": {
         "label": "Omrežje",
-        "description": "Nastavitve, povezane z omrežjem, kot je omogočanje IPv6 za dostopne točke Frigate.",
+        "description": "Nastavitve, povezane z omrežjem, kot je omogočanje IPv6 za dostopne točke AMSS.",
         "ipv6": {
             "label": "Konfiguracija IPv6",
-            "description": "Specifične nastavitve IPv6 za omrežne storitve Frigate.",
+            "description": "Specifične nastavitve IPv6 za omrežne storitve AMSS.",
             "enabled": {
                 "label": "Omogoči IPv6",
-                "description": "Omogoči podporo za IPv6 za storitve Frigate (API in vmesnik), kjer je to mogoče."
+                "description": "Omogoči podporo za IPv6 za storitve AMSS (API in vmesnik), kjer je to mogoče."
             }
         },
         "listen": {
@@ -1090,20 +1090,20 @@
             "description": "Konfiguracija za notranja in zunanja vrata za poslušanje. To je za napredne uporabnike. V večini primerov je priporočljivo spremeniti sekcijo 'ports' v tvoji datoteki Docker Compose.",
             "internal": {
                 "label": "Notranja vrata",
-                "description": "Notranja vrata za poslušanje za Frigate (privzeto 5000)."
+                "description": "Notranja vrata za poslušanje za AMSS (privzeto 5000)."
             },
             "external": {
                 "label": "Zunanja vrata",
-                "description": "Zunanja vrata za poslušanje za Frigate (privzeto 8971)."
+                "description": "Zunanja vrata za poslušanje za AMSS (privzeto 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proksi",
-        "description": "Nastavitve za integracijo Frigate za povratnim proksijem (reverse proxy), ki posreduje glave z avtenticiranimi uporabniki.",
+        "description": "Nastavitve za integracijo AMSS za povratnim proksijem (reverse proxy), ki posreduje glave z avtenticiranimi uporabniki.",
         "header_map": {
             "label": "Preslikava glav (Headers)",
-            "description": "Preslikaj dohodne glave proksija v polja za uporabnika in vlogo v Frigate za avtentikacijo prek proksija.",
+            "description": "Preslikaj dohodne glave proksija v polja za uporabnika in vlogo v AMSS za avtentikacijo prek proksija.",
             "user": {
                 "label": "Glava uporabnika",
                 "description": "Glava, ki vsebuje avtenticirano uporabniško ime, ki ga posreduje nadrejeni proksi."
@@ -1114,7 +1114,7 @@
             },
             "role_map": {
                 "label": "Preslikava vlog",
-                "description": "Preslikaj vrednosti skupin iz nadrejenega sistema v vloge Frigate (npr. preslikaj skupine skrbnikov v vlogo 'admin')."
+                "description": "Preslikaj vrednosti skupin iz nadrejenega sistema v vloge AMSS (npr. preslikaj skupine skrbnikov v vlogo 'admin')."
             }
         },
         "logout_url": {
@@ -1163,15 +1163,15 @@
         },
         "version_check": {
             "label": "Preverjanje različice",
-            "description": "Omogoči odhodno preverjanje, da ugotoviš, ali je na voljo novejša različica Frigate."
+            "description": "Omogoči odhodno preverjanje, da ugotoviš, ali je na voljo novejša različica AMSS."
         }
     },
     "tls": {
         "label": "TLS",
-        "description": "Nastavitve TLS za spletne dostopne točke Frigate (vrata 8971).",
+        "description": "Nastavitve TLS za spletne dostopne točke AMSS (vrata 8971).",
         "enabled": {
             "label": "Omogoči TLS",
-            "description": "Omogoči TLS za spletni vmesnik in API Frigate na konfiguriranih vratih TLS."
+            "description": "Omogoči TLS za spletni vmesnik in API AMSS na konfiguriranih vratih TLS."
         }
     },
     "ui": {
@@ -1216,7 +1216,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1275,7 +1275,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1342,7 +1342,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1409,7 +1409,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1468,7 +1468,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1527,7 +1527,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1586,7 +1586,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1645,7 +1645,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1704,7 +1704,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1763,7 +1763,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1818,7 +1818,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1873,7 +1873,7 @@
                 "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
                 "path": {
                     "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
                 },
                 "labelmap_path": {
                     "label": "Pot do labelmap datoteke za detektor po meri",
@@ -1994,7 +1994,7 @@
         "description": "Nastavitve za konfiguracijo modela za zaznavanje objektov po meri in njegove vhodne oblike.",
         "path": {
             "label": "Pot do modela za zaznavanje objektov po meri",
-            "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele Frigate+)."
+            "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
         },
         "labelmap_path": {
             "label": "Pot do labelmap datoteke za detektor po meri",
@@ -2186,7 +2186,7 @@
         },
         "dashboard": {
             "label": "Prikaži v vmesniku",
-            "description": "Preklopi vidljivost kamere v Frigate vmesniku. Če to izklopiš, boš moral ročno urediti konfiguracijo, da jo spet vidiš."
+            "description": "Preklopi vidljivost kamere v AMSS vmesniku. Če to izklopiš, boš moral ročno urediti konfiguracijo, da jo spet vidiš."
         }
     }
 }

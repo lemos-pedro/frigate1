@@ -130,7 +130,7 @@
       "failure": "Viga kaamera '{{cameraName}}' salvestamisel."
     },
     "title": "Lisa kaamera",
-    "description": "Uue kaamera lisamiseks oma Frigate paigaldisesse järgige alltoodud samme."
+    "description": "Uue kaamera lisamiseks oma AMSS paigaldisesse järgige alltoodud samme."
   },
   "users": {
     "updatePassword": "Lähtesta salasõna",
@@ -245,22 +245,22 @@
     }
   },
   "documentTitle": {
-    "default": "Seadistused - Frigate",
-    "authentication": "Autentimise seaded - Frigate",
-    "cameraReview": "Kaamerate kordusvaatuste seaded - Frigate",
-    "general": "Profiili seaded - Frigate",
-    "frigatePlus": "Frigate+ seaded - Frigate",
-    "notifications": "Teavituste seaded - Frigate",
-    "cameraManagement": "Kaamerate haldus - Frigate",
-    "masksAndZones": "Maskide ja tsoonide haldus - Frigate",
-    "object": "Silumine ja veaotsing - Frigate",
-    "enrichments": "Rikastamise seaded - Frigate",
-    "motionTuner": "Liikumise häälestaja – Frigate",
-    "globalConfig": "Globaalsed seaded – Frigate",
-    "cameraConfig": "Kaamera seaded - Frigate",
-    "detectorsAndModel": "Detektorid ja mudel – Frigate",
-    "maintenance": "Hooldus – Frigate",
-    "profiles": "Profiilid - Frigate"
+    "default": "Seadistused - AMSS",
+    "authentication": "Autentimise seaded - AMSS",
+    "cameraReview": "Kaamerate kordusvaatuste seaded - AMSS",
+    "general": "Profiili seaded - AMSS",
+    "frigatePlus": "AMSS+ seaded - AMSS",
+    "notifications": "Teavituste seaded - AMSS",
+    "cameraManagement": "Kaamerate haldus - AMSS",
+    "masksAndZones": "Maskide ja tsoonide haldus - AMSS",
+    "object": "Silumine ja veaotsing - AMSS",
+    "enrichments": "Rikastamise seaded - AMSS",
+    "motionTuner": "Liikumise häälestaja – AMSS",
+    "globalConfig": "Globaalsed seaded – AMSS",
+    "cameraConfig": "Kaamera seaded - AMSS",
+    "detectorsAndModel": "Detektorid ja mudel – AMSS",
+    "maintenance": "Hooldus – AMSS",
+    "profiles": "Profiilid - AMSS"
   },
   "general": {
     "title": "Kasutajaliidese seadistused",
@@ -332,10 +332,10 @@
     }
   },
   "frigatePlus": {
-    "title": "Frigate+ seadistused",
-    "unsavedChanges": "Frigate+ seadistuste muudatused on salvestamata",
+    "title": "AMSS+ seadistused",
+    "unsavedChanges": "AMSS+ seadistuste muudatused on salvestamata",
     "toast": {
-      "success": "Frigate+ seadistuste muudatused on salvestatud. Muudatuste kasutuselevõtmiseks käivita Frigate uuesti."
+      "success": "AMSS+ seadistuste muudatused on salvestatud. Muudatuste kasutuselevõtmiseks käivita AMSS uuesti."
     },
     "snapshotConfig": {
       "title": "Hetkvõtte seadistused",
@@ -424,7 +424,7 @@
     "users": "Kasutajad",
     "roles": "Rollid",
     "notifications": "Teavitused",
-    "frigateplus": "Frigate+",
+    "frigateplus": "AMSS+",
     "cameraReview": "Ülevaatamine",
     "profiles": "Profiilid",
     "integrationLpr": "Sõidukite numbrimärkide tuvastus",
@@ -541,7 +541,7 @@
     "title": "Andmerikastuse seaded",
     "restart_required": "Taaskäivitamine on vajalik (Andmerikastuse seadeid on muudetud)",
     "toast": {
-      "success": "Andmerikastamise seaded on salvestatud. Muudatuste rakendamiseks taaskäivitage Frigate.",
+      "success": "Andmerikastamise seaded on salvestatud. Muudatuste rakendamiseks taaskäivitage AMSS.",
       "error": "Seadete muudatuste salvestamine ebaõnnestus: {{errorMessage}}"
     }
   },
@@ -553,7 +553,7 @@
     },
     "object_descriptions": {
       "title": "Generatiivse tehisaru objektikirjeldused",
-      "desc": "Luba/keela ajutiselt selle kaamera jaoks generatiivse tehisaru objektikirjeldused kuni Frigate'i taaskäivitamiseni. Kui see on keelatud, ei küsita selle kaamera jälgitavate objektide kohta tehisintellekti poolt loodud kirjeldusi."
+      "desc": "Luba/keela ajutiselt selle kaamera jaoks generatiivse tehisaru objektikirjeldused kuni AMSS'i taaskäivitamiseni. Kui see on keelatud, ei küsita selle kaamera jälgitavate objektide kohta tehisintellekti poolt loodud kirjeldusi."
     },
     "review_descriptions": {
       "title": "Generatiivne tehisaru ülevaatamisele kuuluva sisu kirjedlused"

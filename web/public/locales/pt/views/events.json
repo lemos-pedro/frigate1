@@ -18,9 +18,9 @@
   },
   "timeline.aria": "Selecione a linha do tempo",
   "alerts": "Alertas",
-  "documentTitle": "Análise - Frigate",
+  "documentTitle": "Análise - AMSS",
   "recordings": {
-    "documentTitle": "Frigate - Gravações"
+    "documentTitle": "AMSS - Gravações"
   },
   "calendarFilter": {
     "last24Hours": "Últimas 24 horas"

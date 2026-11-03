@@ -14,7 +14,7 @@
     "scoreInfo": "점수는 각 이미지에서 얼굴의 크기를 가중치로 적용하여 모든 얼굴 점수의 평균을 낸 값입니다."
   },
   "selectItem": "{{item}} 선택",
-  "documentTitle": "얼굴 라이브러리 - Frigate",
+  "documentTitle": "얼굴 라이브러리 - AMSS",
   "uploadFaceImage": {
     "title": "얼굴 사진 올리기",
     "desc": "얼굴을 스캔하고 {{pageToggle}}에 포함하기 위해 이미지를 업로드하세요"

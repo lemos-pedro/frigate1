@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Er du sikker på, at du vil genstarte Frigate?",
+    "title": "Er du sikker på, at du vil genstarte AMSS?",
     "button": "Genstart",
     "restarting": {
-      "title": "Frigate genstarter",
+      "title": "AMSS genstarter",
       "button": "Gennemtving genindlæsning nu",
       "content": "Denne side genindlæses om {{countdown}} sekunder."
     },
-    "description": "Dette vil kortvarigt stoppe Frigate under genstart."
+    "description": "Dette vil kortvarigt stoppe AMSS under genstart."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Indsend til Frigate+",
+        "label": "Indsend til AMSS+",
         "desc": "Objekter på steder, du ønsker at undgå, er ikke falske positiver. Hvis du indsender dem som falske positiver, vil det forvirre modellen."
       },
       "review": {
         "question": {
-          "label": "Bekræft denne etiket til Frigate Plus",
+          "label": "Bekræft denne etiket til AMSS Plus",
           "ask_a": "Er dette objekt et <code>{{label}}</code>?",
           "ask_an": "Er dette objekt en <code>{{label}}</code>?",
           "ask_full": "Er dette objekt en <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -26,7 +26,7 @@
           "submitted": "Indsendt"
         },
         "toast": {
-          "error": "Fejl under indsendelse til Frigate+. Kontroller venligst din netværksforbindelse og prøv igen."
+          "error": "Fejl under indsendelse til AMSS+. Kontroller venligst din netværksforbindelse og prøv igen."
         }
       }
     },

@@ -1,6 +1,6 @@
 import { IconName } from "@/components/icons/IconPicker";
 import SkunkIcon from "@/components/icons/SkunkIcon";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { EventType } from "@/types/search";
 import { BsPersonWalking } from "react-icons/bs";
 import {
@@ -49,7 +49,7 @@ import { MdRecordVoiceOver } from "react-icons/md";
 import { PiBirdFill } from "react-icons/pi";
 import { HiMiniTruck } from "react-icons/hi2";
 
-export function getAttributeLabels(config?: FrigateConfig) {
+export function getAttributeLabels(config?: AmssConfig) {
   if (!config) {
     return [];
   }

@@ -23,8 +23,8 @@
   "estimatedSpeed": "ความเร็วโดยประมาณ {{unit}}",
   "features": {
     "label": "คุณสมบัติ",
-    "submittedToFrigatePlus": {
-      "label": "ส่งไปยัง Frigate+",
+    "submittedToAMSSPlus": {
+      "label": "ส่งไปยัง AMSS+",
       "tips": "คุณต้องกรองครั้งแรกบนวัตถุที่มีภาพ. <br /><br /> วัตถุที่ไม่มีภาพไม่สามารถส่งออกได้."
     },
     "hasSnapshot": "มีภาพ",

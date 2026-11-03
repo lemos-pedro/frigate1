@@ -5,11 +5,11 @@
     },
     "safe_mode": {
         "label": "안전 모드",
-        "description": "활성화하면 문제 해결을 위해 기능이 제한된 안전 모드로 Frigate를 시작합니다."
+        "description": "활성화하면 문제 해결을 위해 기능이 제한된 안전 모드로 AMSS를 시작합니다."
     },
     "environment_vars": {
         "label": "환경 변수",
-        "description": "Home Assistant OS에서 Frigate 프로세스에 설정할 환경 변수의 키/값 쌍입니다. HAOS가 아닌 사용자는 대신 Docker 환경 변수 설정을 사용해야 합니다."
+        "description": "Home Assistant OS에서 AMSS 프로세스에 설정할 환경 변수의 키/값 쌍입니다. HAOS가 아닌 사용자는 대신 Docker 환경 변수 설정을 사용해야 합니다."
     },
     "logger": {
         "label": "로깅",
@@ -53,7 +53,7 @@
         "description": "쿠키 및 속도 제한 옵션을 포함한 인증 및 세션 관련 설정입니다.",
         "enabled": {
             "label": "인증 활성화",
-            "description": "Frigate UI에 대한 기본 인증을 활성화합니다."
+            "description": "AMSS UI에 대한 기본 인증을 활성화합니다."
         },
         "reset_admin_password": {
             "label": "관리자 비밀번호 재설정",
@@ -101,7 +101,7 @@
         "description": "추적된 객체 및 녹화 메타데이터를 저장하는 SQLite 데이터베이스 설정입니다.",
         "path": {
             "label": "데이터베이스 경로",
-            "description": "Frigate SQLite 데이터베이스 파일이 저장될 파일 시스템 경로입니다."
+            "description": "AMSS SQLite 데이터베이스 파일이 저장될 파일 시스템 경로입니다."
         }
     },
     "go2rtc": {
@@ -125,7 +125,7 @@
         },
         "topic_prefix": {
             "label": "토픽 접두사",
-            "description": "Frigate의 모든 MQTT 메시지에 사용할 접두사입니다. 여러 대의 Frigate를 실행하는 경우 각각 고유한 이름을 사용해야 합니다."
+            "description": "AMSS의 모든 MQTT 메시지에 사용할 접두사입니다. 여러 대의 AMSS를 실행하는 경우 각각 고유한 이름을 사용해야 합니다."
         },
         "client_id": {
             "label": "클라이언트 ID",
@@ -186,13 +186,13 @@
     },
     "networking": {
         "label": "네트워킹",
-        "description": "Frigate 엔드포인트에 대한 IPv6 활성화와 같은 네트워크 관련 설정입니다.",
+        "description": "AMSS 엔드포인트에 대한 IPv6 활성화와 같은 네트워크 관련 설정입니다.",
         "ipv6": {
             "label": "IPv6 구성",
-            "description": "Frigate 네트워크 서비스에 대한 IPv6 관련 설정입니다.",
+            "description": "AMSS 네트워크 서비스에 대한 IPv6 관련 설정입니다.",
             "enabled": {
                 "label": "IPv6 활성화",
-                "description": "Frigate 서비스(API 및 UI)에 IPv6 지원이 필요한 경우 활성화하십시오."
+                "description": "AMSS 서비스(API 및 UI)에 IPv6 지원이 필요한 경우 활성화하십시오."
             }
         }
     }

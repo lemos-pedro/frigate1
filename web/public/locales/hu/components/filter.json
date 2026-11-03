@@ -54,9 +54,9 @@
   "estimatedSpeed": "Becsült Sebesség {{unit}}",
   "features": {
     "hasSnapshot": "Van pillanatképe",
-    "submittedToFrigatePlus": {
-      "label": "Elküldve a Frigate+-hoz",
-      "tips": "Először szűrjön azokra a követett objektumokra, amelyek rendelkeznek pillanatképpel.<br /><br />A pillanatkép nélküli követett objektumokat nem lehet beküldeni a Frigate+ rendszerébe."
+    "submittedToAMSSPlus": {
+      "label": "Elküldve a AMSS+-hoz",
+      "tips": "Először szűrjön azokra a követett objektumokra, amelyek rendelkeznek pillanatképpel.<br /><br />A pillanatkép nélküli követett objektumokat nem lehet beküldeni a AMSS+ rendszerébe."
     },
     "label": "Funkciók",
     "hasVideoClip": "Van videója"

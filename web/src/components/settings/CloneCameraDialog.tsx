@@ -42,7 +42,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { isReplayCamera, processCameraName } from "@/utils/cameraUtil";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { AmssConfig } from "@/types/amssConfig";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
@@ -88,7 +88,7 @@ export default function CloneCameraDialog({
   onClose,
 }: CloneCameraDialogProps) {
   const { t } = useTranslation(["views/settings", "common"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { data: rawPaths } = useSWR<RawCameraPaths>("config/raw_paths");
   const [isSubmitting, setIsSubmitting] = useState(false);
 

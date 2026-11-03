@@ -14,7 +14,7 @@ import {
   LuPlus,
 } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { AmssConfig } from "@/types/amssConfig";
 import type { JsonObject } from "@/types/configForm";
 import type { ProfileState, ProfilesApiResponse } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
@@ -76,7 +76,7 @@ export default function ProfilesView({
   const { t } = useTranslation(["views/settings", "common"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<FrigateConfig>("config");
+    useSWR<AmssConfig>("config");
   const { data: profilesData, mutate: updateProfiles } =
     useSWR<ProfilesApiResponse>("profiles");
 

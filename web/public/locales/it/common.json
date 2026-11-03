@@ -15,7 +15,7 @@
     "second_one": "{{time}} secondo",
     "second_many": "{{time}} secondi",
     "second_other": "{{time}} secondi",
-    "untilForRestart": "Fino al riavvio di Frigate.",
+    "untilForRestart": "Fino al riavvio di AMSS.",
     "ago": "{{timeAgo}} fa",
     "justNow": "Adesso",
     "today": "Oggi",
@@ -257,9 +257,9 @@
     "help": "Aiuto",
     "documentation": {
       "title": "Documentazione",
-      "label": "Documentazione di Frigate"
+      "label": "Documentazione di AMSS"
     },
-    "restart": "Riavvia Frigate",
+    "restart": "Riavvia AMSS",
     "review": "Revisiona",
     "explore": "Esplora",
     "export": "Esporta",
@@ -296,16 +296,16 @@
     "title": "Ruolo",
     "admin": "Amministratore",
     "viewer": "Visualizzatore",
-    "desc": "Gli amministratori hanno accesso completo a tutte le funzionalità dell'interfaccia utente di Frigate. I visualizzatori possono visualizzare solo le telecamere, gli elementi di revisione e i filmati storici nell'interfaccia utente."
+    "desc": "Gli amministratori hanno accesso completo a tutte le funzionalità dell'interfaccia utente di AMSS. I visualizzatori possono visualizzare solo le telecamere, gli elementi di revisione e i filmati storici nell'interfaccia utente."
   },
   "accessDenied": {
     "desc": "Non hai i permessi per visualizzare questa pagina.",
-    "documentTitle": "Accesso vietato - Frigate",
+    "documentTitle": "Accesso vietato - AMSS",
     "title": "Accesso vietato"
   },
   "notFound": {
     "desc": "Pagina non trovata",
-    "documentTitle": "Non trovato - Frigate",
+    "documentTitle": "Non trovato - AMSS",
     "title": "404"
   },
   "toast": {
@@ -331,7 +331,7 @@
   },
   "field": {
     "optional": "Opzionale",
-    "internalID": "L'ID interno che Frigate utilizza nella configurazione e nel database"
+    "internalID": "L'ID interno che AMSS utilizza nella configurazione e nel database"
   },
   "no_items": "Nessun elemento",
   "validation_errors": "Errori di convalida",

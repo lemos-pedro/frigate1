@@ -1,25 +1,24 @@
-This is the Frigate frontend which connects to and provides a User Interface to the Python backend.
+# AMSS Monitoring System
 
-# Web Development
+preciso inicialmente mudar toda identidade visual desta plataforma , e tbm retirar tudo relacionado a frigate e ficar apenas AMSS ( ANTOSC MONITORING & SUREILANCE SYSTEM )
 
-## Installing Web Dependencies Via NPM
+This project was built with [Lovable](https://lovable.dev).
 
-Within `/web`, run:
+## Build with Lovable
 
-```bash
-npm install
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/cea43a52-2c30-4d20-9000-7777b480354f).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
-
-## Running development frontend
-
-Within `/web`, run:
-
-```bash
-PROXY_HOST=<ip_address:port> npm run dev
-```
-
-The Proxy Host can point to your existing Frigate instance. Otherwise defaults to `localhost:5000` if running Frigate on the same machine.
-
-## Extensions
-Install these IDE extensions for an improved development experience:
-- eslint

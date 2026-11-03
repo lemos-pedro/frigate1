@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Aucun enregistrement trouvé pour cette période",
   "noPreviewFoundFor": "Aucun aperçu trouvé pour {{cameraName}}",
   "noPreviewFound": "Aucun aperçu trouvé",
-  "submitFrigatePlus": {
-    "title": "Soumettre cette image à Frigate+ ?",
+  "submitAMSSPlus": {
+    "title": "Soumettre cette image à AMSS+ ?",
     "submit": "Soumettre",
     "previewError": "Impossible de télécharger le snapshot. L'enregistrement ne pas disponible sur cette période."
   },
@@ -43,10 +43,10 @@
   },
   "toast": {
     "error": {
-      "submitFrigatePlusFailed": "Échec de la soumission de l'image à Frigate+"
+      "submitAMSSPlusFailed": "Échec de la soumission de l'image à AMSS+"
     },
     "success": {
-      "submittedFrigatePlus": "Image soumise avec succès à Frigate+"
+      "submittedAMSSPlus": "Image soumise avec succès à AMSS+"
     }
   }
 }

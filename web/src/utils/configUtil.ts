@@ -20,7 +20,7 @@ import {
   sanitizeOverridesForSection,
 } from "@/components/config-form/sections/section-special-cases";
 import type { RJSFSchema } from "@rjsf/utils";
-import type { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
+import type { CameraConfig, AmssConfig } from "@/types/amssConfig";
 import type {
   ConfigSectionData,
   HiddenFieldContext,
@@ -110,7 +110,7 @@ export const globalCameraDefaultSections = new Set([
  * back to the top-level (effective) value otherwise.
  */
 export function getBaseCameraSectionValue(
-  config: FrigateConfig | undefined,
+  config: AmssConfig | undefined,
   cameraName: string | undefined,
   sectionPath: string,
 ): unknown {
@@ -373,7 +373,7 @@ export function buildConfigDataForPath(
 // requiresRestartForOverrides — determine whether a restart is needed
 // ---------------------------------------------------------------------------
 
-// Check whether the given overrides include fields that require a Frigate
+// Check whether the given overrides include fields that require a AMSS
 // restart.  When `restartRequired` is `undefined` the caller's default is
 // used; an empty array means "never restart"; otherwise the function checks
 // if any of the listed field paths are present in the overrides object.
@@ -566,7 +566,7 @@ function extractSectionSchema(
 export function prepareSectionSavePayload(opts: {
   pendingDataKey: string;
   pendingData: unknown;
-  config: FrigateConfig;
+  config: AmssConfig;
   fullSchema: RJSFSchema;
 }): SectionSavePayload | null {
   const { pendingDataKey, pendingData, config, fullSchema } = opts;
@@ -792,7 +792,7 @@ export function getSectionConfig(
  * scope and for non-LPR cameras.
  */
 export function getEffectiveAttributeLabels(
-  fullConfig: FrigateConfig | undefined,
+  fullConfig: AmssConfig | undefined,
   fullCameraConfig: CameraConfig | undefined,
   level: "global" | "camera" | "replay" | undefined,
 ): string[] {
@@ -811,7 +811,7 @@ export function getEffectiveAttributeLabels(
  * `fullConfig`.
  */
 export function buildHiddenFieldContext(
-  config: FrigateConfig | undefined,
+  config: AmssConfig | undefined,
   level: "global" | "camera" | "replay",
   cameraName?: string,
 ): HiddenFieldContext | undefined {

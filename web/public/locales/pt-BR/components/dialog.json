@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Você tem certeza que deseja reiniciar o Frigate?",
+    "title": "Você tem certeza que deseja reiniciar o AMSS?",
     "button": "Reiniciar",
     "restarting": {
-      "title": "Frigate está Reiniciando",
+      "title": "AMSS está Reiniciando",
       "content": "Essa página vai recarregar em {{countdown}} segundos.",
       "button": "Forçar Recarregar Agora"
     },
-    "description": "Isto irá parar brevemente o Frigate enquanto reinicia."
+    "description": "Isto irá parar brevemente o AMSS enquanto reinicia."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Enviar para Frigate+",
+        "label": "Enviar para AMSS+",
         "desc": "Objetos nos lugares que você quer evitar não são falsos positivos. Enviá-los como falsos positivos confundirá o modelo."
       },
       "review": {
         "question": {
-          "label": "Confirmar esse rótulo para Frigate Plus",
+          "label": "Confirmar esse rótulo para AMSS Plus",
           "ask_a": "Este objeto é um <code>{{label}}</code>?",
           "ask_an": "Este objeto é um <code>{{label}}</code>?",
           "ask_full": "Este objeto é um <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -26,7 +26,7 @@
           "submitted": "Enviado"
         },
         "toast": {
-          "error": "Falha ao enviar para o Frigate+. Verifique sua conexão de rede e tente novamente."
+          "error": "Falha ao enviar para o AMSS+. Verifique sua conexão de rede e tente novamente."
         }
       }
     },
@@ -191,10 +191,10 @@
     "shareTimestamp": {
       "label": "Compartilhar marca de tempo",
       "title": "Compartilhar marca de tempo",
-      "description": "Compartilhe uma URL com marca de tempo da posição atual da reprodução ou escolha uma marca de tempo personalizada. Observe que esta não é uma URL de compartilhamento público e só pode ser acessada por usuários que tenham acesso ao Frigate e a esta câmera.",
+      "description": "Compartilhe uma URL com marca de tempo da posição atual da reprodução ou escolha uma marca de tempo personalizada. Observe que esta não é uma URL de compartilhamento público e só pode ser acessada por usuários que tenham acesso ao AMSS e a esta câmera.",
       "custom": "Marcação de data/hora personalizado",
       "button": "Compartilhar URL com marcação de tempo",
-      "shareTitle": "Marcação de data/hora da análise do Frigate: {{camera}}"
+      "shareTitle": "Marcação de data/hora da análise do AMSS: {{camera}}"
     }
   },
   "imagePicker": {

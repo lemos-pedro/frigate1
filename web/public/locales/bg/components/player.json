@@ -32,8 +32,8 @@
     "desc": "Не са получени кадри в потока за <code>разпознаване</code> на {{cameraName}}, проверете лог файловете за грешки",
     "title": "Потокът е офлайн"
   },
-  "submitFrigatePlus": {
-    "title": "Да се изпрати ли този кадър към Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Да се изпрати ли този кадър към AMSS+?",
     "submit": "Изпрати",
     "previewError": "Не можe да се зареди предварителен преглед на моментната снимка. Записът може да не е наличен в момента."
   },
@@ -43,10 +43,10 @@
   "cameraDisabled": "Камерата е изключена",
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Успешно изпратен кадър към Frigate+"
+      "submittedAMSSPlus": "Успешно изпратен кадър към AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Неуспешно изпратен кадър към Frigate+"
+      "submitAMSSPlusFailed": "Неуспешно изпратен кадър към AMSS+"
     }
   },
   "cameraOff": "Камерата е изключена"

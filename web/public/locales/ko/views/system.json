@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "카메라 통계 - Frigate",
-    "storage": "저장소 통계 - Frigate",
-    "general": "기본 통계 - Frigate",
-    "enrichments": "데이터 보강 통계 - Frigate",
+    "cameras": "카메라 통계 - AMSS",
+    "storage": "저장소 통계 - AMSS",
+    "general": "기본 통계 - AMSS",
+    "enrichments": "데이터 보강 통계 - AMSS",
     "logs": {
-      "frigate": "Frigate 로그 -Frigate",
-      "go2rtc": "Go2RTC 로그 - Frigate",
-      "nginx": "Nginx 로그 - Frigate",
-      "websocket": "메세지 로그 - Frigate"
+      "frigate": "AMSS 로그 -AMSS",
+      "go2rtc": "Go2RTC 로그 - AMSS",
+      "nginx": "Nginx 로그 - AMSS",
+      "websocket": "메세지 로그 - AMSS"
     }
   },
   "title": "시스템",
@@ -113,7 +113,7 @@
     "overview": "전체 현황",
     "recordings": {
       "title": "녹화",
-      "tips": "이 값은 Frigate 데이터베이스의 녹화 영상이 사용 중인 전체 저장 공간입니다. Frigate는 디스크 내 다른 파일들의 저장 공간은 추적하지 않습니다.",
+      "tips": "이 값은 AMSS 데이터베이스의 녹화 영상이 사용 중인 전체 저장 공간입니다. AMSS는 디스크 내 다른 파일들의 저장 공간은 추적하지 않습니다.",
       "earliestRecording": "가장 오래된 녹화 영상:"
     },
     "cameraStorage": {
@@ -125,7 +125,7 @@
       "bandwidth": "대역폭",
       "unused": {
         "title": "미사용",
-        "tips": "드라이브에 Frigate 녹화 영상 외에 다른 파일이 저장되어 있는 경우, 이 값은 Frigate에서 실제 사용 가능한 여유 공간을 정확히 나타내지 않을 수 있습니다. Frigate는 녹화 영상 외의 저장 공간 사용량을 추적하지 않습니다."
+        "tips": "드라이브에 AMSS 녹화 영상 외에 다른 파일이 저장되어 있는 경우, 이 값은 AMSS에서 실제 사용 가능한 여유 공간을 정확히 나타내지 않을 수 있습니다. AMSS는 녹화 영상 외의 저장 공간 사용량을 추적하지 않습니다."
       }
     },
     "shm": {

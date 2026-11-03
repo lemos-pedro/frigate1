@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import { FrigateStats, GpuInfo, GpuStats } from "@/types/stats";
+import { AmssStats, GpuInfo, GpuStats } from "@/types/stats";
 import { startTransition, useEffect, useMemo, useState } from "react";
-import { useFrigateStats } from "@/api/ws";
+import { useAmssStats } from "@/api/ws";
 import {
   DetectorCpuThreshold,
   DetectorMemThreshold,
@@ -39,7 +39,7 @@ export default function GeneralMetrics({
 
   // stats
 
-  const { data: initialStats, mutate: refreshStats } = useSWR<FrigateStats[]>(
+  const { data: initialStats, mutate: refreshStats } = useSWR<AmssStats[]>(
     [
       "stats/history",
       {
@@ -51,8 +51,8 @@ export default function GeneralMetrics({
     },
   );
 
-  const [statsHistory, setStatsHistory] = useState<FrigateStats[]>([]);
-  const updatedStats = useFrigateStats();
+  const [statsHistory, setStatsHistory] = useState<AmssStats[]>([]);
+  const updatedStats = useAmssStats();
 
   useEffect(() => {
     if (initialStats == undefined || initialStats.length == 0) {

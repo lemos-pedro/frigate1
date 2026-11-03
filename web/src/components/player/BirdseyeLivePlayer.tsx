@@ -1,5 +1,5 @@
 import WebRtcPlayer from "./WebRTCPlayer";
-import { BirdseyeConfig } from "@/types/frigateConfig";
+import { BirdseyeConfig } from "@/types/amssConfig";
 import ActivityIndicator from "../indicators/activity-indicator";
 import JSMpegPlayer from "./JSMpegPlayer";
 import MSEPlayer from "./MsePlayer";

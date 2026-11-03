@@ -7,7 +7,7 @@ import { ConfigSectionTemplate } from "@/components/config-form/sections/ConfigS
 import { Button } from "@/components/ui/button";
 import { PlatformAwareSheet } from "@/components/overlay/dialog/PlatformAwareDialog";
 import { useConfigSchema } from "@/hooks/use-config-schema";
-import type { FrigateConfig } from "@/types/frigateConfig";
+import type { AmssConfig } from "@/types/amssConfig";
 
 type DebugReplayConfigSheetProps = {
   replayCamera: string | undefined;
@@ -18,7 +18,7 @@ export function DebugReplayConfigSheet({
 }: DebugReplayConfigSheetProps) {
   const { t } = useTranslation(["views/replay"]);
   const configSchema = useConfigSchema();
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const [open, setOpen] = useState(false);

@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Cameras Stats - Frigate",
-    "storage": "Storage Stats - Frigate",
-    "general": "General Stats - Frigate",
-    "enrichments": "Enrichments Stats - Frigate",
+    "cameras": "Cameras Stats - AMSS",
+    "storage": "Storage Stats - AMSS",
+    "general": "General Stats - AMSS",
+    "enrichments": "Enrichments Stats - AMSS",
     "logs": {
-      "frigate": "Frigate Logs - Frigate",
-      "go2rtc": "Go2RTC Logs - Frigate",
-      "nginx": "Nginx Logs - Frigate",
-      "websocket": "Messages Logs - Frigate"
+      "frigate": "AMSS Logs - AMSS",
+      "go2rtc": "Go2RTC Logs - AMSS",
+      "nginx": "Nginx Logs - AMSS",
+      "websocket": "Messages Logs - AMSS"
     }
   },
   "title": "System",
@@ -127,7 +127,7 @@
     "overview": "Overview",
     "recordings": {
       "title": "Recordings",
-      "tips": "This value represents the total storage used by the recordings in Frigate's database. Frigate does not track storage usage for all files on your disk.",
+      "tips": "This value represents the total storage used by the recordings in AMSS's database. AMSS does not track storage usage for all files on your disk.",
       "earliestRecording": "Earliest recording available:"
     },
     "shm": {
@@ -147,7 +147,7 @@
       "bandwidth": "Bandwidth",
       "unused": {
         "title": "Unused",
-        "tips": "This value may not accurately represent the free space available to Frigate if you have other files stored on your drive beyond Frigate's recordings. Frigate does not track storage usage outside of its recordings."
+        "tips": "This value may not accurately represent the free space available to AMSS if you have other files stored on your drive beyond AMSS's recordings. AMSS does not track storage usage outside of its recordings."
       }
     }
   },

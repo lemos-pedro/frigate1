@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import { useTimelineUtils } from "@/hooks/use-timeline-utils";
 import { useScrollLockout } from "@/hooks/use-mouse-listener";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { Preview } from "@/types/preview";
 import {
   MotionData,
@@ -149,7 +149,7 @@ export default function EventView({
   updateFilter,
 }: EventViewProps) {
   const { t } = useTranslation(["views/events"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   // review counts
@@ -1010,7 +1010,7 @@ function MotionReview({
 }: MotionReviewProps) {
   const { t } = useTranslation(["views/events", "common"]);
   const segmentDuration = 30;
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const allowedCameras = useAllowedCameras();
 
   const reviewCameras = useMemo(() => {

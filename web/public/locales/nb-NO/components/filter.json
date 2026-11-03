@@ -12,9 +12,9 @@
   },
   "features": {
     "hasVideoClip": "Har et videoklipp",
-    "submittedToFrigatePlus": {
-      "label": "Sendt til Frigate+",
-      "tips": "Du må først filtrere på sporede objekter som har et stillbilde.<br /><br />Sporede objekter uten et stillbilde kan ikke sendes til Frigate+."
+    "submittedToAMSSPlus": {
+      "label": "Sendt til AMSS+",
+      "tips": "Du må først filtrere på sporede objekter som har et stillbilde.<br /><br />Sporede objekter uten et stillbilde kan ikke sendes til AMSS+."
     },
     "label": "Funksjoner",
     "hasSnapshot": "Har et stillbilde"

@@ -10,8 +10,8 @@ import useOptimisticState from "@/hooks/use-optimistic-state";
 import { cn } from "@/lib/utils";
 import {
   CustomClassificationModelConfig,
-  FrigateConfig,
-} from "@/types/frigateConfig";
+  AmssConfig,
+} from "@/types/amssConfig";
 import { ClassificationDatasetResponse } from "@/types/classification";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -58,7 +58,7 @@ export default function ModelSelectionView({
     setPage,
     100,
   );
-  const { data: config, mutate: refreshConfig } = useSWR<FrigateConfig>(
+  const { data: config, mutate: refreshConfig } = useSWR<AmssConfig>(
     "config",
     {
       revalidateOnFocus: false,

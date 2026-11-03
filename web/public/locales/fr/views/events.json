@@ -23,9 +23,9 @@
     "aria": "Sélectionner les événements",
     "noFoundForTimePeriod": "Aucun événement n'a été trouvé pour cette plage de temps."
   },
-  "documentTitle": "Activités - Frigate",
+  "documentTitle": "Activités - AMSS",
   "recordings": {
-    "documentTitle": "Enregistrements - Frigate"
+    "documentTitle": "Enregistrements - AMSS"
   },
   "calendarFilter": {
     "last24Hours": "Dernières 24 heures"

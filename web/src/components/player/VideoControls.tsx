@@ -21,7 +21,7 @@ import useKeyboardListener, {
   KeyModifiers,
 } from "@/hooks/use-keyboard-listener";
 import { VolumeSlider } from "../ui/slider";
-import FrigatePlusIcon from "../icons/FrigatePlusIcon";
+import AmssPlusIcon from "../icons/AmssPlusIcon";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -282,7 +282,7 @@ export default function VideoControls({
         </DropdownMenu>
       )}
       {features.plusUpload && onUploadFrame && (
-        <FrigatePlusUploadButton
+        <AmssPlusUploadButton
           video={video}
           onClose={() => {
             if (setControlsOpen) {
@@ -330,7 +330,7 @@ export default function VideoControls({
   );
 }
 
-type FrigatePlusUploadButtonProps = {
+type AmssPlusUploadButtonProps = {
   video?: HTMLVideoElement | null;
   onOpen: () => void;
   onClose: () => void;
@@ -339,7 +339,7 @@ type FrigatePlusUploadButtonProps = {
   containerRef?: React.MutableRefObject<HTMLDivElement | null>;
   fullscreen?: boolean;
 };
-function FrigatePlusUploadButton({
+function AmssPlusUploadButton({
   video,
   onOpen,
   onClose,
@@ -347,7 +347,7 @@ function FrigatePlusUploadButton({
   getSnapshotUrl,
   containerRef,
   fullscreen,
-}: FrigatePlusUploadButtonProps) {
+}: AmssPlusUploadButtonProps) {
   const { t } = useTranslation(["components/player"]);
 
   const [previewUrl, setPreviewUrl] = useState<string>();
@@ -362,7 +362,7 @@ function FrigatePlusUploadButton({
       }}
     >
       <AlertDialogTrigger asChild>
-        <FrigatePlusIcon
+        <AmssPlusIcon
           className="size-5 cursor-pointer"
           onClick={() => {
             onOpen();
@@ -399,12 +399,12 @@ function FrigatePlusUploadButton({
         className="md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
       >
         <AlertDialogHeader>
-          <AlertDialogTitle>{t("submitFrigatePlus.title")}</AlertDialogTitle>
+          <AlertDialogTitle>{t("submitAmssPlus.title")}</AlertDialogTitle>
         </AlertDialogHeader>
         {previewError ? (
           <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 text-center text-muted-foreground">
             <LuFolderX className="size-12" />
-            <span>{t("submitFrigatePlus.previewError")}</span>
+            <span>{t("submitAmssPlus.previewError")}</span>
           </div>
         ) : (
           <img
@@ -422,7 +422,7 @@ function FrigatePlusUploadButton({
             onClick={onUploadFrame}
             disabled={previewError}
           >
-            {t("submitFrigatePlus.submit")}
+            {t("submitAmssPlus.submit")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

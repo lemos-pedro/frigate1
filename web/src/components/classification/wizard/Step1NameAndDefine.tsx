@@ -24,7 +24,7 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { LuX, LuPlus, LuInfo, LuExternalLink } from "react-icons/lu";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { useDocDomain } from "@/hooks/use-doc-domain";
 import {
@@ -58,7 +58,7 @@ export default function Step1NameAndDefine({
   onCancel,
 }: Step1NameAndDefineProps) {
   const { t } = useTranslation(["views/classificationModel"]);
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
   const { getLocaleDocUrl } = useDocDomain();
 
   const objectLabels = useMemo(() => {

@@ -1,9 +1,9 @@
 {
   "restart": {
-    "title": "Ali si prepričan, da želiš ponovno zagnati Frigate?",
+    "title": "Ali si prepričan, da želiš ponovno zagnati AMSS?",
     "button": "Ponovni zagon",
     "restarting": {
-      "title": "Frigate se ponovno zaganja",
+      "title": "AMSS se ponovno zaganja",
       "content": "Stran se bo osvežila čez {{countdown}} sekund.",
       "button": "Prisili osvežitev zdaj"
     },
@@ -14,7 +14,7 @@
       "review": {
         "question": {
           "ask_full": "Je ta predmet <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Potrdi to oznako za Frigate Plus",
+          "label": "Potrdi to oznako za AMSS Plus",
           "ask_a": "Je ta predmet <code>{{label}}</code>?",
           "ask_an": "Je ta predmet <code>{{label}}</code>?"
         },
@@ -23,7 +23,7 @@
         }
       },
       "submitToPlus": {
-        "label": "Pošlji v Frigate+",
+        "label": "Pošlji v AMSS+",
         "desc": "Predmeti na lokacijah, ki se jim želiš izogniti, niso lažni zadetki. Če jih pošlješ kot lažne zadetke, boš zmedli model."
       }
     },

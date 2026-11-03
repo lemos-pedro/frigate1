@@ -48,8 +48,8 @@
       "label": "Намери подобни"
     },
     "submitToPlus": {
-      "label": "Изпрати към Frigate+",
-      "aria": "Изпрати към Frigate Plus"
+      "label": "Изпрати към AMSS+",
+      "aria": "Изпрати към AMSS Plus"
     },
     "viewInHistory": {
       "label": "Виж в история",

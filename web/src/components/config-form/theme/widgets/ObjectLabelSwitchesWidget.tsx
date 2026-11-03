@@ -3,7 +3,7 @@ import { WidgetProps } from "@rjsf/utils";
 import { SwitchesWidget } from "./SwitchesWidget";
 import { FormContext } from "./SwitchesWidget";
 import i18n, { getTranslatedLabel } from "@/utils/i18n";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { JsonObject } from "@/types/configForm";
 
 // Collect labelmap values (human-readable labels) from a labelmap object.
@@ -22,7 +22,7 @@ function collectLabelmapLabels(labelmap: unknown, labels: Set<string>) {
 // Read labelmap labels from the global model and detector models.
 function getLabelmapLabels(context: FormContext): string[] {
   const labels = new Set<string>();
-  const fullConfig = context.fullConfig as FrigateConfig | undefined;
+  const fullConfig = context.fullConfig as AmssConfig | undefined;
 
   if (fullConfig?.model) {
     collectLabelmapLabels(fullConfig.model.labelmap, labels);

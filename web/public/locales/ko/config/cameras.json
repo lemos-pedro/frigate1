@@ -6,7 +6,7 @@
     },
     "friendly_name": {
         "label": "별칭",
-        "description": "Frigate UI에서 사용되는 카메라 별칭"
+        "description": "AMSS UI에서 사용되는 카메라 별칭"
     },
     "enabled": {
         "label": "활성화됨",

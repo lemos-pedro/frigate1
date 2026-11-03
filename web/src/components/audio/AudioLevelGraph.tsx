@@ -6,7 +6,7 @@ import { useWs } from "@/api/ws";
 import { useDateLocale } from "@/hooks/use-date-locale";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import useSWR from "swr";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { useTranslation } from "react-i18next";
 import { useTimeFormat } from "@/hooks/use-date-utils";
 
@@ -23,7 +23,7 @@ export function AudioLevelGraph({ cameraName }: AudioLevelGraphProps) {
   const [maxDataPoints] = useState(50);
 
   // config for time formatting
-  const { data: config } = useSWR<FrigateConfig>("config", {
+  const { data: config } = useSWR<AmssConfig>("config", {
     revalidateOnFocus: false,
   });
   const locale = useDateLocale();

@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Estàs segur que vols reiniciar Frigate?",
+    "title": "Estàs segur que vols reiniciar AMSS?",
     "button": "Reiniciar",
     "restarting": {
-      "title": "Frigate s'està reiniciant",
+      "title": "AMSS s'està reiniciant",
       "content": "Aquesta pàgina es tornarà a carregar d'aquí a {{countdown}} segons.",
       "button": "Forçar la recàrrega ara"
     },
-    "description": "Això aturarà breument Frigate mentre es reinicia."
+    "description": "Això aturarà breument AMSS mentre es reinicia."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Enviar a Frigate+",
+        "label": "Enviar a AMSS+",
         "desc": "Els objectes a les ubicacions que voleu evitar no són falsos positius. Enviar-los com a falsos positius confondrà el model."
       },
       "review": {
         "question": {
-          "label": "Confirmar aquesta etiqueta per a Frigate Plus",
+          "label": "Confirmar aquesta etiqueta per a AMSS Plus",
           "ask_a": "Aquest objecte és un <code>{{label}}</code>?",
           "ask_an": "Aquest objecte és un <code>{{label}}</code>?",
           "ask_full": "Aquest objecte és un <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -26,7 +26,7 @@
           "submitted": "Enviat"
         },
         "toast": {
-          "error": "No s'ha pogut enviar a Frigate+. Si us plau, comproveu la vostra connexió de xarxa i torneu-ho a provar."
+          "error": "No s'ha pogut enviar a AMSS+. Si us plau, comproveu la vostra connexió de xarxa i torneu-ho a provar."
         }
       }
     },
@@ -192,10 +192,10 @@
     "shareTimestamp": {
       "label": "Comparteix la marca horària",
       "title": "Comparteix la marca horària",
-      "description": "Comparteix un URL amb marca horària de la posició actual del jugador o tria una marca horària personalitzada. Tingueu en compte que aquest no és un URL de compartició pública i només és accessible per als usuaris amb accés a Frigate i aquesta càmera.",
+      "description": "Comparteix un URL amb marca horària de la posició actual del jugador o tria una marca horària personalitzada. Tingueu en compte que aquest no és un URL de compartició pública i només és accessible per als usuaris amb accés a AMSS i aquesta càmera.",
       "custom": "Marca horària personalitzada",
       "button": "Comparteix l'URL de la marca horària",
-      "shareTitle": "Marca de temps de revisió de Frigate: {{camera}}"
+      "shareTitle": "Marca de temps de revisió de AMSS: {{camera}}"
     }
   },
   "imagePicker": {

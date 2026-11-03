@@ -37,7 +37,7 @@
     "second_many": "{{time}} segundos",
     "second_other": "{{time}} segundos",
     "untilForTime": "Até {{time}}",
-    "untilForRestart": "Até que o Frigate reinicie.",
+    "untilForRestart": "Até que o AMSS reinicie.",
     "untilRestart": "Até reiniciar",
     "ago": "há {{timeAgo}}",
     "d": "{{time}}d",
@@ -257,9 +257,9 @@
     "help": "Ajuda",
     "documentation": {
       "title": "Documentação",
-      "label": "Documentação do Frigate"
+      "label": "Documentação do AMSS"
     },
-    "restart": "Reiniciar Frigate",
+    "restart": "Reiniciar AMSS",
     "live": {
       "title": "Ao vivo",
       "allCameras": "Todas as Câmaras",
@@ -296,7 +296,7 @@
     "admin": "Administrador",
     "viewer": "Visualizador",
     "title": "Função",
-    "desc": "Os administradores têm acesso completo a todas as funcionalidades da IU do Frigate. Os visualizadores estão limitados a visualizar as câmeras, rever itens, e o histórico de gravaçoes na IU."
+    "desc": "Os administradores têm acesso completo a todas as funcionalidades da IU do AMSS. Os visualizadores estão limitados a visualizar as câmeras, rever itens, e o histórico de gravaçoes na IU."
   },
   "toast": {
     "copyUrlToClipboard": "URL copiado para a área de transferência.",
@@ -310,12 +310,12 @@
     }
   },
   "accessDenied": {
-    "documentTitle": "Frigate - Acesso Negado",
+    "documentTitle": "AMSS - Acesso Negado",
     "title": "Acesso Negado",
     "desc": "Não tem permissão para ver esta página."
   },
   "notFound": {
-    "documentTitle": "Frigate - Não Encontrado",
+    "documentTitle": "AMSS - Não Encontrado",
     "desc": "Página não encontrada",
     "title": "404"
   },
@@ -331,7 +331,7 @@
   },
   "field": {
     "optional": "Opcional",
-    "internalID": "o Frigate utiliza o ID na configuração e no banco de dados"
+    "internalID": "o AMSS utiliza o ID na configuração e no banco de dados"
   },
   "no_items": "Sem elementos",
   "validation_errors": "Erros de validação",

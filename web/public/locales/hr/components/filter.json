@@ -50,9 +50,9 @@
     "label": "Značajke",
     "hasSnapshot": "Ima snimku",
     "hasVideoClip": "Ima video isječak",
-    "submittedToFrigatePlus": {
-      "label": "Poslano na Frigate+",
-      "tips": "Prvo moraš filtrirati praćene objekte koji imaju snimku stanja.<br /><br />Praćeni objekti bez snimke stanja ne mogu se poslati Frigate+."
+    "submittedToAMSSPlus": {
+      "label": "Poslano na AMSS+",
+      "tips": "Prvo moraš filtrirati praćene objekte koji imaju snimku stanja.<br /><br />Praćeni objekti bez snimke stanja ne mogu se poslati AMSS+."
     }
   },
   "sort": {

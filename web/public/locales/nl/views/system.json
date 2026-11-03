@@ -1,15 +1,15 @@
 {
   "documentTitle": {
-    "general": "Algemene Statistieken - Frigate",
+    "general": "Algemene Statistieken - AMSS",
     "logs": {
-      "nginx": "Nginx Logboeken - Frigate",
-      "go2rtc": "Go2RTC Logboeken - Frigate",
-      "frigate": "Frigate Logboek - Frigate",
-      "websocket": "Berichten Logboeken - Frigate"
+      "nginx": "Nginx Logboeken - AMSS",
+      "go2rtc": "Go2RTC Logboeken - AMSS",
+      "frigate": "AMSS Logboek - AMSS",
+      "websocket": "Berichten Logboeken - AMSS"
     },
-    "storage": "Opslag Statistieken - Frigate",
-    "cameras": "Camera Statistieken - Frigate",
-    "enrichments": "Verrijkings Statistieken - Frigate"
+    "storage": "Opslag Statistieken - AMSS",
+    "cameras": "Camera Statistieken - AMSS",
+    "enrichments": "Verrijkings Statistieken - AMSS"
   },
   "title": "Systeem",
   "metrics": "Systeemstatistieken",
@@ -103,7 +103,7 @@
       "intelGpuWarning": {
         "title": "Waarschuwing Intel GPU-statistieken",
         "message": "GPU-statistieken niet beschikbaar",
-        "description": "Dit is een bekend probleem in de GPU-statistiekentools van Intel (intel_gpu_top). Deze raken defect en geven herhaaldelijk een GPU-gebruik van 0% weer, zelfs wanneer hardware-acceleratie en objectdetectie correct draaien op de (i)GPU. Dit is geen bug in Frigate. Je kunt de host opnieuw opstarten om het tijdelijk op te lossen en te controleren dat de GPU goed werkt. Dit heeft geen invloed op de prestaties."
+        "description": "Dit is een bekend probleem in de GPU-statistiekentools van Intel (intel_gpu_top). Deze raken defect en geven herhaaldelijk een GPU-gebruik van 0% weer, zelfs wanneer hardware-acceleratie en objectdetectie correct draaien op de (i)GPU. Dit is geen bug in AMSS. Je kunt de host opnieuw opstarten om het tijdelijk op te lossen en te controleren dat de GPU goed werkt. Dit heeft geen invloed op de prestaties."
       },
       "gpuTemperature": "GPU Temperatuur"
     },
@@ -126,7 +126,7 @@
     "recordings": {
       "title": "Opnames",
       "earliestRecording": "Oudste beschikbare opname:",
-      "tips": "Deze waarde laat het totale opslag ruimte gebruik voor opnames zien in de database van Frigate. Frigate houdt geen opslag gebruiks gegevens bij van alle bestanden op uw schijf."
+      "tips": "Deze waarde laat het totale opslag ruimte gebruik voor opnames zien in de database van AMSS. AMSS houdt geen opslag gebruiks gegevens bij van alle bestanden op uw schijf."
     },
     "cameraStorage": {
       "title": "Camera Opslag",
@@ -135,7 +135,7 @@
       "percentageOfTotalUsed": "Percentage van Totaal",
       "unused": {
         "title": "Ongebruikt",
-        "tips": "Deze waarde kan de beschikbare opslag ruimte voor Frigate niet goed weergeven indien er ook andere bestanden op de schijf staan. Frigate houdt geen opslag gegevens bij van bestanden buiten haar eigen opnames."
+        "tips": "Deze waarde kan de beschikbare opslag ruimte voor AMSS niet goed weergeven indien er ook andere bestanden op de schijf staan. AMSS houdt geen opslag gegevens bij van bestanden buiten haar eigen opnames."
       },
       "camera": "Camera",
       "bandwidth": "Bandbreedte"

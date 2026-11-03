@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Šiam laiko tarpui įrašų nerasta",
   "noPreviewFound": "Peržiūrų nerasta",
   "noPreviewFoundFor": "Peržiūrų nerasta {{cameraName}}",
-  "submitFrigatePlus": {
-    "title": "Pateikti šį kadrą į Frigate+?",
+  "submitAMSSPlus": {
+    "title": "Pateikti šį kadrą į AMSS+?",
     "submit": "Pateikti"
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 ar naujesni yra privalomi šiam tiesioginės transliacijos tipui.",
@@ -42,10 +42,10 @@
   },
   "toast": {
     "success": {
-      "submittedFrigatePlus": "Kadras sėkmingai pateiktas į Frigate+"
+      "submittedAMSSPlus": "Kadras sėkmingai pateiktas į AMSS+"
     },
     "error": {
-      "submitFrigatePlusFailed": "Nepavyko pateikti kadro į Frigate+"
+      "submitAMSSPlusFailed": "Nepavyko pateikti kadro į AMSS+"
     }
   }
 }

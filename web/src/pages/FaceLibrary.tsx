@@ -42,7 +42,7 @@ import useOptimisticState from "@/hooks/use-optimistic-state";
 import { cn } from "@/lib/utils";
 import { Event } from "@/types/event";
 import { FaceLibraryData } from "@/types/face";
-import { FrigateConfig } from "@/types/frigateConfig";
+import { AmssConfig } from "@/types/amssConfig";
 import { TooltipPortal } from "@radix-ui/react-tooltip";
 import axios from "axios";
 import {
@@ -77,7 +77,7 @@ import {
 export default function FaceLibrary() {
   const { t } = useTranslation(["views/faceLibrary"]);
 
-  const { data: config } = useSWR<FrigateConfig>("config");
+  const { data: config } = useSWR<AmssConfig>("config");
 
   // title
 
@@ -688,7 +688,7 @@ function LibrarySelector({
 }
 
 type TrainingGridProps = {
-  config: FrigateConfig;
+  config: AmssConfig;
   contentRef: MutableRefObject<HTMLDivElement | null>;
   attemptImages: string[];
   faceNames: string[];
@@ -823,7 +823,7 @@ function TrainingGrid({
 }
 
 type FaceAttemptGroupProps = {
-  config: FrigateConfig;
+  config: AmssConfig;
   group: ClassificationItemData[];
   event?: Event;
   faceNames: string[];
