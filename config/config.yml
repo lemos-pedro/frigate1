@@ -36,6 +36,7 @@ go2rtc:
     NEGRAO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
     COXI: rtsp://noc:QYXF84o2@192.168.210.20:554/stream
     NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
+    BIOPIO: rtsp://noc:QYXF84o2@192.168.142.20:554/stream
 
 cameras:
   URB_KATAPA:
@@ -49,76 +50,99 @@ cameras:
       width: 1280      # <-- detecao a 720p em vez da resolucao total
       height: 720
       fps: 5           # <-- 5 fps chega para detetar pessoas
-    audio:
-      listen:
-        - fire_alarm
-    zones:
-      caixa_1:
-        coordinates: 0.373,0.476,0.368,0.554,0.41,0.554,0.406,0.482
-        enabled: true
-        inertia: 3
-        loitering_time: 0
-        friendly_name: caixa 1
     record:
       continuous:
         days: 7
-    onvif:
-      user: Ariclene.lemos
-      password: Towercore2026
 
   MU_CAMBAX:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MU_CAMBAX
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   B_4ABRIL_N:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/B_4ABRIL_N
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   BEIRA_ALT2:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/BEIRA_ALT2
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   BR_4ABRIL2:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/BR_4ABRIL2
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   NEGRAO_S:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/NEGRAO_S
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   COXI:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/COXI
           input_args: preset-rtsp-restream
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
   # stream problemativo - timestamps invalidos da camera
   NOVAURBAN4:
@@ -126,9 +150,30 @@ cameras:
       inputs:
         - path: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
           input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
-          roles: [record]
+          roles: [record, detect]
     detect:
-      enabled: false
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
+
+  BIOPIO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BIOPIO
+          input_args: preset-rtsp-restream
+          roles: [record, detect]
+    detect:
+      enabled: true
+      width: 1280      # <-- detecao a 720p em vez da resolucao total
+      height: 720
+      fps: 5           # <-- 5 fps chega para detetar pessoas
+    record:
+      continuous:
+        days: 7
 
 version: 0.18-0
 
