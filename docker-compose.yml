@@ -1,25 +1,26 @@
-version: "3.9"
-
 services:
   frigate:
     container_name: frigate
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
-    shm_size: "512mb"   # aumentar se der erro de shm com muitas câmeras (ex: 1gb, 2gb)
+    shm_size: "1gb"
+    pids_limit: -1
+    security_opt:
+      - seccomp=unconfined   # teste: se resolver, o problema é Docker/runc antigo
     volumes:
-      - ./config/config.yml:/config/config.yml:ro
+      - ./config:/config
       # Ajusta o caminho abaixo para o mountpoint do array RAID reservado
       # às gravações (Array A ou B, o que decidirem para o Frigate).
       - /mnt/frigate-storage:/media/frigate
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "8971:8971"   # UI web
+      - "8971:8971"   # UI web (autenticada)
       - "8554:8554"   # RTSP restream (go2rtc)
       - "8555:8555/tcp"
       - "8555:8555/udp"
     environment:
-      - FRIGATE_RTSP_PASSWORD=changeme
-    # Sem 'devices:' de GPU/Coral por agora — CPU-only.
+      - FRIGATE_RTSP_PASSWORD=changeme   # muda antes de produção
+    # Sem 'devices:' de GPU/Coral por agora, CPU-only.
     # Quando adicionarem Coral USB, entra aqui:
     #   devices:
     #     - /dev/bus/usb:/dev/bus/usb
