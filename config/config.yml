@@ -1,12 +1,43 @@
-auth:
-  enabled: true
+# =============================================================================
+#  Frigate NVR - config.yml
+#  IPs das câmaras: folha NOC (IP Cameras Master / IP CCTV Nagios), validados
+#  pela regra do A-code (A150 -> .150.20 ; A201.161 -> .201.180).
+#  Nomes: <SiteID>_<NOME>. O stream do go2rtc tem o MESMO nome da câmara.
+#  Organização: por província.
+# =============================================================================
+version: 0.18-0
 
+# ----------------------------- Geral -----------------------------------------
 mqtt:
   enabled: false
 
 detectors:
   cpu_detector:
     type: cpu
+
+ui:
+  timezone: Africa/Luanda
+  time_format: 24hour
+
+profiles:
+  viewer:
+    friendly_name: viewer
+
+# ------------------- Defaults herdados por TODAS as câmaras ------------------
+ffmpeg:
+  input_args: preset-rtsp-restream
+
+# Deteção DESLIGADA (110 câmaras + CPU detector não aguentam).
+# Para ligar numa câmara: roles: [record, detect] + detect: {enabled: true},
+# de preferência com um sub-stream de baixa resolução.
+detect:
+  enabled: false
+  width: 1280
+  height: 720
+  fps: 5
+
+birdseye:
+  enabled: false
 
 record:
   enabled: true
@@ -26,162 +57,820 @@ snapshots:
   retain:
     default: 14
 
+# ------------------------------ go2rtc ---------------------------------------
 go2rtc:
   streams:
-    URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
-    MU_CAMBAX: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
-    B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
-    BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
-    BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
-    NEGRAO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
-    COXI: rtsp://noc:QYXF84o2@192.168.210.20:554/stream
-    NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
-    BIOPIO: rtsp://noc:QYXF84o2@192.168.142.20:554/stream
+    # ---- Bengo (4) ----
+    BGDAN002_BR_KAWANGO: rtsp://noc:QYXF84o2@192.168.203.180:554/stream
+    BGDAN003_TN_LIBONGO: rtsp://noc:QYXF84o2@192.168.132.20:554/stream
+    BGDAN004_CNT_BUCULA: rtsp://noc:QYXF84o2@192.168.200.52:554/stream
+    BGDEM001_PAREDES: rtsp://noc:QYXF84o2@192.168.135.20:554/stream
+    # ---- Benguela (10) ----
+    BEBEN001_S_ANTONIO: rtsp://noc:QYXF84o2@192.168.146.20:554/stream
+    BEBEN002_B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
+    BEBEN003_BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
+    BEBEN004_BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
+    BEBFA001_CAOTINHA: rtsp://noc:QYXF84o2@192.168.114.20:554/stream
+    BEBOC001_BOCOIO3: rtsp://noc:QYXF84o2@192.168.147.20:554/stream
+    BECAT001_BIOPIO1: rtsp://noc:QYXF84o2@192.168.142.20:554/stream
+    BECAT002_NEGRAO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
+    BECUB001_BR_VACARIA: rtsp://noc:QYXF84o2@192.168.119.20:554/stream
+    BECUB002_200_CASAS: rtsp://noc:QYXF84o2@192.168.118.20:554/stream
+    # ---- Bié (4) ----
+    BIAND001_ANDULO_E: rtsp://noc:QYXF84o2@192.168.202.148:554/stream  # master da folha (192.168.200.148) não bate com o A-code; usado Nagios
+    BICAM001_KAMACUPA2_E: rtsp://noc:QYXF84o2@192.168.201.212:554/stream  # master da folha (192.168.202.116) não bate com o A-code; usado Nagios
+    BIKUI002_CTR_KUITO2: rtsp://noc:QYXF84o2@192.168.126.20:554/stream
+    BIKUI003_BI_MILITAR: rtsp://noc:QYXF84o2@192.168.202.212:554/stream
+    # ---- Cabinda (5) ----
+    CACAB001_RESISTENCIA_EVARISTO: rtsp://noc:QYXF84o2@192.168.102.20:554/stream
+    CACAB002_SIMINDELESW: rtsp://noc:QYXF84o2@192.168.200.116:554/stream
+    CACAB003_CPX_APLON: rtsp://noc:QYXF84o2@192.168.205.244:554/stream
+    CACAC001_URB_TENDA: rtsp://noc:QYXF84o2@192.168.103.20:554/stream
+    CACAC002_DINGE: rtsp://noc:QYXF84o2@192.168.189.20:554/stream
+    # ---- Cuando Cubango (6) ----
+    KKMEN001_BR_TOMAS_E: rtsp://noc:QYXF84o2@192.168.182.20:554/stream
+    KKMEN002_PANDEIRA_O: rtsp://noc:QYXF84o2@192.168.185.20:554/stream
+    KKMEN003_KK_BJUVENT: rtsp://noc:QYXF84o2@192.168.203.244:554/stream
+    KKMEN004_KK_BVITORIA: rtsp://noc:QYXF84o2@192.168.204.20:554/stream
+    KKMEN005_KK_BRSAUDE: rtsp://noc:QYXF84o2@192.168.204.52:554/stream  # A-code repetido na folha (= CAMP_AVI_N); usado IP master 204.52
+    KKMEN006_BR_COMBOIO: rtsp://noc:QYXF84o2@192.168.204.116:554/stream
+    # ---- Cuanza Norte (6) ----
+    KNCAZ001_BR_CAJI: rtsp://noc:QYXF84o2@192.168.204.148:554/stream
+    KNCAZ002_MORRO_BINDA: rtsp://noc:QYXF84o2@192.168.175.20:554/stream
+    KNCAZ003_CAMUNDAY: rtsp://noc:QYXF84o2@192.168.152.20:554/stream
+    KNCAZ004_BOTANICO: rtsp://noc:QYXF84o2@192.168.138.20:554/stream
+    KNCAZ005_SAO_FILIPE: rtsp://noc:QYXF84o2@192.168.204.244:554/stream
+    KNDON001_MUCOSO: rtsp://noc:QYXF84o2@192.168.205.20:554/stream
+    # ---- Cuanza Sul (7) ----
+    KSAMB001_CUDISSANGA: rtsp://noc:QYXF84o2@192.168.123.20:554/stream
+    KSCEL001_WKUNGO2: rtsp://noc:QYXF84o2@192.168.120.20:554/stream
+    KSCEL002_WKUNGO3: rtsp://noc:QYXF84o2@192.168.121.20:554/stream
+    KSEBO001_CONDE2: rtsp://noc:QYXF84o2@192.168.122.20:554/stream
+    KSLIB001_CALULO3: rtsp://noc:QYXF84o2@192.168.179.20:554/stream
+    KSSUM001_CHINGO_O: rtsp://noc:QYXF84o2@192.168.124.20:554/stream
+    KSSUM002_BR_ATANCO: rtsp://noc:QYXF84o2@192.168.125.20:554/stream
+    # ---- Cunene (2) ----
+    CUCHM001_KAFIMA: rtsp://noc:QYXF84o2@192.168.117.20:554/stream
+    CUOND001_CAFITO_SO: rtsp://noc:QYXF84o2@192.168.202.180:554/stream
+    # ---- Huambo (2) ----
+    HBHUB003_CHILATA: rtsp://noc:QYXF84o2@192.168.140.20:554/stream
+    HBHUB004_NDANGO_SUL: rtsp://noc:QYXF84o2@192.168.201.244:554/stream
+    # ---- Huíla (4) ----
+    HLLUG001_EYWA2: rtsp://noc:QYXF84o2@192.168.139.20:554/stream
+    HLLUG002_Crismel: rtsp://noc:QYXF84o2@192.168.201.20:554/stream
+    HLLUG003_ENTRPOS_LG: rtsp://noc:QYXF84o2@192.168.201.52:554/stream
+    HLLUG004_INST_INDEP: rtsp://noc:QYXF84o2@192.168.200.212:554/stream
+    # ---- Luanda (38) ----
+    IBQUI001_COXI: rtsp://noc:QYXF84o2@192.168.210.20:554/stream
+    LDBEL006_V_KILAMBA: rtsp://noc:QYXF84o2@192.168.161.20:554/stream
+    LDBEL007_CABOLOMBO7: rtsp://noc:QYXF84o2@192.168.203.84:554/stream
+    LDBEL008_COPE_N: rtsp://noc:QYXF84o2@192.168.149.20:554/stream
+    LDBEL009_CTR_COMAND: rtsp://noc:QYXF84o2@192.168.136.20:554/stream
+    LDBEL010_VILA_FLOR5: rtsp://noc:QYXF84o2@192.168.205.180:554/stream
+    LDBEL011_VILA_ALTA2: rtsp://noc:QYXF84o2@192.168.200.244:554/stream
+    LDCAC001_NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
+    LDCAC006_SP_BARRA: rtsp://noc:QYXF84o2@192.168.202.116:554/stream  # master da folha (192.168.104.20) não bate com o A-code; usado Nagios
+    LDICB002_QUIMINHA: rtsp://noc:QYXF84o2@192.168.148.20:554/stream
+    LDKIK001_CALEMBA_2_1: rtsp://noc:QYXF84o2@192.168.204.212:554/stream
+    LDKIK006_NOVA_VIDA_5: rtsp://noc:QYXF84o2@192.168.162.20:554/stream
+    LDKIK007_BCA_KAPOLO: rtsp://noc:QYXF84o2@192.168.190.20:554/stream
+    LDKIK008_KAPOLO_SW: rtsp://noc:QYXF84o2@192.168.200.148:554/stream  # master da folha (192.168.200.20) não bate com o A-code; usado Nagios
+    LDKIK009_MAR_ENETO: rtsp://noc:QYXF84o2@192.168.203.116:554/stream
+    LDKIK010_NV_VIDA06: rtsp://noc:QYXF84o2@192.168.205.116:554/stream
+    LDKIK012_SAPU_KPOL3: rtsp://noc:QYXF84o2@192.168.212.52:554/stream
+    LDLDA008_RUA_PRIO: rtsp://noc:QYXF84o2@192.168.133.20:554/stream
+    LDPLN012_BR_KASSALA: rtsp://noc:QYXF84o2@192.168.204.84:554/stream
+    LDPLN013_BITA_TANQUE_OP2_PN: rtsp://noc:QYXF84o2@192.168.213.84:554/stream
+    LDTAL007_ALPHA: rtsp://noc:QYXF84o2@192.168.108.20:554/stream
+    LDTAL008_SIMIONE_S: rtsp://noc:QYXF84o2@192.168.165.20:554/stream
+    LDTAL009_MBONDO_CHA: rtsp://noc:QYXF84o2@192.168.110.20:554/stream
+    LDTAL010_TALATONA_S: rtsp://noc:QYXF84o2@192.168.202.84:554/stream
+    LDTAL011_MU_CAMBAXI: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
+    LDVIA001_SAPU2_NW: rtsp://noc:QYXF84o2@192.168.192.20:554/stream
+    LDVIA002_VIANA_NORTE_ISTA: rtsp://noc:QYXF84o2@192.168.170.20:554/stream
+    LDVIA012_KPALAN_S15: rtsp://noc:QYXF84o2@192.168.107.20:554/stream
+    LDVIA015_MULENCIMA3: rtsp://noc:QYXF84o2@192.168.203.20:554/stream
+    LDVIA016_MUXIMOXI_N: rtsp://noc:QYXF84o2@192.168.163.20:554/stream
+    LDVIA017_MDC: rtsp://noc:QYXF84o2@192.168.109.20:554/stream
+    LDVIA018_CASSACA_II: rtsp://noc:QYXF84o2@192.168.137.20:554/stream
+    LDVIA019_VILA_FLOR6: rtsp://noc:QYXF84o2@192.168.205.212:554/stream
+    LDVIA020_SAPU_06: rtsp://noc:QYXF84o2@192.168.201.148:554/stream
+    LDVIA025_JEANPIAGET: rtsp://noc:QYXF84o2@192.168.202.52:554/stream
+    LDVIA026_SAPVIANA_2: rtsp://noc:QYXF84o2@192.168.205.148:554/stream
+    LDVIA028_KPALANCA04: rtsp://noc:QYXF84o2@192.168.203.212:554/stream
+    LDVIA036_REFRIANGO1: rtsp://noc:QYXF84o2@192.168.210.116:554/stream
+    # ---- Lunda Norte (6) ----
+    LNCAG001_BR_MALANJE: rtsp://noc:QYXF84o2@192.168.141.20:554/stream
+    LNDUN001_CNT_DUNDO4: rtsp://noc:QYXF84o2@192.168.181.20:554/stream
+    LNLOV001_LUMUA: rtsp://noc:QYXF84o2@192.168.200.84:554/stream
+    LNLUC001_CALONDA_NE: rtsp://noc:QYXF84o2@192.168.205.84:554/stream
+    LNXAM001_CAVUBA: rtsp://noc:QYXF84o2@192.168.134.20:554/stream
+    LNXAM002_CAVUBA_NE: rtsp://noc:QYXF84o2@192.168.143.20:554/stream
+    # ---- Lunda Sul (3) ----
+    LSMUD001_CASSAI_S: rtsp://noc:QYXF84o2@192.168.130.20:554/stream
+    LSMUD002_MURIEGE: rtsp://noc:QYXF84o2@192.168.131.20:554/stream
+    LSSAU001_MUANGUEJI: rtsp://noc:QYXF84o2@192.168.205.52:554/stream
+    # ---- Malange (2) ----
+    MAMAJ001_CAMP_AVI_N: rtsp://noc:QYXF84o2@192.168.203.52:554/stream
+    MAMAJ002_VOANVOALA: rtsp://noc:QYXF84o2@192.168.202.244:554/stream
+    # ---- Moxico (2) ----
+    MOAZB001_CAVUNGO: rtsp://noc:QYXF84o2@192.168.144.20:554/stream
+    MOLUA001_LUAU2: rtsp://noc:QYXF84o2@192.168.184.20:554/stream
+    # ---- Namibe (3) ----
+    NAMOC001_CTR5ABRIL1: rtsp://noc:QYXF84o2@192.168.186.20:554/stream
+    NAMOC002_NA_BELAVIST: rtsp://noc:QYXF84o2@192.168.201.84:554/stream
+    NAMOC003_VALODIA2: rtsp://noc:QYXF84o2@192.168.201.116:554/stream
+    # ---- Uíge (3) ----
+    UIDAM001_NSOSSO: rtsp://noc:QYXF84o2@192.168.150.20:554/stream
+    UIQUI001_VSTALEGRCT: rtsp://noc:QYXF84o2@192.168.151.20:554/stream
+    UIUIG004_URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
+    # ---- Zaire (3) ----
+    ZAMBC002_ZA_BVISTA: rtsp://noc:QYXF84o2@192.168.193.20:554/stream  # A CONFIRMAR: folha diz 192.168.200.180; IP deduzido do A-code A193
+    ZANZE001_NZETO_ESTE: rtsp://noc:QYXF84o2@192.168.195.20:554/stream
+    ZASOY001_BR_MPINDA: rtsp://noc:QYXF84o2@192.168.202.20:554/stream
 
+# ------------------------------ Câmaras --------------------------------------
+# Só-gravação (roles: [record]); o resto vem dos defaults globais.
 cameras:
-  URB_KATAPA:
+  # ======================= Bengo =======================
+  BGDAN002_BR_KAWANGO:
+    friendly_name: "BR_KAWANGO (BGDAN002)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/URB_KATAPA
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  MU_CAMBAX:
+        - path: rtsp://127.0.0.1:8554/BGDAN002_BR_KAWANGO
+          roles: [record]
+  BGDAN003_TN_LIBONGO:
+    friendly_name: "TN_LIBONGO (BGDAN003)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/MU_CAMBAX
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  B_4ABRIL_N:
+        - path: rtsp://127.0.0.1:8554/BGDAN003_TN_LIBONGO
+          roles: [record]
+  BGDAN004_CNT_BUCULA:
+    friendly_name: "CNT_BUCULA (BGDAN004)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/B_4ABRIL_N
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  BEIRA_ALT2:
+        - path: rtsp://127.0.0.1:8554/BGDAN004_CNT_BUCULA
+          roles: [record]
+  BGDEM001_PAREDES:
+    friendly_name: "PAREDES (BGDEM001)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/BEIRA_ALT2
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  BR_4ABRIL2:
+        - path: rtsp://127.0.0.1:8554/BGDEM001_PAREDES
+          roles: [record]
+  # ======================= Benguela =======================
+  BEBEN001_S_ANTONIO:
+    friendly_name: "S_ANTONIO (BEBEN001)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/BR_4ABRIL2
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  NEGRAO_S:
+        - path: rtsp://127.0.0.1:8554/BEBEN001_S_ANTONIO
+          roles: [record]
+  BEBEN002_B_4ABRIL_N:
+    friendly_name: "B_4ABRIL_N (BEBEN002)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/NEGRAO_S
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  COXI:
+        - path: rtsp://127.0.0.1:8554/BEBEN002_B_4ABRIL_N
+          roles: [record]
+  BEBEN003_BEIRA_ALT2:
+    friendly_name: "BEIRA_ALT2 (BEBEN003)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/COXI
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  # stream problemativo - timestamps invalidos da camera
-  NOVAURBAN4:
+        - path: rtsp://127.0.0.1:8554/BEBEN003_BEIRA_ALT2
+          roles: [record]
+  BEBEN004_BR_4ABRIL2:
+    friendly_name: "BR_4ABRIL2 (BEBEN004)"
     ffmpeg:
       inputs:
-        - path: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
-          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
-
-  BIOPIO:
+        - path: rtsp://127.0.0.1:8554/BEBEN004_BR_4ABRIL2
+          roles: [record]
+  BEBFA001_CAOTINHA:
+    friendly_name: "CAOTINHA (BEBFA001)"
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/BIOPIO
-          input_args: preset-rtsp-restream
-          roles: [record, detect]
-    detect:
-      enabled: true
-      width: 1280      # <-- detecao a 720p em vez da resolucao total
-      height: 720
-      fps: 5           # <-- 5 fps chega para detetar pessoas
-    record:
-      continuous:
-        days: 7
+        - path: rtsp://127.0.0.1:8554/BEBFA001_CAOTINHA
+          roles: [record]
+  BEBOC001_BOCOIO3:
+    friendly_name: "BOCOIO3 (BEBOC001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BEBOC001_BOCOIO3
+          roles: [record]
+  BECAT001_BIOPIO1:
+    friendly_name: "BIOPIO1 (BECAT001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BECAT001_BIOPIO1
+          roles: [record]
+  BECAT002_NEGRAO_S:
+    friendly_name: "NEGRÃO_S (BECAT002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BECAT002_NEGRAO_S
+          roles: [record]
+  BECUB001_BR_VACARIA:
+    friendly_name: "BR_VACARIA (BECUB001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BECUB001_BR_VACARIA
+          roles: [record]
+  BECUB002_200_CASAS:
+    friendly_name: "200_CASAS (BECUB002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BECUB002_200_CASAS
+          roles: [record]
+  # ======================= Bié =======================
+  BIAND001_ANDULO_E:
+    friendly_name: "ANDULO_E (BIAND001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BIAND001_ANDULO_E
+          roles: [record]
+  BICAM001_KAMACUPA2_E:
+    friendly_name: "KAMACUPA2_E (BICAM001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BICAM001_KAMACUPA2_E
+          roles: [record]
+  BIKUI002_CTR_KUITO2:
+    friendly_name: "CTR_KUITO2 (BIKUI002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BIKUI002_CTR_KUITO2
+          roles: [record]
+  BIKUI003_BI_MILITAR:
+    friendly_name: "BI_MILITAR (BIKUI003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BIKUI003_BI_MILITAR
+          roles: [record]
+  # ======================= Cabinda =======================
+  CACAB001_RESISTENCIA_EVARISTO:
+    friendly_name: "RESISTÊNCIA/EVARISTO (CACAB001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CACAB001_RESISTENCIA_EVARISTO
+          roles: [record]
+  CACAB002_SIMINDELESW:
+    friendly_name: "SIMINDELESW (CACAB002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CACAB002_SIMINDELESW
+          roles: [record]
+  CACAB003_CPX_APLON:
+    friendly_name: "CPX_APLON (CACAB003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CACAB003_CPX_APLON
+          roles: [record]
+  CACAC001_URB_TENDA:
+    friendly_name: "URB_TENDA (CACAC001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CACAC001_URB_TENDA
+          roles: [record]
+  CACAC002_DINGE:
+    friendly_name: "DINGE (CACAC002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CACAC002_DINGE
+          roles: [record]
+  # ======================= Cuando Cubango =======================
+  KKMEN001_BR_TOMAS_E:
+    friendly_name: "BR TOMAS_E (KKMEN001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN001_BR_TOMAS_E
+          roles: [record]
+  KKMEN002_PANDEIRA_O:
+    friendly_name: "PANDEIRA_O (KKMEN002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN002_PANDEIRA_O
+          roles: [record]
+  KKMEN003_KK_BJUVENT:
+    friendly_name: "KK_BJUVENT (KKMEN003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN003_KK_BJUVENT
+          roles: [record]
+  KKMEN004_KK_BVITORIA:
+    friendly_name: "KK_BVITORIA (KKMEN004)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN004_KK_BVITORIA
+          roles: [record]
+  KKMEN005_KK_BRSAUDE:
+    friendly_name: "KK_BRSAÚDE (KKMEN005)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN005_KK_BRSAUDE
+          roles: [record]
+  KKMEN006_BR_COMBOIO:
+    friendly_name: "BR_COMBOIO (KKMEN006)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KKMEN006_BR_COMBOIO
+          roles: [record]
+  # ======================= Cuanza Norte =======================
+  KNCAZ001_BR_CAJI:
+    friendly_name: "BR_CAJI (KNCAZ001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNCAZ001_BR_CAJI
+          roles: [record]
+  KNCAZ002_MORRO_BINDA:
+    friendly_name: "MORRO_BINDA (KNCAZ002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNCAZ002_MORRO_BINDA
+          roles: [record]
+  KNCAZ003_CAMUNDAY:
+    friendly_name: "CAMUNDAY (KNCAZ003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNCAZ003_CAMUNDAY
+          roles: [record]
+  KNCAZ004_BOTANICO:
+    friendly_name: "BOTANICO (KNCAZ004)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNCAZ004_BOTANICO
+          roles: [record]
+  KNCAZ005_SAO_FILIPE:
+    friendly_name: "SÃO_FILIPE (KNCAZ005)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNCAZ005_SAO_FILIPE
+          roles: [record]
+  KNDON001_MUCOSO:
+    friendly_name: "MUCOSO (KNDON001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KNDON001_MUCOSO
+          roles: [record]
+  # ======================= Cuanza Sul =======================
+  KSAMB001_CUDISSANGA:
+    friendly_name: "CUDISSANGA (KSAMB001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSAMB001_CUDISSANGA
+          roles: [record]
+  KSCEL001_WKUNGO2:
+    friendly_name: "WKUNGO2 (KSCEL001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSCEL001_WKUNGO2
+          roles: [record]
+  KSCEL002_WKUNGO3:
+    friendly_name: "WKUNGO3 (KSCEL002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSCEL002_WKUNGO3
+          roles: [record]
+  KSEBO001_CONDE2:
+    friendly_name: "CONDE2 (KSEBO001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSEBO001_CONDE2
+          roles: [record]
+  KSLIB001_CALULO3:
+    friendly_name: "CALULO3 (KSLIB001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSLIB001_CALULO3
+          roles: [record]
+  KSSUM001_CHINGO_O:
+    friendly_name: "CHINGO_O (KSSUM001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSSUM001_CHINGO_O
+          roles: [record]
+  KSSUM002_BR_ATANCO:
+    friendly_name: "BR_ATANCO (KSSUM002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KSSUM002_BR_ATANCO
+          roles: [record]
+  # ======================= Cunene =======================
+  CUCHM001_KAFIMA:
+    friendly_name: "KAFIMA (CUCHM001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CUCHM001_KAFIMA
+          roles: [record]
+  CUOND001_CAFITO_SO:
+    friendly_name: "CAFITO_SO (CUOND001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CUOND001_CAFITO_SO
+          roles: [record]
+  # ======================= Huambo =======================
+  HBHUB003_CHILATA:
+    friendly_name: "CHILATA (HBHUB003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HBHUB003_CHILATA
+          roles: [record]
+  HBHUB004_NDANGO_SUL:
+    friendly_name: "NDANGO_SUL (HBHUB004)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HBHUB004_NDANGO_SUL
+          roles: [record]
+  # ======================= Huíla =======================
+  HLLUG001_EYWA2:
+    friendly_name: "EYWA2 (HLLUG001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HLLUG001_EYWA2
+          roles: [record]
+  HLLUG002_Crismel:
+    friendly_name: "Crismel (HLLUG002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HLLUG002_Crismel
+          roles: [record]
+  HLLUG003_ENTRPOS_LG:
+    friendly_name: "ENTRPOS_LG (HLLUG003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HLLUG003_ENTRPOS_LG
+          roles: [record]
+  HLLUG004_INST_INDEP:
+    friendly_name: "INST_INDEP (HLLUG004)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/HLLUG004_INST_INDEP
+          roles: [record]
+  # ======================= Luanda =======================
+  IBQUI001_COXI:
+    friendly_name: "COXI (IBQUI001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/IBQUI001_COXI
+          roles: [record]
+  LDBEL006_V_KILAMBA:
+    friendly_name: "V_KILAMBA (LDBEL006)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL006_V_KILAMBA
+          roles: [record]
+  LDBEL007_CABOLOMBO7:
+    friendly_name: "CABOLOMBO7 (LDBEL007)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL007_CABOLOMBO7
+          roles: [record]
+  LDBEL008_COPE_N:
+    friendly_name: "COPE_N (LDBEL008)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL008_COPE_N
+          roles: [record]
+  LDBEL009_CTR_COMAND:
+    friendly_name: "CTR_COMAND (LDBEL009)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL009_CTR_COMAND
+          roles: [record]
+  LDBEL010_VILA_FLOR5:
+    friendly_name: "VILA_FLOR5 (LDBEL010)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL010_VILA_FLOR5
+          roles: [record]
+  LDBEL011_VILA_ALTA2:
+    friendly_name: "VILA_ALTA2 (LDBEL011)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDBEL011_VILA_ALTA2
+          roles: [record]
+  LDCAC001_NOVAURBAN4:
+    friendly_name: "NOVAURBAN4 (LDCAC001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDCAC001_NOVAURBAN4
+          roles: [record]
+  LDCAC006_SP_BARRA:
+    friendly_name: "SP_BARRA (LDCAC006)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDCAC006_SP_BARRA
+          roles: [record]
+  LDICB002_QUIMINHA:
+    friendly_name: "QUIMINHA (LDICB002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDICB002_QUIMINHA
+          roles: [record]
+  LDKIK001_CALEMBA_2_1:
+    friendly_name: "CALEMBA_2_1 (LDKIK001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK001_CALEMBA_2_1
+          roles: [record]
+  LDKIK006_NOVA_VIDA_5:
+    friendly_name: "NOVA VIDA_5 (LDKIK006)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK006_NOVA_VIDA_5
+          roles: [record]
+  LDKIK007_BCA_KAPOLO:
+    friendly_name: "BCA_KAPOLO (LDKIK007)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK007_BCA_KAPOLO
+          roles: [record]
+  LDKIK008_KAPOLO_SW:
+    friendly_name: "KAPOLO_SW (LDKIK008)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK008_KAPOLO_SW
+          roles: [record]
+  LDKIK009_MAR_ENETO:
+    friendly_name: "MAR_ENETO (LDKIK009)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK009_MAR_ENETO
+          roles: [record]
+  LDKIK010_NV_VIDA06:
+    friendly_name: "NV_VIDA06 (LDKIK010)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK010_NV_VIDA06
+          roles: [record]
+  LDKIK012_SAPU_KPOL3:
+    friendly_name: "SAPU_KPOL3 (LDKIK012)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDKIK012_SAPU_KPOL3
+          roles: [record]
+  LDLDA008_RUA_PRIO:
+    friendly_name: "RUA_PRIO (LDLDA008)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDLDA008_RUA_PRIO
+          roles: [record]
+  LDPLN012_BR_KASSALA:
+    friendly_name: "BR_KASSALA (LDPLN012)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDPLN012_BR_KASSALA
+          roles: [record]
+  LDPLN013_BITA_TANQUE_OP2_PN:
+    friendly_name: "BITA TANQUE OP2_PN (LDPLN013)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDPLN013_BITA_TANQUE_OP2_PN
+          roles: [record]
+  LDTAL007_ALPHA:
+    friendly_name: "ALPHA (LDTAL007)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDTAL007_ALPHA
+          roles: [record]
+  LDTAL008_SIMIONE_S:
+    friendly_name: "SIMIONE_S (LDTAL008)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDTAL008_SIMIONE_S
+          roles: [record]
+  LDTAL009_MBONDO_CHA:
+    friendly_name: "MBONDO_CHA (LDTAL009)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDTAL009_MBONDO_CHA
+          roles: [record]
+  LDTAL010_TALATONA_S:
+    friendly_name: "TALATONA_S (LDTAL010)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDTAL010_TALATONA_S
+          roles: [record]
+  LDTAL011_MU_CAMBAXI:
+    friendly_name: "MU_CAMBAXI (LDTAL011)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDTAL011_MU_CAMBAXI
+          roles: [record]
+  LDVIA001_SAPU2_NW:
+    friendly_name: "SAPU2_NW (LDVIA001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA001_SAPU2_NW
+          roles: [record]
+  LDVIA002_VIANA_NORTE_ISTA:
+    friendly_name: "VIANA NORTE_ISTA (LDVIA002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA002_VIANA_NORTE_ISTA
+          roles: [record]
+  LDVIA012_KPALAN_S15:
+    friendly_name: "KPALAN_S15 (LDVIA012)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA012_KPALAN_S15
+          roles: [record]
+  LDVIA015_MULENCIMA3:
+    friendly_name: "MULENCIMA3 (LDVIA015)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA015_MULENCIMA3
+          roles: [record]
+  LDVIA016_MUXIMOXI_N:
+    friendly_name: "MUXIMOXI_N (LDVIA016)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA016_MUXIMOXI_N
+          roles: [record]
+  LDVIA017_MDC:
+    friendly_name: "MDC (LDVIA017)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA017_MDC
+          roles: [record]
+  LDVIA018_CASSACA_II:
+    friendly_name: "CASSACA_II (LDVIA018)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA018_CASSACA_II
+          roles: [record]
+  LDVIA019_VILA_FLOR6:
+    friendly_name: "VILA_FLOR6 (LDVIA019)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA019_VILA_FLOR6
+          roles: [record]
+  LDVIA020_SAPU_06:
+    friendly_name: "SAPU_06 (LDVIA020)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA020_SAPU_06
+          roles: [record]
+  LDVIA025_JEANPIAGET:
+    friendly_name: "JEANPIAGET (LDVIA025)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA025_JEANPIAGET
+          roles: [record]
+  LDVIA026_SAPVIANA_2:
+    friendly_name: "SAPVIANA_2 (LDVIA026)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA026_SAPVIANA_2
+          roles: [record]
+  LDVIA028_KPALANCA04:
+    friendly_name: "KPALANCA04 (LDVIA028)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA028_KPALANCA04
+          roles: [record]
+  LDVIA036_REFRIANGO1:
+    friendly_name: "REFRIANGO1 (LDVIA036)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LDVIA036_REFRIANGO1
+          roles: [record]
+  # ======================= Lunda Norte =======================
+  LNCAG001_BR_MALANJE:
+    friendly_name: "BR_MALANJE (LNCAG001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNCAG001_BR_MALANJE
+          roles: [record]
+  LNDUN001_CNT_DUNDO4:
+    friendly_name: "CNT_DUNDO4 (LNDUN001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNDUN001_CNT_DUNDO4
+          roles: [record]
+  LNLOV001_LUMUA:
+    friendly_name: "LUMUA (LNLOV001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNLOV001_LUMUA
+          roles: [record]
+  LNLUC001_CALONDA_NE:
+    friendly_name: "CALONDA_NE (LNLUC001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNLUC001_CALONDA_NE
+          roles: [record]
+  LNXAM001_CAVUBA:
+    friendly_name: "CAVUBA (LNXAM001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNXAM001_CAVUBA
+          roles: [record]
+  LNXAM002_CAVUBA_NE:
+    friendly_name: "CAVUBA_NE (LNXAM002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LNXAM002_CAVUBA_NE
+          roles: [record]
+  # ======================= Lunda Sul =======================
+  LSMUD001_CASSAI_S:
+    friendly_name: "CASSAI_S (LSMUD001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LSMUD001_CASSAI_S
+          roles: [record]
+  LSMUD002_MURIEGE:
+    friendly_name: "MURIEGE (LSMUD002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LSMUD002_MURIEGE
+          roles: [record]
+  LSSAU001_MUANGUEJI:
+    friendly_name: "MUANGUEJI (LSSAU001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/LSSAU001_MUANGUEJI
+          roles: [record]
+  # ======================= Malange =======================
+  MAMAJ001_CAMP_AVI_N:
+    friendly_name: "CAMP_AVI_N (MAMAJ001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MAMAJ001_CAMP_AVI_N
+          roles: [record]
+  MAMAJ002_VOANVOALA:
+    friendly_name: "VOANVOALA (MAMAJ002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MAMAJ002_VOANVOALA
+          roles: [record]
+  # ======================= Moxico =======================
+  MOAZB001_CAVUNGO:
+    friendly_name: "CAVUNGO (MOAZB001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MOAZB001_CAVUNGO
+          roles: [record]
+  MOLUA001_LUAU2:
+    friendly_name: "LUAU2 (MOLUA001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MOLUA001_LUAU2
+          roles: [record]
+  # ======================= Namibe =======================
+  NAMOC001_CTR5ABRIL1:
+    friendly_name: "CTR5ABRIL1 (NAMOÇ001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NAMOC001_CTR5ABRIL1
+          roles: [record]
+  NAMOC002_NA_BELAVIST:
+    friendly_name: "NA_BELAVIST (NAMOÇ002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NAMOC002_NA_BELAVIST
+          roles: [record]
+  NAMOC003_VALODIA2:
+    friendly_name: "VALODIA2 (NAMOÇ003)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NAMOC003_VALODIA2
+          roles: [record]
+  # ======================= Uíge =======================
+  UIDAM001_NSOSSO:
+    friendly_name: "NSOSSO (UIDAM001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/UIDAM001_NSOSSO
+          roles: [record]
+  UIQUI001_VSTALEGRCT:
+    friendly_name: "VSTALEGRCT (UIQUI001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/UIQUI001_VSTALEGRCT
+          roles: [record]
+  UIUIG004_URB_KATAPA:
+    friendly_name: "URB_KATAPA (UIUIG004)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/UIUIG004_URB_KATAPA
+          roles: [record]
+  # ======================= Zaire =======================
+  ZAMBC002_ZA_BVISTA:
+    friendly_name: "ZA_BVISTA (ZAMBC002)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ZAMBC002_ZA_BVISTA
+          roles: [record]
+  ZANZE001_NZETO_ESTE:
+    friendly_name: "NZETO_ESTE (ZANZE001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ZANZE001_NZETO_ESTE
+          roles: [record]
+  ZASOY001_BR_MPINDA:
+    friendly_name: "BR_MPINDA (ZASOY001)"
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ZASOY001_BR_MPINDA
+          roles: [record]
 
-version: 0.18-0
-
-profiles:
-  viewer:
-    friendly_name: viewer
-
-
-ui:
-  timezone: Africa/Luanda
-  time_format: 24hour
+# --------------------------------------------------------------------------
+# Sites da folha SEM IP de câmara (não incluídos):
+#   LDPLN005 BELAS_PN | LNLUC002 LUCAPTNOVA | LSSAU002 CASSENGO | HLLUG007 NAMBAMBI
