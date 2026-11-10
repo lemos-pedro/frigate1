@@ -62,10 +62,6 @@
             "label": "Omogoči Birdseye",
             "description": "Vklopi ali izklopi funkcijo Birdseye."
         },
-        "mode": {
-            "label": "Način sledenja",
-            "description": "Način vključitve kamer v Birdseye: 'objects' (objekti), 'motion' (gibanje) ali 'continuous' (neprekinjeno)."
-        },
         "order": {
             "label": "Položaj",
             "description": "Številčna vrednost, ki določa vrstni red kamere v postavitvi Birdseye."
@@ -760,10 +756,6 @@
             "label": "Posnetki omogočeni",
             "description": "Vklopi ali izklopi shranjevanje posnetkov za vse kamere."
         },
-        "clean_copy": {
-            "label": "Shrani čisto kopijo",
-            "description": "Poleg označenih shrani tudi čisto kopijo posnetkov brez anotacij."
-        },
         "timestamp": {
             "label": "Prekrivna časovna značka",
             "description": "Na shranjene posnetke dodaj časovno značko."
@@ -790,10 +782,6 @@
             "default": {
                 "label": "Privzeta hramba",
                 "description": "Privzeto število dni za hrambo posnetkov."
-            },
-            "mode": {
-                "label": "Način hrambe",
-                "description": "Način hrambe posnetkov."
             },
             "objects": {
                 "label": "Hramba po objektih",
@@ -859,7 +847,7 @@
         },
         "topic_prefix": {
             "label": "Predpona teme (Topic prefix)",
-            "description": "Predpona teme MQTT za vse teme AMSS; mora biti edinstvena, če poganjaš več instanc."
+            "description": "Predpona teme MQTT za vse teme Frigate; mora biti edinstvena, če poganjaš več instanc."
         },
         "client_id": {
             "label": "ID odjemalca",
@@ -996,11 +984,11 @@
     },
     "safe_mode": {
         "label": "Varni način",
-        "description": "Ko je omogočeno, se AMSS zažene v varnem načinu z omejenimi funkcijami za odpravljanje težav."
+        "description": "Ko je omogočeno, se Frigate zažene v varnem načinu z omejenimi funkcijami za odpravljanje težav."
     },
     "environment_vars": {
         "label": "Okoljske spremenljivke",
-        "description": "Pari ključ/vrednost okoljskih spremenljivk, ki se nastavijo za proces AMSS v sistemu Home Assistant OS. Uporabniki, ki ne uporabljajo HAOS, morajo namesto tega uporabiti konfiguracijo okoljskih spremenljivk Docker."
+        "description": "Pari ključ/vrednost okoljskih spremenljivk, ki se nastavijo za proces Frigate v sistemu Home Assistant OS. Uporabniki, ki ne uporabljajo HAOS, morajo namesto tega uporabiti konfiguracijo okoljskih spremenljivk Docker."
     },
     "logger": {
         "label": "Beleženje (Logging)",
@@ -1019,7 +1007,7 @@
         "description": "Nastavitve avtentikacije in sej, vključno z možnostmi piškotkov in omejevanjem hitrosti zahtev.",
         "enabled": {
             "label": "Omogoči avtentikacijo",
-            "description": "Omogoči izvorno avtentikacijo za uporabniški vmesnik AMSS."
+            "description": "Omogoči izvorno avtentikacijo za uporabniški vmesnik Frigate."
         },
         "reset_admin_password": {
             "label": "Ponastavi geslo skrbnika",
@@ -1064,10 +1052,10 @@
     },
     "database": {
         "label": "Zbirka podatkov",
-        "description": "Nastavitve za zbirko podatkov SQLite, ki jo AMSS uporablja za shranjevanje sledenih objektov in metapodatkov posnetkov.",
+        "description": "Nastavitve za zbirko podatkov SQLite, ki jo Frigate uporablja za shranjevanje sledenih objektov in metapodatkov posnetkov.",
         "path": {
             "label": "Pot do zbirke podatkov",
-            "description": "Pot v datotečnem sistemu, kjer bo shranjena SQLite datoteka zbirke podatkov AMSS."
+            "description": "Pot v datotečnem sistemu, kjer bo shranjena SQLite datoteka zbirke podatkov Frigate."
         }
     },
     "go2rtc": {
@@ -1076,13 +1064,13 @@
     },
     "networking": {
         "label": "Omrežje",
-        "description": "Nastavitve, povezane z omrežjem, kot je omogočanje IPv6 za dostopne točke AMSS.",
+        "description": "Nastavitve, povezane z omrežjem, kot je omogočanje IPv6 za dostopne točke Frigate.",
         "ipv6": {
             "label": "Konfiguracija IPv6",
-            "description": "Specifične nastavitve IPv6 za omrežne storitve AMSS.",
+            "description": "Specifične nastavitve IPv6 za omrežne storitve Frigate.",
             "enabled": {
                 "label": "Omogoči IPv6",
-                "description": "Omogoči podporo za IPv6 za storitve AMSS (API in vmesnik), kjer je to mogoče."
+                "description": "Omogoči podporo za IPv6 za storitve Frigate (API in vmesnik), kjer je to mogoče."
             }
         },
         "listen": {
@@ -1090,20 +1078,20 @@
             "description": "Konfiguracija za notranja in zunanja vrata za poslušanje. To je za napredne uporabnike. V večini primerov je priporočljivo spremeniti sekcijo 'ports' v tvoji datoteki Docker Compose.",
             "internal": {
                 "label": "Notranja vrata",
-                "description": "Notranja vrata za poslušanje za AMSS (privzeto 5000)."
+                "description": "Notranja vrata za poslušanje za Frigate (privzeto 5000)."
             },
             "external": {
                 "label": "Zunanja vrata",
-                "description": "Zunanja vrata za poslušanje za AMSS (privzeto 8971)."
+                "description": "Zunanja vrata za poslušanje za Frigate (privzeto 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proksi",
-        "description": "Nastavitve za integracijo AMSS za povratnim proksijem (reverse proxy), ki posreduje glave z avtenticiranimi uporabniki.",
+        "description": "Nastavitve za integracijo Frigate za povratnim proksijem (reverse proxy), ki posreduje glave z avtenticiranimi uporabniki.",
         "header_map": {
             "label": "Preslikava glav (Headers)",
-            "description": "Preslikaj dohodne glave proksija v polja za uporabnika in vlogo v AMSS za avtentikacijo prek proksija.",
+            "description": "Preslikaj dohodne glave proksija v polja za uporabnika in vlogo v Frigate za avtentikacijo prek proksija.",
             "user": {
                 "label": "Glava uporabnika",
                 "description": "Glava, ki vsebuje avtenticirano uporabniško ime, ki ga posreduje nadrejeni proksi."
@@ -1114,7 +1102,7 @@
             },
             "role_map": {
                 "label": "Preslikava vlog",
-                "description": "Preslikaj vrednosti skupin iz nadrejenega sistema v vloge AMSS (npr. preslikaj skupine skrbnikov v vlogo 'admin')."
+                "description": "Preslikaj vrednosti skupin iz nadrejenega sistema v vloge Frigate (npr. preslikaj skupine skrbnikov v vlogo 'admin')."
             }
         },
         "logout_url": {
@@ -1163,15 +1151,15 @@
         },
         "version_check": {
             "label": "Preverjanje različice",
-            "description": "Omogoči odhodno preverjanje, da ugotoviš, ali je na voljo novejša različica AMSS."
+            "description": "Omogoči odhodno preverjanje, da ugotoviš, ali je na voljo novejša različica Frigate."
         }
     },
     "tls": {
         "label": "TLS",
-        "description": "Nastavitve TLS za spletne dostopne točke AMSS (vrata 8971).",
+        "description": "Nastavitve TLS za spletne dostopne točke Frigate (vrata 8971).",
         "enabled": {
             "label": "Omogoči TLS",
-            "description": "Omogoči TLS za spletni vmesnik in API AMSS na konfiguriranih vratih TLS."
+            "description": "Omogoči TLS za spletni vmesnik in API Frigate na konfiguriranih vratih TLS."
         }
     },
     "ui": {
@@ -1185,852 +1173,9 @@
             "label": "Oblika zapisa časa",
             "description": "Oblika časa v vmesniku (brskalnik, 12-urna ali 24-urna)."
         },
-        "date_style": {
-            "label": "Slog datuma",
-            "description": "Slog prikaza datuma v vmesniku (polno, dolgo, srednje, kratko)."
-        },
-        "time_style": {
-            "label": "Slog časa",
-            "description": "Slog prikaza časa v vmesniku (polno, dolgo, srednje, kratko)."
-        },
         "unit_system": {
             "label": "Sistem enot",
             "description": "Sistem enot za prikaz (metrični ali imperialni), uporabljen v vmesniku in MQTT."
-        }
-    },
-    "detectors": {
-        "label": "Strojna oprema detektorjev",
-        "description": "Konfiguracija za detektorje objektov (CPU, GPU, ONNX zaledja) in specifične nastavitve modelov detektorjev.",
-        "type": {
-            "label": "Vrsta detektorja",
-            "description": "Vrsta detektorja za zaznavanje objektov (npr. 'cpu', 'edgetpu', 'openvino')."
-        },
-        "cpu": {
-            "label": "CPU",
-            "description": "Detektor CPU TFLite, ki poganja modele TensorFlow Lite na glavnem procesorju brez strojne pospešitve. Ni priporočljivo.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov, ki se uporabljajo za dodajanje metapodatkov (na primer 'car' -> ['license_plate'])."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas), ki jo nekateri detektorji uporabljajo za optimizacijo."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja, če jo izbrani detektor zahteva."
-            },
-            "num_threads": {
-                "label": "Število niti za zaznavanje",
-                "description": "Število niti, ki se uporabljajo za sklepanje (inference) na procesorju (CPU)."
-            }
-        },
-        "deepstack": {
-            "label": "DeepStack",
-            "description": "Detektor DeepStack/CodeProject.AI, ki pošilja slike v oddaljeni API DeepStack HTTP za sklepanje. Ni priporočljivo.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov (npr. 'car' -> ['license_plate'])."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas), uporabljen za optimizacijo."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja, če jo izbrani detektor zahteva."
-            },
-            "api_url": {
-                "label": "URL API-ja DeepStack",
-                "description": "URL naslov API-ja DeepStack."
-            },
-            "api_timeout": {
-                "label": "Časovna omejitev API-ja DeepStack (v sekundah)",
-                "description": "Najdaljši dovoljeni čas za zahtevo na API DeepStack."
-            },
-            "api_key": {
-                "label": "Ključ API DeepStack (če je zahtevan)",
-                "description": "Izbirni ključ API za avtenticirane storitve DeepStack."
-            }
-        },
-        "degirum": {
-            "label": "DeGirum",
-            "description": "Detektor DeGirum za poganjanje modelov prek oblaka DeGirum ali lokalnih storitev sklepanja.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "location": {
-                "label": "Lokacija sklepanja",
-                "description": "Lokacija pogona za sklepanje DeGirum (npr. '@cloud', '127.0.0.1')."
-            },
-            "zoo": {
-                "label": "Zbirka modelov (Model Zoo)",
-                "description": "Pot ali URL do zbirke modelov DeGirum."
-            },
-            "token": {
-                "label": "Žeton za DeGirum Cloud",
-                "description": "Žeton za dostop do oblaka DeGirum."
-            }
-        },
-        "edgetpu": {
-            "label": "EdgeTPU",
-            "description": "Detektor EdgeTPU, ki poganja modele TensorFlow Lite, prevedene za Coral EdgeTPU, z uporabo delegata EdgeTPU.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov (npr. 'car' -> ['license_plate'])."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas), uporabljen za optimizacijo."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja, če jo izbrani detektor zahteva."
-            },
-            "device": {
-                "label": "Vrsta naprave",
-                "description": "Naprava, ki naj se uporabi za sklepanje EdgeTPU (npr. 'usb', 'pci')."
-            }
-        },
-        "hailo8l": {
-            "label": "Hailo-8/Hailo-8L",
-            "description": "Detektor Hailo-8/Hailo-8L, ki uporablja modele HEF in SDK HailoRT za sklepanje na strojni opremi Hailo.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja, če jo izbrani detektor zahteva."
-            },
-            "device": {
-                "label": "Vrsta naprave",
-                "description": "Naprava, ki naj se uporabi za sklepanje Hailo (npr. 'PCIe', 'M.2')."
-            }
-        },
-        "memryx": {
-            "label": "MemryX",
-            "description": "Detektor MemryX MX3, ki poganja prevedene modele DFP na pospeševalnikih MemryX.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "device": {
-                "label": "Pot do naprave",
-                "description": "Naprava, ki naj se uporabi za sklepanje MemryX (npr. 'PCIe')."
-            }
-        },
-        "onnx": {
-            "label": "ONNX",
-            "description": "Detektor ONNX za poganjanje modelov ONNX; uporabil bo razpoložljiva zaledja za pospeševanje (CUDA/ROCm/OpenVINO), če so na voljo.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "device": {
-                "label": "Vrsta naprave",
-                "description": "Naprava, ki naj se uporabi za sklepanje ONNX (npr. 'AUTO', 'CPU', 'GPU')."
-            }
-        },
-        "openvino": {
-            "label": "OpenVINO",
-            "description": "Detektor OpenVINO za procesorje AMD in Intel, grafične procesorje Intel in strojno opremo Intel VPU.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "device": {
-                "label": "Vrsta naprave",
-                "description": "Naprava, ki naj se uporabi za sklepanje OpenVINO (npr. 'CPU', 'GPU', 'NPU')."
-            }
-        },
-        "rknn": {
-            "label": "RKNN",
-            "description": "Detektor RKNN za NPUs Rockchip; poganja prevedene modele RKNN na strojni opremi Rockchip.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "num_cores": {
-                "label": "Število jeder NPU",
-                "description": "Število jeder NPU, ki naj se uporabi (0 za samodejno)."
-            }
-        },
-        "synaptics": {
-            "label": "Synaptics",
-            "description": "Detektor Synaptics NPU za modele v formatu .synap z uporabo SDK Synap na strojni opremi Synaptics.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            }
-        },
-        "teflon_tfl": {
-            "label": "Teflon",
-            "description": "Detektor delegata Teflon za TFLite, ki uporablja knjižnico Mesa Teflon za pospeševanje sklepanja na podprtih grafičnih procesorjih.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov (npr. 'car' -> ['license_plate'])."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas), uporabljen za optimizacijo."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja, če jo izbrani detektor zahteva."
-            }
-        },
-        "tensorrt": {
-            "label": "TensorRT",
-            "description": "Detektor TensorRT za naprave Nvidia Jetson, ki uporablja serializirane pogone TensorRT za pospešeno sklepanje.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke s seznami oznak (labelmap), ki številčne razrede preslika v tekstovne oznake detektorja."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja modela v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja modela v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov, ki se združijo v standardni labelmap."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov za dodajanje metapodatkov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor, ki ga pričakuje model: 'rgb', 'bgr' ali 'yuv'."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov vhodnega tenzorja modela (na primer 'float32')."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do datoteke z binarnim modelom detektorja."
-            },
-            "device": {
-                "label": "Indeks grafične naprave (GPU)",
-                "description": "Indeks naprave GPU, ki naj se uporabi."
-            }
-        },
-        "zmq": {
-            "label": "ZMQ IPC",
-            "description": "Detektor ZMQ IPC, ki preloži sklepanje na zunanji proces prek končne točke ZeroMQ IPC.",
-            "type": {
-                "label": "Vrsta"
-            },
-            "model": {
-                "label": "Konfiguracija modela za specifičen detektor",
-                "description": "Možnosti konfiguracije modela za določen detektor (pot, vhodna velikost itd.).",
-                "path": {
-                    "label": "Pot do modela za zaznavanje objektov po meri",
-                    "description": "Pot do datoteke modela po meri."
-                },
-                "labelmap_path": {
-                    "label": "Pot do labelmap datoteke za detektor po meri",
-                    "description": "Pot do datoteke labelmap."
-                },
-                "width": {
-                    "label": "Vhodna širina modela za zaznavanje",
-                    "description": "Širina vhodnega tenzorja v pikslih."
-                },
-                "height": {
-                    "label": "Vhodna višina modela za zaznavanje",
-                    "description": "Višina vhodnega tenzorja v pikslih."
-                },
-                "labelmap": {
-                    "label": "Prilagoditev labelmapa",
-                    "description": "Povoženja ali ponovne preslikave vnosov."
-                },
-                "attributes_map": {
-                    "label": "Zemljevid oznak objektov in njihovih atributov",
-                    "description": "Preslikava med oznakami objektov in oznakami atributov."
-                },
-                "input_tensor": {
-                    "label": "Oblika vhodnega tenzorja modela",
-                    "description": "Format tenzorja (nhwc ali nchw)."
-                },
-                "input_pixel_format": {
-                    "label": "Barvni format slikovnih pik vhoda modela",
-                    "description": "Barvni prostor (rgb, bgr ali yuv)."
-                },
-                "input_dtype": {
-                    "label": "Tip podatkov vhoda modela (D Type)",
-                    "description": "Tip podatkov (npr. float32)."
-                },
-                "model_type": {
-                    "label": "Vrsta modela za zaznavanje objektov",
-                    "description": "Arhitektura modela (ssd, yolox, yolonas)."
-                }
-            },
-            "model_path": {
-                "label": "Pot do modela za specifičen detektor",
-                "description": "Pot do binarne datoteke modela."
-            },
-            "endpoint": {
-                "label": "Končna točka ZMQ IPC",
-                "description": "ZMQ končna točka za povezavo."
-            },
-            "request_timeout_ms": {
-                "label": "Časovna omejitev zahteve ZMQ (v milisekundah)",
-                "description": "Časovna omejitev za zahteve ZMQ v milisekundah."
-            },
-            "linger_ms": {
-                "label": "Zadrževanje vtičnice ZMQ (v milisekundah)",
-                "description": "Obdobje zadrževanja vtičnice v milisekundah."
-            }
-        }
-    },
-    "model": {
-        "label": "Model za zaznavanje",
-        "description": "Nastavitve za konfiguracijo modela za zaznavanje objektov po meri in njegove vhodne oblike.",
-        "path": {
-            "label": "Pot do modela za zaznavanje objektov po meri",
-            "description": "Pot do datoteke modela po meri (ali plus://<model_id> za modele AMSS+)."
-        },
-        "labelmap_path": {
-            "label": "Pot do labelmap datoteke za detektor po meri",
-            "description": "Pot do datoteke labelmap, ki številčne razrede preslika v tekstovne oznake."
-        },
-        "width": {
-            "label": "Vhodna širina modela za zaznavanje",
-            "description": "Širina vhodnega tenzorja modela v pikslih."
-        },
-        "height": {
-            "label": "Vhodna višina modela za zaznavanje",
-            "description": "Višina vhodnega tenzorja modela v pikslih."
-        },
-        "labelmap": {
-            "label": "Prilagoditev labelmapa",
-            "description": "Povoženja ali ponovne preslikave vnosov v standardni labelmap."
-        },
-        "attributes_map": {
-            "label": "Zemljevid oznak objektov in njihovih atributov",
-            "description": "Preslikava med oznakami objektov in oznakami atributov za metapodatke."
-        },
-        "input_tensor": {
-            "label": "Oblika vhodnega tenzorja modela",
-            "description": "Format tenzorja, ki ga model pričakuje: 'nhwc' ali 'nchw'."
-        },
-        "input_pixel_format": {
-            "label": "Barvni format slikovnih pik vhoda modela",
-            "description": "Barvni prostor, ki ga pričakuje model (rgb, bgr ali yuv)."
-        },
-        "input_dtype": {
-            "label": "Tip podatkov vhoda modela (D Type)",
-            "description": "Tip podatkov vhodnega tenzorja (npr. 'float32')."
-        },
-        "model_type": {
-            "label": "Vrsta modela za zaznavanje objektov",
-            "description": "Arhitektura modela detektorja (ssd, yolox, yolonas)."
         }
     },
     "genai": {
@@ -2186,7 +1331,7 @@
         },
         "dashboard": {
             "label": "Prikaži v vmesniku",
-            "description": "Preklopi vidljivost kamere v AMSS vmesniku. Če to izklopiš, boš moral ročno urediti konfiguracijo, da jo spet vidiš."
+            "description": "Preklopi vidljivost kamere v Frigate vmesniku. Če to izklopiš, boš moral ročno urediti konfiguracijo, da jo spet vidiš."
         }
     }
 }

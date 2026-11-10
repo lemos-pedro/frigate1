@@ -22,13 +22,6 @@
             "title": "ยืนยันรหัสผ่าน",
             "placeholder": "ยืนยันรหัสผ่าน"
           },
-          "strength": {
-            "title": "ความแข็งแรงของรหัส: ",
-            "weak": "แย่",
-            "strong": "ใช้ได้",
-            "veryStrong": "แข็งแรง",
-            "medium": "กลาง"
-          },
           "match": "รหัสตรงกัน",
           "placeholder": "ใส่รหัสผ่าน"
         },
@@ -66,7 +59,7 @@
     },
     "management": {
       "title": "จัดการผู้ใช้",
-      "desc": "จัดการบัญชีของ AMSS นี้."
+      "desc": "จัดการบัญชีของ Frigate นี้."
     },
     "addUser": "แก้ไขผู้ใช้",
     "title": "ผู้ใช้",
@@ -89,35 +82,26 @@
     },
     "email": {
       "title": "อีเมล"
-    },
-    "notificationSettings": {
-      "documentation": "อ่านเอกสาร"
-    },
-    "notificationUnavailable": {
-      "documentation": "อ่านเอกสาร"
     }
   },
   "documentTitle": {
-    "default": "ตั้งค่า - AMSS",
-    "authentication": "การตั้งค่าการตรวจสอบสิทธิ์ - AMSS",
-    "camera": "การตั้งค่ากล้อง - AMSS",
-    "classification": "การตั้งค่าการจำแนกประเภท - AMSS",
-    "masksAndZones": "ตัวแก้ไขแมสและโซน - AMSS",
-    "general": "การตั้งค่าทั่วไป - AMSS",
-    "frigatePlus": "การตั้งค่า AMSS+ - AMSS",
-    "notifications": "การตั้งค่าการแจ้งเตือน - AMSS",
-    "cameraManagement": "จัดการกล้อง - AMSS",
-    "enrichments": "การตั้งค่าของเพิ่มเติม - AMSS",
-    "motionTuner": "ปรับแต่งการเคลื่อนไหว - AMSS",
-    "object": "ดีบั๊ก - AMSS",
-    "cameraReview": "แสดงการตั้งค่าของกล้อง - AMSS"
+    "default": "ตั้งค่า - Frigate",
+    "authentication": "การตั้งค่าการตรวจสอบสิทธิ์ - Frigate",
+    "masksAndZones": "ตัวแก้ไขแมสและโซน - Frigate",
+    "general": "การตั้งค่าทั่วไป - Frigate",
+    "frigatePlus": "การตั้งค่า Frigate+ - Frigate",
+    "notifications": "การตั้งค่าการแจ้งเตือน - Frigate",
+    "cameraManagement": "จัดการกล้อง - Frigate",
+    "enrichments": "การตั้งค่าของเพิ่มเติม - Frigate",
+    "motionTuner": "ปรับแต่งการเคลื่อนไหว - Frigate",
+    "object": "ดีบั๊ก - Frigate",
+    "cameraReview": "แสดงการตั้งค่าของกล้อง - Frigate"
   },
   "menu": {
     "notifications": "การแจ้งเตือน",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "cameras": "ตั้งค่ากล้อง",
     "users": "ผู้ใช้",
-    "classification": "การจําแนกประเภท",
     "masksAndZones": "แมส / โซน",
     "ui": "UI"
   },
@@ -158,43 +142,6 @@
       "clearAll": "ล้างการตั้งค่าสตรีมทั้งหมด"
     }
   },
-  "classification": {
-    "faceRecognition": {
-      "title": "การจดจำใบหน้า",
-      "modelSize": {
-        "small": {
-          "title": "เล็ก"
-        },
-        "large": {
-          "title": "ใหญ่"
-        }
-      }
-    },
-    "toast": {
-      "error": "ผิดพลาดในการบันทึกการกำหนดค่า: {{errorMessage}}"
-    },
-    "semanticSearch": {
-      "modelSize": {
-        "small": {
-          "title": "เล็ก"
-        },
-        "large": {
-          "title": "ใหญ่"
-        }
-      }
-    },
-    "restart_required": "จำเป็นต้องรีสตาร์ท (การตั้งค่าการจำแนกมีการเปลี่ยนแปลง)"
-  },
-  "camera": {
-    "review": {
-      "title": "รีวิว",
-      "alerts": "การแจ้งเตือน ",
-      "detections": "การเคลื่อนไหว "
-    },
-    "reviewClassification": {
-      "readTheDocumentation": "อ่านเอกสาร"
-    }
-  },
   "masksAndZones": {
     "zones": {
       "name": {
@@ -204,50 +151,22 @@
       },
       "add": "เพิ่มโซน",
       "edit": "แก้โซน",
-      "point_other": "{{count}} จุด",
-      "speedEstimation": {
-        "docs": "อ่านเอกสาร"
-      }
+      "point_other": "{{count}} จุด"
     },
     "motionMasks": {
-      "point_other": "{{count}} จุด",
-      "context": {
-        "documentation": "อ่านเอกสาร"
-      },
-      "polygonAreaTooLarge": {
-        "documentation": "อ่านเอกสาร"
-      }
+      "point_other": "{{count}} จุด"
     },
     "objectMasks": {
       "point_other": "{{count}} จุด"
     }
   },
   "frigatePlus": {
-    "title": "การตั้งค่า AMSS+",
+    "title": "การตั้งค่า Frigate+",
     "modelInfo": {
       "cameras": "กล้อง"
     },
     "toast": {
       "error": "ผิดพลาดในการบันทึกการกำหนดค่า: {{errorMessage}}"
-    },
-    "snapshotConfig": {
-      "documentation": "อ่านเอกสาร"
-    }
-  },
-  "debug": {
-    "objectShapeFilterDrawing": {
-      "document": "อ่านเอกสาร "
-    }
-  },
-  "enrichments": {
-    "semanticSearch": {
-      "readTheDocumentation": "อ่านเอกสาร"
-    },
-    "faceRecognition": {
-      "readTheDocumentation": "อ่านเอกสาร"
-    },
-    "licensePlateRecognition": {
-      "readTheDocumentation": "อ่านเอกสาร"
     }
   }
 }

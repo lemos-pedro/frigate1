@@ -5,12 +5,12 @@ import type { WidgetProps } from "@rjsf/utils";
 import { SwitchesWidget } from "./SwitchesWidget";
 import type { FormContext } from "./SwitchesWidget";
 import { getTranslatedLabel } from "@/utils/i18n";
-import type { AmssConfig } from "@/types/amssConfig";
+import type { FrigateConfig } from "@/types/frigateConfig";
 import type { JsonObject } from "@/types/configForm";
 
 function getReviewLabels(context: FormContext): string[] {
   const labels = new Set<string>();
-  const fullConfig = context.fullConfig as AmssConfig | undefined;
+  const fullConfig = context.fullConfig as FrigateConfig | undefined;
   const fullCameraConfig = context.fullCameraConfig;
 
   // Object labels from tracked objects (camera-level, falling back to global)
@@ -59,7 +59,7 @@ function getReviewLabelDisplayName(
   context?: FormContext,
 ): string {
   const fullCameraConfig = context?.fullCameraConfig;
-  const fullConfig = context?.fullConfig as AmssConfig | undefined;
+  const fullConfig = context?.fullConfig as FrigateConfig | undefined;
   const audioLabels =
     fullCameraConfig?.audio?.listen ?? fullConfig?.audio?.listen;
   const isAudio = Array.isArray(audioLabels) && audioLabels.includes(label);

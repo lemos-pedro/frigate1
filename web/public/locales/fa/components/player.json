@@ -2,7 +2,7 @@
   "noRecordingsFoundForThisTime": "ویدیویی برای این زمان وجود ندارد",
   "noPreviewFound": "پیش‌نمایش پیدا نشد",
   "noPreviewFoundFor": "هیچ پیش‌نمایشی برای {{cameraName}} پیدا نشد",
-  "submitAMSSPlus": {
+  "submitFrigatePlus": {
     "title": "این فریم به فریگیت+ ارسال شود؟",
     "submit": "ارسال",
     "previewError": "نمی توان پیش نمایش عکس فوری را بارگذاری کرد. ممکن است ضبط در این زمان در دسترس نباشد."
@@ -12,7 +12,6 @@
     "title": "جریان آفلاین",
     "desc": "هیچ فریمی از جریان <code>detect</code> دوربین {{cameraName}} دریافت نشده است، گزارش‌های خطا را بررسی کنید"
   },
-  "cameraDisabled": "دوربین غیرفعال است",
   "stats": {
     "streamType": {
       "title": "نوع جریان:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "پهنای باند:",
       "short": "پهنای باند"
-    },
-    "latency": {
-      "title": "تأخیر:",
-      "value": "{{seconds}} ثانیه‌ها",
-      "short": {
-        "title": "تأخیر",
-        "value": "{{seconds}} ثانیه"
-      }
     },
     "totalFrames": "مجموع فریم‌ها:",
     "droppedFrames": {
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "فریم با موفقیت به AMSS+ ارسال شد"
+      "submittedFrigatePlus": "فریم با موفقیت به Frigate+ ارسال شد"
     },
     "error": {
-      "submitAMSSPlusFailed": "ارسال فریم به AMSS+ ناموفق بود"
+      "submitFrigatePlusFailed": "ارسال فریم به Frigate+ ناموفق بود"
     }
   },
   "cameraOff": "دوربین خاموش است"

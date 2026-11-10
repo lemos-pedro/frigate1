@@ -1,6 +1,6 @@
 {
   "generativeAI": "Generativ AI",
-  "documentTitle": "Utforska - AMSS",
+  "documentTitle": "Utforska - Frigate",
   "exploreIsUnavailable": {
     "embeddingsReindexing": {
       "startingUp": "Startar upp…",
@@ -22,11 +22,10 @@
         "textTokenizer": "Texttokeniserare"
       },
       "tips": {
-        "documentation": "Läs dokumentationen",
         "context": "Du kanske vill omindexera inbäddningarna av dina spårade objekt när modellerna har laddats ner."
       },
-      "error": "Ett fel har inträffat. Kontrollera AMSS-loggarna.",
-      "context": "AMSS laddar ned de inbäddningsmodeller som behövs för semantisk sökning. Det kan ta flera minuter beroende på nätverksanslutningens hastighet."
+      "error": "Ett fel har inträffat. Kontrollera Frigate-loggarna.",
+      "context": "Frigate laddar ned de inbäddningsmodeller som behövs för semantisk sökning. Det kan ta flera minuter beroende på nätverksanslutningens hastighet."
     }
   },
   "details": {
@@ -41,14 +40,14 @@
       "tips": {
         "mismatch_one": "{{count}} otillgängligt objekt detekterades och inkluderades i det här granskningsobjektet. Objektet kvalificerade sig antingen inte som en varning eller detektering, eller så har det redan rensats eller tagits bort.",
         "mismatch_other": "{{count}} otillgängliga objekt detekterades och inkluderades i det här granskningsobjektet. Objekten kvalificerade sig antingen inte som varningar eller detekteringar, eller så har de redan rensats eller tagits bort.",
-        "hasMissingObjects": "Justera din konfiguration om du vill att AMSS ska spara spårade objekt för följande etiketter: <em>{{objects}}</em>"
+        "hasMissingObjects": "Justera din konfiguration om du vill att Frigate ska spara spårade objekt för följande etiketter: <em>{{objects}}</em>"
       },
       "toast": {
         "success": {
           "regenerate": "En ny beskrivning har begärts från {{provider}}. Beroende på din leverantörs hastighet kan det ta lite tid att generera den nya beskrivningen.",
           "updatedSublabel": "Underetiketten har uppdaterats.",
           "updatedLPR": "Registreringsskylten har uppdaterats.",
-          "audioTranscription": "Ljudtranskription har begärts. Beroende på hastigheten på din AMSS-server kan transkriptionen ta lite tid att slutföra.",
+          "audioTranscription": "Ljudtranskription har begärts. Beroende på hastigheten på din Frigate-server kan transkriptionen ta lite tid att slutföra.",
           "updatedAttributes": "Attributen har uppdaterats."
         },
         "error": {
@@ -96,7 +95,7 @@
     "description": {
       "label": "Beskrivning",
       "placeholder": "Beskrivning av det spårade objektet",
-      "aiTips": "AMSS kommer inte att begära en beskrivning från din generativa AI-leverantör förrän det spårade objektets livscykel har avslutats."
+      "aiTips": "Frigate kommer inte att begära en beskrivning från din generativa AI-leverantör förrän det spårade objektets livscykel har avslutats."
     },
     "expandRegenerationMenu": "Visa menyn för återskapande",
     "regenerateFromSnapshot": "Återskapa från ögonblicksbild",
@@ -119,59 +118,12 @@
     "details": "detaljer",
     "video": "video",
     "snapshot": "ögonblicksbild",
-    "object_lifecycle": "objektets livscykel",
     "thumbnail": "miniatyrbild",
     "tracking_details": "spårningsdetaljer"
   },
   "trackedObjectDetails": "Detaljer om spårade objekt",
   "objectLifecycle": {
-    "title": "Objektets livscykel",
-    "noImageFound": "Ingen bild hittades för denna tidsstämpel.",
-    "createObjectMask": "Skapa objektmask",
-    "adjustAnnotationSettings": "Justera annoteringsinställningar",
-    "scrollViewTips": "Scrolla för att se de viktiga ögonblicken i detta objekts livscykel.",
-    "autoTrackingTips": "Begränsningsrutornas positioner kommer att vara felaktiga för autospårningskameror.",
-    "count": "{{first}} av {{second}}",
-    "lifecycleItemDesc": {
-      "external": "{{label}} upptäckt",
-      "header": {
-        "zones": "Zoner",
-        "ratio": "Proportion",
-        "area": "Område"
-      },
-      "visible": "{{label}} upptäckt",
-      "entered_zone": "{{label}} gick in i {{zones}}",
-      "active": "{{label}} blev aktiv",
-      "stationary": "{{label}} blev stationär",
-      "attribute": {
-        "faceOrLicense_plate": "{{attribute}} upptäckt för {{label}}",
-        "other": "{{label}} igenkänd som {{attribute}}"
-      },
-      "gone": "{{label}} vänster",
-      "heard": "{{label}} hört"
-    },
-    "annotationSettings": {
-      "title": "Annoteringsinställningar",
-      "showAllZones": {
-        "title": "Visa alla zoner",
-        "desc": "Visa alltid zoner på ramar där objekt har kommit in i en zon."
-      },
-      "offset": {
-        "label": "Annoteringsförskjutning",
-        "desc": "Denna data kommer från din kameras detekteringsflöde men läggs ovanpå bilder från inspelningsflödet. Det är osannolikt att de två strömmarna är helt synkroniserade. Som ett resultat kommer avgränsningsramen och filmmaterialet inte att radas upp perfekt. Fältet <code>annotation_offset</code> kan dock användas för att justera detta.",
-        "documentation": "Läs dokumentationen ",
-        "millisecondsToOffset": "Millisekunder för att förskjuta detektera annoteringar med. <em>Standard: 0</em>",
-        "tips": "TIPS: Föreställ dig ett händelseklipp med en person som går från vänster till höger. Om tidslinjens avgränsningsram konsekvent är till vänster om personen bör värdet minskas. På samma sätt, om en person går från vänster till höger och avgränsningsramen konsekvent är framför personen bör värdet ökas.",
-        "toast": {
-          "success": "Annoterings förskjutningen för {{camera}} har sparats i konfigurationsfilen. Starta om AMSS för att tillämpa dina ändringar."
-        }
-      }
-    },
-    "trackedPoint": "Spårad punkt",
-    "carousel": {
-      "previous": "Föregående bild",
-      "next": "Nästa bild"
-    }
+    "noImageFound": "Ingen bild hittades för denna tidsstämpel."
   },
   "itemMenu": {
     "downloadVideo": {
@@ -181,10 +133,6 @@
     "downloadSnapshot": {
       "label": "Ladda ned ögonblicksbild",
       "aria": "Ladda ned ögonblicksbild"
-    },
-    "viewObjectLifecycle": {
-      "label": "Visa objektets livscykel",
-      "aria": "Visa objektets livscykel"
     },
     "findSimilar": {
       "label": "Hitta liknande",
@@ -199,8 +147,8 @@
       "aria": "Begär ljudtranskribering"
     },
     "submitToPlus": {
-      "label": "Skicka till AMSS+",
-      "aria": "Skicka till AMSS+"
+      "label": "Skicka till Frigate+",
+      "aria": "Skicka till Frigate+"
     },
     "viewInHistory": {
       "label": "Visa i historik",

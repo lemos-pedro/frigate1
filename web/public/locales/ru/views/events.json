@@ -25,9 +25,9 @@
     "aria": "Выбор событий",
     "noFoundForTimePeriod": "Для этого периода времени не найдено ни одного события."
   },
-  "documentTitle": "Обзор событий - AMSS",
+  "documentTitle": "Обзор событий - Frigate",
   "recordings": {
-    "documentTitle": "Записи - AMSS"
+    "documentTitle": "Записи - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Последние 24 часа"
@@ -38,12 +38,9 @@
     "button": "Новые элементы для просмотра"
   },
   "markTheseItemsAsReviewed": "Пометить эти элементы как просмотренные",
-  "selected": "{{count}} выбрано",
-  "selected_one": "{{count}} выбрано",
+  "selected_one": "{{count}} выбран",
   "selected_other": "{{count}} выбрано",
   "detected": "обнаружен",
-  "suspiciousActivity": "Подозрительная активность",
-  "threateningActivity": "Угрожающая активность",
   "detail": {
     "noDataFound": "Нет данных для просмотра",
     "aria": "Переключить подробный режим просмотра",

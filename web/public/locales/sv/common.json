@@ -1,7 +1,7 @@
 {
   "time": {
     "untilForTime": "Till {{time}}",
-    "untilForRestart": "Tills AMSS startar om.",
+    "untilForRestart": "Tills Frigate startar om.",
     "untilRestart": "Tills omstart",
     "ago": "{{timeAgo}} sedan",
     "justNow": "Just nu",
@@ -13,8 +13,8 @@
     "30minutes": "30 minuter",
     "1hour": "1 timme",
     "12hours": "12 timmar",
-    "pm": "pm",
-    "am": "am",
+    "pm": "e.m.",
+    "am": "f.m.",
     "yr": "{{time}} år",
     "mo": "{{time}} mån",
     "month_one": "{{time}} månad",
@@ -35,7 +35,7 @@
       "12hour": "d MMM, yyyy",
       "24hour": "d MMM, yyyy"
     },
-    "h": "{{time}} h",
+    "h": "{{time}} t",
     "hour_one": "{{time}} timme",
     "hour_other": "{{time}} timmar",
     "m": "{{time}} min",
@@ -126,7 +126,10 @@
     "saveAll": "Spara alla",
     "savingAll": "Sparar alla…",
     "retry": "Försök igen",
-    "undoAll": "Ångra alla"
+    "undoAll": "Ångra alla",
+    "expand": "Expandera",
+    "collapse": "Kollapsa",
+    "reload": "Ladda om"
   },
   "menu": {
     "language": {
@@ -172,7 +175,7 @@
       "gl": "Galego (Galiciska)",
       "id": "Bahasa Indonesia (Indonesiska)",
       "ur": "اردو (Urdu)",
-      "hr": "Hrvatski (kroatiska)",
+      "hr": "Hrvatski (Kroatiska)",
       "zhHant": "繁體中文 (Traditionell kinesisk)",
       "bs": "Bosanski (Bosniska)"
     },
@@ -221,10 +224,10 @@
     "help": "Hjälp",
     "documentation": {
       "title": "Dokumentation",
-      "label": "AMSS-dokumentation"
+      "label": "Frigate-dokumentation"
     },
     "uiPlayground": "Testmiljö för gränssnittet",
-    "restart": "Starta om AMSS",
+    "restart": "Starta om Frigate",
     "review": "Granska",
     "languages": "Språk",
     "configurationEditor": "Konfigurationsredigerare",
@@ -251,16 +254,16 @@
   "accessDenied": {
     "title": "Åtkomst nekad",
     "desc": "Du har inte rättigheter att visa den här sidan.",
-    "documentTitle": "Åtkomst nekad – AMSS"
+    "documentTitle": "Åtkomst nekad – Frigate"
   },
   "role": {
     "admin": "Administratör",
     "viewer": "Tittare",
-    "desc": "Administratörer har fullständig åtkomst till alla funktioner i AMSSs gränssnitt. Tittare kan endast visa kameror, granska objekt och se historiskt videomaterial.",
+    "desc": "Administratörer har fullständig åtkomst till alla funktioner i Frigates gränssnitt. Tittare kan endast visa kameror, granska objekt och se historiskt videomaterial.",
     "title": "Roll"
   },
   "notFound": {
-    "documentTitle": "Sidan hittades inte – AMSS",
+    "documentTitle": "Sidan hittades inte – Frigate",
     "desc": "Sidan hittades inte",
     "title": "404"
   },
@@ -314,11 +317,29 @@
   },
   "field": {
     "optional": "Valfritt",
-    "internalID": "Det interna ID som AMSS använder i konfigurationen och databasen"
+    "internalID": "Det interna ID som Frigate använder i konfigurationen och databasen"
   },
   "no_items": "Inga objekt",
   "validation_errors": "Valideringsfel",
   "credentialField": {
     "savedPlaceholder": "Sparat – lämna tomt för att behålla det aktuella värdet"
+  },
+  "error": {
+    "title": "Denna sida slutade fungera",
+    "partial": "Delar av gränssnittet slutade fungera.",
+    "copyDetails": "Kopiera detaljer",
+    "copyFailed": "Kunde inte kopiera detaljer till klippbordet"
+  },
+  "commandMenu": {
+    "description": "Sök sidor, kameror, inställningar och åtgärder",
+    "placeholder": "Sök sidor, kameror, inställningar och åtgärder",
+    "empty": "Inga träffar",
+    "section": {
+      "pages": "Sidor",
+      "cameras": "Kameror",
+      "cameraGroups": "",
+      "settings": "Inställningar",
+      "actions": "Åtgärder"
+    }
   }
 }

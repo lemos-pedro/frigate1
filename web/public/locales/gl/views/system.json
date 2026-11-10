@@ -1,11 +1,11 @@
 {
   "documentTitle": {
-    "cameras": "Estatísticas de cámaras - AMSS",
-    "storage": "Estatísticas de Almacenamento - AMSS",
-    "general": "Estatísticas Xerais - AMSS",
-    "enrichments": "Estatísticas complementarias - AMSS",
+    "cameras": "Estatísticas de cámaras - Frigate",
+    "storage": "Estatísticas de Almacenamento - Frigate",
+    "general": "Estatísticas Xerais - Frigate",
+    "enrichments": "Estatísticas complementarias - Frigate",
     "logs": {
-      "frigate": "Rexistros de AMSS - AMSS"
+      "frigate": "Rexistros de Frigate - Frigate"
     }
   },
   "title": "Sistema",

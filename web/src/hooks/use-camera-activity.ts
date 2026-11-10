@@ -1,18 +1,19 @@
 import {
   useAudioDetections,
   useEnabledState,
-  useAmssEvents,
+  useFrigateEvents,
   useInitialCameraState,
   useMotionActivity,
 } from "@/api/ws";
-import { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import { MotionData, ReviewSegment } from "@/types/review";
 import { useEffect, useMemo, useState } from "react";
 import { AudioDetection, ObjectType } from "@/types/ws";
 import { useTimelineUtils } from "./use-timeline-utils";
 import useDeepMemo from "./use-deep-memo";
 import { isEqual } from "lodash";
-import { useAutoAmssStats } from "./use-stats";
+import { useAutoFrigateStats } from "./use-stats";
+import { FrigateStats } from "@/types/stats";
 import useSWR from "swr";
 import { getAttributeLabels } from "@/utils/iconUtil";
 
@@ -30,11 +31,24 @@ type useCameraActivityReturn = {
   offline: boolean;
 };
 
+export function isCameraOffline(
+  stats: FrigateStats | undefined,
+  cameraName: string | undefined,
+): boolean {
+  if (!stats?.cameras || !cameraName) {
+    return false;
+  }
+
+  return (
+    stats.cameras[cameraName]?.camera_fps == 0 && stats.service.uptime > 60
+  );
+}
+
 export function useCameraActivity(
   camera: CameraConfig | undefined,
   revalidateOnFocus: boolean = true,
 ): useCameraActivityReturn {
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const attributeLabels = useMemo(() => {
@@ -85,7 +99,7 @@ export function useCameraActivity(
 
   const { payload: cameraEnabled } = useEnabledState(camera?.name ?? "");
   const { payload: detectingMotion } = useMotionActivity(camera?.name ?? "");
-  const { payload: event } = useAmssEvents();
+  const { payload: event } = useFrigateEvents();
   const updatedEvent = useDeepMemo(event);
 
   useEffect(() => {
@@ -165,27 +179,12 @@ export function useCameraActivity(
 
   // determine if camera is offline
 
-  const stats = useAutoAmssStats();
+  const stats = useAutoFrigateStats();
 
-  const offline = useMemo(() => {
-    if (!stats) {
-      return false;
-    }
-
-    const cameras = stats["cameras"];
-
-    if (!cameras) {
-      return false;
-    }
-
-    if (!camera?.name) {
-      return false;
-    }
-
-    return (
-      cameras[camera.name]?.camera_fps == 0 && stats["service"].uptime > 60
-    );
-  }, [camera, stats]);
+  const offline = useMemo(
+    () => isCameraOffline(stats, camera?.name),
+    [camera, stats],
+  );
 
   const isCameraEnabled = cameraEnabled ? cameraEnabled === "ON" : true;
 

@@ -17,12 +17,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { SearchResult } from "@/types/search";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useIsAdmin } from "@/hooks/use-is-admin";
 
 type Props = {
   search: SearchResult | Event;
-  config?: AmssConfig;
+  config?: FrigateConfig;
   setSearch?: (s: SearchResult | undefined) => void;
   setSimilarity?: () => void;
   faceNames?: string[];
@@ -55,6 +55,10 @@ export default function DetailActionsMenu({
   // currently, audio event ids are not saved in review items
   const { data: reviewItem } = useSWR<ReviewSegment>(
     search.data?.type === "audio" ? null : [`review/event/${search.id}`],
+    {
+      shouldRetryOnError: (err) =>
+        !(axios.isAxiosError(err) && err.response?.status === 404),
+    },
   );
 
   const handleDebugReplay = useCallback(() => {

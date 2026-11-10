@@ -6,13 +6,12 @@
     "title": "ストリームオフライン",
     "desc": "{{cameraName}} の <code>detect</code> ストリームでフレームが受信されていません。エラーログを確認してください"
   },
-  "submitAMSSPlus": {
-    "title": "このフレームを AMSS+ に送信しますか？",
+  "submitFrigatePlus": {
+    "title": "このフレームを Frigate+ に送信しますか？",
     "submit": "送信",
     "previewError": "スナップショットのプレビューを読み込めませんでした。現在、この録画は利用できない可能性があります。"
   },
   "livePlayerRequiredIOSVersion": "このライブストリームタイプには iOS 17.1 以上が必要です。",
-  "cameraDisabled": "カメラは無効です",
   "stats": {
     "streamType": {
       "title": "ストリームタイプ:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "帯域:",
       "short": "帯域幅"
-    },
-    "latency": {
-      "title": "遅延:",
-      "value": "{{seconds}} 秒",
-      "short": {
-        "title": "遅延",
-        "value": "{{seconds}} 秒"
-      }
     },
     "totalFrames": "総フレーム:",
     "droppedFrames": {
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "フレームを AMSS+ に送信しました"
+      "submittedFrigatePlus": "フレームを Frigate+ に送信しました"
     },
     "error": {
-      "submitAMSSPlusFailed": "フレームの AMSS+ への送信に失敗しました"
+      "submitFrigatePlusFailed": "フレームの Frigate+ への送信に失敗しました"
     }
   },
   "cameraOff": "カメラはオフです"

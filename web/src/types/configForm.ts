@@ -1,5 +1,5 @@
 import type { RendererComponent } from "@/components/config-form/sectionExtras/registry";
-import { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 
 export type JsonPrimitive = string | number | boolean | null;
 
@@ -14,7 +14,7 @@ export type JsonArray = JsonValue[];
 export type ConfigSectionData = JsonObject;
 
 export type HiddenFieldContext = {
-  fullConfig: AmssConfig;
+  fullConfig: FrigateConfig;
   fullCameraConfig?: CameraConfig;
   level: "global" | "camera" | "replay";
   cameraName?: string;
@@ -30,6 +30,8 @@ export type HiddenFieldEntry = string | ((ctx: HiddenFieldContext) => string[]);
 export type ConfigFormContext = {
   level?: "global" | "camera";
   cameraName?: string;
+  /** Config section being edited, e.g. "audio" or "review". */
+  sectionPath?: string;
   globalValue?: JsonValue;
   cameraValue?: JsonValue;
   overrides?: JsonValue;
@@ -37,6 +39,8 @@ export type ConfigFormContext = {
   extraHasChanges?: boolean;
   setExtraHasChanges?: (hasChanges: boolean) => void;
   formData?: JsonObject;
+  /** Key order of each ordered map, so reorders re-render fields */
+  orderedMapsKeyOrder?: string[][];
   pendingDataBySection?: Record<string, ConfigSectionData>;
   onPendingDataChange?: (
     sectionKey: string,
@@ -47,7 +51,7 @@ export type ConfigFormContext = {
   hiddenFields?: string[];
   onFormDataChange?: (data: ConfigSectionData) => void;
   fullCameraConfig?: CameraConfig;
-  fullConfig?: AmssConfig;
+  fullConfig?: FrigateConfig;
   i18nNamespace?: string;
   sectionI18nPrefix?: string;
   sectionDocs?: string;

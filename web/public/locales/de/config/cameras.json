@@ -46,7 +46,7 @@
     },
     "friendly_name": {
         "label": "Anzeigename",
-        "description": "Kamera-Anzeigename in der AMSS-Benutzeroberfläche"
+        "description": "Kamera-Anzeigename in der Frigate-Benutzeroberfläche"
     },
     "audio_transcription": {
         "label": "Audio-Transkription",
@@ -69,10 +69,6 @@
         "enabled": {
             "label": "Birdseye aktivieren",
             "description": "Aktivieren oder deaktivieren der Birdseye-Funktion."
-        },
-        "mode": {
-            "label": "Verfolgungsmodus",
-            "description": "Modus zum Einbeziehen von Kameras in Birdseye: „Objekte“, „Bewegung“ oder „kontinuierlich“."
         },
         "order": {
             "label": "Position",
@@ -416,7 +412,7 @@
                 "description": "Die Erstellung von Beschreibungen für verfolgte Objekte durch GenAI standardmäßig aktivieren."
             },
             "use_snapshot": {
-                "label": "Verwenden Sie Momentaufnahmen",
+                "label": "Verwende Schnappschüsse",
                 "description": "Verwenden Sie für die Erstellung von Beschreibungen durch GenAI Objektsnapshots anstelle von Miniaturansichten."
             },
             "prompt": {
@@ -545,6 +541,9 @@
             "max_concurrent": {
                 "label": "Maximale Anzahl gleichzeitiger Exporte",
                 "description": "Maximale Anzahl der gleichzeitig zu verarbeitenden Exportaufträge."
+            },
+            "chapters": {
+                "label": "Kapitel-Metadaten, die in exportierte Aufzeichnungen eingebettet werden sollen"
             }
         },
         "preview": {
@@ -670,7 +669,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Beim Start kalibrieren",
-                "description": "Messen Sie die Drehzahlen der PTZ-Motoren beim Start, um die Nachführgenauigkeit zu verbessern. AMSS aktualisiert die Konfiguration nach der Kalibrierung mit den Bewegungsgewichten."
+                "description": "Messen Sie die Drehzahlen der PTZ-Motoren beim Start, um die Nachführgenauigkeit zu verbessern. Frigate aktualisiert die Konfiguration nach der Kalibrierung mit den Bewegungsgewichten."
             },
             "zooming": {
                 "label": "Zoom-Modus",
@@ -721,7 +720,7 @@
         },
         "ignore_time_mismatch": {
             "label": "Zeitabweichung ignorieren",
-            "description": "Ignoriere Zeitunterschiede zwischen Kamera und AMSS-Server bei der ONVIF-Kommunikation."
+            "description": "Ignoriere Zeitunterschiede zwischen Kamera und Frigate-Server bei der ONVIF-Kommunikation."
         },
         "profile": {
             "label": "ONVIF Profile",
@@ -768,8 +767,8 @@
             "description": "Numerische Reihenfolge, nach der die Kamera in der Benutzeroberfläche sortiert wird (Standard-Dashboard und Listen); höhere Zahlen erscheinen später."
         },
         "dashboard": {
-            "label": "In der Benutzeroberfläche anzeigen",
-            "description": "Schalte ein, ob diese Kamera überall in der Benutzeroberfläche von „AMSS“ sichtbar ist. Wenn du diese Option deaktivierst, musst du die Konfiguration manuell bearbeiten, um diese Kamera wieder in der Benutzeroberfläche anzuzeigen."
+            "label": "Im Live-Dashboard anzeigen",
+            "description": "Legt fest, ob diese Kamera im Standard-Live-Dashboard „Alle Kameras“ angezeigt wird. Die Kamera bleibt in allen anderen Bereichen der Benutzeroberfläche verfügbar, einschließlich Kameragruppen und Einstellungen."
         },
         "review": {
             "label": "In der Überprüfung anzeigen",
@@ -782,10 +781,6 @@
         "enabled": {
             "label": "Schnappschüsse aktivieren",
             "description": "Das Speichern von Momentaufnahmen für diese Kamera aktivieren oder deaktivieren."
-        },
-        "clean_copy": {
-            "label": "Saubere Kopie speichern",
-            "description": "Save an unannotated clean copy of snapshots in addition to annotated ones."
         },
         "timestamp": {
             "label": "Zeitstempel-Einblendung",
@@ -804,7 +799,7 @@
             "description": "Bereiche, die ein Objekt betreten muss, damit ein Schnappschuss gespeichert wird."
         },
         "height": {
-            "label": "Höhe der Momentaufnahme",
+            "label": "Schnappschuss Höhe",
             "description": "Höhe (Pixel), auf die Schnappschüsse über die API skaliert werden sollen; leer lassen, um die Originalgröße beizubehalten."
         },
         "retain": {
@@ -813,10 +808,6 @@
             "default": {
                 "label": "Standard-Aufbewahrungsfrist",
                 "description": "Standardmäßige Anzahl von Tagen, für die Snapshots aufbewahrt werden."
-            },
-            "mode": {
-                "label": "Speichermodus",
-                "description": "Speichermodus: „all“ (alle Segmente speichern), „motion“ (Segmente mit Bewegung speichern) oder „active_objects“ (Segmente mit aktiven Objekten speichern)."
             },
             "objects": {
                 "label": "Objektaufbewahrung",
@@ -885,7 +876,7 @@
         "description": "Mit Zonen können Sie einen bestimmten Bereich des Bildausschnitts festlegen, um zu bestimmen, ob sich ein Objekt innerhalb dieses Bereichs befindet oder nicht.",
         "friendly_name": {
             "label": "Zonen Name",
-            "description": "Ein benutzerfreundlicher Name für die Zone, der in der Benutzeroberfläche von AMSS angezeigt wird. Wenn kein Name festgelegt ist, wird eine formatierte Version des Zonennamens verwendet."
+            "description": "Ein benutzerfreundlicher Name für die Zone, der in der Benutzeroberfläche von Frigate angezeigt wird. Wenn kein Name festgelegt ist, wird eine formatierte Version des Zonennamens verwendet."
         },
         "enabled": {
             "label": "Aktiviert",

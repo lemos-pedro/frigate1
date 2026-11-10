@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Za ta čas ni bilo najdenih posnetkov",
   "noPreviewFound": "Predogleda ni mogoče najti",
   "noPreviewFoundFor": "Za kamero {{cameraName}} ni predogleda",
-  "submitAMSSPlus": {
-    "title": "Želiš poslati ta okvir v AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Želiš poslati ta okvir v Frigate+?",
     "submit": "Pošlji"
   },
   "stats": {
@@ -14,14 +14,6 @@
     "bandwidth": {
       "title": "Pasovna širina:",
       "short": "Pasovna širina"
-    },
-    "latency": {
-      "value": "{{seconds}} sekund",
-      "title": "Zakasnitev:",
-      "short": {
-        "value": "{{seconds}} s",
-        "title": "Zakasnitev"
-      }
     },
     "totalFrames": "Skupno število slik:",
     "droppedFrames": {
@@ -39,13 +31,12 @@
     "title": "Tok ni povezan",
     "desc": "Pretok <code>detect</code> za kamero {{cameraName}} ne prejema slik, preveri dnevnike napak."
   },
-  "cameraDisabled": "Kamera je onemogočena",
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Okvir je bil uspešno poslan v AMSS+"
+      "submittedFrigatePlus": "Okvir je bil uspešno poslan v Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Napaka pri pošiljanju okvirja v AMSS+"
+      "submitFrigatePlusFailed": "Napaka pri pošiljanju okvirja v Frigate+"
     }
   }
 }

@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nije pronađen nijedan snimak za ovo vreme",
   "noPreviewFound": "Pregled nije pronađen",
   "noPreviewFoundFor": "Nije pronađen pregled za {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Pošaljite ovaj frejm na AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Pošaljite ovaj frejm na Frigate+?",
     "submit": "Pošalji"
   },
   "livePlayerRequiredIOSVersion": "Za ovaj tip prenosa uživo potreban je iOS 17.1 ili noviji.",
@@ -11,7 +11,6 @@
     "title": "Strim je oflajn",
     "desc": "Ни један фрејм није добијен од {{cameraName}} <code>detect</code>, проверите лог грешака"
   },
-  "cameraDisabled": "Камера је онемогућена",
   "stats": {
     "streamType": {
       "title": "Тип стрима:",
@@ -20,14 +19,6 @@
     "bandwidth": {
       "title": "Пропусни опсег:",
       "short": "Ширина опсега"
-    },
-    "latency": {
-      "title": "Кашњење:",
-      "value": "{{seconds}} секунди",
-      "short": {
-        "title": "Кашњење",
-        "value": "{{seconds}}s"
-      }
     },
     "totalFrames": "Укупно фрејмова:",
     "droppedFrames": {
@@ -42,10 +33,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Фрејм је успешно послат у Фригејт+"
+      "submittedFrigatePlus": "Фрејм је успешно послат у Фригејт+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Неуспешно слање фрејма у Фригејт+"
+      "submitFrigatePlusFailed": "Неуспешно слање фрејма у Фригејт+"
     }
   }
 }

@@ -1,15 +1,15 @@
 {
   "documentTitle": {
-    "cameras": "Kamera statisztikák - AMSS",
-    "storage": "Tárhely statisztikák - AMSS",
-    "general": "Általános Statisztikák - AMSS",
+    "cameras": "Kamera statisztikák - Frigate",
+    "storage": "Tárhely statisztikák - Frigate",
+    "general": "Általános Statisztikák - Frigate",
     "logs": {
-      "frigate": "AMSS naplók - AMSS",
-      "go2rtc": "Go2RTC naplók - AMSS",
-      "nginx": "Nginx naplók - AMSS",
-      "websocket": "Üzenet naplók - AMSS"
+      "frigate": "Frigate naplók - Frigate",
+      "go2rtc": "Go2RTC naplók - Frigate",
+      "nginx": "Nginx naplók - Frigate",
+      "websocket": "Üzenet naplók - Frigate"
     },
-    "enrichments": "Kiegészítés statisztikák - AMSS"
+    "enrichments": "Kiegészítés statisztikák - Frigate"
   },
   "cameras": {
     "label": {
@@ -137,10 +137,7 @@
       "gpuEncoder": "GPU Enkóder",
       "gpuDecoder": "GPU Dekóder",
       "npuUsage": "NPU Kihasználtság",
-      "npuMemory": "NPU Memória",
-      "intelGpuWarning": {
-        "message": "GPU statisztika nem érhető el"
-      }
+      "npuMemory": "NPU Memória"
     },
     "otherProcesses": {
       "processMemoryUsage": "Folyamat Memória Kihasználtság",
@@ -155,7 +152,7 @@
   "storage": {
     "recordings": {
       "title": "Felvételek",
-      "tips": "Ez az érték mutatja a AMSS adatbázisában található felvételek teljes tárhely felhasználását. A AMSS nem követi az összes fájl által foglalt tárhelyet.",
+      "tips": "Ez az érték mutatja a Frigate adatbázisában található felvételek teljes tárhely felhasználását. A Frigate nem követi az összes fájl által foglalt tárhelyet.",
       "earliestRecording": "Legkorábbi elérhető felvétel:"
     },
     "title": "Tárhely",
@@ -169,7 +166,7 @@
       "bandwidth": "Sávszélesség",
       "unused": {
         "title": "Felhasználatlan",
-        "tips": "Ez az érték nem feltétlenül tükrözi pontosan a AMSS számára elérhető szabad helyet, ha a meghajtón egyéb fájlok is tárolva vannak a AMSS felvételein kívül. A AMSS nem követi a tárhelyhasználatot a saját felvételein kívül."
+        "tips": "Ez az érték nem feltétlenül tükrözi pontosan a Frigate számára elérhető szabad helyet, ha a meghajtón egyéb fájlok is tárolva vannak a Frigate felvételein kívül. A Frigate nem követi a tárhelyhasználatot a saját felvételein kívül."
       }
     },
     "shm": {
@@ -204,10 +201,7 @@
     "healthy": "A rendszer egészséges",
     "cameraIsOffline": "{{camera}} nem elérhető",
     "detectIsSlow": "{{detect}} lassú ({{speed}} ms)",
-    "reindexingEmbeddings": "Beágyazások újra indexelése ({{processed}}% kész)",
-    "ffmpegHighCpuUsage": "{{camera}}-nak/-nek magas FFmpeg CPU felhasználása ({{ffmpegAvg}}%)",
-    "detectHighCpuUsage": "A(z) {{camera}} kameránál magas az észlelési CPU-használat ({{detectAvg}}%)",
-    "shmTooLow": "A /dev/shm részére foglalt területet ({{total}} MB) legalább {{min}} MB-ra kell növelni."
+    "reindexingEmbeddings": "Beágyazások újra indexelése ({{processed}}% kész)"
   },
   "lastRefreshed": "Utoljára frissítve: "
 }

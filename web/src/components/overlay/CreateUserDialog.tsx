@@ -36,13 +36,8 @@ import { LuCheck, LuX, LuEye, LuEyeOff } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
 import { isDesktop, isMobile } from "react-device-detect";
 import { cn } from "@/lib/utils";
-import { AmssConfig } from "@/types/amssConfig";
-import {
-  calculatePasswordStrength,
-  getPasswordRequirements,
-  getPasswordStrengthLabel,
-  getPasswordStrengthColor,
-} from "@/utils/passwordUtil";
+import { FrigateConfig } from "@/types/frigateConfig";
+import { getPasswordRequirements } from "@/utils/passwordUtil";
 import {
   MobilePage,
   MobilePageContent,
@@ -62,7 +57,7 @@ export default function CreateUserDialog({
   onCreate,
   onCancel,
 }: CreateUserOverlayProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { t } = useTranslation(["views/settings"]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPasswordVisible, setShowPasswordVisible] =
@@ -82,6 +77,9 @@ export default function CreateUserDialog({
         .min(1, t("users.dialog.form.usernameIsRequired"))
         .regex(/^[A-Za-z0-9._]+$/, {
           message: t("users.dialog.createUser.usernameOnlyInclude"),
+        })
+        .regex(/[^.]/, {
+          message: t("users.dialog.createUser.usernameOnlyDots"),
         }),
       password: z
         .string()
@@ -119,12 +117,6 @@ export default function CreateUserDialog({
   const confirmPassword = form.watch("confirmPassword");
   const passwordsMatch = password === confirmPassword;
   const showMatchIndicator = password && confirmPassword;
-
-  // Password strength calculation
-  const passwordStrength = useMemo(
-    () => calculatePasswordStrength(password),
-    [password],
-  );
 
   const requirements = useMemo(
     () => getPasswordRequirements(password),
@@ -221,6 +213,12 @@ export default function CreateUserDialog({
                         type={showPasswordVisible ? "text" : "password"}
                         className="h-10 pr-10"
                         {...field}
+                        onChange={(e) => {
+                          field.onChange(e);
+                          if (form.getValues("confirmPassword")) {
+                            form.trigger("confirmPassword");
+                          }
+                        }}
                       />
                       <Button
                         type="button"
@@ -252,21 +250,6 @@ export default function CreateUserDialog({
 
                   {password && (
                     <div className="mt-2 space-y-2">
-                      <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-secondary-foreground">
-                        <div
-                          className={`${getPasswordStrengthColor(
-                            password,
-                          )} transition-all duration-300`}
-                          style={{ width: `${passwordStrength * 100}%` }}
-                        />
-                      </div>
-                      <p className="text-xs text-muted-foreground">
-                        {t("users.dialog.form.password.strength.title")}
-                        <span className="font-medium">
-                          {getPasswordStrengthLabel(password, t)}
-                        </span>
-                      </p>
-
                       <div className="space-y-1 rounded-md bg-muted/50 p-2">
                         <p className="text-xs font-medium text-muted-foreground">
                           {t("users.dialog.form.password.requirements.title")}
@@ -294,8 +277,6 @@ export default function CreateUserDialog({
                       </div>
                     </div>
                   )}
-
-                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -363,7 +344,6 @@ export default function CreateUserDialog({
                       )}
                     </div>
                   )}
-                  <FormMessage />
                 </FormItem>
               )}
             />

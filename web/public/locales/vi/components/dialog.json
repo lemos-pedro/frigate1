@@ -1,13 +1,13 @@
 {
   "restart": {
-    "title": "Bạn có chắc chắn muốn khởi động lại AMSS không?",
+    "title": "Bạn có chắc chắn muốn khởi động lại Frigate không?",
     "button": "Khởi động lại",
     "restarting": {
-      "title": "Đang khởi động lại AMSS",
+      "title": "Đang khởi động lại Frigate",
       "content": "Trang này sẽ tải lại sau {{countdown}} giây.",
       "button": "Tải lại ngay"
     },
-    "description": "Thao tác này sẽ tạm dừng hoạt động của AMSS trong thời gian ngắn để khởi động lại."
+    "description": "Thao tác này sẽ tạm dừng hoạt động của Frigate trong thời gian ngắn để khởi động lại."
   },
   "explore": {
     "plus": {
@@ -15,7 +15,7 @@
         "question": {
           "ask_a": "Đối tượng này có phải là một <code>{{label}}</code> không?",
           "ask_an": "Đối tượng này có phải là một <code>{{label}}</code> không?",
-          "label": "Xác nhận nhãn này cho AMSS Plus",
+          "label": "Xác nhận nhãn này cho Frigate Plus",
           "ask_full": "Đối tượng này có phải là một <code>{{untranslatedLabel}}</code> ({{translatedLabel}}) không?"
         },
         "state": {
@@ -23,7 +23,7 @@
         }
       },
       "submitToPlus": {
-        "label": "Gửi lên AMSS+",
+        "label": "Gửi lên Frigate+",
         "desc": "Đối tượng xuất hiện ở các khu vực bạn muốn tránh không được xem là phát hiện sai. Gửi chúng lên dưới dạng phát hiện sai có thể làm mô hình bị nhầm lẫn."
       }
     },
@@ -54,7 +54,6 @@
     "toast": {
       "error": {
         "endTimeMustAfterStartTime": "Thời gian kết thúc phải sau thời gian bắt đầu",
-        "noVaildTimeSelected": "Chưa chọn khoảng thời gian hợp lệ",
         "failed": "Không thể bắt đầu xuất: {{error}}"
       },
       "success": "Đã bắt đầu xuất dữ liệu thành công. Xem tệp trên trang xuất dữ liệu.",
@@ -71,8 +70,7 @@
     "restreaming": {
       "disabled": "Tính năng phát lại luồng không được bật cho camera này.",
       "desc": {
-        "title": "Thiết lập go2rtc để có thêm tùy chọn xem trực tiếp và âm thanh cho camera này.",
-        "readTheDocumentation": "Đọc tài liệu"
+        "title": "Thiết lập go2rtc để có thêm tùy chọn xem trực tiếp và âm thanh cho camera này."
       }
     },
     "showStats": {

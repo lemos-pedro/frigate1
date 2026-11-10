@@ -1,8 +1,8 @@
 {
   "documentTitle": {
-    "default": "En vivo - AMSS"
+    "default": "En vivo - Frigate"
   },
-  "documentTitle.withCamera": "{{camera}} - Directo - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Directo - Frigate",
   "twoWayTalk": {
     "enable": "Habilitar conversación bidireccional",
     "disable": "Deshabilitar conversación bidireccional"
@@ -56,8 +56,6 @@
     }
   },
   "camera": {
-    "enable": "Habilitar cámara",
-    "disable": "Deshabilitar cámara",
     "turnOn": "Encender cámara",
     "turnOff": "Apagar cámara"
   },
@@ -121,14 +119,12 @@
     "title": "Transmisión",
     "audio": {
       "tips": {
-        "documentation": "Leer la documentación ",
         "title": "El audio debe provenir de tu cámara y estar configurado en go2rtc para esta transmisión."
       },
       "available": "El audio está disponible para esta transmisión",
       "unavailable": "El audio no está disponible para esta transmisión"
     },
     "twoWayTalk": {
-      "tips.documentation": "Leer la documentación ",
       "available": "La conversación bidireccional está disponible para esta transmisión",
       "unavailable": "La conversación bidireccional no está disponible para esta transmisión",
       "tips": "Tu dispositivo debe soportar la función y WebRTC debe estar configurado para la conversación bidireccional."
@@ -152,7 +148,6 @@
     "recording": "Grabación",
     "snapshots": "Capturas de pantalla",
     "autotracking": "Seguimiento automático",
-    "cameraEnabled": "Cámara habilitada",
     "transcription": "Transcripción de Audio",
     "camera": "Cámara"
   },
@@ -164,8 +159,7 @@
       "motion": "Movimiento",
       "active_objects": "Objetos activos",
       "all": "Todo"
-    },
-    "notAllTips": "Tu configuración de retención de grabación de {{source}} está establecida en <code>modo: {{effectiveRetainMode}}</code>, por lo que esta grabación bajo demanda solo mantendrá segmentos con {{effectiveRetainModeName}}."
+    }
   },
   "editLayout": {
     "label": "Editar diseño",
@@ -180,7 +174,7 @@
   },
   "noCameras": {
     "title": "No hay cámaras configuradas",
-    "description": "Comienza conectando una cámara a AMSS.",
+    "description": "Comienza conectando una cámara a Frigate.",
     "buttonText": "Añade Cámara",
     "restricted": {
       "title": "No hay cámaras disponibles",
@@ -188,7 +182,7 @@
     },
     "default": {
       "title": "No hay Cámaras Configuradas",
-      "description": "Comienza conectando una cámara a AMSS.",
+      "description": "Comienza conectando una cámara a Frigate.",
       "buttonText": "Añadir Cámara"
     },
     "group": {

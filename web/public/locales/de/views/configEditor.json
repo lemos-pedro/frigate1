@@ -11,8 +11,8 @@
       "copyToClipboard": "Konfiguration in Zwischenablage kopiert."
     }
   },
-  "documentTitle": "Konfigurationseditor – AMSS",
+  "documentTitle": "Konfigurationseditor – Frigate",
   "confirm": "Verlassen ohne zu Speichern?",
   "safeConfigEditor": "Konfiguration Editor (abgesicherter Modus)",
-  "safeModeDescription": "AMSS ist aufgrund eines Konfigurationsvalidierungsfehlers im abgesicherten Modus."
+  "safeModeDescription": "Frigate ist aufgrund eines Konfigurationsvalidierungsfehlers im abgesicherten Modus."
 }

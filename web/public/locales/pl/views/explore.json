@@ -1,6 +1,6 @@
 {
   "generativeAI": "Generatywna SI",
-  "documentTitle": "Eksploruj - AMSS",
+  "documentTitle": "Eksploruj - Frigate",
   "details": {
     "timestamp": "Znacznik czasu",
     "item": {
@@ -11,7 +11,7 @@
         "viewInExplore": "Zobacz w Eksploracji"
       },
       "tips": {
-        "hasMissingObjects": "Dostosuj swoją konfigurację, jeśli chcesz, aby AMSS zapisywał śledzone obiekty dla następujących etykiet: <em>{{objects}}</em>",
+        "hasMissingObjects": "Dostosuj swoją konfigurację, jeśli chcesz, aby Frigate zapisywał śledzone obiekty dla następujących etykiet: <em>{{objects}}</em>",
         "mismatch_one": "{{count}} niedostępny obiekt został wykryty i uwzględniony w tym elemencie przeglądu. Ten obiekt albo nie kwalifikował się jako alert lub detekcja, albo został już wyczyszczont/usunięty.",
         "mismatch_few": "{{count}} niedostępne obiekty zostały wykryte i uwzględnione w tym elemencie przeglądu. Te obiekty albo nie kwalifikowały się jako alert lub detekcja, albo zostały już wyczyszczone/usunięte.",
         "mismatch_many": "{{count}} niedostępnych obiektów zostało wykrytych i uwzględnionych w tym elemencie przeglądu. Te obiekty albo nie kwalifikowały się jako alert lub detekcja, albo zostały już wyczyszczone/usunięte."
@@ -21,7 +21,7 @@
           "regenerate": "Zażądano nowego opisu od {{provider}}. W zależności od szybkości twojego dostawcy, wygenerowanie nowego opisu może zająć trochę czasu.",
           "updatedSublabel": "Pomyślnie zaktualizowano podetykietę.",
           "updatedLPR": "Pomyślnie zaktualizowano tablicę rejestracyjną.",
-          "audioTranscription": "Wysłano prośbę o audio transkrypcję. W zależności od szybkości serwera AMSS, transkrypcja może potrwać trochę czasu.",
+          "audioTranscription": "Wysłano prośbę o audio transkrypcję. W zależności od szybkości serwera Frigate, transkrypcja może potrwać trochę czasu.",
           "updatedAttributes": "Atrybuty zostały pomyślnie zaktualizowane."
         },
         "error": {
@@ -58,7 +58,7 @@
     "description": {
       "label": "Opis",
       "placeholder": "Opis śledzonego obiektu",
-      "aiTips": "AMSS nie poprosi o opis od twojego dostawcy AI, dopóki cykl życia śledzonego obiektu nie dobiegnie końca."
+      "aiTips": "Frigate nie poprosi o opis od twojego dostawcy AI, dopóki cykl życia śledzonego obiektu nie dobiegnie końca."
     },
     "editLPR": {
       "title": "Edytuj tablicę rejestracyjną",
@@ -89,53 +89,7 @@
     "scoreInfo": "Informacje o wyniku"
   },
   "objectLifecycle": {
-    "annotationSettings": {
-      "title": "Ustawienia adnotacji",
-      "showAllZones": {
-        "title": "Pokaż wszystkie strefy",
-        "desc": "Zawsze pokazuj strefy na klatkach, w których obiekty weszły do strefy."
-      },
-      "offset": {
-        "desc": "Te dane pochodzą z kanału detekcji kamery, ale są nakładane na obrazy z kanału nagrywania. Mało prawdopodobne, aby oba strumienie były idealnie zsynchronizowane. W rezultacie ramka ograniczająca i nagranie mogą nie być idealnie dopasowane. Jednak pole <code>annotation_offset</code> może być użyte do regulacji tego.",
-        "documentation": "Przeczytaj dokumentację ",
-        "label": "Przesunięcie adnotacji",
-        "millisecondsToOffset": "Milisekundy do przesunięcia adnotacji detekcji. <em>Domyślnie: 0</em>",
-        "tips": "WSKAZÓWKA: Wyobraź sobie, że istnieje klip zdarzenia z osobą idącą od lewej do prawej. Jeśli na osi czasu zdarzenia ramka ograniczająca jest konsekwentnie na lewo od osoby, wartość powinna być zmniejszona. Podobnie, jeśli osoba idzie od lewej do prawej, a ramka ograniczająca jest konsekwentnie przed osobą, wartość powinna być zwiększona.",
-        "toast": {
-          "success": "Przesunięcie adnotacji dla {{camera}} zostało zapisane w pliku konfiguracyjnym. Zrestartuj AMSS, aby zastosować zmiany."
-        }
-      }
-    },
-    "title": "Cykl życia obiektu",
-    "noImageFound": "Nie znaleziono obrazu dla tego znacznika czasu.",
-    "scrollViewTips": "Przewiń, aby zobaczyć kluczowe momenty cyklu życia tego obiektu.",
-    "autoTrackingTips": "Pozycje ramek ograniczających mogą być niedokładne dla kamer z automatycznym śledzeniem.",
-    "lifecycleItemDesc": {
-      "visible": "{{label}} wykryty",
-      "entered_zone": "{{label}} wszedł w strefę {{zones}}",
-      "active": "{{label}} stał się aktywny",
-      "stationary": "{{label}} stał się nieruchomy",
-      "attribute": {
-        "faceOrLicense_plate": "{{attribute}} wykryty dla {{label}}",
-        "other": "{{label}} rozpoznany jako {{attribute}}"
-      },
-      "gone": "{{label}} zniknął",
-      "heard": "{{label}} usłyszany",
-      "external": "{{label}} wykryty",
-      "header": {
-        "ratio": "Współczynnik",
-        "area": "Obszar",
-        "zones": "Strefy"
-      }
-    },
-    "carousel": {
-      "previous": "Poprzedni slajd",
-      "next": "Następny slajd"
-    },
-    "createObjectMask": "Utwórz maskę obiektu",
-    "adjustAnnotationSettings": "Dostosuj ustawienia adnotacji",
-    "trackedPoint": "Punkt Śledzenia",
-    "count": "{{first}} z {{second}}"
+    "noImageFound": "Nie znaleziono obrazu dla tego znacznika czasu."
   },
   "exploreIsUnavailable": {
     "title": "Eksploracja jest niedostępna",
@@ -151,7 +105,7 @@
       }
     },
     "downloadingModels": {
-      "context": "AMSS pobiera niezbędne modele osadzenia do obsługi funkcji wyszukiwania semantycznego. Może to potrwać kilka minut, w zależności od prędkości Twojego połączenia sieciowego.",
+      "context": "Frigate pobiera niezbędne modele osadzenia do obsługi funkcji wyszukiwania semantycznego. Może to potrwać kilka minut, w zależności od prędkości Twojego połączenia sieciowego.",
       "setup": {
         "visionModelFeatureExtractor": "Ekstraktor cech modelu wizyjnego",
         "textModel": "Model tekstowy",
@@ -159,10 +113,9 @@
         "textTokenizer": "Tokenizer tekstu"
       },
       "tips": {
-        "context": "Po pobraniu modeli warto ponownie zindeksować osadzenia śledzonych obiektów.",
-        "documentation": "Przeczytaj dokumentację"
+        "context": "Po pobraniu modeli warto ponownie zindeksować osadzenia śledzonych obiektów."
       },
-      "error": "Wystąpił błąd. Sprawdź logi AMSS."
+      "error": "Wystąpił błąd. Sprawdź logi Frigate."
     }
   },
   "trackedObjectDetails": "Szczegóły śledzonego obiektu",
@@ -170,7 +123,6 @@
     "details": "szczegóły",
     "snapshot": "zrzut ekranu",
     "video": "wideo",
-    "object_lifecycle": "cykl życia obiektu",
     "thumbnail": "miniaturka",
     "tracking_details": "szczegóły śledzenia"
   },
@@ -178,10 +130,6 @@
     "downloadSnapshot": {
       "aria": "Pobierz zrzut ekranu",
       "label": "Pobierz zrzut ekranu"
-    },
-    "viewObjectLifecycle": {
-      "label": "Wyświetl cykl życia obiektu",
-      "aria": "Pokaż cykl życia obiektu"
     },
     "downloadVideo": {
       "label": "Pobierz wideo",
@@ -192,8 +140,8 @@
       "aria": "Znajdź podobne śledzone obiekty"
     },
     "submitToPlus": {
-      "label": "Prześlij do AMSS+",
-      "aria": "Prześlij do AMSS Plus"
+      "label": "Prześlij do Frigate+",
+      "aria": "Prześlij do Frigate Plus"
     },
     "viewInHistory": {
       "label": "Wyświetl w Historii",

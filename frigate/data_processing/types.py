@@ -1,45 +1,71 @@
-from typing import Annotated
+"""Embeddings types."""
 
-from pydantic import BaseModel, ConfigDict, Field, StringConstraints
+from __future__ import annotations
 
-ObservationItem = Annotated[str, StringConstraints(min_length=20, max_length=200)]
+from enum import Enum
+from multiprocessing.managers import DictProxy, SyncManager, ValueProxy
+from typing import Any
+
+import sherpa_onnx
+
+from frigate.data_processing.real_time.whisper_online import FasterWhisperASR
 
 
-class ReviewMetadata(BaseModel):
-    model_config = ConfigDict(extra="ignore", protected_namespaces=())
+class DataProcessorMetrics:
+    image_embeddings_speed: ValueProxy[float]
+    image_embeddings_eps: ValueProxy[float]
+    text_embeddings_speed: ValueProxy[float]
+    text_embeddings_eps: ValueProxy[float]
+    face_rec_speed: ValueProxy[float]
+    face_rec_fps: ValueProxy[float]
+    alpr_speed: ValueProxy[float]
+    alpr_pps: ValueProxy[float]
+    yolov9_lpr_speed: ValueProxy[float]
+    yolov9_lpr_pps: ValueProxy[float]
+    review_desc_speed: ValueProxy[float]
+    review_desc_dps: ValueProxy[float]
+    object_desc_speed: ValueProxy[float]
+    object_desc_dps: ValueProxy[float]
+    classification_speeds: DictProxy[str, ValueProxy[float]]
+    classification_cps: DictProxy[str, ValueProxy[float]]
+    runtime_devices: DictProxy[str, str]
 
-    observations: list[ObservationItem] = Field(
-        ...,
-        min_length=3,
-        max_length=8,
-        description="Enumerate the significant observations across all frames, in chronological order.",
-    )
-    scene: str = Field(
-        min_length=150,
-        max_length=600,
-        description="A chronological narrative of what happens from start to finish, drawing directly from the items in observations.",
-    )
-    title: str = Field(
-        max_length=80,
-        description="Title for the activity.",
-    )
-    shortSummary: str = Field(
-        min_length=70,
-        max_length=140,
-        description="A brief summary for the activity.",
-    )
-    confidence: float = Field(
-        ge=0.0,
-        le=1.0,
-        description="Confidence in the analysis as a decimal between 0.0 and 1.0, where 0.0 means no confidence and 1.0 means complete confidence. Express ONLY as a decimal.",
-    )
-    potential_threat_level: int = Field(
-        ge=0,
-        le=2,
-        description="Threat level: 0 = normal, 1 = suspicious, 2 = critical threat.",
-    )
-    other_concerns: list[str] | None = Field(
-        default=None,
-        description="Other concerns highlighted by the user that are observed.",
-    )
-    time: str | None = Field(default=None, description="Time of activity.")
+    def __init__(self, manager: SyncManager, custom_classification_models: list[str]):
+        self.image_embeddings_speed = manager.Value("d", 0.0)
+        self.image_embeddings_eps = manager.Value("d", 0.0)
+        self.text_embeddings_speed = manager.Value("d", 0.0)
+        self.text_embeddings_eps = manager.Value("d", 0.0)
+        self.face_rec_speed = manager.Value("d", 0.0)
+        self.face_rec_fps = manager.Value("d", 0.0)
+        self.alpr_speed = manager.Value("d", 0.0)
+        self.alpr_pps = manager.Value("d", 0.0)
+        self.yolov9_lpr_speed = manager.Value("d", 0.0)
+        self.yolov9_lpr_pps = manager.Value("d", 0.0)
+        self.review_desc_speed = manager.Value("d", 0.0)
+        self.review_desc_dps = manager.Value("d", 0.0)
+        self.object_desc_speed = manager.Value("d", 0.0)
+        self.object_desc_dps = manager.Value("d", 0.0)
+        self.classification_speeds = manager.dict()
+        self.classification_cps = manager.dict()
+        self.runtime_devices = manager.dict()
+
+        if custom_classification_models:
+            for key in custom_classification_models:
+                self.classification_speeds[key] = manager.Value("d", 0.0)
+                self.classification_cps[key] = manager.Value("d", 0.0)
+
+
+class DataProcessorModelRunner:
+    def __init__(self, requestor: Any, device: str = "CPU", model_size: str = "large"):
+        self.requestor = requestor
+        self.device = device
+        self.model_size = model_size
+
+
+class PostProcessDataEnum(str, Enum):
+    recording = "recording"
+    review = "review"
+    tracked_object = "tracked_object"
+
+
+AudioTranscriptionModel = FasterWhisperASR | sherpa_onnx.OnlineRecognizer | None

@@ -46,7 +46,7 @@
     },
     "friendly_name": {
         "label": "表示名",
-        "description": "AMSS UIで使用されるカメラの表示名"
+        "description": "Frigate UIで使用されるカメラの表示名"
     },
     "audio_transcription": {
         "label": "音声文字起こし",
@@ -69,10 +69,6 @@
         "enabled": {
             "label": "バードアイを有効にする",
             "description": "バードアイビュー機能を有効または無効にします。"
-        },
-        "mode": {
-            "label": "トラッキングモード",
-            "description": "バードアイにカメラを含めるモード：「オブジェクト」「モーション」または「連続」。"
         },
         "order": {
             "label": "位置",
@@ -656,10 +652,6 @@
                 "label": "デフォルト保持期間",
                 "description": "スナップショットを保持するデフォルト日数。"
             },
-            "mode": {
-                "label": "保持モード",
-                "description": "保持モード: all（全セグメントを保存）、motion（モーションがあるセグメントを保存）、active_objects（アクティブなオブジェクトを含むセグメントを保存）。"
-            },
             "objects": {
                 "label": "オブジェクト別保持",
                 "description": "オブジェクトごとのスナップショット保持日数の上書き。"
@@ -815,7 +807,7 @@
             },
             "zooming": {
                 "label": "ズームモード",
-                "description": "ズーム動作の制御: disabled (パン／チルトのみ)、absolute (互換性が最も高い)、relative (パン／チルト／ズーム同時)。"
+                "description": "ズーム動作の制御: 無効 (パン／チルトのみ)、絶対的 (互換性が最も高い)、相対的 (パン／チルト／ズーム同時)。"
             },
             "zoom_factor": {
                 "label": "ズーム倍率",
@@ -848,7 +840,7 @@
         },
         "ignore_time_mismatch": {
             "label": "時刻差異を無視",
-            "description": "ONVIF 通信時に、カメラと AMSS サーバー間の時刻同期差異を無視します。"
+            "description": "ONVIF 通信時に、カメラと Frigate サーバー間の時刻同期差異を無視します。"
         }
     },
     "best_image_timeout": {
@@ -867,8 +859,8 @@
             "description": "UI 内でのカメラの並び順に使用される数値（デフォルトダッシュボードとリスト）。値が大きいほど後ろに表示されます。"
         },
         "dashboard": {
-            "label": "UI に表示",
-            "description": "このカメラを AMSS UI 全体に表示するかを切り替えます。無効化した場合、再表示するには設定ファイルを手動編集する必要があります。"
+            "label": "ライブダッシュボードに表示",
+            "description": "デフォルトの「すべてのカメラ」ライブダッシュボードにこのカメラを表示するかどうかを切り替えます。カメラグループや設定など、UI上の他の場所では引き続きこのカメラを利用できます。"
         },
         "review": {
             "label": "再生画面に表示",
@@ -884,7 +876,7 @@
         "description": "ゾーンを使うとフレーム内の特定領域を定義でき、オブジェクトがその領域内にあるかを判定できます。",
         "friendly_name": {
             "label": "ゾーン名",
-            "description": "AMSS UI に表示されるユーザー向けのゾーン名。未設定の場合、ゾーン名の整形版が使用されます。"
+            "description": "Frigate UI に表示されるユーザー向けのゾーン名。未設定の場合、ゾーン名の整形版が使用されます。"
         },
         "enabled": {
             "label": "有効",

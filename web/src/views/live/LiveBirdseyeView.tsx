@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useResizeObserver } from "@/hooks/resize-observer";
 import { cn } from "@/lib/utils";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   isDesktop,
@@ -38,7 +38,7 @@ export default function LiveBirdseyeView({
   onSelectCamera,
 }: LiveBirdseyeViewProps) {
   const { t } = useTranslation(["views/live"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const navigate = useNavigate();
   const { isPortrait } = useMobileOrientation();
   const mainRef = useRef<HTMLDivElement | null>(null);
@@ -295,7 +295,7 @@ export default function LiveBirdseyeView({
               onClick={handleOverlayClick}
             >
               <BirdseyeLivePlayer
-                className={`${fullscreen ? "*:rounded-none" : ""}`}
+                className={fullscreen ? "rounded-none" : ""}
                 birdseyeConfig={config.birdseye}
                 liveMode={preferredLiveMode}
                 containerRef={containerRef}

@@ -1,10 +1,9 @@
 {
   "noRecordingsFoundForThisTime": "Ingen optagelser fundet i det angivne tidsrum",
   "noPreviewFound": "Ingen forhåndsvisning fundet",
-  "cameraDisabled": "Kamera er deaktiveret",
   "noPreviewFoundFor": "Ingen forhåndsvisning fundet for {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Indsend dette billede til AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Indsend dette billede til Frigate+?",
     "submit": "Indsend"
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 eller nyere kræves for denne type livestream.",
@@ -21,14 +20,6 @@
       "title": "Båndbredde:",
       "short": "Båndbredde"
     },
-    "latency": {
-      "title": "Latenstid:",
-      "value": "{{seconds}} sekunder",
-      "short": {
-        "title": "Latenstid",
-        "value": "{{seconds}} sek"
-      }
-    },
     "droppedFrames": {
       "short": {
         "title": "Tabt",
@@ -42,10 +33,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Billede sendt til AMSS+"
+      "submittedFrigatePlus": "Billede sendt til Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Kunne ikke sende billede til AMSS+"
+      "submitFrigatePlusFailed": "Kunne ikke sende billede til Frigate+"
     }
   }
 }

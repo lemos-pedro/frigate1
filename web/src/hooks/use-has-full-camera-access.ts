@@ -1,6 +1,6 @@
 import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { isReplayCamera } from "@/utils/cameraUtil";
 
 /**
@@ -10,7 +10,7 @@ import { isReplayCamera } from "@/utils/cameraUtil";
  */
 export function useHasFullCameraAccess() {
   const allowedCameras = useAllowedCameras();
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
 

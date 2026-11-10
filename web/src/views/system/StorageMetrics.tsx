@@ -1,6 +1,6 @@
 import { CombinedStorageGraph } from "@/components/graph/CombinedStorageGraph";
 import { StorageGraph } from "@/components/graph/StorageGraph";
-import { AmssStats } from "@/types/stats";
+import { CameraStorage, FrigateStats } from "@/types/stats";
 import { useEffect, useMemo } from "react";
 import {
   Popover,
@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/popover";
 import useSWR from "swr";
 import { CiCircleAlert } from "react-icons/ci";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import {
   useFormattedTimestamp,
   useTimeFormat,
@@ -24,14 +24,6 @@ import { LuExternalLink } from "react-icons/lu";
 import { FaExclamationTriangle } from "react-icons/fa";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 
-type CameraStorage = {
-  [key: string]: {
-    bandwidth: number;
-    usage: number;
-    usage_percent: number;
-  };
-};
-
 type StorageMetricsProps = {
   setLastUpdated: (last: number) => void;
 };
@@ -39,8 +31,8 @@ export default function StorageMetrics({
   setLastUpdated,
 }: StorageMetricsProps) {
   const { data: cameraStorage } = useSWR<CameraStorage>("recordings/storage");
-  const { data: stats } = useSWR<AmssStats>("stats");
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: stats } = useSWR<FrigateStats>("stats");
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const { t } = useTranslation(["views/system"]);

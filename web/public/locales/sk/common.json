@@ -1,7 +1,7 @@
 {
   "time": {
     "untilForTime": "Do {{time}}",
-    "untilForRestart": "Do reštartu AMSS.",
+    "untilForRestart": "Do reštartu Frigate.",
     "untilRestart": "Do reštartu",
     "ago": "pred {{timeAgo}}",
     "justNow": "Práve teraz",
@@ -158,7 +158,14 @@
     "saveAll": "Uložiť všetko",
     "savingAll": "Ukladá sa všetko…",
     "undoAll": "Vrátiť späť všetko",
-    "retry": "Skúste to znova"
+    "retry": "Skúste to znova",
+    "add": "Pridať",
+    "applying": "Aplikovanie…",
+    "undo": "Späť",
+    "expand": "Rozšíriť",
+    "clear": "Vymazať",
+    "reload": "Obnoviť",
+    "collapse": "Zbaliť"
   },
   "menu": {
     "system": "Systém",
@@ -211,9 +218,12 @@
       "withSystem": {
         "label": "Použiť systémové nastavenia pre jazyk"
       },
-      "hr": "Hrvatski (Croatian)"
+      "hr": "Hrvatski (Croatian)",
+      "be": "Bielorusky",
+      "bs": "Bosniansky",
+      "zhHant": "Tradičná čínština"
     },
-    "restart": "Reštartovať AMSS",
+    "restart": "Reštartovať Frigate",
     "live": {
       "title": "Naživo",
       "allCameras": "Všetky kamery",
@@ -257,7 +267,7 @@
     "help": "Pomocník",
     "documentation": {
       "title": "Dokumentácia",
-      "label": "Dokumentácia AMSS"
+      "label": "Dokumentácia Frigate"
     },
     "review": "Recenzia",
     "explore": "Preskúmať",
@@ -282,7 +292,7 @@
     "title": "Rola",
     "admin": "Správca",
     "viewer": "Divák",
-    "desc": "Správcovia majú plný prístup ku všetkým funkciám v užívateľskom rozhraní AMSS. Diváci sú obmedzení na sledovanie kamier, položiek prehľadu a historických záznamov v UI."
+    "desc": "Správcovia majú plný prístup ku všetkým funkciám v užívateľskom rozhraní Frigate. Diváci sú obmedzení na sledovanie kamier, položiek prehľadu a historických záznamov v UI."
   },
   "pagination": {
     "label": "stránkovanie",
@@ -297,12 +307,12 @@
     "more": "Viac strán"
   },
   "accessDenied": {
-    "documentTitle": "Prístup odmietnutý - AMSS",
+    "documentTitle": "Prístup odmietnutý - Frigate",
     "title": "Prístup odmietnutý",
     "desc": "Nemáte oprávnenie zobraziť túto stránku."
   },
   "notFound": {
-    "documentTitle": "Nenájdené - AMSS",
+    "documentTitle": "Nenájdené - Frigate",
     "title": "404",
     "desc": "Stránka nenájdená"
   },
@@ -316,11 +326,41 @@
   },
   "field": {
     "optional": "Voliteľné",
-    "internalID": "Interné ID AMSS používa v konfigurácii a databáze"
+    "internalID": "Interné ID Frigate používa v konfigurácii a databáze"
   },
   "no_items": "Žiadne položky",
   "validation_errors": "Chyby overenia",
   "credentialField": {
     "savedPlaceholder": "Uložené – pre aktuálne informácie nechajte prázdne"
+  },
+  "error": {
+    "title": "Stránka neodpovedá",
+    "desc": "Došlo k neočakávanej chybe. Zvyčajne stačí obnoviť stránku. Ak problém pretrváva, skopírujte detaily a pripojte ich do diskusie na GitHub-e.",
+    "staleTitle": "Je nutné obnoviť stránku",
+    "partial": "Niektorá súčasť rozhrania nereaguje.",
+    "copyDetails": "Skopírujte detaily",
+    "copyFailed": "Nepodarilo sa skopírovať detaily do schránky"
+  },
+  "commandMenu": {
+    "title": "Príkazy",
+    "description": "Vyhľadávanie, kamery, nastavenia a príkazy",
+    "placeholder": "Vyhľadávanie, kamery, nastavenia a príkazy",
+    "empty": "Žiadna zhoda",
+    "hint": "{{key}} alebo / pre otvorenie, Enter pre spustenie",
+    "section": {
+      "recent": "Aktuálny",
+      "pages": "Stránky",
+      "cameras": "Kamery",
+      "cameraGroups": "Skupiny kamier",
+      "settings": "Nastavenia",
+      "actions": "Akcie"
+    },
+    "camera": {
+      "live": "Naživo",
+      "review": "Prehľad"
+    },
+    "action": {
+      "toggleTheme": "Prepnúť svetlý a tmavý režim"
+    }
   }
 }

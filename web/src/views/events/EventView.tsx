@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import { useTimelineUtils } from "@/hooks/use-timeline-utils";
 import { useScrollLockout } from "@/hooks/use-mouse-listener";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { Preview } from "@/types/preview";
 import {
   MotionData,
@@ -61,9 +61,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import PreviewPlayer, {
-  PreviewController,
-} from "@/components/player/PreviewPlayer";
+import PreviewPlayer from "@/components/player/PreviewPlayer";
+import { PreviewController } from "@/components/player/PreviewController";
 import SummaryTimeline from "@/components/timeline/SummaryTimeline";
 import { RecordingStartingPoint } from "@/types/record";
 import VideoControls from "@/components/player/VideoControls";
@@ -149,7 +148,7 @@ export default function EventView({
   updateFilter,
 }: EventViewProps) {
   const { t } = useTranslation(["views/events"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   // review counts
@@ -722,7 +721,7 @@ function DetectionReview({
 
       try {
         if (node) minimapObserver.current.observe(node);
-      } catch (e) {
+      } catch {
         // no op
       }
     },
@@ -1010,7 +1009,7 @@ function MotionReview({
 }: MotionReviewProps) {
   const { t } = useTranslation(["views/events", "common"]);
   const segmentDuration = 30;
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const allowedCameras = useAllowedCameras();
 
   const reviewCameras = useMemo(() => {

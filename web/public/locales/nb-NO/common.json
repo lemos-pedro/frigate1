@@ -8,12 +8,8 @@
     "s": "{{time}}s",
     "second_one": "{{time}} sekund",
     "second_other": "{{time}} sekunder",
-    "formattedTimestampExcludeSeconds": {
-      "24hour": "%-d. %b, %H:%M",
-      "12hour": "%-d. %b, %I:%M %p"
-    },
     "untilForTime": "Inntil {{time}}",
-    "untilForRestart": "Inntil AMSS starter på nytt.",
+    "untilForRestart": "Inntil Frigate starter på nytt.",
     "untilRestart": "Inntil omstart",
     "ago": "{{timeAgo}} siden",
     "justNow": "Akkurat nå",
@@ -52,11 +48,6 @@
       "12hour": "dd/MM h:mm:ssa",
       "24hour": "d. MMM HH:mm:ss"
     },
-    "formattedTimestampWithYear": {
-      "12hour": "%-d. %b %Y, %I:%M %p",
-      "24hour": "%-d. %b %Y, %H:%M"
-    },
-    "formattedTimestampOnlyMonthAndDay": "%-d. %b",
     "formattedTimestampHourMinute": {
       "12hour": "h:mm aaa",
       "24hour": "HH:mm"
@@ -141,9 +132,9 @@
     "help": "Hjelp",
     "documentation": {
       "title": "Dokumentasjon",
-      "label": "AMSS-dokumentasjon"
+      "label": "Frigate-dokumentasjon"
     },
-    "restart": "Start AMSS på nytt",
+    "restart": "Start Frigate på nytt",
     "live": {
       "title": "Direkte",
       "allCameras": "Alle kameraer",
@@ -218,7 +209,8 @@
       "ur": "اردو (Urdu)",
       "hr": "Hrvatski (Kroatisk)",
       "bs": "Bosanski (Bosnisk)",
-      "zhHant": "繁體中文 (Tradisjonell kinesisk)"
+      "zhHant": "繁體中文 (Tradisjonell kinesisk)",
+      "be": "Беларуская (Belarusisk)"
     },
     "appearance": "Utseende",
     "darkMode": {
@@ -236,7 +228,6 @@
       "green": "Grønn",
       "nord": "Nord",
       "red": "Rød",
-      "contrast": "Høy kontrast",
       "default": "Standard",
       "highcontrast": "Høy kontrast"
     },
@@ -300,15 +291,15 @@
     "title": "Rolle",
     "admin": "Administrator",
     "viewer": "Visningsbruker",
-    "desc": "Administratorer har full tilgang til alle funksjoner i AMSS brukergrensesnittet. Visningsbrukere er begrenset til å se kameraer, inspisere elementer og se historiske opptak."
+    "desc": "Administratorer har full tilgang til alle funksjoner i Frigate brukergrensesnittet. Visningsbrukere er begrenset til å se kameraer, inspisere elementer og se historiske opptak."
   },
   "accessDenied": {
-    "documentTitle": "Ingen tilgang – AMSS",
+    "documentTitle": "Ingen tilgang – Frigate",
     "title": "Ingen tilgang",
     "desc": "Du har ikke tillatelse til å vise denne siden."
   },
   "notFound": {
-    "documentTitle": "Ikke funnet – AMSS",
+    "documentTitle": "Ikke funnet – Frigate",
     "title": "404",
     "desc": "Siden ble ikke funnet"
   },
@@ -318,7 +309,7 @@
     "pixels": "{{area}}piklser"
   },
   "field": {
-    "internalID": "Den interne ID-en som AMSS bruker i konfigurasjonen og databasen",
+    "internalID": "Den interne ID-en som Frigate bruker i konfigurasjonen og databasen",
     "optional": "Valgfritt"
   },
   "list": {

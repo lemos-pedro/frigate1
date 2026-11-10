@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useCallback, useMemo } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import {
   WizardFormData,
   CameraBrand,
@@ -54,7 +54,7 @@ export default function Step1NameCamera({
   onCancel,
 }: Step1NameCameraProps) {
   const { t } = useTranslation(["views/settings"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [showPassword, setShowPassword] = useState(false);
   const [probeMode, setProbeMode] = useState<boolean>(
     wizardData.probeMode ?? true,
@@ -81,7 +81,14 @@ export default function Step1NameCamera({
       username: z.string().optional(),
       password: z.string().optional(),
       brandTemplate: z.enum(CAMERA_BRAND_VALUES).optional(),
-      onvifPort: z.coerce.number().int().min(1).max(65535).optional(),
+      onvifPort: z.coerce
+        .number<number>({
+          message: t("cameraWizard.step1.errors.onvifPortInvalid"),
+        })
+        .int(t("cameraWizard.step1.errors.onvifPortInvalid"))
+        .min(1, t("cameraWizard.step1.errors.onvifPortInvalid"))
+        .max(65535, t("cameraWizard.step1.errors.onvifPortInvalid"))
+        .optional(),
       useDigestAuth: z.boolean().optional(),
       customUrl: z
         .string()

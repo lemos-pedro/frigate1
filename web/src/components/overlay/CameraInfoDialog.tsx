@@ -11,7 +11,7 @@ import KeyframeAnalysisSection from "./KeyframeAnalysisSection";
 import { Ffprobe, KeyframeAnalysis } from "@/types/stats";
 import { Button } from "../ui/button";
 import copy from "copy-to-clipboard";
-import { CameraConfig } from "@/types/amssConfig";
+import { CameraConfig } from "@/types/frigateConfig";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -91,7 +91,7 @@ export default function CameraInfoDialog({
         open={showCameraInfoDialog}
         onOpenChange={setShowCameraInfoDialog}
       >
-        <DialogContent>
+        <DialogContent className="scrollbar-container max-h-[90dvh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="smart-capitalize">
               {t("cameras.info.cameraProbeInfo", {
@@ -149,7 +149,7 @@ export default function CameraInfoDialog({
                                       <span>
                                         {t("cameras.info.resolution")}{" "}
                                         <span className="text-primary">
-                                          t("cameras.info.unknown")
+                                          {t("cameras.info.unknown")}
                                         </span>
                                       </span>
                                     )}

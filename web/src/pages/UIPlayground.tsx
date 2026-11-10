@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import Heading from "@/components/ui/heading";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import EventReviewTimeline from "@/components/timeline/EventReviewTimeline";
 import {
@@ -131,7 +131,7 @@ const generateRandomEvent = (): ReviewSegment => {
 };
 
 function UIPlayground() {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const contentRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const reviewTimelineRef = useRef<HTMLDivElement>(null);

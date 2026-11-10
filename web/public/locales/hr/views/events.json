@@ -15,7 +15,6 @@
       "description": "Stavke za pregled mogu biti stvorene za kameru jedino kada su snimanja uključena za tu kameru."
     }
   },
-  "timeline": "Vremenska linija",
   "timeline.aria": "Odaberi vremensku liniju",
   "zoomOut": "Udalji",
   "events": {
@@ -41,9 +40,9 @@
     "trackedPoint": "Praćena točka",
     "clickToSeek": "Kliknite za pomicanje na ovo vrijeme"
   },
-  "documentTitle": "Pregled - AMSS",
+  "documentTitle": "Pregled - Frigate",
   "recordings": {
-    "documentTitle": "Snimke - AMSS"
+    "documentTitle": "Snimke - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Zadnja 24 sata"

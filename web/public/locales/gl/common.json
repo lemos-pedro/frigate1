@@ -1,7 +1,7 @@
 {
   "time": {
     "untilForTime": "Até {{time}}",
-    "untilForRestart": "Até que se reinicie AMSS.",
+    "untilForRestart": "Até que se reinicie Frigate.",
     "justNow": "Xusto agora",
     "last7": "Últimos 7 días",
     "last14": "Últimos 14 días",

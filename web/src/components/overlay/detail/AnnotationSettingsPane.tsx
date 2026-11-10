@@ -1,5 +1,5 @@
 import { Event } from "@/types/event";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { flushSync } from "react-dom";
@@ -38,7 +38,7 @@ export function AnnotationSettingsPane({
   const { getLocaleDocUrl } = useDocDomain();
 
   const { data: config, mutate: updateConfig } =
-    useSWR<AmssConfig>("config");
+    useSWR<FrigateConfig>("config");
 
   const [isLoading, setIsLoading] = useState(false);
 

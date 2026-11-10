@@ -1,6 +1,6 @@
 import { IconName } from "@/components/icons/IconPicker";
 import SkunkIcon from "@/components/icons/SkunkIcon";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { EventType } from "@/types/search";
 import { BsPersonWalking } from "react-icons/bs";
 import {
@@ -49,15 +49,17 @@ import { MdRecordVoiceOver } from "react-icons/md";
 import { PiBirdFill } from "react-icons/pi";
 import { HiMiniTruck } from "react-icons/hi2";
 
-export function getAttributeLabels(config?: AmssConfig) {
+export function getAttributeLabels(config?: FrigateConfig) {
   if (!config) {
     return [];
   }
 
   const labels = new Set();
 
-  Object.values(config.model.attributes_map).forEach((values) =>
-    values.forEach((label) => labels.add(label)),
+  config.models?.forEach((model) =>
+    Object.values(model.attributes_map ?? {}).forEach((values) =>
+      values.forEach((label) => labels.add(label)),
+    ),
   );
   return [...labels];
 }

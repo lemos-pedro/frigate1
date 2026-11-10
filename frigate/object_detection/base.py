@@ -1,4 +1,3 @@
-import datetime
 import logging
 import queue
 import threading
@@ -24,7 +23,7 @@ from frigate.detectors.detector_config import (
     InputDTypeEnum,
     ModelConfig,
 )
-from frigate.util.builtin import EventsPerSecond, load_labels
+from frigate.util.builtin import EventsPerSecond, InferenceSpeed, load_labels
 from frigate.util.image import SharedMemoryFrameManager, UntrackedSharedMemory
 from frigate.util.process import FrigateProcess
 
@@ -66,6 +65,10 @@ class BaseLocalDetector(ObjectDetector):
             self.detect_api.set_stop_event(stop_event)
 
     def _transform_input(self, tensor_input: np.ndarray) -> np.ndarray:
+        # If the detector supports input transform offloading, return the frame unmodified
+        if getattr(self.detect_api, "input_transform_offload", False) is True:
+            return tensor_input
+
         if self.input_transform:
             tensor_input = np.transpose(tensor_input, self.input_transform)
 
@@ -83,7 +86,7 @@ class BaseLocalDetector(ObjectDetector):
         raw_detections = self.detect_raw(tensor_input)  # type: ignore[attr-defined]
 
         for d in raw_detections:
-            if int(d[0]) < 0 or int(d[0]) >= len(self.labels):
+            if int(d[0]) not in self.labels:
                 logger.warning(f"Raw Detect returned invalid label: {d}")
                 continue
             if d[1] < threshold:
@@ -125,7 +128,7 @@ class DetectorRunner(FrigateProcess):
         super().__init__(stop_event, PROCESS_PRIORITY_HIGH, name=name, daemon=True)
         self.detection_queue = detection_queue
         self.cameras = cameras
-        self.avg_speed = avg_speed
+        self.avg_speed = InferenceSpeed(avg_speed)
         self.start_time = start_time
         self.config = config
         self.detector_config = detector_config
@@ -165,12 +168,12 @@ class DetectorRunner(FrigateProcess):
                 logger.warning(f"Failed to get frame {connection_id} from SHM")
                 continue
 
-            # detect and send the output
-            self.start_time.value = datetime.datetime.now().timestamp()
+            # detect and send the output. start_time is monotonic so the watchdog
+            # doesn't mistake a wall clock step for a stuck detector
             mono_start = time.monotonic()
+            self.start_time.value = mono_start
             detections = object_detector.detect_raw(input_frame)
             duration = time.monotonic() - mono_start
-            frame_manager.close(connection_id)
 
             if connection_id not in self.outputs:
                 self.create_output_shm(connection_id)
@@ -179,7 +182,7 @@ class DetectorRunner(FrigateProcess):
             detector_publisher.publish(connection_id)
             self.start_time.value = 0.0
 
-            self.avg_speed.value = (self.avg_speed.value * 9 + duration) / 10
+            self.avg_speed.update(duration)
 
         detector_publisher.stop()
         logger.info("Exited detection process...")
@@ -200,7 +203,7 @@ class AsyncDetectorRunner(FrigateProcess):
         super().__init__(stop_event, PROCESS_PRIORITY_HIGH, name=name, daemon=True)
         self.detection_queue = detection_queue
         self.cameras = cameras
-        self.avg_speed = avg_speed
+        self.avg_speed = InferenceSpeed(avg_speed)
         self.start_time = start_time
         self.config = config
         self.detector_config = detector_config
@@ -259,10 +262,6 @@ class AsyncDetectorRunner(FrigateProcess):
             ts = self.send_times.popleft()
             duration = time.perf_counter() - ts
 
-            # release input buffer
-            assert self._frame_manager is not None
-            self._frame_manager.close(connection_id)
-
             if connection_id not in self.outputs:
                 self.create_output_shm(connection_id)
 
@@ -273,7 +272,7 @@ class AsyncDetectorRunner(FrigateProcess):
             self._publisher.publish(connection_id)
 
             # update timers
-            self.avg_speed.value = (self.avg_speed.value * 9 + duration) / 10
+            self.avg_speed.update(duration)
             self.start_time.value = 0.0
 
     def run(self) -> None:
@@ -282,7 +281,8 @@ class AsyncDetectorRunner(FrigateProcess):
         self._frame_manager = SharedMemoryFrameManager()
         self._publisher = ObjectDetectorPublisher()
         self._detector = AsyncLocalObjectDetector(
-            detector_config=self.detector_config, stop_event=self.stop_event
+            detector_config=self.detector_config,
+            stop_event=self.stop_event,
         )
 
         for name in self.cameras:
@@ -328,7 +328,8 @@ class ObjectDetectProcess:
         self.name = name
         self.cameras = cameras
         self.detection_queue = detection_queue
-        self.avg_inference_speed = Value("d", 0.01)
+        # stays 0 until the first inference, so stats can tell an idle detector
+        self.avg_inference_speed = Value("d", 0.0)
         self.detection_start = Value("d", 0.0)
         self.detect_process: FrigateProcess | None = None
         self.config = config
@@ -353,12 +354,26 @@ class ObjectDetectProcess:
         logging.info("Detection process has exited...")
 
     def start_or_restart(self) -> None:
-        self.detection_start.value = 0.0  # type: ignore[attr-defined]
         if (self.detect_process is not None) and self.detect_process.is_alive():
-            self.stop()
+            logging.info("Waiting for detection process to exit gracefully...")
+            self.detect_process.join(timeout=30)
+            if self.detect_process.exitcode is None:
+                # detection_start is set only after detection_queue.get()
+                # returns. If it was reset during the grace period, the process
+                # recovered and may be waiting on the shared queue again.
+                if self.detection_start.value == 0.0:
+                    logging.info("Detection process recovered before restart")
+                    return
 
-        # Async path for MemryX
-        if self.detector_config.type == "memryx":
+                logging.info("Detection process didn't exit. Force killing...")
+                self.detect_process.kill()
+                self.detect_process.join()
+            logging.info("Detection process has exited...")
+
+        self.detection_start.value = 0.0
+
+        # Async path for MemryX and Axelera (send/receive contract)
+        if self.detector_config.type in ("memryx", "axelera"):
             self.detect_process = AsyncDetectorRunner(
                 f"frigate.detector:{self.name}",
                 self.detection_queue,
@@ -395,6 +410,9 @@ class RemoteObjectDetector:
         self.labels = labels
         self.name = name
         self.fps = EventsPerSecond()
+        # class ids already warned about, so an incomplete labelmap logs once
+        # per id instead of once per frame
+        self.unnamed_class_ids: set[int] = set()
         self.detection_queue = detection_queue
         self.stop_event = stop_event
         self.shm = UntrackedSharedMemory(name=self.name, create=False)
@@ -436,9 +454,21 @@ class RemoteObjectDetector:
         for d in self.out_np_shm:
             if d[1] < threshold:
                 break
-            detections.append(
-                (self.labels[int(d[0])], float(d[1]), (d[2], d[3], d[4], d[5]))
-            )
+
+            class_id = int(d[0])
+            label = self.labels.get(class_id)
+
+            if label is None:
+                if class_id not in self.unnamed_class_ids:
+                    self.unnamed_class_ids.add(class_id)
+                    logger.warning(
+                        "Detector returned class id %d for %s, which the labelmap does not name. Check that labelmap_path matches the model",
+                        class_id,
+                        self.name,
+                    )
+                continue
+
+            detections.append((label, float(d[1]), (d[2], d[3], d[4], d[5])))
         self.fps.update()
         return detections
 

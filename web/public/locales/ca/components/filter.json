@@ -38,9 +38,9 @@
     "label": "Característiques",
     "hasSnapshot": "Té una instantània",
     "hasVideoClip": "Té un clip de vídeo",
-    "submittedToAMSSPlus": {
-      "label": "Enviat a AMSS+",
-      "tips": "Primer heu de filtrar els objectes de seguiment que tenen una instantània.<br /><br />Els objectes de seguiment sense una instantània no es poden enviar a AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Enviat a Frigate+",
+      "tips": "Primer heu de filtrar els objectes de seguiment que tenen una instantània.<br /><br />Els objectes de seguiment sense una instantània no es poden enviar a Frigate+."
     }
   },
   "sort": {

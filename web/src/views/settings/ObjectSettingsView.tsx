@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import AutoUpdatingCameraImage from "@/components/camera/AutoUpdatingCameraImage";
-import { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import { Toaster } from "@/components/ui/sonner";
 import { Label } from "@/components/ui/label";
 import useSWR from "swr";
@@ -34,6 +34,7 @@ import { useCameraFriendlyName } from "@/hooks/use-camera-friendly-name";
 import { AudioLevelGraph } from "@/components/audio/AudioLevelGraph";
 import { useWs } from "@/api/ws";
 import { cn } from "@/lib/utils";
+import { getPrimaryModel } from "@/utils/modelUtil";
 
 type ObjectSettingsViewProps = {
   selectedCamera?: string;
@@ -50,7 +51,7 @@ export default function ObjectSettingsView({
 
   const { getLocaleDocUrl } = useDocDomain();
 
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -172,11 +173,10 @@ export default function ObjectSettingsView({
         <div className="mb-5 space-y-3 text-sm text-muted-foreground">
           <p>
             {t("debug.detectorDesc", {
-              detectors: config
-                ? Object.keys(config?.detectors)
-                    .map((detector) => capitalizeFirstLetter(detector))
-                    .join(",")
-                : "",
+              detectors: (config?.models ?? [])
+                .flatMap((model) => model.devices ?? [])
+                .map((device) => capitalizeFirstLetter(device))
+                .join(","),
             })}
           </p>
           <p>{t("debug.desc")}</p>
@@ -373,14 +373,14 @@ type ObjectListProps = {
 
 function ObjectList({ cameraConfig, objects }: ObjectListProps) {
   const { t } = useTranslation(["views/settings", "common"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const colormap = useMemo(() => {
     if (!config) {
       return;
     }
 
-    return config.model?.colormap;
+    return getPrimaryModel(config)?.colormap;
   }, [config]);
 
   const getColorForObjectName = useCallback(

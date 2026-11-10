@@ -1,5 +1,5 @@
 {
-    "documentTitle": "變動搜尋 - AMSS",
+    "documentTitle": "變動搜尋 - Frigate",
     "title": "畫面變動搜尋",
     "description": "繪製一個多邊形以劃定感興趣區域，並指定時間範圍，檢索該區域內的動態變化。",
     "selectCamera": "畫面變動搜尋正在載入中",
@@ -21,7 +21,7 @@
     "clearROI": "清除多邊形選區",
     "polygonControls": {
         "points_other": "{{count}} 個點位",
-        "undo": "撤銷上一個點位",
+        "undo": "復原上一個點位",
         "reset": "重設多邊形",
         "drawMode": "繪製",
         "moveMode": "移動"
@@ -45,8 +45,6 @@
         "thresholdDesc": "數值越低，可偵測到越小的變化（取值範圍 1-255）",
         "minArea": "最小變化區域",
         "minAreaDesc": "最小感興趣區域變化佔比，達到該比例才會判定為有效變動",
-        "frameSkip": "幀跳過",
-        "frameSkipDesc": "每隔 N 幀進行一次處理。將該值設定為攝影機的幀率，即可實現每秒處理一幀畫面（例如：5 幀 / 秒的攝影機設為 5，30 幀 / 秒的攝影機設為 30）。數值越高處理速度越快，但有可能遺漏短時移動偵測事件。",
         "maxResults": "最大結果數",
         "maxResultsDesc": "匹配到設定條數的錄影事件後，就自動停止檢索"
     },
@@ -71,7 +69,7 @@
         "wallTime": "搜尋時間",
         "segmentErrors": "片段異常",
         "seconds": "{{seconds}} 秒",
-        "minutesSeconds": "{{minutes}}分 {{seconds}}秒",
+        "minutesSeconds": "{{minutes}} 分 {{seconds}} 秒",
         "scanSummary": "{{segments}} 個片段 · {{time}}"
     },
     "scanning": "掃描中 {{time}}"

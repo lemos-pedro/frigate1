@@ -10,7 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { LuChevronDown, LuChevronRight } from "react-icons/lu";
-import { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import { ConfigFormContext } from "@/types/configForm";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +25,7 @@ type FormContext = Pick<
   | "level"
 > & {
   fullCameraConfig?: CameraConfig;
-  fullConfig?: AmssConfig;
+  fullConfig?: FrigateConfig;
 };
 
 export type { FormContext };
@@ -98,8 +98,7 @@ export function SwitchesWidget(props: WidgetProps) {
   const availableEntities = useMemo(() => {
     const getEntities =
       (props.options?.getEntities as
-        | ((context: FormContext) => string[])
-        | undefined) || (() => []);
+        ((context: FormContext) => string[]) | undefined) || (() => []);
     if (context) {
       return getEntities(context);
     }
@@ -109,8 +108,8 @@ export function SwitchesWidget(props: WidgetProps) {
   const getDisplayLabel = useMemo(
     () =>
       (props.options?.getDisplayLabel as
-        | ((entity: string, context?: FormContext) => string)
-        | undefined) || ((entity: string) => entity),
+        ((entity: string, context?: FormContext) => string) | undefined) ||
+      ((entity: string) => entity),
     [props.options],
   );
 

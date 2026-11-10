@@ -1,1538 +1,835 @@
-"""Main api runner."""
-
-import asyncio
-import copy
-import json
+import datetime
 import logging
+import multiprocessing as mp
 import os
-import platform
-import traceback
-import urllib
-from datetime import datetime, timedelta
-from functools import reduce
-from io import StringIO
-from pathlib import Path as FilePath
-from typing import Any
+import secrets
+import shutil
+from collections.abc import Callable
+from multiprocessing import Queue
+from multiprocessing.managers import DictProxy, SyncManager
+from multiprocessing.synchronize import Event as MpEvent
+from pathlib import Path
 
-import aiofiles
-import ruamel.yaml
-from fastapi import APIRouter, Body, Path, Request, Response
-from fastapi.encoders import jsonable_encoder
-from fastapi.params import Depends
-from fastapi.responses import JSONResponse, PlainTextResponse, StreamingResponse
-from filelock import FileLock, Timeout
-from markupsafe import escape
-from peewee import SQL, fn, operator
-from pydantic import ValidationError
+import psutil
+import uvicorn
+from peewee import SqliteDatabase
+from peewee_migrate import Router
 
-from frigate.api.auth import (
-    allow_any_authenticated,
-    allow_public,
-    get_allowed_cameras_for_filter,
-    require_role,
+from frigate.analytics.reporter import AnalyticsReporter
+from frigate.api.auth import hash_password
+from frigate.api.fastapi_app import create_fastapi_app
+from frigate.camera import CameraMetrics, PTZMetrics
+from frigate.camera.maintainer import CameraMaintainer
+from frigate.comms.base_communicator import Communicator
+from frigate.comms.dispatcher import Dispatcher
+from frigate.comms.event_metadata_updater import EventMetadataPublisher
+from frigate.comms.inter_process import InterProcessCommunicator
+from frigate.comms.mqtt import MqttClient
+from frigate.comms.object_detector_signaler import DetectorProxy
+from frigate.comms.webpush import WebPushClient
+from frigate.comms.ws import WebSocketClient
+from frigate.comms.zmq_proxy import ZmqProxy
+from frigate.config.camera.updater import CameraConfigUpdatePublisher
+from frigate.config.config import FrigateConfig
+from frigate.config.holder import ConfigHolder
+from frigate.config.profile_manager import ProfileManager
+from frigate.const import (
+    CACHE_DIR,
+    CLIPS_DIR,
+    CONFIG_DIR,
+    EXPORT_DIR,
+    FACE_DIR,
+    MODEL_CACHE_DIR,
+    RECORD_DIR,
+    THUMB_DIR,
+    TRIGGER_DIR,
 )
-from frigate.api.config_util import (
-    publish_camera_section_updates,
-    swap_runtime_config,
+from frigate.data_processing.types import DataProcessorMetrics
+from frigate.db.sqlitevecq import SqliteVecQueueDatabase
+from frigate.debug_replay import (
+    DebugReplayManager,
+    cleanup_replay_cameras,
 )
-from frigate.api.defs.query.app_query_parameters import AppTimelineHourlyQueryParameters
-from frigate.api.defs.request.app_body import (
-    AppConfigSetBody,
-    GenAIProbeBody,
-    MediaSyncBody,
+from frigate.detectors.detector_types import api_types
+from frigate.detectors.device import build_detector_config, runner_names
+from frigate.embeddings import EmbeddingProcess, EmbeddingsContext
+from frigate.events.audio import AudioProcessor
+from frigate.events.cleanup import EventCleanup
+from frigate.events.maintainer import EventProcessor
+from frigate.jobs.export import reap_stale_exports
+from frigate.jobs.motion_search import stop_all_motion_search_jobs
+from frigate.log import _stop_logging
+from frigate.models import (
+    Event,
+    Export,
+    Notice,
+    NoticeStats,
+    Previews,
+    Recordings,
+    RecordingsToDelete,
+    Regions,
+    ReviewSegment,
+    Timeline,
+    Trigger,
+    User,
 )
-from frigate.api.defs.tags import Tags
-from frigate.config import FrigateConfig, GenAIConfig, GenAIProviderEnum
-from frigate.config.camera.updater import (
-    CameraConfigUpdateEnum,
-    CameraConfigUpdateTopic,
-)
-from frigate.const import REDACTED_CREDENTIAL_SENTINEL
-from frigate.ffmpeg_presets import FFMPEG_HWACCEL_VAAPI, _gpu_selector
-from frigate.genai import PROVIDERS, load_providers
-from frigate.jobs.media_sync import (
-    get_current_media_sync_job,
-    get_media_sync_job_by_id,
-    start_media_sync_job,
-)
-from frigate.models import Event, Timeline
-from frigate.stats.prometheus import get_metrics, update_metrics
-from frigate.types import JobStatusTypesEnum
-from frigate.util.builtin import (
-    clean_camera_user_pass,
-    deep_merge,
-    flatten_config_data,
-    load_labels,
-    process_config_query_string,
-    update_yaml_file_bulk,
-)
-from frigate.util.config import (
-    apply_section_update,
-    find_config_file,
-    redact_credential,
-)
-from frigate.util.schema import get_config_schema
-from frigate.util.services import (
-    get_nvidia_driver_info,
-    process_logs,
-    restart_frigate,
-    vainfo_hwaccel,
-)
-from frigate.util.time import get_tz_modifiers
+from frigate.notices import install_registry
+from frigate.notices.registry import NoticeRegistry
+from frigate.object_detection.base import ObjectDetectProcess
+from frigate.object_detection.util import detection_frame_size
+from frigate.output.output import OutputProcess
+from frigate.ptz.autotrack import PtzAutoTracker
+from frigate.ptz.onvif import OnvifController
+from frigate.record.cleanup import RecordingCleanup
+from frigate.record.export import migrate_exports
+from frigate.record.record import RecordProcess
+from frigate.review.review import ReviewProcess
+from frigate.stats.emitter import StatsEmitter
+from frigate.stats.util import stats_init
+from frigate.storage import StorageMaintainer
+from frigate.timeline import TimelineProcessor
+from frigate.track.object_processing import TrackedObjectProcessor
+from frigate.util.builtin import empty_and_close_queue
+from frigate.util.image import UntrackedSharedMemory
+from frigate.util.ownership import chown_to_runtime
+from frigate.util.process import FrigateProcess
+from frigate.util.runtime_deps import RuntimeDependencyError
+from frigate.util.services import set_file_limit
 from frigate.version import VERSION
+from frigate.watchdog import FrigateWatchdog
 
 logger = logging.getLogger(__name__)
 
 
-router = APIRouter(tags=[Tags.app])
-
-# Short timeout for the /genai/probe path. The probe is interactive — fail
-# fast on hung providers rather than holding an API worker thread.
-_PROBE_TIMEOUT_SECONDS = 10
-# Outer cap that returns control to the caller even if the underlying sync
-# HTTP call ignores its timeout. The sync work continues in the background
-# thread; only the response is bounded.
-_PROBE_OUTER_TIMEOUT_SECONDS = 15
-
-
-@router.get(
-    "/", response_class=PlainTextResponse, dependencies=[Depends(allow_public())]
-)
-def is_healthy():
-    return "Frigate is running. Alive and healthy!"
-
-
-@router.get("/config/schema.json", dependencies=[Depends(allow_public())])
-def config_schema(request: Request):
-    return JSONResponse(content=get_config_schema(FrigateConfig))
-
-
-@router.get(
-    "/version", response_class=PlainTextResponse, dependencies=[Depends(allow_public())]
-)
-def version():
-    return VERSION
-
-
-@router.get("/stats", dependencies=[Depends(allow_any_authenticated())])
-def stats(
-    request: Request,
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    stats_data = request.app.stats_emitter.get_latest_stats()
-
-    # Admins see the full snapshot
-    if request.headers.get("remote-role") == "admin":
-        return JSONResponse(content=stats_data)
-
-    allowed_set = set(allowed_cameras)
-
-    # Shallow-copy so we don't mutate the cached stats history entry.
-    filtered = {**stats_data}
-
-    cameras = stats_data.get("cameras")
-    if cameras is not None:
-        filtered["cameras"] = {
-            name: data for name, data in cameras.items() if name in allowed_set
+class FrigateApp:
+    def __init__(
+        self, config: FrigateConfig, manager: SyncManager, stop_event: MpEvent
+    ) -> None:
+        self.metrics_manager = manager
+        self.audio_process: mp.Process | None = None
+        self.stop_event = stop_event
+        self.detection_queues: dict[str, Queue] = {
+            model.scene: mp.Queue() for model in config.models
         }
+        self.detectors: dict[str, ObjectDetectProcess] = {}
+        self.detection_shms: list[mp.shared_memory.SharedMemory] = []
+        self.log_queue: Queue = mp.Queue()
+        self.camera_metrics: DictProxy = self.metrics_manager.dict()
 
-    bandwidth = stats_data.get("bandwidth_usages")
-    if bandwidth is not None:
-        filtered["bandwidth_usages"] = {
-            name: data for name, data in bandwidth.items() if name in allowed_set
-        }
-
-    # cmdline can leak camera URLs/paths; strip but keep cpu/mem so
-    # client-side problem heuristics still work.
-    cpu_usages = stats_data.get("cpu_usages")
-    if cpu_usages is not None:
-        filtered["cpu_usages"] = {
-            pid: {k: v for k, v in usage.items() if k != "cmdline"}
-            for pid, usage in cpu_usages.items()
-        }
-
-    return JSONResponse(content=filtered)
-
-
-@router.get("/stats/history", dependencies=[Depends(require_role(["admin"]))])
-def stats_history(request: Request, keys: str = None):
-    if keys:
-        keys = keys.split(",")
-
-    return JSONResponse(content=request.app.stats_emitter.get_stats_history(keys))
-
-
-@router.get("/metrics", dependencies=[Depends(allow_any_authenticated())])
-def metrics(request: Request):
-    """Expose Prometheus metrics endpoint and update metrics with latest stats"""
-    # Retrieve the latest statistics and update the Prometheus metrics
-    stats = request.app.stats_emitter.get_latest_stats()
-    # query DB for count of events by camera, label
-    event_counts: list[dict[str, Any]] = (
-        Event.select(Event.camera, Event.label, fn.Count())
-        .group_by(Event.camera, Event.label)
-        .dicts()
-    )
-
-    update_metrics(stats=stats, event_counts=event_counts)
-    content, content_type = get_metrics()
-    return Response(content=content, media_type=content_type)
-
-
-@router.get(
-    "/genai/models",
-    dependencies=[Depends(allow_any_authenticated())],
-    summary="List available GenAI models",
-    description="Returns available models for each configured GenAI provider.",
-)
-def genai_models(request: Request):
-    return JSONResponse(content=request.app.genai_manager.list_models())
-
-
-@router.post(
-    "/genai/probe",
-    dependencies=[Depends(require_role(["admin"]))],
-    summary="Probe a GenAI provider without saving config",
-    description=(
-        "Builds a transient client from the request body and returns its "
-        "available models. Used to validate provider credentials in the UI "
-        "before saving the configuration."
-    ),
-)
-async def genai_probe(request: Request, body: GenAIProbeBody):
-    load_providers()
-
-    provider_cls = PROVIDERS.get(body.provider)
-    if not provider_cls:
-        return JSONResponse(
-            status_code=400,
-            content={"success": False, "message": "Unknown provider"},
+        self.embeddings_metrics = DataProcessorMetrics(
+            self.metrics_manager, list(config.classification.custom.keys())
         )
+        self.ptz_metrics: dict[str, PTZMetrics] = {}
+        self.processes: dict[str, int] = {}
+        self.embeddings: EmbeddingsContext | None = None
+        self.config_holder = ConfigHolder(config)
 
-    api_key = body.api_key
-    if api_key == REDACTED_CREDENTIAL_SENTINEL:
-        saved_cfg = (
-            request.app.frigate_config.genai.get(body.name) if body.name else None
-        )
-        api_key = saved_cfg.api_key if saved_cfg else None
+    @property
+    def config(self) -> FrigateConfig:
+        """The current config, not the one Frigate booted with.
 
-    # The OpenAI-compatible SDKs accept "timeout" as a constructor kwarg via
-    # provider_options; other plugins use GenAIClient.timeout passed below.
-    # Don't inject timeout for Gemini — its HttpOptions interprets the value
-    # in milliseconds and would clash with the plugin's own default.
-    probe_provider_options: dict[str, Any] = dict(body.provider_options or {})
-    if body.provider in (GenAIProviderEnum.openai, GenAIProviderEnum.azure_openai):
-        probe_provider_options.setdefault("timeout", _PROBE_TIMEOUT_SECONDS)
+        Read through the holder so the deferred watchdog factories below build
+        a replacement process from the config as it is now. There is no setter
+        on purpose: a plain attribute would let a caller pin this back to a
+        single object and reintroduce the staleness.
+        """
+        return self.config_holder.config
 
-    try:
-        transient_cfg = GenAIConfig(
-            provider=body.provider,
-            api_key=api_key,
-            base_url=body.base_url,
-            provider_options=probe_provider_options,
-            # model is required by the schema but irrelevant for listing.
-            model="probe",
-            roles=[],
-        )
-    except ValidationError:
-        logger.exception("GenAI probe: invalid configuration")
-        return JSONResponse(
-            status_code=400,
-            content={"success": False, "message": "Invalid provider configuration"},
-        )
-
-    try:
-        client = provider_cls(
-            transient_cfg,
-            timeout=_PROBE_TIMEOUT_SECONDS,
-            validate_model=False,
-        )
-    except Exception:
-        logger.exception("GenAI probe: failed to construct client")
-        return JSONResponse(
-            content={
-                "success": False,
-                "message": "Failed to connect to provider",
-            },
-        )
-
-    try:
-        models = await asyncio.wait_for(
-            asyncio.to_thread(client.list_models),
-            timeout=_PROBE_OUTER_TIMEOUT_SECONDS,
-        )
-    except TimeoutError:
-        return JSONResponse(
-            content={"success": False, "message": "Probe timed out"},
-        )
-    except Exception:
-        logger.exception("GenAI probe: list_models failed")
-        return JSONResponse(
-            content={"success": False, "message": "Provider returned no models"},
-        )
-
-    if not models:
-        return JSONResponse(
-            content={
-                "success": False,
-                "message": (
-                    "No models returned. Check the API key, base URL, and "
-                    "that the provider is reachable."
-                ),
-            },
-        )
-
-    return JSONResponse(content={"success": True, "models": models})
-
-
-@router.get("/config", dependencies=[Depends(allow_any_authenticated())])
-def config(request: Request):
-    config_obj: FrigateConfig = request.app.frigate_config
-    config: dict[str, dict[str, Any]] = config_obj.model_dump(
-        mode="json", warnings="none", exclude_none=True
-    )
-    config["detectors"] = {
-        name: detector.model_dump(mode="json", warnings="none", exclude_none=True)
-        for name, detector in config_obj.detectors.items()
-    }
-
-    # remove environment_vars for non-admin users
-    if request.headers.get("remote-role") != "admin":
-        config.pop("environment_vars", None)
-
-    # redact mqtt credentials
-    redact_credential(config["mqtt"], "password")
-
-    # redact proxy secret
-    redact_credential(config["proxy"], "auth_secret")
-
-    # redact genai api keys
-    for _genai_name, genai_cfg in config.get("genai", {}).items():
-        if isinstance(genai_cfg, dict):
-            redact_credential(genai_cfg, "api_key")
-
-    for camera_name, camera in request.app.frigate_config.cameras.items():
-        camera_dict = config["cameras"][camera_name]
-
-        # redact onvif credentials
-        onvif_dict = camera_dict.get("onvif", {})
-        if onvif_dict:
-            redact_credential(onvif_dict, "password")
-
-        # clean paths
-        for input in camera_dict.get("ffmpeg", {}).get("inputs", []):
-            input["path"] = clean_camera_user_pass(input["path"])
-
-        # add clean ffmpeg_cmds
-        camera_dict["ffmpeg_cmds"] = copy.deepcopy(camera.ffmpeg_cmds)
-        for cmd in camera_dict["ffmpeg_cmds"]:
-            cmd["cmd"] = clean_camera_user_pass(" ".join(cmd["cmd"]))
-
-        # ensure that zones are relative
-        for zone_name, zone in config_obj.cameras[camera_name].zones.items():
-            camera_dict["zones"][zone_name]["color"] = zone.color
-
-        # Re-dump profile overrides with exclude_unset so that only
-        # explicitly-set fields are returned (not Pydantic defaults).
-        # Without this, the frontend merges defaults (e.g. threshold=30)
-        # over the camera's actual base values (e.g. threshold=20).
-        if camera.profiles:
-            for profile_name, profile_config in camera.profiles.items():
-                camera_dict.setdefault("profiles", {})[profile_name] = (
-                    profile_config.model_dump(
-                        mode="json", warnings="none", exclude_unset=True
-                    )
-                )
-
-        # When a profile is active, the top-level camera sections contain
-        # profile-merged (effective) values.  Include the original base
-        # configs so the frontend settings can display them separately.
-        if (
-            config_obj.active_profile is not None
-            and request.app.profile_manager is not None
-        ):
-            base_sections = request.app.profile_manager.get_base_configs_for_api(
-                camera_name
-            )
-            if base_sections:
-                camera_dict["base_config"] = base_sections
-
-    # remove go2rtc stream passwords
-    go2rtc: dict[str, Any] = config_obj.go2rtc.model_dump(
-        mode="json", warnings="none", exclude_none=True
-    )
-    for stream_name, stream in go2rtc.get("streams", {}).items():
-        if stream is None:
-            continue
-        if isinstance(stream, str):
-            cleaned = clean_camera_user_pass(stream)
-        else:
-            cleaned = []
-
-            for item in stream:
-                cleaned.append(clean_camera_user_pass(item))
-
-        config["go2rtc"]["streams"][stream_name] = cleaned
-
-    config["plus"] = {"enabled": request.app.frigate_config.plus_api.is_active()}
-    config["model"]["colormap"] = config_obj.model.colormap
-    config["model"]["all_attributes"] = config_obj.model.all_attributes
-    config["model"]["non_logo_attributes"] = config_obj.model.non_logo_attributes
-
-    # Add model plus data if plus is enabled
-    if config["plus"]["enabled"]:
-        model_path = config.get("model", {}).get("path")
-        if model_path:
-            model_json_path = FilePath(model_path).with_suffix(".json")
-            try:
-                with open(model_json_path) as f:
-                    model_plus_data = json.load(f)
-                config["model"]["plus"] = model_plus_data
-            except FileNotFoundError:
-                config["model"]["plus"] = None
-            except json.JSONDecodeError:
-                config["model"]["plus"] = None
-        else:
-            config["model"]["plus"] = None
-
-    # use merged labelamp
-    for detector_config in config["detectors"].values():
-        detector_config["model"]["labelmap"] = (
-            request.app.frigate_config.model.merged_labelmap
-        )
-
-    return JSONResponse(content=config)
-
-
-@router.get("/profiles", dependencies=[Depends(allow_any_authenticated())])
-def get_profiles(request: Request):
-    """List all available profiles and the currently active profile."""
-    profile_manager = request.app.profile_manager
-    return JSONResponse(content=profile_manager.get_profile_info())
-
-
-@router.get("/profile/active", dependencies=[Depends(allow_any_authenticated())])
-def get_active_profile(request: Request):
-    """Get the currently active profile."""
-    config_obj: FrigateConfig = request.app.frigate_config
-    return JSONResponse(content={"active_profile": config_obj.active_profile})
-
-
-@router.get("/ffmpeg/presets", dependencies=[Depends(allow_any_authenticated())])
-def ffmpeg_presets():
-    """Return available ffmpeg preset keys for config UI usage."""
-    machine = platform.machine().lower()
-    is_arm64 = machine in ("aarch64", "arm64", "armv8", "armv7l")
-
-    if is_arm64:
-        hwaccel_presets = [
-            "preset-rpi-64-h264",
-            "preset-rpi-64-h265",
-            "preset-jetson-h264",
-            "preset-jetson-h265",
-            "preset-rkmpp",
-            "preset-vaapi",
-        ]
-    else:
-        hwaccel_presets = [
-            "preset-vaapi",
-            "preset-intel-qsv-h264",
-            "preset-intel-qsv-h265",
-            "preset-nvidia",
+    def ensure_dirs(self) -> None:
+        dirs = [
+            CONFIG_DIR,
+            RECORD_DIR,
+            THUMB_DIR,
+            f"{CLIPS_DIR}/cache",
+            CACHE_DIR,
+            MODEL_CACHE_DIR,
+            EXPORT_DIR,
         ]
 
-    input_presets = [
-        "preset-http-jpeg-generic",
-        "preset-http-mjpeg-generic",
-        "preset-http-reolink",
-        "preset-rtmp-generic",
-        "preset-rtsp-generic",
-        "preset-rtsp-restream",
-        "preset-rtsp-restream-low-latency",
-        "preset-rtsp-udp",
-        "preset-rtsp-blue-iris",
-    ]
-    record_output_presets = [
-        "preset-record-generic",
-        "preset-record-generic-audio-copy",
-        "preset-record-generic-audio-aac",
-        "preset-record-mjpeg",
-        "preset-record-jpeg",
-        "preset-record-ubiquiti",
-    ]
+        if self.config.face_recognition.enabled:
+            dirs.append(FACE_DIR)
 
-    return JSONResponse(
-        content={
-            "hwaccel_args": hwaccel_presets,
-            "input_args": input_presets,
-            "output_args": {
-                "record": record_output_presets,
-                "detect": [],
-            },
-        }
-    )
+        if self.config.semantic_search.enabled:
+            dirs.append(TRIGGER_DIR)
 
-
-@router.get("/config/raw_paths", dependencies=[Depends(require_role(["admin"]))])
-def config_raw_paths(request: Request):
-    """Admin-only endpoint that returns camera paths and go2rtc streams without credential masking."""
-    config_obj: FrigateConfig = request.app.frigate_config
-
-    raw_paths = {"cameras": {}, "go2rtc": {"streams": {}}}
-
-    # Extract raw camera ffmpeg input paths
-    for camera_name, camera in config_obj.cameras.items():
-        raw_paths["cameras"][camera_name] = {
-            "ffmpeg": {
-                "inputs": [
-                    {"path": input.path, "roles": input.roles}
-                    for input in camera.ffmpeg.inputs
-                ]
-            }
-        }
-
-    # Extract raw go2rtc stream URLs
-    go2rtc_config = config_obj.go2rtc.model_dump(
-        mode="json", warnings="none", exclude_none=True
-    )
-    for stream_name, stream in go2rtc_config.get("streams", {}).items():
-        if stream is None:
-            continue
-        raw_paths["go2rtc"]["streams"][stream_name] = stream
-
-    return JSONResponse(content=raw_paths)
-
-
-@router.get("/config/raw", dependencies=[Depends(require_role(["admin"]))])
-def config_raw():
-    config_file = find_config_file()
-
-    if not os.path.isfile(config_file):
-        return JSONResponse(
-            content=({"success": False, "message": "Could not find file"}),
-            status_code=404,
-        )
-
-    with open(config_file) as f:
-        raw_config = f.read()
-        f.close()
-
-        return JSONResponse(
-            content=raw_config, media_type="text/plain", status_code=200
-        )
-
-
-@router.post("/config/save", dependencies=[Depends(require_role(["admin"]))])
-def config_save(save_option: str, body: Any = Body(media_type="text/plain")):
-    new_config = body.decode()
-    if not new_config:
-        return JSONResponse(
-            content=(
-                {"success": False, "message": "Config with body param is required"}
-            ),
-            status_code=400,
-        )
-
-    # Validate the config schema
-    try:
-        # Use ruamel to parse and preserve line numbers
-        yaml_config = ruamel.yaml.YAML()
-        yaml_config.preserve_quotes = True
-        full_config = yaml_config.load(StringIO(new_config))
-
-        FrigateConfig.parse_yaml(new_config)
-
-    except ValidationError as e:
-        error_message = []
-
-        for error in e.errors():
-            error_path = error["loc"]
-            current = full_config
-            line_number = "Unknown"
-            last_line_number = "Unknown"
-
-            try:
-                for i, part in enumerate(error_path):
-                    key = int(part) if part.isdigit() else part
-
-                    if isinstance(current, ruamel.yaml.comments.CommentedMap):
-                        current = current[key]
-                    elif isinstance(current, list):
-                        current = current[key]
-
-                    if hasattr(current, "lc"):
-                        last_line_number = current.lc.line
-
-                    if i == len(error_path) - 1:
-                        if hasattr(current, "lc"):
-                            line_number = current.lc.line
-                        else:
-                            line_number = last_line_number
-
-            except Exception:
-                line_number = "Unable to determine"
-
-            error_message.append(
-                f"Line {line_number}: {' -> '.join(map(str, error_path))} - {error.get('msg', error.get('type', 'Unknown'))}"
-            )
-
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": "Your configuration is invalid.\nSee the official documentation at docs.frigate.video.\n\n"
-                    + "\n".join(error_message),
-                }
-            ),
-            status_code=400,
-        )
-
-    except Exception:
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": f"\nYour configuration is invalid.\nSee the official documentation at docs.frigate.video.\n\n{escape(str(traceback.format_exc()))}",
-                }
-            ),
-            status_code=400,
-        )
-
-    # Save the config to file
-    try:
-        config_file = find_config_file()
-
-        with open(config_file, "w") as f:
-            f.write(new_config)
-            f.close()
-    except Exception:
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": "Could not write config file, be sure that Frigate has write permission on the config file.",
-                }
-            ),
-            status_code=400,
-        )
-
-    if save_option == "restart":
-        try:
-            restart_frigate()
-        except Exception as e:
-            logging.error(f"Error restarting Frigate: {e}")
-            return JSONResponse(
-                content=(
-                    {
-                        "success": True,
-                        "message": "Config successfully saved, unable to restart Frigate",
-                    }
-                ),
-                status_code=200,
-            )
-
-        return JSONResponse(
-            content=(
-                {
-                    "success": True,
-                    "message": "Config successfully saved, restarting (this can take up to one minute)...",
-                }
-            ),
-            status_code=200,
-        )
-    else:
-        return JSONResponse(
-            content=({"success": True, "message": "Config successfully saved."}),
-            status_code=200,
-        )
-
-
-def _restore_masked_camera_paths(config_data: dict, config: FrigateConfig) -> None:
-    """Substitute incoming `*:*` masked credentials with the in-memory ones.
-
-    The /config response masks ffmpeg input credentials, so the settings UI
-    sends the masked path back when sibling fields (e.g. hwaccel_args) are
-    edited.  Without this we'd write `rtsp://*:*@host` into YAML and lose
-    the real credentials.  Mutates `config_data` in place.
-    """
-    cameras = config_data.get("cameras")
-    if not isinstance(cameras, dict):
-        return
-
-    for camera_name, camera_data in cameras.items():
-        if not isinstance(camera_data, dict):
-            continue
-        inputs = camera_data.get("ffmpeg", {}).get("inputs")
-        if not isinstance(inputs, list):
-            continue
-        existing = config.cameras.get(camera_name)
-        if existing is None:
-            continue
-        existing_paths = [inp.path for inp in existing.ffmpeg.inputs]
-        for index, input_obj in enumerate(inputs):
-            if not isinstance(input_obj, dict):
-                continue
-            path = input_obj.get("path")
-            if not isinstance(path, str):
-                continue
-            if ("://*:*@" in path or "user=*&password=*" in path) and index < len(
-                existing_paths
-            ):
-                input_obj["path"] = existing_paths[index]
-
-
-def _config_set_in_memory(request: Request, body: AppConfigSetBody) -> JSONResponse:
-    """Apply config changes in-memory only, without writing to YAML.
-
-    Used for temporary config changes like debug replay camera tuning.
-    Updates the in-memory Pydantic config and publishes ZMQ updates,
-    bypassing YAML parsing entirely.
-    """
-    try:
-        updates = {}
-        if body.config_data:
-            _restore_masked_camera_paths(body.config_data, request.app.frigate_config)
-            updates = flatten_config_data(body.config_data)
-            updates = {k: ("" if v is None else v) for k, v in updates.items()}
-            # Drop any field whose value is still the redaction sentinel
-            updates = {
-                k: v for k, v in updates.items() if v != REDACTED_CREDENTIAL_SENTINEL
-            }
-
-        if not updates:
-            return JSONResponse(
-                content={"success": False, "message": "No configuration data provided"},
-                status_code=400,
-            )
-
-        config: FrigateConfig = request.app.frigate_config
-
-        # Group flat key paths into nested per-camera, per-section dicts
-        grouped: dict[str, dict[str, dict]] = {}
-        for key_path, value in updates.items():
-            parts = key_path.split(".")
-            if len(parts) < 3 or parts[0] != "cameras":
-                continue
-
-            cam, section = parts[1], parts[2]
-            grouped.setdefault(cam, {}).setdefault(section, {})
-
-            # Build nested dict from remaining path (e.g. "filters.person.threshold")
-            target = grouped[cam][section]
-            for part in parts[3:-1]:
-                target = target.setdefault(part, {})
-            if len(parts) > 3:
-                target[parts[-1]] = value
-            elif isinstance(value, dict):
-                grouped[cam][section] = deep_merge(
-                    grouped[cam][section], value, override=True
-                )
+        for d in dirs:
+            if not os.path.exists(d) and not os.path.islink(d):
+                logger.info(f"Creating directory: {d}")
+                os.makedirs(d, exist_ok=True)
+                chown_to_runtime(d)
             else:
-                grouped[cam][section] = value
+                logger.debug(f"Skipping directory: {d}")
 
-        # Apply each section update
-        for cam_name, sections in grouped.items():
-            camera_config = config.cameras.get(cam_name)
-            if not camera_config:
-                return JSONResponse(
-                    content={
-                        "success": False,
-                        "message": f"Camera '{cam_name}' not found",
-                    },
-                    status_code=400,
+    def init_debug_replay_manager(self) -> None:
+        self.replay_manager = DebugReplayManager()
+
+    def init_camera_metrics(self) -> None:
+        # create camera_metrics
+        for camera_name in self.config.cameras.keys():
+            self.camera_metrics[camera_name] = CameraMetrics(self.metrics_manager)
+            self.ptz_metrics[camera_name] = PTZMetrics()
+
+    def init_queues(self) -> None:
+        # Queue for cameras to push tracked objects to
+        # leaving room for 2 extra cameras to be added
+        self.detected_frames_queue: Queue = mp.Queue(
+            maxsize=(
+                sum(
+                    camera.enabled_in_config == True
+                    for camera in self.config.cameras.values()
                 )
-
-            for section_name, update in sections.items():
-                err = apply_section_update(camera_config, section_name, update)
-                if err is not None:
-                    return JSONResponse(
-                        content={"success": False, "message": err},
-                        status_code=400,
-                    )
-
-        # Publish ZMQ updates so processing threads pick up changes
-        if body.update_topic and body.update_topic.startswith("config/cameras/"):
-            _, _, camera, field = body.update_topic.split("/")
-            settings = getattr(config.cameras.get(camera, None), field, None)
-
-            if settings is not None:
-                request.app.config_publisher.publish_update(
-                    CameraConfigUpdateTopic(CameraConfigUpdateEnum[field], camera),
-                    settings,
-                )
-
-                # detect resize also republishes motion + objects so other
-                # processes pick up the rebuilt masks, and fires refresh so
-                # the camera maintainer recycles the camera process to pick
-                # up the new ffmpeg cmd / SHM sizing
-                if field == "detect":
-                    cam_cfg = config.cameras.get(camera)
-                    if cam_cfg is not None:
-                        if cam_cfg.motion is not None:
-                            request.app.config_publisher.publish_update(
-                                CameraConfigUpdateTopic(
-                                    CameraConfigUpdateEnum.motion, camera
-                                ),
-                                cam_cfg.motion,
-                            )
-                        request.app.config_publisher.publish_update(
-                            CameraConfigUpdateTopic(
-                                CameraConfigUpdateEnum.objects, camera
-                            ),
-                            cam_cfg.objects,
-                        )
-                        if cam_cfg.zones:
-                            request.app.config_publisher.publish_update(
-                                CameraConfigUpdateTopic(
-                                    CameraConfigUpdateEnum.zones, camera
-                                ),
-                                cam_cfg.zones,
-                            )
-                        request.app.config_publisher.publish_update(
-                            CameraConfigUpdateTopic(
-                                CameraConfigUpdateEnum.refresh, camera
-                            ),
-                            cam_cfg,
-                        )
-
-        return JSONResponse(
-            content={"success": True, "message": "Config applied in-memory"},
-            status_code=200,
-        )
-    except Exception as e:
-        logger.error(f"Error applying config in-memory: {e}")
-        return JSONResponse(
-            content={"success": False, "message": "Error applying config"},
-            status_code=500,
+                + 2
+            )
+            * 2
         )
 
+        # Queue for timeline events
+        self.timeline_queue: Queue = mp.Queue()
 
-@router.put("/config/set", dependencies=[Depends(require_role(["admin"]))])
-def config_set(request: Request, body: AppConfigSetBody):
-    config_file = find_config_file()
-
-    if body.skip_save:
-        return _config_set_in_memory(request, body)
-
-    lock = FileLock(f"{config_file}.lock", timeout=5)
-
-    try:
-        with lock:
-            with open(config_file) as f:
-                old_raw_config = f.read()
+    def init_database(self) -> None:
+        def vacuum_db(db: SqliteDatabase) -> None:
+            logger.info("Running database vacuum")
+            db.execute_sql("VACUUM;")
 
             try:
-                updates = {}
+                with open(f"{CONFIG_DIR}/.vacuum", "w") as f:
+                    f.write(str(datetime.datetime.now().timestamp()))
+            except PermissionError:
+                logger.error("Unable to write to /config to save DB state")
 
-                # process query string parameters (takes precedence over body.config_data)
-                parsed_url = urllib.parse.urlparse(str(request.url))
-                query_string = urllib.parse.parse_qs(
-                    parsed_url.query, keep_blank_values=True
-                )
+        # Migrate DB schema
+        migrate_db = SqliteDatabase(self.config.database.path)
 
-                # Filter out empty keys but keep blank values for non-empty keys
-                query_string = {k: v for k, v in query_string.items() if k}
+        # Run migrations
+        del logging.getLogger("peewee_migrate").handlers[:]
+        router = Router(migrate_db)
 
-                if query_string:
-                    updates = process_config_query_string(query_string)
-                elif body.config_data:
-                    _restore_masked_camera_paths(
-                        body.config_data, request.app.frigate_config
-                    )
-                    updates = flatten_config_data(body.config_data)
-                    # Convert None values to empty strings for deletion (e.g., when deleting masks)
-                    updates = {k: ("" if v is None else v) for k, v in updates.items()}
-                    # Drop sentinel-valued fields so untouched credential
-                    # placeholders don't clobber the saved YAML value.
-                    updates = {
-                        k: v
-                        for k, v in updates.items()
-                        if v != REDACTED_CREDENTIAL_SENTINEL
-                    }
+        if len(router.diff) > 0:
+            logger.info("Making backup of DB before migrations...")
+            shutil.copyfile(
+                self.config.database.path,
+                self.config.database.path.replace("frigate.db", "backup.db"),
+            )
 
-                if not updates:
-                    return JSONResponse(
-                        content=(
-                            {
-                                "success": False,
-                                "message": "No configuration data provided",
-                            }
-                        ),
-                        status_code=400,
-                    )
+        router.run()
 
-                # apply all updates in a single operation
-                update_yaml_file_bulk(config_file, updates)
-
-                # validate the updated config
-                with open(config_file) as f:
-                    new_raw_config = f.read()
-
+        # check if vacuum needs to be run
+        if os.path.exists(f"{CONFIG_DIR}/.vacuum"):
+            with open(f"{CONFIG_DIR}/.vacuum") as f:
                 try:
-                    config = FrigateConfig.parse(new_raw_config)
-                except ValidationError as e:
-                    with open(config_file, "w") as f:
-                        f.write(old_raw_config)
-                        f.close()
-                    logger.error(
-                        f"Config Validation Error:\n\n{str(traceback.format_exc())}"
-                    )
-                    error_messages = []
-                    for err in e.errors():
-                        msg = err.get("msg", "")
-                        # Strip pydantic "Value error, " prefix for cleaner display
-                        if msg.startswith("Value error, "):
-                            msg = msg[len("Value error, ") :]
-                        error_messages.append(msg)
-                    message = (
-                        "; ".join(error_messages)
-                        if error_messages
-                        else "Check logs for error message."
-                    )
-                    return JSONResponse(
-                        content=(
-                            {
-                                "success": False,
-                                "message": f"Error saving config: {message}",
-                            }
-                        ),
-                        status_code=400,
-                    )
+                    timestamp = round(float(f.readline()))
                 except Exception:
-                    with open(config_file, "w") as f:
-                        f.write(old_raw_config)
-                        f.close()
-                    logger.error(f"\nConfig Error:\n\n{str(traceback.format_exc())}")
-                    return JSONResponse(
-                        content=(
-                            {
-                                "success": False,
-                                "message": "Error parsing config. Check logs for error message.",
-                            }
-                        ),
-                        status_code=400,
-                    )
-            except Exception as e:
-                logging.error(f"Error updating config: {e}")
-                return JSONResponse(
-                    content=({"success": False, "message": "Error updating config"}),
-                    status_code=500,
-                )
+                    timestamp = 0
 
-            # drop runtime overrides for any fields the user just rewrote in
-            # yaml so a stale override doesn't silently win after restart
-            if request.app.dispatcher is not None:
-                request.app.dispatcher.clear_runtime_state_for_yaml_keys(updates.keys())
+                if (
+                    timestamp
+                    < (
+                        datetime.datetime.now() - datetime.timedelta(weeks=2)
+                    ).timestamp()
+                ):
+                    vacuum_db(migrate_db)
+        else:
+            vacuum_db(migrate_db)
 
-            if body.requires_restart == 0 or body.update_topic:
-                old_config: FrigateConfig = request.app.frigate_config
-                swap_runtime_config(request.app, config)
+        migrate_db.close()
 
-                if body.update_topic:
-                    if body.update_topic.startswith("config/cameras/"):
-                        _, _, camera, field = body.update_topic.split("/")
+        # a root frigate service creates these as root; wal and shm recreated
+        # later in the run are realigned by the per-boot /config sweep
+        for db_file in (
+            self.config.database.path,
+            f"{self.config.database.path}-wal",
+            f"{self.config.database.path}-shm",
+            self.config.database.path.replace("frigate.db", "backup.db"),
+        ):
+            if os.path.exists(db_file):
+                chown_to_runtime(db_file)
 
-                        if camera == "*":
-                            # Wildcard: fan out update to all cameras
-                            enum_value = CameraConfigUpdateEnum[field]
-                            for camera_name in config.cameras:
-                                settings = config.get_nested_object(
-                                    f"config/cameras/{camera_name}/{field}"
-                                )
-                                request.app.config_publisher.publish_update(
-                                    CameraConfigUpdateTopic(enum_value, camera_name),
-                                    settings,
-                                )
-                        else:
-                            if field == "add":
-                                settings = config.cameras[camera]
-                            elif field == "remove":
-                                settings = old_config.cameras[camera]
-                            else:
-                                settings = config.get_nested_object(body.update_topic)
+    def init_go2rtc(self) -> None:
+        for proc in psutil.process_iter(["pid", "name"]):
+            if proc.info["name"] == "go2rtc":
+                logger.info(f"go2rtc process pid: {proc.info['pid']}")
+                self.processes["go2rtc"] = proc.info["pid"]
 
-                            request.app.config_publisher.publish_update(
-                                CameraConfigUpdateTopic(
-                                    CameraConfigUpdateEnum[field], camera
-                                ),
-                                settings,
-                            )
-                    else:
-                        # Generic handling for global config updates
-                        settings = config.get_nested_object(body.update_topic)
+    def init_recording_manager(self) -> None:
+        recording_process = RecordProcess(self.config, self.stop_event)
+        self.recording_process = recording_process
+        recording_process.start()
+        self.processes["recording"] = recording_process.pid or 0
+        logger.info(f"Recording process started: {recording_process.pid}")
 
-                        # Publish None for removal, actual config for add/update
-                        request.app.config_publisher.publisher.publish(
-                            body.update_topic, settings
-                        )
+    def init_review_segment_manager(self) -> None:
+        review_segment_process = ReviewProcess(self.config, self.stop_event)
+        self.review_segment_process = review_segment_process
+        review_segment_process.start()
+        self.processes["review_segment"] = review_segment_process.pid or 0
+        logger.info(f"Review process started: {review_segment_process.pid}")
 
-                        # a config/cameras/* topic publishes camera copies, a
-                        # global topic the global object. FrigateConfig.parse
-                        # folds some global sections down into every camera,
-                        # and workers read both objects, so any such section
-                        # needs its camera copies sent alongside the global
-                        # publish above.
-                        if body.update_topic == "config/birdseye":
-                            publish_camera_section_updates(
-                                request.app, config, CameraConfigUpdateEnum.birdseye
-                            )
-
-            return JSONResponse(
-                content=(
-                    {
-                        "success": True,
-                        "message": (
-                            "Config successfully updated"
-                            if body.requires_restart == 0
-                            else "Config successfully updated, restart to apply"
-                        ),
-                    }
-                ),
-                status_code=200,
-            )
-    except Timeout:
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": "Another process is currently updating the config. Please try again in a few seconds.",
-                }
-            ),
-            status_code=503,
+    def init_embeddings_manager(self) -> None:
+        # always start the embeddings process
+        embedding_process = EmbeddingProcess(
+            self.config, self.embeddings_metrics, self.stop_event
         )
+        self.embedding_process = embedding_process
+        embedding_process.start()
+        self.processes["embeddings"] = embedding_process.pid or 0
+        logger.info(f"Embedding process started: {embedding_process.pid}")
 
-
-@router.get("/vainfo", dependencies=[Depends(allow_any_authenticated())])
-def vainfo():
-    # Use LibvaGpuSelector to pick an appropriate libva device (if available)
-    selected_gpu = ""
-    try:
-        selected_gpu = _gpu_selector.get_gpu_arg(FFMPEG_HWACCEL_VAAPI, 0) or ""
-    except Exception:
-        selected_gpu = ""
-
-    # If selected_gpu is empty, pass None to vainfo_hwaccel to run plain `vainfo`.
-    vainfo = vainfo_hwaccel(device_name=selected_gpu or None)
-    return JSONResponse(
-        content={
-            "return_code": vainfo.returncode,
-            "stderr": (
-                vainfo.stderr.decode("unicode_escape").strip()
-                if vainfo.returncode != 0
-                else ""
-            ),
-            "stdout": (
-                vainfo.stdout.decode("unicode_escape").strip()
-                if vainfo.returncode == 0
-                else ""
-            ),
-        }
-    )
-
-
-@router.get("/nvinfo", dependencies=[Depends(allow_any_authenticated())])
-def nvinfo():
-    return JSONResponse(content=get_nvidia_driver_info())
-
-
-@router.get(
-    "/logs/{service}",
-    tags=[Tags.logs],
-    dependencies=[Depends(require_role(["admin"]))],
-)
-async def logs(
-    service: str = Path(enum=["frigate", "nginx", "go2rtc"]),
-    download: str | None = None,
-    stream: bool | None = False,
-    start: int | None = 0,
-    end: int | None = None,
-):
-    """Get logs for the requested service (frigate/nginx/go2rtc)"""
-
-    def download_logs(service_location: str):
-        try:
-            file = open(service_location)
-            contents = file.read()
-            file.close()
-            return JSONResponse(jsonable_encoder(contents))
-        except FileNotFoundError as e:
-            logger.error(e)
-            return JSONResponse(
-                content={"success": False, "message": "Could not find log file"},
-                status_code=500,
-            )
-
-    async def stream_logs(file_path: str):
-        """Asynchronously stream log lines."""
-        buffer = ""
-        try:
-            async with aiofiles.open(file_path) as file:
-                await file.seek(0, 2)
-                while True:
-                    line = await file.readline()
-                    if line:
-                        buffer += line
-                        # Process logs only when there are enough lines in the buffer
-                        if "\n" in buffer:
-                            _, processed_lines = process_logs(buffer, service)
-                            buffer = ""
-                            for processed_line in processed_lines:
-                                yield f"{processed_line}\n"
-                    else:
-                        await asyncio.sleep(0.1)
-        except FileNotFoundError:
-            yield "Log file not found.\n"
-
-    log_locations = {
-        "frigate": "/dev/shm/logs/frigate/current",
-        "go2rtc": "/dev/shm/logs/go2rtc/current",
-        "nginx": "/dev/shm/logs/nginx/current",
-    }
-    service_location = log_locations.get(service)
-
-    if not service_location:
-        return JSONResponse(
-            content={"success": False, "message": "Not a valid service"},
-            status_code=404,
-        )
-
-    if download:
-        return download_logs(service_location)
-
-    if stream:
-        return StreamingResponse(stream_logs(service_location), media_type="text/plain")
-
-    # For full logs initially
-    try:
-        async with aiofiles.open(service_location) as file:
-            contents = await file.read()
-
-        total_lines, log_lines = process_logs(contents, service, start, end)
-        return JSONResponse(
-            content={"totalLines": total_lines, "lines": log_lines},
-            status_code=200,
-        )
-    except FileNotFoundError as e:
-        logger.error(e)
-        return JSONResponse(
-            content={"success": False, "message": "Could not find log file"},
-            status_code=500,
-        )
-
-
-@router.post("/restart", dependencies=[Depends(require_role(["admin"]))])
-def restart():
-    try:
-        restart_frigate()
-    except Exception as e:
-        logging.error(f"Error restarting Frigate: {e}")
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": "Unable to restart Frigate.",
-                }
-            ),
-            status_code=500,
-        )
-
-    return JSONResponse(
-        content=(
-            {
-                "success": True,
-                "message": "Restarting (this can take up to one minute)...",
-            }
-        ),
-        status_code=200,
-    )
-
-
-@router.post(
-    "/media/sync",
-    dependencies=[Depends(require_role(["admin"]))],
-    summary="Start media sync job",
-    description="""Start an asynchronous media sync job to find and (optionally) remove orphaned media files.
-    Returns 202 with job details when queued, or 409 if a job is already running.""",
-)
-def sync_media(body: MediaSyncBody = Body(...)):
-    """Start async media sync job - remove orphaned files.
-
-    Syncs specified media types: event snapshots, event thumbnails, review thumbnails,
-    previews, exports, and/or recordings. Job runs in background; use /media/sync/current
-    or /media/sync/status/{job_id} to check status.
-
-    Args:
-        body: MediaSyncBody with dry_run flag and media_types list.
-              media_types can include: 'all', 'event_snapshots', 'event_thumbnails',
-              'review_thumbnails', 'previews', 'exports', 'recordings'
-
-    Returns:
-        202 Accepted with job_id, or 409 Conflict if job already running.
-    """
-    job_id = start_media_sync_job(
-        dry_run=body.dry_run,
-        media_types=body.media_types,
-        force=body.force,
-        verbose=body.verbose,
-    )
-
-    if job_id is None:
-        # A job is already running
-        current = get_current_media_sync_job()
-        return JSONResponse(
-            content={
-                "error": "A media sync job is already running",
-                "current_job_id": current.id if current else None,
+    def bind_database(self) -> None:
+        """Bind db to the main process."""
+        # NOTE: all db accessing processes need to be created before the db can be bound to the main process
+        self.db = SqliteVecQueueDatabase(
+            self.config.database.path,
+            pragmas={
+                "auto_vacuum": "FULL",  # Does not defragment database
+                "cache_size": -512 * 1000,  # 512MB of cache,
+                "synchronous": "NORMAL",  # Safe when using WAL https://www.sqlite.org/pragma.html#pragma_synchronous
             },
-            status_code=409,
-        )
-
-    return JSONResponse(
-        content={
-            "job": {
-                "job_type": "media_sync",
-                "status": JobStatusTypesEnum.queued,
-                "id": job_id,
-            }
-        },
-        status_code=202,
-    )
-
-
-@router.get(
-    "/media/sync/current",
-    dependencies=[Depends(require_role(["admin"]))],
-    summary="Get current media sync job",
-    description="""Retrieve the current running media sync job, if any. Returns the job details
-    or null when no job is active.""",
-)
-def get_media_sync_current():
-    """Get the current running media sync job, if any."""
-    job = get_current_media_sync_job()
-
-    if job is None:
-        return JSONResponse(content={"job": None}, status_code=200)
-
-    return JSONResponse(
-        content={"job": job.to_dict()},
-        status_code=200,
-    )
-
-
-@router.get(
-    "/media/sync/status/{job_id}",
-    dependencies=[Depends(require_role(["admin"]))],
-    summary="Get media sync job status",
-    description="""Get status and results for the specified media sync job id. Returns 200 with
-    job details including results, or 404 if the job is not found.""",
-)
-def get_media_sync_status(job_id: str):
-    """Get the status of a specific media sync job."""
-    job = get_media_sync_job_by_id(job_id)
-
-    if job is None:
-        return JSONResponse(
-            content={"error": "Job not found"},
-            status_code=404,
-        )
-
-    return JSONResponse(
-        content={"job": job.to_dict()},
-        status_code=200,
-    )
-
-
-@router.get("/labels", dependencies=[Depends(allow_any_authenticated())])
-def get_labels(
-    camera: str = "",
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    try:
-        if camera:
-            if camera not in allowed_cameras:
-                return JSONResponse(
-                    content={
-                        "success": False,
-                        "message": f"Access denied to camera '{camera}'",
-                    },
-                    status_code=403,
-                )
-            events = Event.select(Event.label).where(Event.camera == camera).distinct()
-        else:
-            events = (
-                Event.select(Event.label)
-                .where(Event.camera << allowed_cameras)
-                .distinct()
-            )
-    except Exception as e:
-        logger.error(e)
-        return JSONResponse(
-            content=({"success": False, "message": "Failed to get labels"}),
-            status_code=404,
-        )
-
-    labels = sorted([e.label for e in events])
-    return JSONResponse(content=labels)
-
-
-@router.get("/sub_labels", dependencies=[Depends(allow_any_authenticated())])
-def get_sub_labels(
-    split_joined: int | None = None,
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    try:
-        events = (
-            Event.select(Event.sub_label)
-            .where(Event.camera << allowed_cameras)
-            .distinct()
-        )
-    except Exception:
-        return JSONResponse(
-            content=({"success": False, "message": "Failed to get sub_labels"}),
-            status_code=404,
-        )
-
-    sub_labels = [e.sub_label for e in events]
-
-    if None in sub_labels:
-        sub_labels.remove(None)
-
-    if split_joined:
-        original_labels = sub_labels.copy()
-
-        for label in original_labels:
-            if "," in label:
-                sub_labels.remove(label)
-                parts = label.split(",")
-
-                for part in parts:
-                    if part.strip() not in sub_labels:
-                        sub_labels.append(part.strip())
-
-    sub_labels.sort()
-    return JSONResponse(content=sub_labels)
-
-
-@router.get("/audio_labels", dependencies=[Depends(allow_any_authenticated())])
-def get_audio_labels():
-    labels = load_labels("/audio-labelmap.txt", prefill=521)
-    return JSONResponse(content=labels)
-
-
-@router.get("/plus/models", dependencies=[Depends(allow_any_authenticated())])
-def plusModels(request: Request, filterByCurrentModelDetector: bool = False):
-    if not request.app.frigate_config.plus_api.is_active():
-        return JSONResponse(
-            content=({"success": False, "message": "Frigate+ is not enabled"}),
-            status_code=400,
-        )
-
-    models: dict[Any, Any] = request.app.frigate_config.plus_api.get_models()
-
-    if not models["list"]:
-        return JSONResponse(
-            content=({"success": False, "message": "No models found"}),
-            status_code=400,
-        )
-
-    modelList = models["list"]
-
-    # current model type
-    modelType = request.app.frigate_config.model.model_type
-
-    # current detectorType for comparing to supportedDetectors
-    detectorType = list(request.app.frigate_config.detectors.values())[0].type
-
-    validModels = []
-
-    for model in sorted(
-        filter(
-            lambda m: (
-                not filterByCurrentModelDetector
-                or (detectorType in m["supportedDetectors"] and modelType in m["type"])
+            timeout=max(
+                60,
+                10
+                * len([c for c in self.config.cameras.values() if c.enabled_in_config]),
             ),
-            modelList,
-        ),
-        key=(lambda m: m["trainDate"]),
-        reverse=True,
-    ):
-        validModels.append(model)
-
-    return JSONResponse(content=validModels)
-
-
-@router.get(
-    "/recognized_license_plates", dependencies=[Depends(allow_any_authenticated())]
-)
-def get_recognized_license_plates(
-    split_joined: int | None = None,
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    try:
-        query = (
-            Event.select(
-                SQL("json_extract(data, '$.recognized_license_plate') AS plate")
-            )
-            .where(
-                (SQL("json_extract(data, '$.recognized_license_plate') IS NOT NULL"))
-                & (Event.camera << allowed_cameras)
-            )
-            .distinct()
+            load_vec_extension=True,
         )
-        recognized_license_plates = [row[0] for row in query.tuples()]
-    except Exception:
-        return JSONResponse(
-            content=(
-                {"success": False, "message": "Failed to get recognized license plates"}
-            ),
-            status_code=404,
+        models = [
+            Event,
+            Export,
+            Notice,
+            NoticeStats,
+            Previews,
+            Recordings,
+            RecordingsToDelete,
+            Regions,
+            ReviewSegment,
+            Timeline,
+            User,
+            Trigger,
+        ]
+        self.db.bind(models)
+
+    def check_db_data_migrations(self) -> None:
+        # check if vacuum needs to be run
+        if not os.path.exists(f"{CONFIG_DIR}/.exports"):
+            try:
+                with open(f"{CONFIG_DIR}/.exports", "w") as f:
+                    f.write(str(datetime.datetime.now().timestamp()))
+            except PermissionError:
+                logger.error("Unable to write to /config to save export state")
+
+            migrate_exports(self.config.ffmpeg, list(self.config.cameras.keys()))
+
+    def install_notice_registry(self) -> None:
+        self.notice_registry = NoticeRegistry()
+        install_registry(self.notice_registry)
+
+    def init_embeddings_client(self) -> None:
+        # Create a client for other processes to use
+        self.embeddings = EmbeddingsContext(self.db)
+
+    def init_inter_process_communicator(self) -> None:
+        self.inter_process_communicator = InterProcessCommunicator()
+        self.inter_config_updater = CameraConfigUpdatePublisher()
+        self.event_metadata_updater = EventMetadataPublisher()
+        self.inter_zmq_proxy = ZmqProxy()
+        self.detection_proxy = DetectorProxy()
+
+    def init_onvif(self) -> None:
+        self.onvif_controller = OnvifController(self.config, self.ptz_metrics)
+
+    def init_dispatcher(self) -> None:
+        comms: list[Communicator] = []
+
+        if self.config.mqtt.enabled:
+            comms.append(MqttClient(self.config))
+
+        notification_cameras = [
+            c
+            for c in self.config.cameras.values()
+            if c.enabled and c.notifications.enabled_in_config
+        ]
+
+        if notification_cameras:
+            comms.append(WebPushClient(self.config, self.stop_event))
+
+        comms.append(WebSocketClient(self.config))
+        comms.append(self.inter_process_communicator)
+
+        self.dispatcher = Dispatcher(
+            self.config,
+            self.inter_config_updater,
+            self.onvif_controller,
+            self.ptz_metrics,
+            comms,
+            notice_registry=self.notice_registry,
         )
+        self.dispatcher.start_communicators()
 
-    if split_joined:
-        original_recognized_license_plates = recognized_license_plates.copy()
-        for recognized_license_plate in original_recognized_license_plates:
-            if recognized_license_plate and "," in recognized_license_plate:
-                recognized_license_plates.remove(recognized_license_plate)
-                parts = recognized_license_plate.split(",")
-                for part in parts:
-                    if part.strip() not in recognized_license_plates:
-                        recognized_license_plates.append(part.strip())
-
-    recognized_license_plates = list(set(recognized_license_plates))
-    recognized_license_plates.sort()
-    return JSONResponse(content=recognized_license_plates)
-
-
-@router.get("/timeline", dependencies=[Depends(allow_any_authenticated())])
-def timeline(
-    camera: str = "all",
-    limit: int = 100,
-    source_id: str | None = None,
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    clauses = []
-
-    selected_columns = [
-        Timeline.timestamp,
-        Timeline.camera,
-        Timeline.source,
-        Timeline.source_id,
-        Timeline.class_type,
-        Timeline.data,
-    ]
-
-    if camera != "all":
-        clauses.append(Timeline.camera == camera)
-
-    if source_id:
-        source_ids = [sid.strip() for sid in source_id.split(",")]
-        if len(source_ids) == 1:
-            clauses.append(Timeline.source_id == source_ids[0])
-        else:
-            clauses.append(Timeline.source_id.in_(source_ids))
-
-    # Enforce per-camera access control
-    clauses.append(Timeline.camera << allowed_cameras)
-
-    if len(clauses) == 0:
-        clauses.append(True)
-
-    timeline = (
-        Timeline.select(*selected_columns)
-        .where(reduce(operator.and_, clauses))
-        .order_by(Timeline.timestamp.asc())
-        .limit(limit)
-        .dicts()
-    )
-
-    return JSONResponse(content=[t for t in timeline])
-
-
-@router.get("/timeline/hourly", dependencies=[Depends(allow_any_authenticated())])
-def hourly_timeline(
-    params: AppTimelineHourlyQueryParameters = Depends(),
-    allowed_cameras: list[str] = Depends(get_allowed_cameras_for_filter),
-):
-    """Get hourly summary for timeline."""
-    cameras = params.cameras
-    labels = params.labels
-    before = params.before
-    after = params.after
-    limit = params.limit
-    tz_name = params.timezone
-
-    _, minute_modifier, _ = get_tz_modifiers(tz_name)
-    minute_offset = int(minute_modifier.split(" ")[0])
-
-    clauses = []
-
-    if cameras != "all":
-        camera_list = cameras.split(",")
-        clauses.append(Timeline.camera << camera_list)
-
-    # Enforce per-camera access control
-    clauses.append(Timeline.camera << allowed_cameras)
-
-    if labels != "all":
-        label_list = labels.split(",")
-        clauses.append(Timeline.data["label"] << label_list)
-
-    if before:
-        clauses.append(Timeline.timestamp < before)
-
-    if after:
-        clauses.append(Timeline.timestamp > after)
-
-    if len(clauses) == 0:
-        clauses.append(True)
-
-    timeline = (
-        Timeline.select(
-            Timeline.camera,
-            Timeline.timestamp,
-            Timeline.data,
-            Timeline.class_type,
-            Timeline.source_id,
-            Timeline.source,
+    def init_profile_manager(self) -> None:
+        self.profile_manager = ProfileManager(
+            self.config, self.inter_config_updater, self.dispatcher
         )
-        .where(reduce(operator.and_, clauses))
-        .order_by(Timeline.timestamp.desc())
-        .limit(limit)
-        .dicts()
-        .iterator()
-    )
+        self.dispatcher.profile_manager = self.profile_manager
 
-    count = 0
-    start = 0
-    end = 0
-    hours: dict[str, list[dict[str, Any]]] = {}
+    def ensure_detector_dependencies(self) -> None:
+        """Install runtimes for the configured detector types.
 
-    for t in timeline:
-        if count == 0:
-            start = t["timestamp"]
-        else:
-            end = t["timestamp"]
-
-        count += 1
-
-        hour = (
-            datetime.fromtimestamp(t["timestamp"]).replace(
-                minute=0, second=0, microsecond=0
-            )
-            + timedelta(
-                minutes=minute_offset,
-            )
-        ).timestamp()
-        if hour not in hours:
-            hours[hour] = [t]
-        else:
-            hours[hour].insert(0, t)
-
-    return JSONResponse(
-        content={
-            "start": start,
-            "end": end,
-            "count": count,
-            "hours": hours,
+        Runs before any detector process starts so one install serves them
+        all and the user site is on sys.path before the forkserver copies it.
+        A failure is logged and startup continues; the detector process then
+        fails on its own with a clear import error.
+        """
+        detector_types = {
+            spec.detector
+            for model in self.config.models
+            for spec in self.config.devices_for_model(model)
         }
-    )
+
+        for detector_type in sorted(detector_types):
+            try:
+                api_types[detector_type].ensure_dependencies()
+            except RuntimeDependencyError as err:
+                logger.error("Unable to prepare the %s runtime: %s", detector_type, err)
+
+    def start_detectors(self) -> None:
+        model_cameras: dict[str, list[str]] = {
+            model.scene: [] for model in self.config.models
+        }
+
+        for name in self.config.cameras.keys():
+            model = self.config.model_for_camera(name)
+            model_cameras[model.scene].append(name)
+
+            try:
+                shm_in = UntrackedSharedMemory(
+                    name=name,
+                    create=True,
+                    size=detection_frame_size(model),
+                )
+            except FileExistsError:
+                shm_in = UntrackedSharedMemory(name=name)
+
+            try:
+                shm_out = UntrackedSharedMemory(
+                    name=f"out-{name}", create=True, size=20 * 6 * 4
+                )
+            except FileExistsError:
+                shm_out = UntrackedSharedMemory(name=f"out-{name}")
+
+            self.detection_shms.append(shm_in)
+            self.detection_shms.append(shm_out)
+
+        # a device may be listed more than once to run additional inference
+        # processes on it, so names are only unique once de-duplicated
+        all_devices = [
+            device
+            for model in self.config.models
+            for device in self.config.devices_for_model(model)
+        ]
+        names = iter(runner_names(all_devices))
+
+        for model in self.config.models:
+            for device in self.config.devices_for_model(model):
+                name = next(names)
+                self.detectors[name] = ObjectDetectProcess(
+                    name,
+                    self.detection_queues[model.scene],
+                    model_cameras[model.scene],
+                    self.config,
+                    build_detector_config(device, model),
+                    self.stop_event,
+                )
+
+    def start_ptz_autotracker(self) -> None:
+        self.ptz_autotracker_thread = PtzAutoTracker(
+            self.config,
+            self.onvif_controller,
+            self.ptz_metrics,
+            self.dispatcher,
+            self.stop_event,
+        )
+        self.ptz_autotracker_thread.start()
+
+    def start_detected_frames_processor(self) -> None:
+        self.detected_frames_processor = TrackedObjectProcessor(
+            self.config,
+            self.dispatcher,
+            self.detected_frames_queue,
+            self.ptz_autotracker_thread,
+            self.stop_event,
+        )
+        self.detected_frames_processor.start()
+
+    def start_video_output_processor(self) -> None:
+        output_processor = OutputProcess(self.config, self.stop_event)
+        self.output_processor = output_processor
+        output_processor.start()
+        logger.info(f"Output process started: {output_processor.pid}")
+
+    def start_camera_processor(self) -> None:
+        self.camera_maintainer = CameraMaintainer(
+            self.config,
+            self.detection_queues,
+            self.detected_frames_queue,
+            self.camera_metrics,
+            self.ptz_metrics,
+            self.stop_event,
+            self.metrics_manager,
+        )
+        self.camera_maintainer.start()
+
+    def start_audio_processor(self) -> None:
+        self.audio_process = AudioProcessor(
+            self.config, self.camera_metrics, self.embeddings_metrics, self.stop_event
+        )
+        self.audio_process.start()
+        self.processes["audio_detector"] = self.audio_process.pid or 0
+
+    def start_timeline_processor(self) -> None:
+        self.timeline_processor = TimelineProcessor(
+            self.config, self.timeline_queue, self.stop_event
+        )
+        self.timeline_processor.start()
+
+    def start_event_processor(self) -> None:
+        self.event_processor = EventProcessor(
+            self.config,
+            self.timeline_queue,
+            self.stop_event,
+        )
+        self.event_processor.start()
+
+    def start_event_cleanup(self) -> None:
+        self.event_cleanup = EventCleanup(self.config, self.stop_event, self.db)
+        self.event_cleanup.start()
+
+    def start_record_cleanup(self) -> None:
+        self.record_cleanup = RecordingCleanup(self.config, self.stop_event)
+        self.record_cleanup.start()
+
+    def start_storage_maintainer(self) -> None:
+        self.storage_maintainer = StorageMaintainer(self.config, self.stop_event)
+        self.storage_maintainer.start()
+
+    def start_stats_emitter(self) -> None:
+        self.stats_emitter = StatsEmitter(
+            self.config,
+            stats_init(
+                self.config,
+                self.camera_metrics,
+                self.embeddings_metrics,
+                self.detectors,
+                self.processes,
+                self.storage_maintainer,
+            ),
+            self.stop_event,
+        )
+        self.stats_emitter.start()
+
+    def start_analytics_reporter(self) -> None:
+        self.analytics_reporter = AnalyticsReporter(
+            self.config_holder,
+            self.stats_emitter,
+            self.notice_registry,
+            self.stop_event,
+        )
+        self.analytics_reporter.start()
+
+    def start_watchdog(self) -> None:
+        self.frigate_watchdog = FrigateWatchdog(self.detectors, self.stop_event)
+
+        # (attribute on self, key in self.processes, factory)
+        specs: list[tuple[str, str, Callable[[], FrigateProcess]]] = [
+            (
+                "embedding_process",
+                "embeddings",
+                lambda: EmbeddingProcess(
+                    self.config, self.embeddings_metrics, self.stop_event
+                ),
+            ),
+            (
+                "recording_process",
+                "recording",
+                lambda: RecordProcess(self.config, self.stop_event),
+            ),
+            (
+                "review_segment_process",
+                "review_segment",
+                lambda: ReviewProcess(self.config, self.stop_event),
+            ),
+            (
+                "output_processor",
+                "output",
+                lambda: OutputProcess(self.config, self.stop_event),
+            ),
+            (
+                "audio_process",
+                "audio_detector",
+                lambda: AudioProcessor(
+                    self.config,
+                    self.camera_metrics,
+                    self.embeddings_metrics,
+                    self.stop_event,
+                ),
+            ),
+        ]
+
+        for attr, key, factory in specs:
+            if getattr(self, attr, None) is None:
+                continue
+
+            def on_restart(
+                proc: FrigateProcess, _attr: str = attr, _key: str = key
+            ) -> None:
+                setattr(self, _attr, proc)
+                self.processes[_key] = proc.pid or 0
+
+            self.frigate_watchdog.register(
+                key, getattr(self, attr), factory, on_restart
+            )
+
+        self.frigate_watchdog.start()
+
+    def init_auth(self) -> None:
+        if self.config.auth.enabled:
+            if (
+                User.select().count() == 0
+                or User.select()
+                .where((User.username == "admin") & (User.password_hash == ""))
+                .exists()
+            ):
+                password = secrets.token_hex(16)
+                password_hash = hash_password(
+                    password, iterations=self.config.auth.hash_iterations
+                )
+                User.insert(
+                    {
+                        User.username: "admin",
+                        User.role: "admin",
+                        User.password_hash: password_hash,
+                        User.notification_tokens: [],
+                    }
+                ).on_conflict(
+                    conflict_target=[User.username],
+                    update={User.password_hash: password_hash},
+                ).execute()
+
+                self.config.auth.admin_first_time_login = True
+
+                logger.info("********************************************************")
+                logger.info("********************************************************")
+                logger.info("***    Auth is enabled, but no users exist.          ***")
+                logger.info("***    Created a default user:                       ***")
+                logger.info("***    User: admin                                   ***")
+                logger.info(f"***    Password: {password}   ***")
+                logger.info("********************************************************")
+                logger.info("********************************************************")
+            elif self.config.auth.reset_admin_password:
+                password = secrets.token_hex(16)
+                password_hash = hash_password(
+                    password, iterations=self.config.auth.hash_iterations
+                )
+                User.replace(
+                    username="admin",
+                    role="admin",
+                    password_hash=password_hash,
+                    password_changed_at=datetime.datetime.now(),
+                    notification_tokens=[],
+                ).execute()
+
+                logger.info("********************************************************")
+                logger.info("********************************************************")
+                logger.info("***    Reset admin password set in the config.       ***")
+                logger.info(f"***    Password: {password}   ***")
+                logger.info("********************************************************")
+                logger.info("********************************************************")
+        else:
+            # Notification registrations store tokens on the admin row. Its
+            # empty password hash marks it for a generated password if auth
+            # is enabled later.
+            if User.select().count() == 0:
+                User.insert(
+                    {
+                        User.username: "admin",
+                        User.role: "admin",
+                        User.password_hash: "",
+                        User.notification_tokens: [],
+                    }
+                ).execute()
+
+    def start(self) -> None:
+        logger.info(f"Starting Frigate ({VERSION})")
+
+        # Ensure global state.
+        self.ensure_dirs()
+        self.ensure_detector_dependencies()
+
+        # Set soft file limits.
+        set_file_limit()
+
+        # Start frigate services.
+        self.init_debug_replay_manager()
+        self.init_camera_metrics()
+        self.init_queues()
+        self.init_database()
+        self.init_onvif()
+        self.init_recording_manager()
+        self.init_review_segment_manager()
+        self.init_go2rtc()
+        self.init_embeddings_manager()
+        self.bind_database()
+        self.check_db_data_migrations()
+        self.install_notice_registry()
+
+        # Clean up any stale replay camera artifacts (filesystem + DB)
+        cleanup_replay_cameras()
+
+        # Reap any Export rows still marked in_progress from a previous
+        # session (crash, kill, broken migration). Runs synchronously before
+        # uvicorn binds so no API request can observe a stale row.
+        reap_stale_exports()
+
+        self.init_inter_process_communicator()
+        self.start_detectors()
+        self.init_dispatcher()
+        self.init_profile_manager()
+
+        # workers get a copy of the config and can miss the broadcast below, so
+        # apply both layers here. must stay after init_profile_manager(), which
+        # snapshots the base config that profile deactivation resets to
+        self.profile_manager.restore_persisted_profile_to_config()
+        self.dispatcher.reapply_runtime_state_to_config()
+
+        self.init_embeddings_client()
+        self.start_video_output_processor()
+        self.start_ptz_autotracker()
+        self.start_detected_frames_processor()
+        self.start_camera_processor()
+        self.start_audio_processor()
+        self.start_storage_maintainer()
+        self.start_stats_emitter()
+        self.start_analytics_reporter()
+        self.start_timeline_processor()
+        self.start_event_processor()
+        self.start_event_cleanup()
+        self.start_record_cleanup()
+        self.start_watchdog()
+
+        # publish for the recording/review/embeddings processes, which start
+        # before the config can be corrected, and for the retained MQTT states
+        self.profile_manager.restore_persisted_profile()
+        self.dispatcher.restore_runtime_state()
+
+        self.init_auth()
+
+        try:
+            uvicorn.run(
+                create_fastapi_app(
+                    self.config,
+                    self.db,
+                    self.embeddings,
+                    self.detected_frames_processor,
+                    self.storage_maintainer,
+                    self.onvif_controller,
+                    self.stats_emitter,
+                    self.event_metadata_updater,
+                    self.inter_config_updater,
+                    self.replay_manager,
+                    self.dispatcher,
+                    self.profile_manager,
+                    config_holder=self.config_holder,
+                    notice_registry=self.notice_registry,
+                ),
+                host="127.0.0.1",
+                port=5001,
+                log_level="error",
+                # outlive nginx's 60s upstream keepalive so nginx closes idle connections first
+                timeout_keep_alive=75,
+            )
+        finally:
+            self.stop()
+
+    def stop(self) -> None:
+        logger.info("Stopping...")
+
+        # used by the docker healthcheck
+        Path("/dev/shm/.frigate-is-stopping").touch()
+
+        # Cancel any running motion search jobs before setting stop_event
+        stop_all_motion_search_jobs()
+
+        self.stop_event.set()
+
+        # set an end_time on entries without an end_time before exiting
+        Event.update(
+            end_time=datetime.datetime.now().timestamp(), has_snapshot=False
+        ).where(Event.end_time == None).execute()
+        ReviewSegment.update(end_time=datetime.datetime.now().timestamp()).where(
+            ReviewSegment.end_time == None
+        ).execute()
+
+        # stop the audio process
+        if self.audio_process:
+            self.audio_process.terminate()
+            self.audio_process.join()
+
+        # stop the onvif controller
+        if self.onvif_controller:
+            self.onvif_controller.close()
+
+        # ensure the detectors are done
+        for detector in self.detectors.values():
+            detector.stop()
+
+        for detection_queue in self.detection_queues.values():
+            empty_and_close_queue(detection_queue)
+
+        logger.info("Detection queues closed")
+
+        self.detected_frames_processor.join()
+        empty_and_close_queue(self.detected_frames_queue)
+        logger.info("Detected frames queue closed")
+
+        self.timeline_processor.join()
+        self.event_processor.join()
+        empty_and_close_queue(self.timeline_queue)
+        logger.info("Timeline queue closed")
+
+        self.output_processor.terminate()
+        self.output_processor.join()
+
+        self.recording_process.terminate()
+        self.recording_process.join()
+
+        self.review_segment_process.terminate()
+        self.review_segment_process.join()
+
+        self.dispatcher.stop()
+        self.ptz_autotracker_thread.join()
+
+        self.event_cleanup.join()
+        self.record_cleanup.join()
+        self.stats_emitter.join()
+        # a send in flight can hold the thread for the whole request timeout
+        self.analytics_reporter.join(timeout=5)
+        self.frigate_watchdog.join()
+        self.camera_maintainer.join()
+        self.db.stop()
+
+        # Save embeddings stats to disk
+        if self.embeddings:
+            self.embeddings.stop()
+
+        # Stop Communicators
+        self.inter_process_communicator.stop()
+        self.inter_config_updater.stop()
+        self.event_metadata_updater.stop()
+        self.inter_zmq_proxy.stop()
+        self.detection_proxy.stop()
+
+        while len(self.detection_shms) > 0:
+            shm = self.detection_shms.pop()
+            shm.close()
+            shm.unlink()
+
+        _stop_logging()
+        self.metrics_manager.shutdown()

@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { DropdownMenuSeparator } from "../ui/dropdown-menu";
 import { getEndOfDayTimestamp } from "@/utils/dateUtil";
@@ -26,6 +26,7 @@ import { CalendarRangeFilterButton } from "./CalendarFilterButton";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useTranslation } from "react-i18next";
 import { getTranslatedLabel } from "@/utils/i18n";
+import { isAttributeLabel } from "@/utils/modelUtil";
 import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 
 type SearchFilterGroupProps = {
@@ -43,7 +44,7 @@ export default function SearchFilterGroup({
   onUpdateFilter,
 }: SearchFilterGroupProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const allowedCameras = useAllowedCameras();
@@ -73,7 +74,7 @@ export default function SearchFilterGroup({
       }
 
       cameraConfig.objects.track.forEach((label) => {
-        if (!config.model.all_attributes.includes(label)) {
+        if (!isAttributeLabel(config, label)) {
           labels.add(label);
         }
       });
@@ -255,7 +256,7 @@ function GeneralFilterButton({
   updateLabelFilter,
 }: GeneralFilterButtonProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const [open, setOpen] = useState(false);
@@ -305,8 +306,6 @@ function GeneralFilterButton({
 
   useEffect(() => {
     setCurrentLabels(selectedLabels);
-    // only refresh when state changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLabels]);
 
   const trigger = (
@@ -374,7 +373,7 @@ export function GeneralFilterContent({
   onClose,
 }: GeneralFilterContentProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
 
@@ -495,8 +494,6 @@ function SortTypeButton({
 
   useEffect(() => {
     setCurrentSortType(selectedSortType);
-    // only refresh when state changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSortType]);
 
   const trigger = (

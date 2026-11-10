@@ -32,7 +32,7 @@
       "deleteImageFailed": "Impossibile eliminare: {{errorMessage}}",
       "deleteCategoryFailed": "Impossibile eliminare la classe: {{errorMessage}}",
       "categorizeFailed": "Impossibile categorizzare l'immagine: {{errorMessage}}",
-      "trainingFailed": "Addestramento del modello fallito. Controlla i registri di AMSS per i dettagli.",
+      "trainingFailed": "Addestramento del modello fallito. Controlla i registri di Frigate per i dettagli.",
       "deleteModelFailed": "Impossibile eliminare il modello: {{errorMessage}}",
       "updateModelFailed": "Impossibile aggiornare il modello: {{errorMessage}}",
       "trainingFailedToStart": "Impossibile avviare l'addestramento del modello: {{errorMessage}}",
@@ -139,7 +139,7 @@
       "selectImagesDescription": "Clicca sulle immagini per selezionarle. Clicca su Continua quando hai finito con questa classe.",
       "generating": {
         "title": "Generazione di immagini campione",
-        "description": "AMSS sta estraendo immagini rappresentative dalle registrazioni. L'operazione potrebbe richiedere qualche istante..."
+        "description": "Frigate sta estraendo immagini rappresentative dalle registrazioni. L'operazione potrebbe richiedere qualche istante..."
       },
       "training": {
         "title": "Modello di addestramento",
@@ -192,7 +192,20 @@
     "title": "Modifica modello di classificazione",
     "descriptionState": "Modifica le classi per questo modello di classificazione dello stato. Le modifiche richiederanno un nuovo addestramento del modello.",
     "descriptionObject": "Modifica il tipo di oggetto e il tipo di classificazione per questo modello di classificazione degli oggetti.",
-    "stateClassesInfo": "Nota: la modifica delle classi di stato richiede il riaddestramento del modello con le classi aggiornate."
+    "stateClassesInfo": "Modello aggiornato. Riaddestra il modello affinché le modifiche alle classi abbiano effetto.",
+    "enabled": "Abilitato",
+    "enabledDesc": "Esegui questo modello. Quando disabilitato, il modello si arresta e non effettua più classificazioni.",
+    "saveAttempts": "Salvataggio Tentativi",
+    "saveAttemptsDesc": "Numero di immagini dei tentativi di classificazione da conservare per l'interfaccia delle classificazioni recenti.",
+    "motion": "Esegui su movimento",
+    "motionDesc": "Esegui la classificazione quando viene rilevato un movimento all'interno del ritaglio configurato.",
+    "interval": "Intervallo",
+    "intervalDesc": "Secondi tra le esecuzioni periodiche della classificazione. Lascia vuoto per eseguire solo su movimento.",
+    "intervalPlaceholder": "Nessun intervallo",
+    "errors": {
+      "saveAttemptsInvalid": "I tentativi salvati devono essere un numero intero pari a 0 o superiore",
+      "intervalInvalid": "L'intervallo deve essere un numero intero maggiore di 0"
+    }
   },
   "tooltip": {
     "trainingInProgress": "Il modello è attualmente in addestramento",
@@ -200,7 +213,7 @@
     "noNewImages": "Nessuna nuova immagine da addestrare. Classifica prima più immagini nel database.",
     "noChanges": "Nessuna modifica al database dall'ultimo addestramento."
   },
-  "none": "Nessuno",
   "reclassifyImageAs": "Riclassifica immagine come:",
-  "reclassifyImage": "Riclassifica immagine"
+  "reclassifyImage": "Riclassifica immagine",
+  "disabled": "Disabilitato"
 }

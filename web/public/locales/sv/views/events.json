@@ -15,15 +15,14 @@
       "description": "Granskningsobjekt kan bara skapas för en kamera när inspelningar är aktiverade för kameran."
     }
   },
-  "documentTitle": "Granska - AMSS",
-  "timeline": "Tidslinje",
+  "documentTitle": "Granska - Frigate",
   "events": {
     "noFoundForTimePeriod": "Inga händelser hittades för den här tidsperioden.",
     "aria": "Välj händelse",
     "label": "Händelse"
   },
   "recordings": {
-    "documentTitle": "Inspelningar - AMSS"
+    "documentTitle": "Inspelningar - Frigate"
   },
   "newReviewItems": {
     "label": "Visa nya objekt att granska",
@@ -39,8 +38,6 @@
   "detected": "upptäckt",
   "selected_one": "{{count}} valt",
   "selected_other": "{{count}} valda",
-  "suspiciousActivity": "Misstänkt aktivitet",
-  "threateningActivity": "Hotande aktivitet",
   "detail": {
     "noDataFound": "Inga detaljerade data att granska",
     "aria": "Växla detaljvy",

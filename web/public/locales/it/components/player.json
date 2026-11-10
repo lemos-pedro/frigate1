@@ -2,8 +2,8 @@
   "noPreviewFound": "Nessuna anteprima trovata",
   "noRecordingsFoundForThisTime": "Nessuna registrazione trovata per questo intervallo",
   "noPreviewFoundFor": "Nessuna anteprima trovata per {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Vuoi inviare questo fotogramma a AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Vuoi inviare questo fotogramma a Frigate+?",
     "submit": "Invia",
     "previewError": "Impossibile caricare l'anteprima dell'istantanea. La registrazione potrebbe non essere disponibile al momento."
   },
@@ -16,14 +16,6 @@
     "bandwidth": {
       "title": "Larghezza di banda:",
       "short": "Larghezza di banda"
-    },
-    "latency": {
-      "title": "Latenza:",
-      "value": "{{seconds}} secondi",
-      "short": {
-        "title": "Latenza",
-        "value": "{{seconds}} sec"
-      }
     },
     "droppedFrames": {
       "title": "Fotogrammi persi:",
@@ -42,12 +34,11 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Fotogramma inviato correttamente a AMSS+"
+      "submittedFrigatePlus": "Fotogramma inviato correttamente a Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Impossibile inviare il fotogramma a AMSS+"
+      "submitFrigatePlusFailed": "Impossibile inviare il fotogramma a Frigate+"
     }
   },
-  "cameraDisabled": "La telecamera è disabilita",
   "cameraOff": "La telecamera è spenta"
 }

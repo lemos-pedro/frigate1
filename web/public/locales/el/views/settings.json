@@ -1,17 +1,16 @@
 {
   "documentTitle": {
-    "default": "Ρυθμίσεις - AMSS",
-    "authentication": "Ρυθμίσεις ελέγχου ταυτοποίησης - AMSS",
-    "camera": "Ρυθμίσεις Κάμερας - AMSS",
-    "enrichments": "Ρυθμίσεις εμπλουτισμού - AMSS",
-    "masksAndZones": "Ρυθμίσεις Μασκών και Ζωνών - AMSS",
-    "motionTuner": "Ρύθμιση Κίνησης - AMSS",
-    "object": "Επίλυση σφαλμάτων - AMSS",
-    "general": "Ρυθμίσεις UI - AMSS",
-    "frigatePlus": "Ρυθμίσεις AMSS+ - AMSS",
+    "default": "Ρυθμίσεις - Frigate",
+    "authentication": "Ρυθμίσεις ελέγχου ταυτοποίησης - Frigate",
+    "enrichments": "Ρυθμίσεις εμπλουτισμού - Frigate",
+    "masksAndZones": "Ρυθμίσεις Μασκών και Ζωνών - Frigate",
+    "motionTuner": "Ρύθμιση Κίνησης - Frigate",
+    "object": "Επίλυση σφαλμάτων - Frigate",
+    "general": "Ρυθμίσεις UI - Frigate",
+    "frigatePlus": "Ρυθμίσεις Frigate+ - Frigate",
     "notifications": "Ρυθμίσεις Ειδοποιήσεων",
-    "cameraManagement": "Διαχείριση καμερών - AMSS",
-    "cameraReview": "Ρυθμίσεις αξιολόγησης κάμερας - AMSS"
+    "cameraManagement": "Διαχείριση καμερών - Frigate",
+    "cameraReview": "Ρυθμίσεις αξιολόγησης κάμερας - Frigate"
   },
   "masksAndZones": {
     "zones": {
@@ -44,15 +43,5 @@
   "cameraSetting": {
     "camera": "Κάμερα",
     "noCamera": "Δεν υπάρχει Κάμερα"
-  },
-  "triggers": {
-    "dialog": {
-      "form": {
-        "friendly_name": {
-          "placeholder": "Ονομάτισε ή περιέγραψε αυτό το εύνασμα",
-          "description": "Ένα προαιρετικό φιλικό όνομα, ή ένα περιγραφικό κείμενο για αυτό το εύνασμα."
-        }
-      }
-    }
   }
 }

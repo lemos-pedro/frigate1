@@ -1,13 +1,13 @@
 {
   "documentTitle": {
-    "cameras": "鏡頭統計 - AMSS",
-    "storage": "儲存裝置統計 - AMSS",
-    "general": "一般統計 - AMSS",
-    "enrichments": "進階功能統計 - AMSS",
+    "cameras": "鏡頭統計 - Frigate",
+    "storage": "儲存裝置統計 - Frigate",
+    "general": "一般統計 - Frigate",
+    "enrichments": "進階功能統計 - Frigate",
     "logs": {
-      "frigate": "AMSS 日誌 - AMSS",
-      "nginx": "Nginx 日誌 - AMSS",
-      "go2rtc": "Go2RTC 日誌 - AMSS"
+      "frigate": "Frigate 日誌 - Frigate",
+      "nginx": "Nginx 日誌 - Frigate",
+      "go2rtc": "Go2RTC 日誌 - Frigate"
     }
   },
   "title": "系統",
@@ -76,11 +76,6 @@
       "gpuEncoder": "GPU 編碼器",
       "gpuDecoder": "GPU 解碼器",
       "npuMemory": "NPU 記憶體",
-      "intelGpuWarning": {
-        "title": "Intel GPU 狀態警告",
-        "message": "GPU 狀態不可用",
-        "description": "這是 Intel GPU 統計工具已知問題，可能顯示 0% 使用率，但不影響效能。可重新啟動主機暫時修復。"
-      },
       "gpuTemperature": "GPU 溫度",
       "npuTemperature": "NPU 溫度"
     },
@@ -104,7 +99,7 @@
     "recordings": {
       "title": "錄影檔案",
       "earliestRecording": "最早可用錄影檔案：",
-      "tips": "此數值代表 AMSS 資料庫中錄影檔案的總儲存使用量。AMSS 不會追蹤磁碟上所有檔案的儲存使用量。"
+      "tips": "此數值代表 Frigate 資料庫中錄影檔案的總儲存使用量。Frigate 不會追蹤磁碟上所有檔案的儲存使用量。"
     },
     "cameraStorage": {
       "camera": "鏡頭",
@@ -112,7 +107,7 @@
       "storageUsed": "已使用儲存",
       "bandwidth": "每小時使用量",
       "unused": {
-        "tips": "若您的磁碟中存有其他檔案，該數值可能無法準確反映 AMSS 可用的空間。AMSS 只追蹤其錄影檔案的儲存使用量。",
+        "tips": "若您的磁碟中存有其他檔案，該數值可能無法準確反映 Frigate 可用的空間。Frigate 只追蹤其錄影檔案的儲存使用量。",
         "title": "未使用"
       },
       "title": "鏡頭儲存",
@@ -185,11 +180,8 @@
     "detectIsSlow": "{{detect}} 偵測速度慢 ({{speed}} 毫秒)",
     "detectIsVerySlow": "{{detect}} 偵測速度非常慢 ({{speed}} 毫秒)",
     "cameraIsOffline": "{{camera}} 已離線",
-    "detectHighCpuUsage": "{{camera}} 的偵測 CPU 使用率過高 ({{detectAvg}}%)",
     "healthy": "系統運作正常",
-    "ffmpegHighCpuUsage": "{{camera}} 的 FFmpeg CPU 使用率過高 ({{ffmpegAvg}}%)",
-    "reindexingEmbeddings": "重新索引嵌入資料 (已完成 {{processed}}%)",
-    "shmTooLow": "/dev/shm 分配（{{total}} MB）太小，請增加至至少 {{min}} MB。"
+    "reindexingEmbeddings": "重新索引嵌入資料 (已完成 {{processed}}%)"
   },
   "enrichments": {
     "title": "進階功能",

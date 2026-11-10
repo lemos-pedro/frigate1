@@ -43,9 +43,9 @@
     "trackedPoint": "Titik terlacak",
     "clickToSeek": "Klik untuk mencari waktu ini"
   },
-  "documentTitle": "Tinjauan - AMSS",
+  "documentTitle": "Tinjauan - Frigate",
   "recordings": {
-    "documentTitle": "Rekaman - AMSS",
+    "documentTitle": "Rekaman - Frigate",
     "invalidSharedLink": "Tidak dapat membuka tautan rekaman bertanda waktu karena kesalahan penguraian.",
     "invalidSharedCamera": "Tidak dapat membuka tautan rekaman bertanda waktu karena kamera tidak dikenal atau tidak berwenang."
   },
@@ -62,8 +62,6 @@
   "selected_other": "{{count}} dipilih",
   "camera": "Kamera",
   "detected": "terdeteksi",
-  "suspiciousActivity": "Aktivitas Mencurigakan",
-  "threateningActivity": "Aktivitas yang Mengancam",
   "select_all": "Semua",
   "normalActivity": "Normal",
   "needsReview": "Perlu ditinjau",

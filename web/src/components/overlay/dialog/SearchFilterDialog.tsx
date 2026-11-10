@@ -10,7 +10,7 @@ import {
   SearchFilter,
   SearchSource,
 } from "@/types/search";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import {
   Popover,
   PopoverContent,
@@ -45,7 +45,7 @@ import { LuCheck, LuSquareCheck, LuX } from "react-icons/lu";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 
 type SearchFilterDialogProps = {
-  config?: AmssConfig;
+  config?: FrigateConfig;
   filter?: SearchFilter;
   filterValues: {
     cameras: string[];
@@ -188,7 +188,7 @@ export default function SearchFilterDialog({
             ? currentFilter.has_clip === 1
             : undefined
         }
-        submittedToAmssPlus={
+        submittedToFrigatePlus={
           currentFilter.is_submitted !== undefined
             ? currentFilter.is_submitted === 1
             : undefined
@@ -268,7 +268,7 @@ export default function SearchFilterDialog({
 }
 
 type TimeRangeFilterContentProps = {
-  config?: AmssConfig;
+  config?: FrigateConfig;
   timeRange?: string;
   updateTimeRange: (range: string | undefined) => void;
 };
@@ -598,7 +598,7 @@ export function ScoreFilterContent({
 }
 
 type SpeedFilterContentProps = {
-  config?: AmssConfig;
+  config?: FrigateConfig;
   minSpeed: number | undefined;
   maxSpeed: number | undefined;
   setSpeedRange: (min: number | undefined, max: number | undefined) => void;
@@ -631,7 +631,7 @@ export function SpeedFilterContent({
             const value = e.target.value;
 
             if (value) {
-              setSpeedRange(parseInt(value), maxSpeed ?? 1.0);
+              setSpeedRange(parseInt(value), maxSpeed ?? 150);
             }
           }}
         />
@@ -661,14 +661,14 @@ export function SpeedFilterContent({
 }
 
 type SnapshotClipContentProps = {
-  config?: AmssConfig;
+  config?: FrigateConfig;
   hasSnapshot: boolean | undefined;
   hasClip: boolean | undefined;
-  submittedToAmssPlus: boolean | undefined;
+  submittedToFrigatePlus: boolean | undefined;
   setSnapshotClip: (
     snapshot: boolean | undefined,
     clip: boolean | undefined,
-    submittedToAmss: boolean | undefined,
+    submittedToFrigate: boolean | undefined,
   ) => void;
 };
 
@@ -676,7 +676,7 @@ export function SnapshotClipFilterContent({
   config,
   hasSnapshot,
   hasClip,
-  submittedToAmssPlus,
+  submittedToFrigatePlus,
   setSnapshotClip,
 }: SnapshotClipContentProps) {
   const { t } = useTranslation(["components/filter"]);
@@ -686,8 +686,8 @@ export function SnapshotClipFilterContent({
   const [isClipFilterActive, setIsClipFilterActive] = useState(
     hasClip !== undefined,
   );
-  const [isAmssPlusFilterActive, setIsAmssPlusFilterActive] = useState(
-    submittedToAmssPlus !== undefined,
+  const [isFrigatePlusFilterActive, setIsFrigatePlusFilterActive] = useState(
+    submittedToFrigatePlus !== undefined,
   );
 
   useEffect(() => {
@@ -699,10 +699,10 @@ export function SnapshotClipFilterContent({
   }, [hasClip]);
 
   useEffect(() => {
-    setIsAmssPlusFilterActive(submittedToAmssPlus !== undefined);
-  }, [submittedToAmssPlus]);
+    setIsFrigatePlusFilterActive(submittedToFrigatePlus !== undefined);
+  }, [submittedToFrigatePlus]);
 
-  const isAmssPlusFilterDisabled =
+  const isFrigatePlusFilterDisabled =
     !isSnapshotFilterActive || hasSnapshot !== true;
 
   return (
@@ -720,7 +720,7 @@ export function SnapshotClipFilterContent({
               onCheckedChange={(checked) => {
                 setIsSnapshotFilterActive(checked as boolean);
                 if (checked) {
-                  setSnapshotClip(true, hasClip, submittedToAmssPlus);
+                  setSnapshotClip(true, hasClip, submittedToFrigatePlus);
                 } else {
                   setSnapshotClip(undefined, hasClip, undefined);
                 }
@@ -740,7 +740,7 @@ export function SnapshotClipFilterContent({
             }
             onValueChange={(value) => {
               if (value === "yes")
-                setSnapshotClip(true, hasClip, submittedToAmssPlus);
+                setSnapshotClip(true, hasClip, submittedToFrigatePlus);
               else if (value === "no")
                 setSnapshotClip(false, hasClip, undefined);
             }}
@@ -773,10 +773,10 @@ export function SnapshotClipFilterContent({
                       <Checkbox
                         id="plus-filter"
                         className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
-                        checked={isAmssPlusFilterActive}
-                        disabled={isAmssPlusFilterDisabled}
+                        checked={isFrigatePlusFilterActive}
+                        disabled={isFrigatePlusFilterDisabled}
                         onCheckedChange={(checked) => {
-                          setIsAmssPlusFilterActive(checked as boolean);
+                          setIsFrigatePlusFilterActive(checked as boolean);
                           if (checked) {
                             setSnapshotClip(hasSnapshot, hasClip, false);
                           } else {
@@ -786,14 +786,14 @@ export function SnapshotClipFilterContent({
                       />
                     </div>
                   </TooltipTrigger>
-                  {isAmssPlusFilterDisabled && (
+                  {isFrigatePlusFilterDisabled && (
                     <TooltipContent
                       className="max-w-60"
                       side="left"
                       sideOffset={5}
                     >
                       <Trans ns="components/filter">
-                        features.submittedToAmssPlus.tips
+                        features.submittedToFrigatePlus.tips
                       </Trans>
                     </TooltipContent>
                   )}
@@ -803,15 +803,15 @@ export function SnapshotClipFilterContent({
                 htmlFor="plus-filter"
                 className="cursor-pointer text-sm font-medium leading-none"
               >
-                {t("features.submittedToAmssPlus.label")}
+                {t("features.submittedToFrigatePlus.label")}
               </Label>
             </div>
             <ToggleGroup
               type="single"
               value={
-                submittedToAmssPlus === undefined
+                submittedToFrigatePlus === undefined
                   ? undefined
-                  : submittedToAmssPlus
+                  : submittedToFrigatePlus
                     ? "yes"
                     : "no"
               }
@@ -822,7 +822,7 @@ export function SnapshotClipFilterContent({
                   setSnapshotClip(hasSnapshot, hasClip, false);
                 else setSnapshotClip(hasSnapshot, hasClip, undefined);
               }}
-              disabled={!isAmssPlusFilterActive}
+              disabled={!isFrigatePlusFilterActive}
             >
               <ToggleGroupItem
                 value="yes"
@@ -851,12 +851,12 @@ export function SnapshotClipFilterContent({
               onCheckedChange={(checked) => {
                 setIsClipFilterActive(checked as boolean);
                 if (checked) {
-                  setSnapshotClip(hasSnapshot, true, submittedToAmssPlus);
+                  setSnapshotClip(hasSnapshot, true, submittedToFrigatePlus);
                 } else {
                   setSnapshotClip(
                     hasSnapshot,
                     undefined,
-                    submittedToAmssPlus,
+                    submittedToFrigatePlus,
                   );
                 }
               }}
@@ -873,9 +873,9 @@ export function SnapshotClipFilterContent({
             value={hasClip === undefined ? undefined : hasClip ? "yes" : "no"}
             onValueChange={(value) => {
               if (value === "yes")
-                setSnapshotClip(hasSnapshot, true, submittedToAmssPlus);
+                setSnapshotClip(hasSnapshot, true, submittedToFrigatePlus);
               else if (value === "no")
-                setSnapshotClip(hasSnapshot, false, submittedToAmssPlus);
+                setSnapshotClip(hasSnapshot, false, submittedToFrigatePlus);
             }}
             disabled={!isClipFilterActive}
           >

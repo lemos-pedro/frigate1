@@ -5,7 +5,7 @@ import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useDateLocale } from "@/hooks/use-date-locale";
 import { useTimeFormat } from "@/hooks/use-date-utils";
 import { useMemo } from "react";
@@ -24,7 +24,7 @@ export function DownloadVideoButton({
   className,
 }: DownloadVideoButtonProps) {
   const { t } = useTranslation(["components/input"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const locale = useDateLocale();
 
   const timeFormat = useTimeFormat(config);

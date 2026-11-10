@@ -1,10 +1,9 @@
 {
-  "documentTitle": "Ζωντανά - AMSS",
   "twoWayTalk": {
     "enable": "Ενεργοποίηση αμφίδρομης επικοινωνίας",
     "disable": "Απενεργοποίηση αμφίδρομης επικοινωνίας"
   },
-  "documentTitle.withCamera": "{{camera}} - Ζωντανή μετάδοση - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Ζωντανή μετάδοση - Frigate",
   "lowBandwidthMode": "Λειτουργία χαμηλής ευρυζωνικότητας",
   "cameraAudio": {
     "enable": "Ενεργοποίηση ήχου Κάμερας",
@@ -38,10 +37,6 @@
         "label": "Ζουμάρισμα κάμερας προς τα έξω"
       }
     }
-  },
-  "camera": {
-    "enable": "Ενεργοποίηση Κάμερας",
-    "disable": "Απενεργοποίηση Κάμερας"
   },
   "muteCameras": {
     "enable": "Σίγαση Όλων των Καμερών",

@@ -1,6 +1,6 @@
 {
   "group": {
-    "label": "鏡頭群組",
+    "label": "攝影機群組",
     "add": "新增鏡頭群組",
     "edit": "編輯鏡頭群組",
     "delete": {
@@ -22,21 +22,20 @@
     },
     "cameras": {
       "label": "鏡頭",
-      "desc": "選擇欲添加至群組的鏡頭。"
+      "desc": "選擇欲新增至群組的攝影機。"
     },
-    "icon": "圖標",
+    "icon": "圖示",
     "success": "鏡頭群組（{{name}}）已儲存。",
     "camera": {
       "setting": {
         "label": "鏡頭串流設定",
         "title": "{{cameraName}} 串流設定",
-        "desc": "更改此鏡頭群組控制台的串流選項。<em>這些設定是裝置/瀏覽器專屬的。</em>",
+        "desc": "變更此攝影機群組儀錶板的串流選項。<em>這些設定是裝置／瀏覽器專屬的。</em>",
         "audioIsAvailable": "此串流有提供音訊",
         "audioIsUnavailable": "此串流不提供音訊",
         "audio": {
           "tips": {
-            "title": "此串流必須從你的鏡頭輸出音訊並在 go2rtc 中設定。",
-            "document": "請參照文件 "
+            "title": "此串流必須從你的鏡頭輸出音訊並在 go2rtc 中設定。"
           }
         },
         "stream": "串流",
@@ -47,7 +46,7 @@
           "method": {
             "noStreaming": {
               "label": "沒有串流",
-              "desc": "鏡頭影像每分鐘只會更新一次，並且不會進行串流。"
+              "desc": "攝影機影像每分鐘只會更新一次，並且不會進行串流。"
             },
             "smartStreaming": {
               "label": "智慧串流（建議）",

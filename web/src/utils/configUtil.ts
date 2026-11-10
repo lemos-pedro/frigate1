@@ -13,6 +13,7 @@ import set from "lodash/set";
 import { isJsonObject } from "@/lib/utils";
 import { REDACTED_CREDENTIAL_SENTINEL } from "@/lib/const";
 import { applySchemaDefaults } from "@/lib/config-schema";
+import { applyConfiguredToggles } from "@/utils/runtimeOverrides";
 import { normalizeConfigValue } from "@/hooks/use-config-override";
 import {
   modifySchemaForSection,
@@ -20,7 +21,7 @@ import {
   sanitizeOverridesForSection,
 } from "@/components/config-form/sections/section-special-cases";
 import type { RJSFSchema } from "@rjsf/utils";
-import type { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import type { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import type {
   ConfigSectionData,
   HiddenFieldContext,
@@ -103,14 +104,16 @@ export const globalCameraDefaultSections = new Set([
 // ---------------------------------------------------------------------------
 
 /**
- * Get the base (pre-profile) value for a camera section.
+ * Get the saved-config value for a camera section, which is what the settings
+ * form edits.
  *
- * When a profile is active the API populates `base_config` with original
- * section values.  This helper returns that value when available, falling
- * back to the top-level (effective) value otherwise.
+ * Two things move the top-level (effective) value away from yaml. A profile
+ * merges its overrides into it, and the API then populates `base_config` with
+ * the originals. Runtime toggles from the live view, MQTT, or Home Assistant
+ * change it in place, and `applyConfiguredToggles` puts those fields back.
  */
 export function getBaseCameraSectionValue(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   cameraName: string | undefined,
   sectionPath: string,
 ): unknown {
@@ -118,7 +121,11 @@ export function getBaseCameraSectionValue(
   const cam = config.cameras?.[cameraName];
   if (!cam) return undefined;
   const base = cam.base_config?.[sectionPath];
-  return base !== undefined ? base : get(cam, sectionPath);
+  return applyConfiguredToggles(
+    cam,
+    sectionPath,
+    base !== undefined ? base : get(cam, sectionPath),
+  );
 }
 
 // mergeWith customizer that replaces arrays wholesale instead of merging them
@@ -220,6 +227,26 @@ export function buildOverrides(
     ) {
       return undefined;
     }
+
+    // Same-length arrays get compared element by element rather than by
+    // identity, so an item carrying an explicit null where the base simply
+    // omits the key does not read as a change. `/api/config` serializes with
+    // exclude_none, so every nullable field a form materializes would
+    // otherwise look edited the moment the page opens.
+    if (Array.isArray(base) && base.length === current.length) {
+      const baseItems = base;
+      const defaultItems = Array.isArray(defaults) ? defaults : undefined;
+      const unchanged = current.every(
+        (item, index) =>
+          buildOverrides(item, baseItems[index], defaultItems?.[index]) ===
+          undefined,
+      );
+
+      if (unchanged) {
+        return undefined;
+      }
+    }
+
     return current;
   }
 
@@ -277,6 +304,49 @@ export function buildOverrides(
   }
 
   return current;
+}
+
+// ---------------------------------------------------------------------------
+// Ordered maps: config maps whose key order is meaningful
+// ---------------------------------------------------------------------------
+
+// lodash isEqual ignores key order, so ordered maps compare entry lists.
+export function changedOrderedMapPaths(
+  current: unknown,
+  base: unknown,
+  paths: string[],
+): string[] {
+  return paths.filter((path) => {
+    const value = get(current, path);
+
+    if (!isJsonObject(value)) {
+      return false;
+    }
+
+    const baseValue = get(base, path);
+    return !isEqual(
+      Object.entries(value),
+      isJsonObject(baseValue) ? Object.entries(baseValue) : undefined,
+    );
+  });
+}
+
+// Send a changed ordered map whole; per-key overrides cannot carry order.
+export function applyOrderedMaps(
+  overrides: unknown,
+  current: unknown,
+  base: unknown,
+  paths: string[],
+): unknown {
+  const changed = changedOrderedMapPaths(current, base, paths);
+
+  if (changed.length === 0) {
+    return overrides;
+  }
+
+  const result = isJsonObject(overrides) ? cloneDeep(overrides) : {};
+  changed.forEach((path) => set(result, path, cloneDeep(get(current, path))));
+  return result;
 }
 
 // ---------------------------------------------------------------------------
@@ -373,7 +443,7 @@ export function buildConfigDataForPath(
 // requiresRestartForOverrides — determine whether a restart is needed
 // ---------------------------------------------------------------------------
 
-// Check whether the given overrides include fields that require a AMSS
+// Check whether the given overrides include fields that require a Frigate
 // restart.  When `restartRequired` is `undefined` the caller's default is
 // used; an empty array means "never restart"; otherwise the function checks
 // if any of the listed field paths are present in the overrides object.
@@ -486,6 +556,7 @@ export interface SectionSavePayload {
   updateTopic: string | undefined;
   needsRestart: boolean;
   pendingDataKey: string;
+  replacePaths?: string[];
 }
 
 // ---------------------------------------------------------------------------
@@ -493,6 +564,7 @@ export interface SectionSavePayload {
 // ---------------------------------------------------------------------------
 
 import { resolveAndCleanSchema } from "@/lib/config-schema";
+import { getAllAttributes } from "@/utils/modelUtil";
 
 type SchemaWithDefinitions = RJSFSchema & {
   $defs?: Record<string, RJSFSchema>;
@@ -566,7 +638,7 @@ function extractSectionSchema(
 export function prepareSectionSavePayload(opts: {
   pendingDataKey: string;
   pendingData: unknown;
-  config: AmssConfig;
+  config: FrigateConfig;
   fullSchema: RJSFSchema;
 }): SectionSavePayload | null {
   const { pendingDataKey, pendingData, config, fullSchema } = opts;
@@ -694,7 +766,13 @@ export function prepareSectionSavePayload(opts: {
   );
 
   // Build overrides
-  const overrides = buildOverrides(pendingData, rawData, effectiveDefaults);
+  const orderedMaps = sectionConfig.orderedMaps ?? [];
+  const overrides = applyOrderedMaps(
+    buildOverrides(pendingData, rawData, effectiveDefaults),
+    pendingData,
+    rawData,
+    orderedMaps,
+  );
   const sanitizedOverrides = sanitizeOverridesForSection(
     schemaSection,
     level,
@@ -744,6 +822,9 @@ export function prepareSectionSavePayload(opts: {
     updateTopic,
     needsRestart,
     pendingDataKey,
+    replacePaths: changedOrderedMapPaths(pendingData, rawData, orderedMaps).map(
+      (path) => `${basePath}.${path}`,
+    ),
   };
 }
 
@@ -792,11 +873,11 @@ export function getSectionConfig(
  * scope and for non-LPR cameras.
  */
 export function getEffectiveAttributeLabels(
-  fullConfig: AmssConfig | undefined,
+  fullConfig: FrigateConfig | undefined,
   fullCameraConfig: CameraConfig | undefined,
   level: "global" | "camera" | "replay" | undefined,
 ): string[] {
-  const all = fullConfig?.model?.all_attributes ?? [];
+  const all = getAllAttributes(fullConfig);
   if (level !== "global" && fullCameraConfig?.type === "lpr") {
     return all.filter((attr) => attr !== "license_plate");
   }
@@ -811,7 +892,7 @@ export function getEffectiveAttributeLabels(
  * `fullConfig`.
  */
 export function buildHiddenFieldContext(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   level: "global" | "camera" | "replay",
   cameraName?: string,
 ): HiddenFieldContext | undefined {

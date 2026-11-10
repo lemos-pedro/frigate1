@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Kategoriseringsmodeller - AMSS",
+  "documentTitle": "Kategoriseringsmodeller - Frigate",
   "details": {
     "scoreInfo": "Scoren viser den gennemsnitlige sikkerhed for kategoriseringen på tværs af alle registreringer af dette objekt.",
     "unknown": "Ukendt",
@@ -43,7 +43,7 @@
       "deleteCategoryFailed": "Sletning af kategori fejlede: {{errorMessage}}",
       "deleteModelFailed": "Sletning af model fejlede: {{errorMessage}}",
       "categorizeFailed": "Kategorisering af billedet fejlede: {{errorMessage}}",
-      "trainingFailed": "Træning af modellen fejlede. Check AMSS loggen.",
+      "trainingFailed": "Træning af modellen fejlede. Check Frigate loggen.",
       "trainingFailedToStart": "Opstart af modeltræning fejlede: {{errorMessage}}",
       "updateModelFailed": "Ændring af modellen fejlede: {{errorMessage}}",
       "renameCategoryFailed": "Kan ikke omdøbe kategorien: {{errorMessage}}"
@@ -135,7 +135,7 @@
       "allImagesRequired_other": "Venligst kategoriser alle billeder. {{count}} billeder tilbage.",
       "generating": {
         "title": "Genererer testbilleder",
-        "description": "AMSS henter repræsentative billeder fra dine optagelser. Det kan tage et øjeblik..."
+        "description": "Frigate henter repræsentative billeder fra dine optagelser. Det kan tage et øjeblik..."
       },
       "training": {
         "title": "Træningsmodel",
@@ -170,7 +170,10 @@
     "title": "Rediger kategoriseringsmodel",
     "descriptionState": "Rediger kategorierne for denne model til genstandstilstande. Ændringer kræver, at modellen trænes igen.",
     "descriptionObject": "Rediger genstandstypen og kategoriseringstypen for denne genstandskategoriseringsmodel.",
-    "stateClassesInfo": "Bemærk: Ændring af tilstandskategorier kræver, at modellen trænes igen med de opdaterede kategorier."
+    "stateClassesInfo": "Bemærk: Ændring af tilstandskategorier kræver, at modellen trænes igen med de opdaterede kategorier.",
+    "enabled": "Aktiveret",
+    "enabledDesc": "Kør denne model. Ved deaktivering stopper den med at køre og klassificerer ikke længere",
+    "saveAttempts": "Gem forsøg"
   },
   "deleteDatasetImages": {
     "title": "Slet billeder i datasættet",

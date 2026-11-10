@@ -49,7 +49,7 @@ import {
 } from "@/utils/dateUtil";
 import { toast } from "sonner";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { use24HourTime } from "@/hooks/use-date-utils";
 import { MdImageSearch } from "react-icons/md";
 import { useTranslation } from "react-i18next";
@@ -78,7 +78,7 @@ export default function InputWithTags({
   allSuggestions,
 }: InputWithTagsProps) {
   const { t, i18n } = useTranslation(["views/search"]);
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const is24Hour = use24HourTime(config);
@@ -218,7 +218,7 @@ export default function InputWithTags({
       }
 
       return current_suggestions.filter((suggestion) =>
-        suggestion.toLowerCase().startsWith(currentWord),
+        suggestion.toLowerCase().startsWith(currentWord.toLowerCase()),
       );
     },
     [inputValue, suggestions, currentFilterType],
@@ -264,9 +264,9 @@ export default function InputWithTags({
         type == "max_speed"
       ) {
         const newFilters = { ...filters };
-        let timestamp = 0;
+        let timestamp: number;
         let score = 0;
-        let speed = 0;
+        let speed: number;
 
         switch (type) {
           case "before":
@@ -888,7 +888,7 @@ export default function InputWithTags({
                           {filterType === "event_id"
                             ? t("trackedObjectId")
                             : filterType === "is_submitted"
-                              ? t("features.submittedToAmssPlus.label", {
+                              ? t("features.submittedToFrigatePlus.label", {
                                   ns: "components/filter",
                                 })
                               : t("filter.label." + filterType)}

@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "storage": "Thống kê lưu trữ - AMSS",
-    "general": "Thống kê Chung - AMSS",
-    "enrichments": "Thống kê Làm giàu Dữ liệu - AMSS",
+    "storage": "Thống kê lưu trữ - Frigate",
+    "general": "Thống kê Chung - Frigate",
+    "enrichments": "Thống kê Làm giàu Dữ liệu - Frigate",
     "logs": {
-      "frigate": "Nhật ký AMSS - AMSS",
-      "go2rtc": "Nhật ký Go2RTC - AMSS",
-      "nginx": "Nhật ký Nginx - AMSS"
+      "frigate": "Nhật ký Frigate - Frigate",
+      "go2rtc": "Nhật ký Go2RTC - Frigate",
+      "nginx": "Nhật ký Nginx - Frigate"
     },
-    "cameras": "Thống kê Camera - AMSS"
+    "cameras": "Thống kê Camera - Frigate"
   },
   "general": {
     "hardwareInfo": {
@@ -42,12 +42,7 @@
       "gpuUsage": "Mức sử dụng GPU",
       "gpuMemory": "Bộ nhớ GPU",
       "gpuEncoder": "Bộ mã hóa GPU",
-      "gpuDecoder": "Bộ giải mã GPU",
-      "intelGpuWarning": {
-        "title": "Cảnh báo thống kê GPU Intel",
-        "message": "Không có số liệu thống kê GPU",
-        "description": "Đây là lỗi đã biết trong công cụ báo cáo thống kê GPU của Intel (intel_gpu_top), khi nó bị trục trặc và liên tục trả về mức sử dụng GPU là 0%, dù thực tế phần cứng tăng tốc và nhận diện đối tượng đang hoạt động đúng trên (i)GPU. Đây không phải lỗi của AMSS. Bạn có thể khởi động lại máy chủ để tạm thời khắc phục và xác nhận GPU vẫn hoạt động bình thường. Điều này không ảnh hưởng đến hiệu suất."
-      }
+      "gpuDecoder": "Bộ giải mã GPU"
     },
     "otherProcesses": {
       "processCpuUsage": "Mức sử dụng CPU của Tiến trình",
@@ -75,13 +70,13 @@
       "bandwidth": "Băng thông",
       "unused": {
         "title": "Chưa sử dụng",
-        "tips": "Giá trị này có thể không phản ánh chính xác dung lượng trống có sẵn cho AMSS nếu bạn có các tệp khác được lưu trữ trên ổ đĩa ngoài các bản ghi của AMSS. AMSS không theo dõi việc sử dụng dung lượng lưu trữ bên ngoài các bản ghi của nó."
+        "tips": "Giá trị này có thể không phản ánh chính xác dung lượng trống có sẵn cho Frigate nếu bạn có các tệp khác được lưu trữ trên ổ đĩa ngoài các bản ghi của Frigate. Frigate không theo dõi việc sử dụng dung lượng lưu trữ bên ngoài các bản ghi của nó."
       }
     },
     "title": "Lưu trữ",
     "recordings": {
       "title": "Bản ghi",
-      "tips": "Giá trị này thể hiện tổng dung lượng lưu trữ được sử dụng bởi các bản ghi trong cơ sở dữ liệu của AMSS. AMSS không theo dõi việc sử dụng dung lượng lưu trữ cho tất cả các tệp trên đĩa của bạn.",
+      "tips": "Giá trị này thể hiện tổng dung lượng lưu trữ được sử dụng bởi các bản ghi trong cơ sở dữ liệu của Frigate. Frigate không theo dõi việc sử dụng dung lượng lưu trữ cho tất cả các tệp trên đĩa của bạn.",
       "earliestRecording": "Bản ghi sớm nhất hiện có:"
     },
     "shm": {
@@ -140,11 +135,8 @@
     "detectIsSlow": "{{detect}} đang chậm ({{speed}} ms)",
     "detectIsVerySlow": "{{detect}} đang rất chậm ({{speed}} ms)",
     "cameraIsOffline": "{{camera}} đang ngoại tuyến",
-    "ffmpegHighCpuUsage": "{{camera}} có mức sử dụng CPU FFmpeg cao ({{ffmpegAvg}}%)",
-    "detectHighCpuUsage": "{{camera}} có mức sử dụng CPU phát hiện cao ({{detectAvg}}%)",
     "healthy": "Hệ thống đang hoạt động tốt",
-    "reindexingEmbeddings": "Đang lập chỉ mục lại các embedding (hoàn thành {{processed}}%)",
-    "shmTooLow": "/dev/shm ({{total}} MB) cần được tăng lên tối thiểu {{min}} MB."
+    "reindexingEmbeddings": "Đang lập chỉ mục lại các embedding (hoàn thành {{processed}}%)"
   },
   "enrichments": {
     "embeddings": {

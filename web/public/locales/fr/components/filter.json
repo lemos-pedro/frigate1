@@ -5,7 +5,6 @@
       "title": "Toutes les étiquettes",
       "short": "Étiquettes"
     },
-    "count": "{{count}} Étiquettes",
     "count_one": "{{count}} étiquette",
     "count_other": "{{count}} étiquettes"
   },
@@ -46,9 +45,9 @@
     "relevance": "Pertinence"
   },
   "features": {
-    "submittedToAMSSPlus": {
-      "tips": "Vous devez d'abord filtrer les objets suivis qui ont un instantané.<br /><br />Les objets suivis sans instantané ne peuvent pas être soumis à AMSS+.",
-      "label": "Soumis à AMSS+"
+    "submittedToFrigatePlus": {
+      "tips": "Vous devez d'abord filtrer les objets suivis qui ont un instantané.<br /><br />Les objets suivis sans instantané ne peuvent pas être soumis à Frigate+.",
+      "label": "Soumis à Frigate+"
     },
     "hasVideoClip": "Avec une séquence vidéo",
     "hasSnapshot": "Avec un instantané",

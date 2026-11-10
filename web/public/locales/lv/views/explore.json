@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Notikumu meklēšana - AMSS",
+  "documentTitle": "Notikumu meklēšana - Frigate",
   "generativeAI": "Ģeneratīvs AI",
   "exploreMore": "Paskatīt vairāk objektu{{label}}",
   "details": {
@@ -20,8 +20,8 @@
       "aria": "Atrast līdzīgus izsekotos priekšmetus"
     },
     "submitToPlus": {
-      "label": "Iesniegt AMSS+",
-      "aria": "Iesniegt AMSS Plus"
+      "label": "Iesniegt Frigate+",
+      "aria": "Iesniegt Frigate Plus"
     },
     "viewInHistory": {
       "label": "Atrast vēsturē"

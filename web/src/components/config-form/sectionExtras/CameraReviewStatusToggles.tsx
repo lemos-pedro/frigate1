@@ -5,7 +5,7 @@ import Heading from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import {
   useAlertsState,
   useDetectionsState,
@@ -19,7 +19,7 @@ export default function CameraReviewStatusToggles({
   selectedCamera,
   formContext,
 }: SectionRendererProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const cameraId = selectedCamera ?? "";
 
   const cameraConfig = useMemo(() => {

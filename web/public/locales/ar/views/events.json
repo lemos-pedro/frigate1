@@ -11,15 +11,14 @@
     "detection": "لا توجد عمليات كشف لمراجعتها",
     "motion": "لم يتم العثور على بيانات الحركة"
   },
-  "timeline": "التسلسل الزمني",
   "timeline.aria": "اختر التسلسل الزمني",
   "events": {
     "label": "اﻷحداث",
     "aria": "اختر الأحداث",
     "noFoundForTimePeriod": "لم يتم العثور على أي أحداث لهذه الفترة الزمنية."
   },
-  "documentTitle": "مراجعة - AMSS",
+  "documentTitle": "مراجعة - Frigate",
   "recordings": {
-    "documentTitle": "التسجيلات - AMSS"
+    "documentTitle": "التسجيلات - Frigate"
   }
 }

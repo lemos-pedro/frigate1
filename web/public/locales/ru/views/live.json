@@ -1,8 +1,8 @@
 {
   "documentTitle": {
-    "default": "Прямой эфир - AMSS"
+    "default": "Прямой эфир - Frigate"
   },
-  "documentTitle.withCamera": "{{camera}} - Прямой эфир - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Прямой эфир - Frigate",
   "lowBandwidthMode": "Экономичный режим",
   "twoWayTalk": {
     "enable": "Включить двустороннюю связь",
@@ -55,10 +55,6 @@
         "label": "Отдалить фокус PTZ камеры"
       }
     }
-  },
-  "camera": {
-    "enable": "Включить камеру",
-    "disable": "Отключить камеру"
   },
   "muteCameras": {
     "enable": "Отключить звук на всех камерах",
@@ -115,7 +111,6 @@
   "stream": {
     "audio": {
       "tips": {
-        "documentation": "Читать документацию ",
         "title": "Аудио должно выводиться с вашей камеры и быть настроено в go2rtc для этого потока."
       },
       "available": "Для этого потока доступен звук",
@@ -124,7 +119,6 @@
     "title": "Поток",
     "twoWayTalk": {
       "tips": "Ваше устройство должно поддерживать эту функцию, а WebRTC должен быть настроен для двусторонней связи.",
-      "tips.documentation": "Читать документацию ",
       "available": "Двусторонняя связь доступна для этого потока",
       "unavailable": "Двусторонняя связь недоступна для этого потока"
     },
@@ -147,7 +141,6 @@
     "audioDetection": "Детекция аудио",
     "snapshots": "Снимки",
     "autotracking": "Автотрекинг",
-    "cameraEnabled": "Камера активирована",
     "transcription": "Транскрипция аудио"
   },
   "history": {
@@ -158,8 +151,7 @@
       "all": "Все",
       "motion": "Движение",
       "active_objects": "Активные объекты"
-    },
-    "notAllTips": "Ваша конфигурация хранения записей {{source}} установлена в <code>mode: {{effectiveRetainMode}}</code>, поэтому эта запись по запросу будет сохранять только сегменты с {{effectiveRetainModeName}}."
+    }
   },
   "editLayout": {
     "label": "Редактировать макет",
@@ -182,7 +174,7 @@
   },
   "noCameras": {
     "title": "Камеры не настроены",
-    "description": "Начните с подключения камеры к AMSS.",
+    "description": "Начните с подключения камеры к Frigate.",
     "buttonText": "Добавить камеру",
     "restricted": {
       "title": "Нет доступных камер",
@@ -190,7 +182,7 @@
     },
     "default": {
       "title": "Камеры не настроены",
-      "description": "Начните с подключения камеры к AMSS.",
+      "description": "Начните с подключения камеры к Frigate.",
       "buttonText": "Добавить камеру"
     },
     "group": {

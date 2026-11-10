@@ -5,7 +5,7 @@ import { useCameraPreviews } from "@/hooks/use-camera-previews";
 import { useTimezone } from "@/hooks/use-date-utils";
 import { useOverlayState, useSearchEffect } from "@/hooks/use-overlay-state";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { RecordingStartingPoint } from "@/types/record";
 import {
   RecordingsSummary,
@@ -28,7 +28,7 @@ import {
 import EventView from "@/views/events/EventView";
 import MotionSearchView from "@/views/motion-search/MotionSearchView";
 import { RecordingView } from "@/views/recording/RecordingView";
-import { useAmssReviews } from "@/api/ws";
+import { useFrigateReviews } from "@/api/ws";
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -38,7 +38,7 @@ import useSWR from "swr";
 export default function Events() {
   const { t } = useTranslation(["views/events"]);
 
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const timezone = useTimezone(config);
@@ -132,8 +132,7 @@ export default function Events() {
     setMotionSearchDay(normalizedDay);
   }, []);
 
-  const [notificationTab, setNotificationTab] =
-    useState<TimelineType>("timeline");
+  const [notificationTab, setNotificationTab] = useState<TimelineType>();
 
   const getReviewDayBounds = useCallback((date: Date) => {
     const now = Date.now() / 1000;
@@ -402,7 +401,7 @@ export default function Events() {
   }, [reviews]);
 
   // update review items in place when a review segment ends
-  const reviewUpdate = useAmssReviews();
+  const reviewUpdate = useFrigateReviews();
   const [endedReviews, setEndedReviews] = useState(
     new Map<string, ReviewSegment>(),
   );
@@ -518,6 +517,7 @@ export default function Events() {
     previewTimes ?? { after: 0, before: 0 },
     {
       fetchPreviews: previewTimes != undefined,
+      refreshOnHourRollover: true,
     },
   );
 

@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "你確定要重新啟動 AMSS 嗎？",
+    "title": "你確定要重新啟動 Frigate 嗎？",
     "button": "重新啟動",
     "restarting": {
-      "title": "AMSS 正在重新啟動",
+      "title": "Frigate 正在重新啟動",
       "content": "此頁面將在 {{countdown}} 秒後重新載入。",
       "button": "立即強制重新載入"
     },
-    "description": "重新啟動期間將會短暫停止 AMSS。"
+    "description": "重新啟動期間將會短暫停止 Frigate。"
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "提交到 AMSS+",
+        "label": "提交到 Frigate+",
         "desc": "位於你想避免的區域的物件並不是誤判。提交這些作為誤判會令模型混淆。"
       },
       "review": {
         "question": {
-          "label": "確認此標籤給 AMSS Plus",
+          "label": "確認此標籤給 Frigate Plus",
           "ask_a": "此物件是 <code>{{label}}</code> 嗎？",
           "ask_an": "此物件是 <code>{{label}}</code> 嗎？",
           "ask_full": "此物件是 <code>{{untranslatedLabel}}</code>（{{translatedLabel}}）嗎？"
@@ -54,7 +54,6 @@
     "toast": {
       "error": {
         "failed": "無法開始匯出：{{error}}",
-        "noVaildTimeSelected": "沒有選取有效的時間範圍",
         "endTimeMustAfterStartTime": "結束時間必須在開始時間之後"
       },
       "success": "成功開始匯出。請到匯出頁面看檔案。",
@@ -74,8 +73,7 @@
     "restreaming": {
       "disabled": "此鏡頭未啟用重串流。",
       "desc": {
-        "title": "設定 go2rtc 以啟用此鏡頭的更多即時預覽選項及音訊。",
-        "readTheDocumentation": "閱讀文件"
+        "title": "設定 go2rtc 以啟用此鏡頭的更多即時預覽選項及音訊。"
       }
     },
     "showStats": {

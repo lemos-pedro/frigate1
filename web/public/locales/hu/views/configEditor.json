@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Konfiguráció Szerkesztő - AMSS",
+  "documentTitle": "Konfiguráció Szerkesztő - Frigate",
   "configEditor": "Konfiguráció szerkesztő",
   "copyConfig": "Konfiguráció másolása",
   "saveAndRestart": "Mentés és Újraindítás",
@@ -14,5 +14,5 @@
   },
   "confirm": "Kilép mentés nélkül?",
   "safeConfigEditor": "Konfiguráció szerkesztő (Biztosnági Mód)",
-  "safeModeDescription": "AMSS biztonsági módban van konfigurációs hiba miatt."
+  "safeModeDescription": "Frigate biztonsági módban van konfigurációs hiba miatt."
 }

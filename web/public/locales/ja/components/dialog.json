@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "AMSS を再起動してもよろしいですか？",
+    "title": "Frigate を再起動してもよろしいですか？",
     "restarting": {
-      "title": "AMSS を再起動中",
+      "title": "Frigate を再起動中",
       "content": "このページは {{countdown}} 秒後に再読み込みされます。",
       "button": "今すぐ強制再読み込み"
     },
     "button": "再起動",
-    "description": "再起動の間、AMSSが一時的に停止します。"
+    "description": "再起動の間、Frigateが一時的に停止します。"
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "AMSS+ に送信",
+        "label": "Frigate+ に送信",
         "desc": "回避したい場所でのオブジェクトは誤検知ではありません。誤検知として送信するとモデルが混乱します。"
       },
       "review": {
         "question": {
-          "label": "AMSS Plus 用ラベルの確認",
+          "label": "Frigate Plus 用ラベルの確認",
           "ask_a": "このオブジェクトは <code>{{label}}</code> ですか？",
           "ask_an": "このオブジェクトは <code>{{label}}</code> ですか？",
           "ask_full": "このオブジェクトは <code>{{untranslatedLabel}}</code>（{{translatedLabel}}）ですか？"
@@ -26,7 +26,7 @@
           "submitted": "送信済み"
         },
         "toast": {
-          "error": "AMSS+への送信に失敗しました。ネットワーク接続を確認して、もう一度お試しください。"
+          "error": "Frigate+への送信に失敗しました。ネットワーク接続を確認して、もう一度お試しください。"
         }
       }
     },
@@ -59,12 +59,11 @@
       "error": {
         "failed": "エクスポートキューの開始に失敗しました: {{error}}",
         "endTimeMustAfterStartTime": "終了時間は開始時間より後である必要があります",
-        "noVaildTimeSelected": "有効な時間範囲が選択されていません",
         "noValidTimeSelected": "有効な時間範囲が選択されていません"
       },
       "view": "表示",
       "queued": "エクスポートがキューに追加されました。進捗状況はエクスポートページで確認できます。",
-      "batchQueuedSuccess_other": "{{count}} 件のエクスポートがキューに登録されました。現在ケースをオープンしています。",
+      "batchQueuedSuccess_other": "{{count}} 件のエクスポートがキューに登録されました。",
       "batchQueuedPartial": "{{total}} 件中 {{successful}} 件のエクスポートがキューに追加されました。失敗したカメラ: {{failedCameras}}",
       "batchQueueFailed": "{{total}} 件のエクスポートをキューに追加できませんでした。失敗したカメラ: {{failedCameras}}",
       "batchSuccess_other": "{{count}} 件のエクスポートを開始しました。ケースを開きます。",
@@ -103,7 +102,6 @@
       "newCaseNamePlaceholder": "新しいケース名",
       "newCaseDescriptionPlaceholder": "ケースの説明",
       "label": "ケース",
-      "nonAdminHelp": "これらのエクスポートに対して新しいケースが作成されます。",
       "placeholder": "ケースを選択"
     },
     "tabs": {
@@ -118,8 +116,7 @@
       "exportButton_other": "{{count}} 件のレビューをエクスポート",
       "exportingButton": "エクスポート中...",
       "toast": {
-        "started_other": "{{count}} 件のエクスポートを開始しました。ケースを開きます。",
-        "startedNoCase_other": "{{count}} 件のエクスポートを開始しました。",
+        "started_other": "{{count}} 件のエクスポートを開始しました。",
         "partial": "{{total}} 件中 {{successful}} 件のエクスポートを開始しました。失敗: {{failedItems}}",
         "failed": "{{total}} 件のエクスポートを開始できませんでした。失敗: {{failedItems}}"
       }
@@ -173,10 +170,10 @@
     "shareTimestamp": {
       "label": "タイムスタンプを共有",
       "title": "タイムスタンプを共有",
-      "description": "現在のプレーヤー位置をタイムスタンプ付き URL で共有するか、任意のタイムスタンプを指定できます。これは公開リンクではなく、AMSS とこのカメラへのアクセス権を持つユーザーのみアクセスできます。",
+      "description": "現在のプレーヤー位置をタイムスタンプ付き URL で共有するか、任意のタイムスタンプを指定できます。これは公開リンクではなく、Frigate とこのカメラへのアクセス権を持つユーザーのみアクセスできます。",
       "custom": "カスタムタイムスタンプ",
       "button": "タイムスタンプ URL を共有",
-      "shareTitle": "AMSS レビュータイムスタンプ: {{camera}}"
+      "shareTitle": "Frigate レビュータイムスタンプ: {{camera}}"
     }
   },
   "imagePicker": {

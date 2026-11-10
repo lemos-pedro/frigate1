@@ -105,9 +105,9 @@
     "label": "Funkcije",
     "hasSnapshot": "Ima posnetek (snapshot)",
     "hasVideoClip": "Ima video posnetek",
-    "submittedToAMSSPlus": {
-      "label": "Poslano v AMSS+",
-      "tips": "Najprej moraš filtrirati sledene objekte, ki imajo posnetek.<br /><br />Sledenih objektov brez posnetka ni mogoče poslati v AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Poslano v Frigate+",
+      "tips": "Najprej moraš filtrirati sledene objekte, ki imajo posnetek.<br /><br />Sledenih objektov brez posnetka ni mogoče poslati v Frigate+."
     }
   },
   "cameras": {

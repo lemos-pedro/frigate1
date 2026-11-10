@@ -32,7 +32,7 @@ import { useCameraActivity } from "@/hooks/use-camera-activity";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/ui/heading";
 import { Toaster } from "@/components/ui/sonner";
-import { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import { getIconForLabel } from "@/utils/iconUtil";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { Card } from "@/components/ui/card";
@@ -49,6 +49,7 @@ import Logo from "@/components/Logo";
 import { Separator } from "@/components/ui/separator";
 import { useDocDomain } from "@/hooks/use-doc-domain";
 import DebugDrawingLayer from "@/components/overlay/DebugDrawingLayer";
+import { getPrimaryModel } from "@/utils/modelUtil";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 type DebugReplayStatus = {
@@ -174,7 +175,7 @@ export default function Replay() {
   }, [refreshStatus, t]);
 
   // Camera activity for the replay camera
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const replayCameraName = status?.replay_camera ?? "";
@@ -632,7 +633,7 @@ export default function Replay() {
 type ObjectListProps = {
   cameraConfig?: CameraConfig;
   objects?: ObjectType[];
-  config?: AmssConfig;
+  config?: FrigateConfig;
 };
 
 function ObjectList({ cameraConfig, objects, config }: ObjectListProps) {
@@ -642,7 +643,7 @@ function ObjectList({ cameraConfig, objects, config }: ObjectListProps) {
     if (!config) {
       return;
     }
-    return config.model?.colormap;
+    return getPrimaryModel(config)?.colormap;
   }, [config]);
 
   const getColorForObjectName = useCallback(

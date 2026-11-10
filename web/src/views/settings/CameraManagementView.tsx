@@ -15,7 +15,7 @@ import {
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useTranslation } from "react-i18next";
 import CameraWizardDialog from "@/components/settings/CameraWizardDialog";
 import DeleteCameraDialog from "@/components/overlay/dialog/DeleteCameraDialog";
@@ -58,7 +58,7 @@ import {
 import type { ProfileState } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
 import { isReplayCamera } from "@/utils/cameraUtil";
-import { StatusBarMessagesContext } from "@/context/statusbar-provider";
+import { StatusBarMessagesContext } from "@/context/statusbar-context";
 import { cn } from "@/lib/utils";
 import {
   Select,
@@ -94,7 +94,7 @@ export default function CameraManagementView({
   const { t } = useTranslation(["views/settings", "common"]);
 
   const { data: config, mutate: updateConfig } =
-    useSWR<AmssConfig>("config");
+    useSWR<FrigateConfig>("config");
 
   const [showWizard, setShowWizard] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -724,7 +724,7 @@ function CameraDetailsEditor({
   onConfigChanged,
 }: CameraDetailsEditorProps) {
   const { t } = useTranslation(["views/settings", "common"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [open, setOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -1038,7 +1038,7 @@ function CameraDetailsEditor({
 
 type CameraTypeSectionProps = {
   cameras: string[];
-  config: AmssConfig | undefined;
+  config: FrigateConfig | undefined;
   onConfigChanged: () => Promise<unknown>;
   setRestartDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -1057,7 +1057,7 @@ function CameraTypeSection({
   const { getLocaleDocUrl } = useDocDomain();
   const [savingCamera, setSavingCamera] = useState<string | null>(null);
   // Optimistic local state: the parsed config API doesn't reflect type
-  // changes until AMSS restarts, so we track saved values locally.
+  // changes until Frigate restarts, so we track saved values locally.
   const [localOverrides, setLocalOverrides] = useState<Record<string, string>>(
     {},
   );
@@ -1229,7 +1229,7 @@ function CameraTypeSection({
 type ProfileCameraEnableSectionProps = {
   profileState: ProfileState;
   cameras: string[];
-  config: AmssConfig | undefined;
+  config: FrigateConfig | undefined;
   onConfigChanged: () => Promise<unknown>;
 };
 
@@ -1245,7 +1245,7 @@ function ProfileCameraEnableSection({
   );
   const [savingCamera, setSavingCamera] = useState<string | null>(null);
   // Optimistic local state: the parsed config API doesn't reflect profile
-  // enabled changes until AMSS restarts, so we track saved values locally.
+  // enabled changes until Frigate restarts, so we track saved values locally.
   const [localOverrides, setLocalOverrides] = useState<
     Record<string, Record<string, string>>
   >({});

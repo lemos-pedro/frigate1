@@ -1,20 +1,19 @@
 {
   "documentTitle": {
-    "default": "Nastavitve - AMSS",
-    "authentication": "Nastavitve avtentikacije - AMSS",
-    "camera": "Nastavitve kamere - AMSS",
-    "notifications": "Nastavitve obvestil - AMSS",
-    "masksAndZones": "Urejevalnik mask in območij - AMSS",
-    "object": "Razhroščevanje - AMSS",
-    "general": "Nastavitve profila - AMSS",
-    "frigatePlus": "Nastavitve AMSS+ - AMSS",
-    "enrichments": "Nastavitve obogatenih podatkov - AMSS",
-    "motionTuner": "Prilagajanje zaznavanja gibanja - AMSS",
-    "cameraManagement": "Upravljanje kamer - AMSS",
-    "cameraReview": "Nastavitve pregleda kamer - AMSS",
-    "globalConfig": "Globalna konfiguracija - AMSS",
-    "cameraConfig": "Konfiguracija kamere - AMSS",
-    "maintenance": "Vzdrževanje - AMSS"
+    "default": "Nastavitve - Frigate",
+    "authentication": "Nastavitve avtentikacije - Frigate",
+    "notifications": "Nastavitve obvestil - Frigate",
+    "masksAndZones": "Urejevalnik mask in območij - Frigate",
+    "object": "Razhroščevanje - Frigate",
+    "general": "Nastavitve profila - Frigate",
+    "frigatePlus": "Nastavitve Frigate+ - Frigate",
+    "enrichments": "Nastavitve obogatenih podatkov - Frigate",
+    "motionTuner": "Prilagajanje zaznavanja gibanja - Frigate",
+    "cameraManagement": "Upravljanje kamer - Frigate",
+    "cameraReview": "Nastavitve pregleda kamer - Frigate",
+    "globalConfig": "Globalna konfiguracija - Frigate",
+    "cameraConfig": "Konfiguracija kamere - Frigate",
+    "maintenance": "Vzdrževanje - Frigate"
   },
   "menu": {
     "ui": "Uporabniški vmesnik",
@@ -24,7 +23,7 @@
     "debug": "Razhroščevanje",
     "users": "Uporabniki",
     "notifications": "Obvestila",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "motionTuner": "Nastavljalnik gibanja",
     "triggers": "Sprožilci",
     "cameraManagement": "Upravljanje",
@@ -34,7 +33,6 @@
     "globalConfig": "Globalna konfiguracija",
     "system": "Sistem",
     "integrations": "Integracije",
-    "profileSettings": "Nastavitve profila",
     "globalDetect": "Zaznavanje objektov",
     "globalRecording": "Snemanje",
     "globalSnapshots": "Posnetki (snapshots)",
@@ -56,8 +54,6 @@
     "systemTelemetry": "Telemetrija",
     "systemBirdseye": "Birdseye",
     "systemFfmpeg": "FFmpeg",
-    "systemDetectorHardware": "Strojna oprema detektorja",
-    "systemDetectionModel": "Model zaznavanja",
     "systemMqtt": "MQTT",
     "integrationSemanticSearch": "Semantično iskanje",
     "integrationGenerativeAi": "Generativna UI",
@@ -94,7 +90,7 @@
       "point_few": "",
       "point_other": "{{count}} točke",
       "label": "Območja",
-      "documentTitle": "Uredi območje - AMSS",
+      "documentTitle": "Uredi območje - Frigate",
       "desc": {
         "title": "Območja (Zones) ti omogočajo določitev specifičnih delov slike, da lahko ugotoviš, ali se objekt nahaja v določenem predelu.",
         "documentation": "Dokumentacija"
@@ -152,7 +148,7 @@
       "point_few": "",
       "point_other": "{{count}} točke",
       "label": "Maske objektov",
-      "documentTitle": "Uredi masko objekta - AMSS",
+      "documentTitle": "Uredi masko objekta - Frigate",
       "desc": {
         "title": "Maske za filtre objektov se uporabljajo za filtriranje lažnih pozitivnih rezultatov za določen tip objekta glede na lokacijo.",
         "documentation": "Dokumentacija"
@@ -184,7 +180,7 @@
       "point_few": "",
       "point_other": "{{count}} točke",
       "label": "Maska gibanja",
-      "documentTitle": "Uredi masko gibanja - AMSS",
+      "documentTitle": "Uredi masko gibanja - Frigate",
       "desc": {
         "title": "Maske gibanja se uporabljajo za preprečevanje neželenih vrst gibanja, ki bi sprožile zaznavanje. Preveč maskiranja bo otežilo sledenje objektom.",
         "documentation": "Dokumentacija"
@@ -367,8 +363,7 @@
     },
     "semanticSearch": {
       "title": "Semantično iskanje",
-      "desc": "Semantično iskanje v AMSS ti omogoča iskanje sledenih objektov z uporabo same slike, tvojega opisa ali samodejno generiranega opisa.",
-      "readTheDocumentation": "Preberi Dokumentacijo",
+      "desc": "Semantično iskanje v Frigate ti omogoča iskanje sledenih objektov z uporabo same slike, tvojega opisa ali samodejno generiranega opisa.",
       "reindexNow": {
         "label": "Ponovno indeksiraj zdaj",
         "desc": "Ponovno indeksiranje bo regeneriralo vdelave (embeddings) za vse sledene objekte. Proces teče v ozadju, lahko močno obremeni procesor in traja nekaj časa, odvisno od števila objektov.",
@@ -394,8 +389,7 @@
     },
     "faceRecognition": {
       "title": "Prepoznava obrazov",
-      "desc": "Prepoznava obrazov omogoča dodeljevanje imen osebam; ko je obraz prepoznan, AMSS ime osebe doda kot pod-oznako. Ti podatki so vidni v vmesniku, filtrih in obvestilih.",
-      "readTheDocumentation": "Preberi Dokumentacijo",
+      "desc": "Prepoznava obrazov omogoča dodeljevanje imen osebam; ko je obraz prepoznan, Frigate ime osebe doda kot pod-oznako. Ti podatki so vidni v vmesniku, filtrih in obvestilih.",
       "modelSize": {
         "label": "Velikost modela",
         "desc": "Velikost modela za prepoznavo obrazov.",
@@ -411,57 +405,17 @@
     },
     "licensePlateRecognition": {
       "title": "Prepoznava registrskih tablic",
-      "desc": "AMSS lahko prepozna registrske tablice na vozilih in samodejno doda prepoznane znake v polje 'recognized_license_plate' ali znano ime kot pod-oznako za objekte vrste avto. Tipičen primer uporabe je branje tablic na dovozu ali na ulici.",
-      "readTheDocumentation": "Preberi Dokumentacijo"
+      "desc": "Frigate lahko prepozna registrske tablice na vozilih in samodejno doda prepoznane znake v polje 'recognized_license_plate' ali znano ime kot pod-oznako za objekte vrste avto. Tipičen primer uporabe je branje tablic na dovozu ali na ulici."
     },
     "restart_required": "Potreben ponovni zagon (sprememba nastavitev obogatenih podatkov)",
     "toast": {
-      "success": "Nastavitve obogatenih podatkov so shranjene. Ponovno zaženi AMSS, da uveljaviš spremembe.",
+      "success": "Nastavitve obogatenih podatkov so shranjene. Ponovno zaženi Frigate, da uveljaviš spremembe.",
       "error": "Shranjevanje sprememb konfiguracije ni uspelo: {{errorMessage}}"
-    }
-  },
-  "camera": {
-    "title": "Nastavitve Kamere",
-    "streams": {
-      "title": "Pretoki"
-    },
-    "object_descriptions": {
-      "title": "Opisi objektov z uporabo generativne UI",
-      "desc": "Začasno omogoči/onemogoči opise objektov z uporabo generativne UI za to kamero. Ko so onemogočeni, opisi, ki jih ustvari UI, ne bodo zahtevani za sledene objekte na tej kameri."
-    },
-    "review": {
-      "title": "Pregled",
-      "desc": "Začasno omogoči/onemogoči opozorila in zaznavanja za to kamero, dokler se AMSS ne zažene znova. Ko je onemogočeno, ne bodo ustvarjeni novi elementi pregleda. ",
-      "alerts": "Opozorila ",
-      "detections": "Detekcije "
-    },
-    "reviewClassification": {
-      "title": "Pregled Klasifikacij",
-      "readTheDocumentation": "Preberi Dokumentacijo",
-      "noDefinedZones": "Za to kamero ni določenih nobenih con.",
-      "objectAlertsTips": "Vsi objekti {{alertsLabels}} na {{cameraName}} bodo prikazani kot Opozorila.",
-      "unsavedChanges": "Neshranjene nastavitve Pregleda Klasifikacije za {{camera}}",
-      "selectAlertsZones": "Izberite cone za Opozorila",
-      "selectDetectionsZones": "Izberite cone za Zaznavanje",
-      "limitDetections": "Omejite zaznavanje na določene cone"
-    },
-    "addCamera": "Dodaj Novo Kamero",
-    "editCamera": "Uredi Kamero:",
-    "selectCamera": "Izberi Kamero",
-    "backToSettings": "Nazaj na Nastavitve Kamere",
-    "cameraConfig": {
-      "add": "Dodaj Kamero",
-      "edit": "Uredi Kamero",
-      "description": "Konfigurirajte nastavitve kamere, vključno z pretočnimi vhodi in vlogami.",
-      "name": "Ime Kamere",
-      "nameRequired": "Ime kamere je obvezno",
-      "nameInvalid": "Ime kamere mora vsebovati samo črke, številke, podčrtaje ali vezaje",
-      "namePlaceholder": "npr. vhodna_vrata"
     }
   },
   "cameraWizard": {
     "title": "Dodaj kamero",
-    "description": "Sledi spodnjim korakom, da dodaš novo kamero v svojo namestitev AMSS.",
+    "description": "Sledi spodnjim korakom, da dodaš novo kamero v svojo namestitev Frigate.",
     "steps": {
       "nameAndConnection": "Ime in povezava",
       "streamConfiguration": "Konfiguracija pretoka",
@@ -499,25 +453,11 @@
       "brandInformation": "Informacije o znamki",
       "brandUrlFormat": "Za kamere z RTSP URL formatom: {{exampleUrl}}",
       "customUrlPlaceholder": "rtsp://uporabnik:geslo@gostitelj:vrata/pot",
-      "testConnection": "Preveri povezavo",
-      "testSuccess": "Test povezave uspešen!",
-      "testFailed": "Test povezave neuspešen. Prosim preveri vnos in poskusi še enkrat.",
-      "streamDetails": "Podrobnosti pretoka",
-      "testing": {
-        "probingMetadata": "Preiskovanje metapodatkov kamere...",
-        "fetchingSnapshot": "Pridobivanje posnetka kamere..."
-      },
-      "warnings": {
-        "noSnapshot": "Ni mogoče pridobiti posnetka iz nastavljenega pretoka."
-      },
       "errors": {
         "nameLength": "Ime kamere mora imeti 64 znakov ali manj",
         "invalidCharacters": "Ime kamere vsebuje neveljavne znake",
         "nameExists": "Ime kamere že obstaja",
         "customUrlRtspRequired": "URL-ji po meri se morajo začeti z \"rtsp://\". Za pretoke, ki niso RTSP, je potrebna ročna konfiguracija.",
-        "brands": {
-          "reolink-rtsp": "RTSP za Reolink ni priporočen. \nV nastavitvah kamere omogočite HTTP in znova zaženite čarovnika."
-        },
         "brandOrCustomUrlRequired": "Izberi znamko kamere s podatki o gostitelju ali izberi 'Drugo' z URL-jem po meri",
         "nameRequired": "Ime kamere je obvezno"
       },
@@ -532,37 +472,11 @@
       "useDigestAuthDescription": "Uporabi HTTP digest avtentikacijo za ONVIF. Nekatere kamere zahtevajo posebno ONVIF uporabniško ime/geslo namesto običajnega skrbniškega računa."
     },
     "step2": {
-      "streamUrlPlaceholder": "rtsp://uporabniskoime:geslo@gostitelj:vrata/pot",
-      "url": "URL",
-      "resolution": "Resolucija",
-      "selectResolution": "Izberi resolucijo",
-      "quality": "Kvaliteta",
-      "selectQuality": "Izberi kvaliteto",
-      "roles": "Vloge",
-      "roleLabels": {
-        "detect": "Prepoznavanje objektov",
-        "record": "Snemanje",
-        "audio": "Zvok"
-      },
-      "testStream": "Preveri povezavo",
       "testSuccess": "Povezava je uspešno vzpostavljena!",
       "testFailed": "Povezava ni uspela. Preveri vnose in poskusi znova.",
       "testFailedTitle": "Test ni uspel",
       "connected": "Povezano",
       "notConnected": "Ni povezave",
-      "featuresTitle": "Funkcije",
-      "go2rtc": "Zmanjšaj povezave na kamero",
-      "detectRoleWarning": "Vsaj en pretok mora imeti vlogo »zaznavanje«, da lahko nadaljuješ.",
-      "rolesPopover": {
-        "title": "Vloge pretoka",
-        "detect": "Glavni vir za zaznavanje objektov.",
-        "record": "Shranjuje odseke video posnetka glede na nastavitve konfiguracije.",
-        "audio": "Vir za zaznavanje na podlagi zvoka."
-      },
-      "featuresPopover": {
-        "title": "Značilnosti pretoka",
-        "description": "Uporabi ponovno pretakanje go2rtc, da zmanjšaš število povezav s kamero."
-      },
       "description": "Preveri razpoložljive pretoke kamere ali ročno nastavi parametre glede na izbrano metodo.",
       "streamDetails": "Podrobnosti pretoka",
       "probing": "Preverjanje kamere...",
@@ -599,34 +513,8 @@
     },
     "step3": {
       "description": "Nastavi vloge pretokov in dodaj morebitne dodatne pretoke za svojo kamero.",
-      "validationTitle": "Preverjanje pretoka",
-      "connectAllStreams": "Poveži vse pretoke",
-      "reconnectionSuccess": "Ponovna povezava uspešna.",
-      "reconnectionPartial": "Nekateri pretoki se niso ponovno povezali.",
-      "streamUnavailable": "Predogled pretoka ni na voljo",
-      "reload": "Ponovno naloži",
-      "connecting": "Povezujem...",
       "streamTitle": "Pretok {{number}}",
-      "valid": "Veljaven",
-      "failed": "Spodletel",
-      "notTested": "Ni testiran",
-      "connectStream": "Poveži",
-      "connectingStream": "Povezujem",
-      "disconnectStream": "Prekini povezavo",
-      "estimatedBandwidth": "Predvidena pasovna širina",
       "roles": "Vloge",
-      "none": "Noben",
-      "error": "Napaka",
-      "streamValidated": "Pretok {{number}} uspešno preverjen",
-      "streamValidationFailed": "Preverjanje pretoka {{number}} spodletelo",
-      "saveAndApply": "Shrani novo kamero",
-      "saveError": "Neveljavna konfiguracija. Prosimo preverite vaše nastavitve.",
-      "issues": {
-        "title": "Preverjanje pretoka",
-        "videoCodecGood": "Video kodek je {{codec}}.",
-        "audioCodecGood": "Audio kodek je {{codec}}.",
-        "resolutionHigh": "Resolucija {{resolution}} lahko povzroči povečano porabo virov."
-      },
       "streamsTitle": "Pretoki kamere",
       "addStream": "Dodaj pretok",
       "addAnotherStream": "Dodaj še en pretok",
@@ -684,7 +572,7 @@
       "description": "Končna potrditev in analiza pred shranjevanjem. Pred shranjevanjem poveži vsak pretok.",
       "validationTitle": "Potrditev pretoka",
       "ffmpegModule": "Uporabi način za združljivost pretoka",
-      "ffmpegModuleDescription": "Če se pretok po več poskusih ne naloži, poskusi omogočiti to možnost. AMSS bo uporabil modul ffmpeg z go2rtc, kar lahko izboljša združljivost z nekaterimi kamerami.",
+      "ffmpegModuleDescription": "Če se pretok po več poskusih ne naloži, poskusi omogočiti to možnost. Frigate bo uporabil modul ffmpeg z go2rtc, kar lahko izboljša združljivost z nekaterimi kamerami.",
       "none": "Brez",
       "error": "Napaka",
       "streamValidated": "Pretok {{number}} je bil uspešno potrjen",
@@ -813,7 +701,7 @@
           "error": {
             "min": "Izbrano mora biti vsaj eno dejanje."
           },
-          "desc": "AMSS privzeto pošlje MQTT sporočilo za vse sprožilce. 'Podoznake' dodajo ime sprožilca k oznaki objekta. 'Atributi' pa so metapodatki, ki se shranijo ločeno.",
+          "desc": "Frigate privzeto pošlje MQTT sporočilo za vse sprožilce. 'Podoznake' dodajo ime sprožilca k oznaki objekta. 'Atributi' pa so metapodatki, ki se shranijo ločeno.",
           "title": "Dejanja"
         },
         "threshold": {
@@ -869,7 +757,6 @@
     },
     "documentTitle": "Sprožilci",
     "semanticSearch": {
-      "title": "Semantično iskanje je onemogočeno",
       "desc": "Za uporabo sprožilcev mora biti omogočeno semantično iskanje."
     },
     "management": {
@@ -904,7 +791,7 @@
       "desc": "Prikaži obrise vseh določenih območij"
     },
     "title": "Razhroščevanje",
-    "detectorDesc": "AMSS uporablja tvoje detektorje ({{detectors}}) za zaznavanje objektov v video toku kamere.",
+    "detectorDesc": "Frigate uporablja tvoje detektorje ({{detectors}}) za zaznavanje objektov v video toku kamere.",
     "desc": "Pogled za razhroščevanje prikazuje sledene objekte in njihovo statistiko v realnem času. Seznam objektov prikazuje povzetek zaznanih objektov s časovnim zamikom.",
     "openCameraWebUI": "Odpri spletni vmesnik kamere {{camera}}",
     "debugging": "Razhroščevanje",
@@ -994,11 +881,7 @@
     "backToSettings": "Nazaj na nastavitve kamere",
     "streams": {
       "title": "Omogoči / Onemogoči kamere",
-      "enableLabel": "Omogočene kamere",
-      "enableDesc": "Začasno onemogoči omogočeno kamero do ponovnega zagona AMSS. Onemogočanje popolnoma ustavi obdelavo pretokov te kamere. Zaznavanje, snemanje in razhroščevanje ne bodo na voljo.<br /> <em>Opomba: To ne onemogoči go2rtc ponovnega pretakanja.</em>",
-      "disableLabel": "Onemogočene kamere",
-      "disableDesc": "Omogoči kamero, ki trenutno ni vidna v vmesniku in je onemogočena v konfiguraciji. Po omogočanju je potreben ponovni zagon AMSS.",
-      "enableSuccess": "Kamera {{cameraName}} je omogočena v konfiguraciji. Ponovno zaženi AMSS za uveljavitev sprememb."
+      "enableSuccess": "Kamera {{cameraName}} je omogočena v konfiguraciji. Ponovno zaženi Frigate za uveljavitev sprememb."
     },
     "cameraConfig": {
       "add": "Dodaj kamero",
@@ -1048,7 +931,7 @@
     },
     "reviewClassification": {
       "title": "Klasifikacija pregledov",
-      "desc": "AMSS razvršča elemente pregleda na Opozorila (Alerts) in Zaznave (Detections). Privzeto vsi objekti <em>oseba</em> in <em>avto</em> štejejo kot Opozorila. Razvrščanje lahko izboljšaš z določitvijo zahtevanih območij zanje.",
+      "desc": "Frigate razvršča elemente pregleda na Opozorila (Alerts) in Zaznave (Detections). Privzeto vsi objekti <em>oseba</em> in <em>avto</em> štejejo kot Opozorila. Razvrščanje lahko izboljšaš z določitvijo zahtevanih območij zanje.",
       "noDefinedZones": "Za to kamero ni določenih območij (zones).",
       "objectAlertsTips": "Vsi objekti {{alertsLabels}} na kameri {{cameraName}} bodo prikazani kot Opozorila.",
       "zoneObjectAlertsTips": "Vsi objekti {{alertsLabels}}, zaznani v območju {{zone}} na kameri {{cameraName}}, bodo prikazani kot Opozorila.",
@@ -1063,7 +946,7 @@
       "selectDetectionsZones": "Izberi območja za Zaznave",
       "limitDetections": "Omeji zaznave na določena območja",
       "toast": {
-        "success": "Konfiguracija klasifikacije pregledov je shranjena. Ponovno zaženi AMSS za uveljavitev sprememb."
+        "success": "Konfiguracija klasifikacije pregledov je shranjena. Ponovno zaženi Frigate za uveljavitev sprememb."
       }
     }
   },
@@ -1071,7 +954,7 @@
     "title": "Nastavljalnik zaznavanja gibanja",
     "unsavedChanges": "Neshranjene spremembe nastavitev gibanja ({{camera}})",
     "desc": {
-      "title": "AMSS uporablja zaznavanje gibanja kot prvi korak, da ugotovi, ali se v kadru dogaja kaj, kar bi bilo vredno preveriti z zaznavanjem objektov.",
+      "title": "Frigate uporablja zaznavanje gibanja kot prvi korak, da ugotovi, ali se v kadru dogaja kaj, kar bi bilo vredno preveriti z zaznavanjem objektov.",
       "documentation": "Preberi vodič za nastavljanje gibanja"
     },
     "Threshold": {
@@ -1094,7 +977,7 @@
     "title": "Uporabniki",
     "management": {
       "title": "Upravljanje uporabnikov",
-      "desc": "Upravljaj z uporabniškimi računi te namestitve AMSS."
+      "desc": "Upravljaj z uporabniškimi računi te namestitve Frigate."
     },
     "addUser": "Dodaj uporabnika",
     "updatePassword": "Ponastavi geslo",
@@ -1137,13 +1020,6 @@
             "title": "Potrdi geslo",
             "placeholder": "Ponovno vnesi geslo"
           },
-          "strength": {
-            "title": "Moč gesla: ",
-            "weak": "Šibko",
-            "medium": "Srednje",
-            "strong": "Močno",
-            "veryStrong": "Zelo močno"
-          },
           "requirements": {
             "title": "Zahteve za geslo:",
             "length": "Vsaj 12 znakov"
@@ -1167,7 +1043,7 @@
       },
       "createUser": {
         "title": "Ustvari novega uporabnika",
-        "desc": "Dodaj nov uporabniški račun in določi vlogo za dostop do delov vmesnika AMSS.",
+        "desc": "Dodaj nov uporabniški račun in določi vlogo za dostop do delov vmesnika Frigate.",
         "usernameOnlyInclude": "Uporabniško ime lahko vsebuje le črke, številke, . ali _",
         "confirmPassword": "Prosim, potrdi geslo"
       },
@@ -1207,11 +1083,10 @@
     "title": "Obvestila",
     "notificationSettings": {
       "title": "Nastavitve obvestil",
-      "desc": "AMSS lahko pošilja potisna obvestila (push) neposredno na tvojo napravo, ko teče v brskalniku ali je nameščen kot PWA."
+      "desc": "Frigate lahko pošilja potisna obvestila (push) neposredno na tvojo napravo, ko teče v brskalniku ali je nameščen kot PWA."
     },
     "notificationUnavailable": {
-      "title": "Obvestila niso na voljo",
-      "desc": "Spletna potisna obvestila zahtevajo varno povezavo (<code>https://…</code>). To je omejitev brskalnika. Za uporabo obvestil dostopaj do AMSS prek varne povezave."
+      "desc": "Spletna potisna obvestila zahtevajo varno povezavo (<code>https://…</code>). To je omejitev brskalnika. Za uporabo obvestil dostopaj do Frigate prek varne povezave."
     },
     "globalSettings": {
       "title": "Globalne nastavitve",
@@ -1248,7 +1123,7 @@
     "cancelSuspension": "Prekliči prekinitev",
     "toast": {
       "success": {
-        "registered": "Registracija na obvestila je bila uspešna. Preden se lahko pošljejo kakršna koli obvestila (vključno s testnim), je potreben ponovni zagon AMSS.",
+        "registered": "Registracija na obvestila je bila uspešna. Preden se lahko pošljejo kakršna koli obvestila (vključno s testnim), je potreben ponovni zagon Frigate.",
         "settingSaved": "Nastavitve obvestil so shranjene."
       },
       "error": {
@@ -1257,8 +1132,8 @@
     }
   },
   "frigatePlus": {
-    "title": "Nastavitve AMSS+",
-    "description": "AMSS+ je naročniška storitev, ki omogoča dostop do dodatnih funkcij, vključno z modeli za zaznavanje objektov po meri, ki so naučeni na tvojih lastnih podatkih. Tukaj lahko upravljaš s svojimi AMSS+ modeli.",
+    "title": "Nastavitve Frigate+",
+    "description": "Frigate+ je naročniška storitev, ki omogoča dostop do dodatnih funkcij, vključno z modeli za zaznavanje objektov po meri, ki so naučeni na tvojih lastnih podatkih. Tukaj lahko upravljaš s svojimi Frigate+ modeli.",
     "cardTitles": {
       "api": "API",
       "currentModel": "Trenutni model",
@@ -1266,20 +1141,19 @@
       "configuration": "Konfiguracija"
     },
     "apiKey": {
-      "title": "AMSS+ API ključ",
+      "title": "Frigate+ API ključ",
       "validated": "API ključ je zaznan in potrjen",
       "notValidated": "API ključ ni zaznan ali ni veljaven",
-      "desc": "API ključ omogoča integracijo s storitvijo AMSS+.",
-      "plusLink": "Preberi več o AMSS+"
+      "desc": "API ključ omogoča integracijo s storitvijo Frigate+.",
+      "plusLink": "Preberi več o Frigate+"
     },
     "snapshotConfig": {
       "title": "Konfiguracija slik (Snapshots)",
-      "desc": "Pošiljanje v AMSS+ zahteva, da sta v tvoji konfiguraciji omogočena tako <code>snapshots</code> kot <code>clean_copy</code>.",
-      "cleanCopyWarning": "Nekatere kamere imajo omogočene slike, vendar onemogočeno možnost 'clean copy'. Da bi lahko pošiljal slike v AMSS+, moraš v nastavitvah omogočiti <code>clean_copy</code>.",
+      "desc": "Pošiljanje v Frigate+ zahteva, da sta v tvoji konfiguraciji omogočena tako <code>snapshots</code> kot <code>clean_copy</code>.",
+      "cleanCopyWarning": "Nekatere kamere imajo omogočene slike, vendar onemogočeno možnost 'clean copy'. Da bi lahko pošiljal slike v Frigate+, moraš v nastavitvah omogočiti <code>clean_copy</code>.",
       "table": {
         "camera": "Kamera",
-        "snapshots": "Slike (Snapshots)",
-        "cleanCopySnapshots": "<code>clean_copy</code> slike"
+        "snapshots": "Slike (Snapshots)"
       }
     },
     "modelInfo": {
@@ -1297,29 +1171,20 @@
       "error": "Nalaganje informacij o modelu ni uspelo",
       "availableModels": "Razpoložljivi modeli",
       "loadingAvailableModels": "Nalaganje razpoložljivih modelov…",
-      "modelSelect": "Tukaj lahko izbereš svoje modele, ki so na voljo v AMSS+. Izbereš lahko le modele, ki so združljivi s tvojo trenutno konfiguracijo detektorja."
+      "modelSelect": "Tukaj lahko izbereš svoje modele, ki so na voljo v Frigate+. Izbereš lahko le modele, ki so združljivi s tvojo trenutno konfiguracijo detektorja."
     },
-    "unsavedChanges": "Neshranjene spremembe AMSS+ nastavitev",
-    "restart_required": "Potreben ponovni zagon (sprememba AMSS+ modela)",
+    "unsavedChanges": "Neshranjene spremembe Frigate+ nastavitev",
+    "restart_required": "Potreben ponovni zagon (sprememba Frigate+ modela)",
     "toast": {
-      "success": "Nastavitve AMSS+ so bile shranjene. Ponovno zaženi AMSS za uveljavitev sprememb.",
+      "success": "Nastavitve Frigate+ so bile shranjene. Ponovno zaženi Frigate za uveljavitev sprememb.",
       "error": "Napaka pri shranjevanju konfiguracije: {{errorMessage}}"
-    }
-  },
-  "detectionModel": {
-    "plusActive": {
-      "title": "Upravljanje modelov AMSS+",
-      "label": "Trenutni vir modela",
-      "description": "Ta instanca uporablja AMSS+ model. Model lahko izbereš ali spremeniš v nastavitvah AMSS+.",
-      "goToAMSSPlus": "Pojdi na nastavitve AMSS+",
-      "showModelForm": "Ročno nastavi model"
     }
   },
   "maintenance": {
     "title": "Vzdrževanje",
     "sync": {
       "title": "Sinhronizacija medijev",
-      "desc": "AMSS redno čisti medije glede na tvoje nastavitve hrambe. Občasno se lahko pojavijo osirotele datoteke. Uporabi to funkcijo za ročno odstranitev datotek, na katere baza podatkov ne referencira več.",
+      "desc": "Frigate redno čisti medije glede na tvoje nastavitve hrambe. Občasno se lahko pojavijo osirotele datoteke. Uporabi to funkcijo za ročno odstranitev datotek, na katere baza podatkov ne referencira več.",
       "started": "Sinhronizacija medijev se je začela.",
       "alreadyRunning": "Sinhronizacija že poteka.",
       "error": "Zagon sinhronizacije ni uspel",
@@ -1367,7 +1232,7 @@
       "desc": "Mreža regij je optimizacija, s katero se sistem nauči, kje se na posamezni kameri običajno pojavljajo objekti določenih velikosti. To omogoča učinkovitejše določanje regij zaznavanja. Mreža se sčasoma zgradi samodejno.",
       "clear": "Počisti mrežo regij",
       "clearConfirmTitle": "Počisti mrežo regij",
-      "clearConfirmDesc": "Čiščenje mreže regij ni priporočljivo, razen če si pred kratkim spremenil velikost modela detektorja ali fizično premaknil kamero in imaš težave s sledenjem. Mreža se bo samodejno zgradila nazaj. Za uveljavitev je potreben ponovni zagon AMSS.",
+      "clearConfirmDesc": "Čiščenje mreže regij ni priporočljivo, razen če si pred kratkim spremenil velikost modela detektorja ali fizično premaknil kamero in imaš težave s sledenjem. Mreža se bo samodejno zgradila nazaj. Za uveljavitev je potreben ponovni zagon Frigate.",
       "clearSuccess": "Mreža regij je bila uspešno očiščena",
       "clearError": "Čiščenje mreže regij ni uspelo",
       "restartRequired": "Za uveljavitev sprememb mreže regij je potreben ponovni zagon"
@@ -1448,15 +1313,6 @@
     "detect": {
       "title": "Nastavitve zaznavanja"
     },
-    "detectors": {
-      "title": "Nastavitve detektorjev",
-      "singleType": "Dovoljen je le en detektor tipa {{type}}.",
-      "keyRequired": "Ime detektorja je obvezno.",
-      "keyDuplicate": "Ime detektorja že obstaja.",
-      "noSchema": "Sheme detektorjev niso na voljo.",
-      "none": "Ni nastavljenih instanc detektorjev.",
-      "add": "Dodaj detektor"
-    },
     "record": {
       "title": "Nastavitve snemanja"
     },
@@ -1532,7 +1388,7 @@
   "toast": {
     "success": "Nastavitve so bile uspešno shranjene",
     "applied": "Nastavitve so bile uspešno uveljavljene",
-    "successRestartRequired": "Nastavitve so shranjene. Ponovno zaženi AMSS, da uveljaviš spremembe.",
+    "successRestartRequired": "Nastavitve so shranjene. Ponovno zaženi Frigate, da uveljaviš spremembe.",
     "error": "Shranjevanje nastavitev ni uspelo",
     "validationError": "Validacija ni uspela: {{message}}",
     "resetSuccess": "Ponastavljeno na globalne privzete vrednosti",

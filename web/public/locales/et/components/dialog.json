@@ -1,13 +1,13 @@
 {
   "restart": {
-    "title": "Kas oled kindel, et soovid AMSS'i uuesti käivitada?",
+    "title": "Kas oled kindel, et soovid Frigate'i uuesti käivitada?",
     "button": "Käivita uuesti",
     "restarting": {
-      "title": "AMSS käivitub uuesti",
+      "title": "Frigate käivitub uuesti",
       "content": "See leht laaditakse uuesti {{countdown}} sekundi pärast.",
       "button": "Laadi uuesti kohe"
     },
-    "description": "Järgnevaga AMSS uuesti käivitamise ajaks lõpetab korraks töö."
+    "description": "Järgnevaga Frigate uuesti käivitamise ajaks lõpetab korraks töö."
   },
   "search": {
     "saveSearch": {
@@ -36,14 +36,14 @@
           "ask_a": "Kas see objekt on <code>{{label}}</code>?",
           "ask_an": "Kas see objekt on <code>{{label}}</code>?",
           "ask_full": "Kas see objekt on <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Kinnita see silt AMSS+ teenuse jaoks"
+          "label": "Kinnita see silt Frigate+ teenuse jaoks"
         },
         "toast": {
-          "error": "AMSS+ teenusesse saatmine ebaõnnestus. Palun kontrolli oma võrguühendust ja proovi uuesti."
+          "error": "Frigate+ teenusesse saatmine ei õnnestunud. Palun kontrolli seadme võrguühenduse toimimist ja proovi uuesti."
         }
       },
       "submitToPlus": {
-        "label": "Saada teenusesse AMSS+",
+        "label": "Saada teenusesse Frigate+",
         "desc": "Objektid asukohtades, mida sa tahad vältida, pole valepositiivsed. Kui sa neid sellistena saadad teenusele, siis see ainult ajab tehisaru mudeli sassi."
       }
     }
@@ -75,16 +75,15 @@
       "error": {
         "failed": "Eksportimise järjekorda lisamine ei õnnestunud: {{error}}",
         "endTimeMustAfterStartTime": "Ajavahemiku lõpp peab olema peale algust",
-        "noVaildTimeSelected": "Ühtegi kehtivat ajavahemikku pole valitud",
         "noValidTimeSelected": "Ühtegi korrektset ajavahemikku pole valitud"
       },
       "queued": "Eksport on järjekorda lisatud. Vaata progressi eksportide lehelt.",
       "batchSuccess_one": "Alustasin 1 ekspordiga. Avan juhtumi kohe.",
       "batchSuccess_other": "Alustasin {{count}} ekspordiga. Avan juhtumi kohe.",
       "batchPartial": "Alustasin {{successful}}/{{total}} ekspordiga. Ebaõnnestunud kaamerad: {{failedCameras}}",
-      "batchFailed": "{{total}} eksporti ebaõnnestus algatada. Ebaõnnestunud kaamerad: {{failedCameras}}",
-      "batchQueuedSuccess_one": "1 eksport järjekorda lisatud. Avan juhtumi kohe.",
-      "batchQueuedSuccess_other": "{{count}} eksporti järjekorda lisatud. Avan juhtumi kohe.",
+      "batchFailed": "{{total}} ekspordi algatamine ei õnnestunud. Ebaõnnestunud kaamerad: {{failedCameras}}",
+      "batchQueuedSuccess_one": "1 eksportimine on lisatud järjekorda.",
+      "batchQueuedSuccess_other": "{{count}} eksportimist on lisatud järjekorda.",
       "batchQueuedPartial": "{{successful}}/{{total}} ekspordist on järjekorda lisatud. Ebaõnnestunud kaamerad: {{failedCameras}}",
       "batchQueueFailed": "{{total}} eksporti ebaõnnestus järjekorda lisada. Ebaõnnestunud kaamerad: {{failedCameras}}"
     },
@@ -100,7 +99,7 @@
       "newCaseOption": "Ava uus juhtum",
       "newCaseNamePlaceholder": "Uue juhtumi nimi",
       "newCaseDescriptionPlaceholder": "Juhtumi kirjeldus",
-      "nonAdminHelp": "Uus juhtum avatakse järnevatele eksportidele."
+      "nameRequired": "Juhtumi nimi on vajalik"
     },
     "queueing": "Ekspordi järjekorda lisamine...",
     "tabs": {
@@ -127,7 +126,9 @@
       "namePlaceholder": "Valikuline baasnimi nendele eksportidele",
       "queueingButton": "Ekspordi järjekorda lisamine...",
       "exportButton_one": "Ekspordi 1 kaamera",
-      "exportButton_other": "Ekspordi {{count}} kaamerat"
+      "exportButton_other": "Ekspordi {{count}} kaamerat",
+      "noCamerasSelected": "Vali vähemalt üks kaamera",
+      "caseNameDefault": "Eksport mitmest kaamerast - {{date}}"
     },
     "multi": {
       "title_one": "Ekspordi 1 ülevaade",
@@ -139,13 +140,20 @@
       "exportButton_other": "Ekspordi {{count}} ülevaadet",
       "exportingButton": "Ekspordin...",
       "toast": {
-        "started_one": "Alustasin 1 eksporti. Avan juhtumi kohe.",
-        "started_other": "Alustasin {{count}} ekspordiga. Avan juhtumi kohe.",
-        "startedNoCase_one": "Alustasin 1 ekspordiga.",
-        "startedNoCase_other": "Alustasin {{count}} ekspordiga.",
+        "started_one": "Alustasin ühte eksportimist.",
+        "started_other": "Alustasin {{count}} eksportimisega.",
         "partial": "Alustasin {{successful}}/{{total}} ekspordiga. Ebaõnnestusid: {{failedItems}}",
-        "failed": "{{total}} ekspordi algatamine ebaõnnestus. Ebaõnnestunud: {{failedItems}}"
+        "failed": "{{total}} ekspordi algatamine ei õnnestunud. Ebaõnnestunud: {{failedItems}}"
       }
+    },
+    "stream": {
+      "label": "Kvaliteet",
+      "auto": "Automaatne",
+      "main": "Algne",
+      "sub": "Madal",
+      "autoDesc": "Kasutab põhilist voogedastust ja lülitub madalama kvaliteediga alamvoogedastusele, kui põhiline pole kättesaadav.",
+      "subDesc": "Eksporditakse ainult madalama kvaliteediga alamvoogedastus. Ajavahemikud, mil see pole kättesaadav, jäävad välja.",
+      "mainDesc": "Eksporditakse ainult algse kvaliteediga põhiline voogedastus. Ajavahemikud, mil see pole kättesaadav, jäävad välja."
     }
   },
   "streaming": {
@@ -167,7 +175,8 @@
       "export": "Ekspordi",
       "markAsReviewed": "Märgi ülevaadatuks",
       "markAsUnreviewed": "Märgi mitteülevaadatuks",
-      "deleteNow": "Kustuta kohe"
+      "deleteNow": "Kustuta kohe",
+      "generateDescription": "Koosta kirjeldus"
     },
     "confirmDelete": {
       "title": "Kinnita kustutamine",
@@ -182,10 +191,16 @@
     "shareTimestamp": {
       "label": "Jaotise ajatempel",
       "title": "Jaotise ajatempel",
-      "description": "Jaga praeguse esituskoha ajatempliga URL-i või vali kohandatud ajatempel. Arvesta, et see ei ole avalik jagamislink ja on kättesaadav ainult kasutajatele, kellel on ligipääs AMSS'ile ja sellele kaamerale.",
+      "description": "Jaga praeguse esituskoha ajatempliga URL-i või vali kohandatud ajatempel. Arvesta, et see ei ole avalik jagamislink ja on kättesaadav ainult kasutajatele, kellel on ligipääs Frigate'ile ja sellele kaamerale.",
       "custom": "Kohandatud ajatempel",
       "button": "Jaga ajatempliga linki",
-      "shareTitle": "AMSS ülevaate ajatempel: {{camera}}"
+      "shareTitle": "Frigate ülevaate ajatempel: {{camera}}"
+    },
+    "genaiDescription": {
+      "toast": {
+        "error": "Kirjelduse pärimine ei õnnestunud: {{error}}",
+        "success": "Selle ülevaatamisele kuuluva objekti jaoks oled palunud „GenAI“ põhise kirjelduse koostamist."
+      }
     }
   },
   "imagePicker": {

@@ -1,18 +1,18 @@
 {
   "restart": {
-    "title": "Biztosan újra szeretnéd indítani a AMSS-et?",
+    "title": "Biztosan újra szeretnéd indítani a Frigate-et?",
     "button": "Újraindítás",
     "restarting": {
-      "title": "A AMSS újraindul",
+      "title": "A Frigate újraindul",
       "content": "Az oldal újratölt {{countdown}} másodperc múlva.",
       "button": "Erőltetett újraindítás azonnal"
     },
-    "description": "Ez rövid időre leállítja a AMSS programot, amíg újraindul."
+    "description": "Ez rövid időre leállítja a Frigate programot, amíg újraindul."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Küldés a AMSS+-nak",
+        "label": "Küldés a Frigate+-nak",
         "desc": "Objektumok, amelyek olyan helyeken vannak, ahol nem akarod, hogy felismerésre kerüljenek, nem számítanak téves egyezésnek. Ha téves egyezésként küldöd be őket, az összezavarja a modellt."
       },
       "review": {
@@ -21,7 +21,7 @@
         },
         "question": {
           "ask_a": "Ez a tárgy egy <code>{{label}}</code>?",
-          "label": "Erősítse meg ezt a cimkét a AMSS plus felé",
+          "label": "Erősítse meg ezt a cimkét a Frigate plus felé",
           "ask_an": "Ez a tárgy egy <code>{{label}}</code>?",
           "ask_full": "Ez a tárgy egy {{translatedLabel}} (<code>{{untranslatedLabel}}</code>)?"
         }
@@ -56,21 +56,25 @@
       "success": "Exportálás sikeresen megkezdődött. Tekintse meg a fájl-t a /exports mappában.",
       "error": {
         "failed": "Nem sikerült elkezdeni az exportálást: {{error}}",
-        "endTimeMustAfterStartTime": "A végső időpontnak a kezdeti időpont után kell következnie",
-        "noVaildTimeSelected": "Nincs érvényes idő intervallum kiválasztva"
+        "endTimeMustAfterStartTime": "A végső időpontnak a kezdeti időpont után kell következnie"
       },
       "view": "Megtekint"
     },
     "fromTimeline": {
       "saveExport": "Exportálás mentése",
       "previewExport": "Exportálás Előnézet"
+    },
+    "case": {
+      "newCaseOption": "Új eset létrehozása",
+      "newCaseNamePlaceholder": "Új eset neve",
+      "newCaseDescriptionPlaceholder": "Eset leírása",
+      "label": "Eset"
     }
   },
   "streaming": {
     "label": "Adás",
     "restreaming": {
       "desc": {
-        "readTheDocumentation": "Olvassa el a dokumentációt",
         "title": "Állítsa be a go2rtc-t további élő nézeti lehetőségek és hang támogatása érdekében ennél a kameránál."
       },
       "disabled": "Az újraadás nem engedélyezett ennél a kameránál."

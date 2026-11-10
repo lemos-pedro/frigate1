@@ -1,5 +1,5 @@
 {
-  "documentTitle": "AMSSn konfiguraatioeditori",
+  "documentTitle": "Frigaten konfiguraatioeditori",
   "confirm": "Poistu tallentamatta?",
   "saveOnly": "Vain tallennus",
   "toast": {
@@ -14,5 +14,5 @@
   "copyConfig": "Kopioi konfiguraatio",
   "saveAndRestart": "Tallenna & uudelleenkäynnistä",
   "safeConfigEditor": "Konfiguraatioeditori (vikasietotila)",
-  "safeModeDescription": "AMSS on vikasietotilassa konfiguraation vahvistusvirheen vuoksi."
+  "safeModeDescription": "Frigate on vikasietotilassa konfiguraation vahvistusvirheen vuoksi."
 }

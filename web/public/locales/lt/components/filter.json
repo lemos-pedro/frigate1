@@ -57,9 +57,9 @@
     "label": "Funkcijos",
     "hasSnapshot": "Turi Momentinę Nuotrauką",
     "hasVideoClip": "Turi vaizdo klipą",
-    "submittedToAMSSPlus": {
-      "label": "Pateikta į AMSS+",
-      "tips": "Pradžioje turite išfiltruoti sekamus objektus su momentinėmis nuotraukomis.<br /><br />Sekami Objektai be momentinių nuotraukų negali būti pateikti į AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Pateikta į Frigate+",
+      "tips": "Pradžioje turite išfiltruoti sekamus objektus su momentinėmis nuotraukomis.<br /><br />Sekami Objektai be momentinių nuotraukų negali būti pateikti į Frigate+."
     }
   },
   "sort": {

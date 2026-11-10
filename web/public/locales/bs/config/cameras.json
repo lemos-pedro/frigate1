@@ -5,7 +5,7 @@
         "description": "Zona omogućava da definirate specifičnu područje okvira da biste odredili je li objekt unutar određenog područja.",
         "friendly_name": {
             "label": "Ime zone",
-            "description": "Korisničko ime za zonu, prikazano u UI AMSS. Ako nije postavljeno, koristi se oblikovana verzija imena zone."
+            "description": "Korisničko ime za zonu, prikazano u UI Frigate. Ako nije postavljeno, koristi se oblikovana verzija imena zone."
         },
         "enabled": {
             "label": "Omogućeno",
@@ -80,7 +80,7 @@
     },
     "friendly_name": {
         "label": "Prijateljsko ime",
-        "description": "Prijateljsko ime kamere korišteno u korisničkom sučelju AMSS"
+        "description": "Prijateljsko ime kamere korišteno u korisničkom sučelju Frigate"
     },
     "enabled": {
         "label": "Omogućeno",
@@ -139,10 +139,6 @@
         "enabled": {
             "label": "Omogući Birdseye",
             "description": "Omogući ili onemogući funkciju prikaza Birdseye."
-        },
-        "mode": {
-            "label": "Način praćenja",
-            "description": "Način uključivanja kamera u Birdseye: 'objekti', 'kretanje' ili 'kontinuirano'."
         },
         "order": {
             "label": "Pozicija",
@@ -736,10 +732,6 @@
                 "label": "Zadano zadržavanje",
                 "description": "Zadani broj dana za zadržavanje snimki."
             },
-            "mode": {
-                "label": "Način zadržavanja",
-                "description": "Način zadržavanja: sve (sačuvati sve segmente), pokret (sačuvati segmente s pokretom), ili aktivni_objekti (sačuvati segmente s aktivnim objektima)."
-            },
             "objects": {
                 "label": "Zadržavanje objekata",
                 "description": "Prekriženja po objektu za dane zadržavanja snimki."
@@ -878,7 +870,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Kalibriraj na početku",
-                "description": "Mjeri brzine motora PTZ pri pokretanju kako bi poboljšao preciznost praćenja. AMSS će ažurirati konfiguraciju s težinama pokreta nakon kalibracije."
+                "description": "Mjeri brzine motora PTZ pri pokretanju kako bi poboljšao preciznost praćenja. Frigate će ažurirati konfiguraciju s težinama pokreta nakon kalibracije."
             },
             "zooming": {
                 "label": "Režim zumiranja",
@@ -915,7 +907,7 @@
         },
         "ignore_time_mismatch": {
             "label": "Zanemari razliku u vremenu",
-            "description": "Zanemari razlike u sinhronizaciji vremena između kamere i AMSS servera za komunikaciju ONVIF."
+            "description": "Zanemari razlike u sinhronizaciji vremena između kamere i Frigate servera za komunikaciju ONVIF."
         }
     },
     "type": {
@@ -931,7 +923,7 @@
         },
         "dashboard": {
             "label": "Prikaži u UI",
-            "description": "Prekidač je li ova kamera vidljiva svuda u UI AMSS. Onemogućavanje ovoga zahtijeva ručno uređivanje konfiguracije za ponovno prikazivanje ove kamere u UI."
+            "description": "Prekidač je li ova kamera vidljiva svuda u UI Frigate. Onemogućavanje ovoga zahtijeva ručno uređivanje konfiguracije za ponovno prikazivanje ove kamere u UI."
         }
     },
     "webui_url": {

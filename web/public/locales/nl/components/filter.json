@@ -1,6 +1,5 @@
 {
   "labels": {
-    "count": "{{count}} Labels",
     "all": {
       "short": "Labels",
       "title": "Alle labels"
@@ -27,9 +26,9 @@
     "hasVideoClip": "Heeft een videoclip",
     "label": "Functies",
     "hasSnapshot": "Heeft een snapshot",
-    "submittedToAMSSPlus": {
-      "label": "Ingediend bij AMSS+",
-      "tips": "Je moet eerst filteren op gevolgde objecten met een snapshot.<br /><br />Gevolgde objecten zonder snapshot kunnen niet worden verzonden naar AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Ingediend bij Frigate+",
+      "tips": "Je moet eerst filteren op gevolgde objecten met een snapshot.<br /><br />Gevolgde objecten zonder snapshot kunnen niet worden verzonden naar Frigate+."
     }
   },
   "review": {

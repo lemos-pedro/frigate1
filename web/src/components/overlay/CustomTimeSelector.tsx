@@ -9,7 +9,7 @@ import { TimezoneAwareCalendar } from "./ReviewActivityCalendar";
 import { FaArrowRight, FaCalendarAlt } from "react-icons/fa";
 import { isDesktop, isIOS } from "react-device-detect";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useTranslation } from "react-i18next";
 
 type CustomTimeSelectorProps = {
@@ -28,7 +28,7 @@ export function CustomTimeSelector({
   endLabel,
 }: CustomTimeSelectorProps) {
   const { t } = useTranslation(["common"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   // times
   const timezoneOffset = useMemo(
@@ -151,6 +151,11 @@ export function CustomTimeSelector({
               step={isIOS ? "60" : "1"}
               onChange={(e) => {
                 const clock = e.target.value;
+
+                if (!clock) {
+                  return;
+                }
+
                 const [hour, minute, second] = isIOS
                   ? [...clock.split(":"), "00"]
                   : clock.split(":");
@@ -217,6 +222,11 @@ export function CustomTimeSelector({
               step={isIOS ? "60" : "1"}
               onChange={(e) => {
                 const clock = e.target.value;
+
+                if (!clock) {
+                  return;
+                }
+
                 const [hour, minute, second] = isIOS
                   ? [...clock.split(":"), "00"]
                   : clock.split(":");

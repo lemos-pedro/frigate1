@@ -1,9 +1,9 @@
 {
   "time": {
     "untilForTime": "直到 {{time}}",
-    "untilForRestart": "直到 AMSS 重新啟動。",
+    "untilForRestart": "直到 Frigate 重新啟動。",
     "untilRestart": "直到重新啟動",
-    "ago": "{{timeAgo}} 前",
+    "ago": "{{timeAgo}}前",
     "last14": "過去 14 天",
     "last30": "過去 30 天",
     "thisWeek": "這週",
@@ -24,16 +24,16 @@
     "am": "上午",
     "yr": "{{time}} 年",
     "year_other": "{{time}} 年",
-    "mo": "{{time}} 月",
-    "month_other": "{{time}} 月",
-    "d": "{{time}} 日",
-    "day_other": "{{time}}天",
-    "h": "{{time}}時",
-    "hour_other": "{{time}}小時",
-    "m": "{{time}}分",
-    "minute_other": "{{time}}分鐘",
-    "s": "{{time}}秒",
-    "second_other": "{{time}}秒鐘",
+    "mo": "{{time}} 個月",
+    "month_other": "{{time}} 個月",
+    "d": "{{time}} 天",
+    "day_other": "{{time}} 天",
+    "h": "{{time}} 小時",
+    "hour_other": "{{time}} 小時",
+    "m": "{{time}} 分鐘",
+    "minute_other": "{{time}} 分鐘",
+    "s": "{{time}} 秒",
+    "second_other": "{{time}} 秒",
     "formattedTimestamp": {
       "12hour": "M 月 d 日 ah:mm:ss",
       "24hour": "M 月 d 日 HH:mm:ss"
@@ -56,7 +56,7 @@
     },
     "formattedTimestampMonthDayYear": {
       "12hour": "yy 年 MM 月 dd 日",
-      "24hour": "yy 年 MM 月 dd 日"
+      "24hour": "yyyy 年 MM 月 dd 日"
     },
     "formattedTimestampMonthDayYearHourMinute": {
       "12hour": "yyyy 年 M 月 d 日 ah:mm",
@@ -64,8 +64,8 @@
     },
     "formattedTimestampMonthDay": "M 月 d 日",
     "formattedTimestampFilename": {
-      "12hour": "yy年MM月dd日 h時mm分ss秒",
-      "24hour": "yy年MM月dd日 HH時mm分ss秒"
+      "12hour": "yy 年 MM 月 dd 日 h 時 mm 分 ss 秒",
+      "24hour": "yy 年 MM 月 dd 日 HH 時 mm 分 ss 秒"
     },
     "inProgress": "處理中",
     "invalidStartTime": "無效的起始時間",
@@ -101,7 +101,7 @@
   },
   "button": {
     "apply": "套用",
-    "reset": "重置",
+    "reset": "重設",
     "done": "完成",
     "enabled": "已啟用",
     "enable": "啟用",
@@ -138,7 +138,7 @@
     "continue": "繼續",
     "add": "新增",
     "applying": "應用中…",
-    "undo": "撤銷",
+    "undo": "復原",
     "copiedToClipboard": "已複製到剪貼簿",
     "modified": "已修改",
     "overridden": "已覆蓋",
@@ -146,7 +146,7 @@
     "resetToDefault": "重設為預設",
     "saveAll": "儲存全部",
     "savingAll": "儲存全部中…",
-    "undoAll": "撤銷全部",
+    "undoAll": "復原全部",
     "retry": "重試"
   },
   "menu": {
@@ -194,15 +194,16 @@
       },
       "ptBR": "Português brasileiro (巴西葡萄牙文)",
       "sr": "Српски (塞爾維亞文)",
-      "sl": "Slovenščina (斯洛文尼亞文)",
+      "sl": "Slovenščina (斯洛維尼亞文)",
       "lt": "Lietuvių (立陶宛文)",
       "bg": "Български (保加利亞文)",
       "gl": "Galego (加利西亞文)",
       "id": "Bahasa Indonesia (印尼文)",
       "ur": "اردو (烏爾都文)",
-      "hr": "Hrvatski（克羅地亞語）",
+      "hr": "Hrvatski（克羅埃西亞語）",
       "bs": "Bosanski (波士尼亞語)",
-      "zhHant": "繁體中文 (繁體中文)"
+      "zhHant": "繁體中文 (繁體中文)",
+      "be": "Беларуская (白俄羅斯語)"
     },
     "appearance": "外觀",
     "darkMode": {
@@ -226,9 +227,9 @@
     "help": "幫助",
     "documentation": {
       "title": "文件",
-      "label": "AMSS 文件"
+      "label": "Frigate 文件"
     },
-    "restart": "重新啟動 AMSS",
+    "restart": "重新啟動 Frigate",
     "live": {
       "title": "即時影像",
       "allCameras": "所有鏡頭",
@@ -245,7 +246,7 @@
     "user": {
       "title": "使用者",
       "account": "帳號",
-      "current": "當前使用者：{{user}}",
+      "current": "目前使用者：{{user}}",
       "anonymous": "匿名",
       "logout": "登出",
       "setPassword": "設定密碼"
@@ -259,10 +260,10 @@
   "toast": {
     "copyUrlToClipboard": "已複製連結至剪貼簿。",
     "save": {
-      "title": "保存",
+      "title": "儲存",
       "error": {
-        "title": "保存設定變更失敗：{{errorMessage}}",
-        "noMessage": "保存設定變更失敗"
+        "title": "儲存設定檔變更失敗：{{errorMessage}}",
+        "noMessage": "儲存設定檔變更失敗"
       },
       "success": "成功儲存設定檔。"
     }
@@ -271,7 +272,7 @@
     "title": "角色",
     "admin": "管理員",
     "viewer": "檢視者",
-    "desc": "管理員可以存取 AMSS UI 的全部功能。檢視者僅能查看鏡頭影像、審核物件及歷史紀錄。"
+    "desc": "管理員可以存取 Frigate UI 的全部功能。檢視者僅能查看鏡頭影像、審核物件及歷史紀錄。"
   },
   "pagination": {
     "label": "分頁",
@@ -286,12 +287,12 @@
     "more": "更多頁面"
   },
   "accessDenied": {
-    "documentTitle": "拒絕存取 - AMSS",
+    "documentTitle": "拒絕存取 - Frigate",
     "title": "拒絕存取",
     "desc": "你沒有瀏覽此頁面的權限。"
   },
   "notFound": {
-    "documentTitle": "找不到頁面 - AMSS",
+    "documentTitle": "找不到頁面 - Frigate",
     "title": "404",
     "desc": "找不到頁面"
   },
@@ -304,7 +305,7 @@
   },
   "field": {
     "optional": "可選的",
-    "internalID": "在AMSS 設定檔和資料庫使用的內部ID"
+    "internalID": "在 Frigate 設定檔和資料庫使用的內部 ID"
   },
   "information": {
     "pixels": "{{area}} 像素"
@@ -312,6 +313,6 @@
   "no_items": "沒有項目",
   "validation_errors": "驗證錯誤",
   "credentialField": {
-    "savedPlaceholder": "已儲存 — 留空以保留當前設定"
+    "savedPlaceholder": "已儲存 — 留空以保留目前設定"
   }
 }

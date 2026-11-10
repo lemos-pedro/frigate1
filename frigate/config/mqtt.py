@@ -1,45 +1,86 @@
-from pydantic import Field
+from typing import Self
 
-from ..base import FrigateBaseModel
+from pydantic import Field, ValidationInfo, model_validator
 
-__all__ = ["CameraMqttConfig"]
+from frigate.const import FREQUENCY_STATS_POINTS
+from frigate.util.env import EnvString
+
+from .base import FrigateBaseModel
+
+__all__ = ["MqttConfig"]
 
 
-class CameraMqttConfig(FrigateBaseModel):
+class MqttConfig(FrigateBaseModel):
     enabled: bool = Field(
         default=True,
-        title="Send image",
-        description="Enable publishing image snapshots for objects to MQTT topics for this camera.",
+        title="Enable MQTT",
+        description="Enable or disable MQTT integration for state, events, and snapshots.",
     )
-    timestamp: bool = Field(
-        default=True,
-        title="Add timestamp",
-        description="Overlay a timestamp on images published to MQTT.",
+    host: EnvString = Field(
+        default="",
+        title="MQTT host",
+        description="Hostname or IP address of the MQTT broker.",
     )
-    bounding_box: bool = Field(
-        default=True,
-        title="Add bounding box",
-        description="Draw bounding boxes on images published over MQTT.",
+    port: int = Field(
+        default=1883,
+        title="MQTT port",
+        description="Port of the MQTT broker (usually 1883 for plain MQTT).",
     )
-    crop: bool = Field(
-        default=True,
-        title="Crop image",
-        description="Crop images published to MQTT to the detected object's bounding box.",
+    topic_prefix: str = Field(
+        default="frigate",
+        title="Topic prefix",
+        description="MQTT topic prefix for all Frigate topics; must be unique if running multiple instances.",
     )
-    height: int = Field(
-        default=270,
-        title="Image height",
-        description="Height (pixels) to resize images published over MQTT.",
+    client_id: str = Field(
+        default="frigate",
+        title="Client ID",
+        description="Client identifier used when connecting to the MQTT broker; should be unique per instance.",
     )
-    required_zones: list[str] = Field(
-        default_factory=list,
-        title="Required zones",
-        description="Zones that an object must enter for an MQTT image to be published.",
+    stats_interval: int = Field(
+        default=60,
+        ge=FREQUENCY_STATS_POINTS,
+        title="Stats interval",
+        description="Interval in seconds for publishing system and camera stats to MQTT.",
     )
-    quality: int = Field(
-        default=70,
-        title="JPEG quality",
-        description="JPEG quality for images published to MQTT (0-100).",
-        ge=0,
-        le=100,
+    user: EnvString | None = Field(
+        default=None,
+        title="MQTT username",
+        description="Optional MQTT username; can be provided via environment variables or secrets.",
     )
+    password: EnvString | None = Field(
+        default=None,
+        title="MQTT password",
+        description="Optional MQTT password; can be provided via environment variables or secrets.",
+        validate_default=True,
+    )
+    tls_ca_certs: str | None = Field(
+        default=None,
+        title="TLS CA certs",
+        description="Path to CA certificate for TLS connections to the broker (for self-signed certs).",
+    )
+    tls_client_cert: str | None = Field(
+        default=None,
+        title="Client cert",
+        description="Client certificate path for TLS mutual authentication; do not set user/password when using client certs.",
+    )
+    tls_client_key: str | None = Field(
+        default=None,
+        title="Client key",
+        description="Private key path for the client certificate.",
+    )
+    tls_insecure: bool | None = Field(
+        default=None,
+        title="TLS insecure",
+        description="Allow insecure TLS connections by skipping hostname verification (not recommended).",
+    )
+    qos: int = Field(
+        default=0,
+        title="MQTT QoS",
+        description="Quality of Service level for MQTT publishes/subscriptions (0, 1, or 2).",
+    )
+
+    @model_validator(mode="after")
+    def user_requires_pass(self, info: ValidationInfo) -> Self:
+        if (self.user is None) != (self.password is None):
+            raise ValueError("Password must be provided with username.")
+        return self

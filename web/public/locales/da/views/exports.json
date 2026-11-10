@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Eksporter - AMSS",
+  "documentTitle": "Eksporter - Frigate",
   "search": "Søg",
   "deleteExport.desc": "Er du sikker på at du vil slette {{exportName}}?",
   "editExport": {
@@ -8,7 +8,6 @@
     "desc": "Indtast et nyt navn for denne eksport."
   },
   "noExports": "Ingen eksporter fundet",
-  "deleteExport": "Slet eksport",
   "tooltip": {
     "shareExport": "Del eksport",
     "downloadVideo": "Download video",

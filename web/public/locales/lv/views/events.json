@@ -11,7 +11,6 @@
     "detection": "Nav apskatāmu konstatējumu",
     "motion": "Nav atrasti kustības dati"
   },
-  "timeline": "Laika skala",
   "timeline.aria": "Izvēlieties laika skalu",
   "zoomIn": "Pietuvināt",
   "zoomOut": "Tālināt",
@@ -37,9 +36,9 @@
     "trackedPoint": "Izsekots punkts",
     "clickToSeek": "Noklikšķiniet, lai pārietu uz šo laiku"
   },
-  "documentTitle": "Pārskats - AMSS",
+  "documentTitle": "Pārskats - Frigate",
   "recordings": {
-    "documentTitle": "Ieraksti - AMSS"
+    "documentTitle": "Ieraksti - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Pēdējās 24 stundas"

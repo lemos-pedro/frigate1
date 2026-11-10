@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { LuFolderX } from "react-icons/lu";
-import { isMobileOnly, isSafari } from "react-device-detect";
+import { isMobileOnly } from "react-device-detect";
 import { LuPause, LuPlay } from "react-icons/lu";
 import {
   DropdownMenu,
@@ -21,7 +21,7 @@ import useKeyboardListener, {
   KeyModifiers,
 } from "@/hooks/use-keyboard-listener";
 import { VolumeSlider } from "../ui/slider";
-import AmssPlusIcon from "../icons/AmssPlusIcon";
+import FrigatePlusIcon from "../icons/FrigatePlusIcon";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -54,7 +54,7 @@ const CONTROLS_DEFAULT: VideoControls = {
   snapshot: false,
   fullscreen: false,
 };
-const PLAYBACK_RATE_DEFAULT = isSafari ? [0.5, 1, 2] : [0.5, 1, 2, 4, 8, 16];
+const PLAYBACK_RATE_DEFAULT = [0.5, 1, 2, 4, 8, 16];
 const MIN_ITEMS_WRAP = 6;
 
 type VideoControlsProps = {
@@ -147,8 +147,6 @@ export default function VideoControls({
     } else {
       return MdVolumeUp;
     }
-    // only update when specific fields change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [volume, muted]);
 
   const onKeyboardShortcut = useCallback(
@@ -282,7 +280,7 @@ export default function VideoControls({
         </DropdownMenu>
       )}
       {features.plusUpload && onUploadFrame && (
-        <AmssPlusUploadButton
+        <FrigatePlusUploadButton
           video={video}
           onClose={() => {
             if (setControlsOpen) {
@@ -330,7 +328,7 @@ export default function VideoControls({
   );
 }
 
-type AmssPlusUploadButtonProps = {
+type FrigatePlusUploadButtonProps = {
   video?: HTMLVideoElement | null;
   onOpen: () => void;
   onClose: () => void;
@@ -339,7 +337,7 @@ type AmssPlusUploadButtonProps = {
   containerRef?: React.MutableRefObject<HTMLDivElement | null>;
   fullscreen?: boolean;
 };
-function AmssPlusUploadButton({
+function FrigatePlusUploadButton({
   video,
   onOpen,
   onClose,
@@ -347,7 +345,7 @@ function AmssPlusUploadButton({
   getSnapshotUrl,
   containerRef,
   fullscreen,
-}: AmssPlusUploadButtonProps) {
+}: FrigatePlusUploadButtonProps) {
   const { t } = useTranslation(["components/player"]);
 
   const [previewUrl, setPreviewUrl] = useState<string>();
@@ -362,7 +360,7 @@ function AmssPlusUploadButton({
       }}
     >
       <AlertDialogTrigger asChild>
-        <AmssPlusIcon
+        <FrigatePlusIcon
           className="size-5 cursor-pointer"
           onClick={() => {
             onOpen();
@@ -399,12 +397,12 @@ function AmssPlusUploadButton({
         className="md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
       >
         <AlertDialogHeader>
-          <AlertDialogTitle>{t("submitAmssPlus.title")}</AlertDialogTitle>
+          <AlertDialogTitle>{t("submitFrigatePlus.title")}</AlertDialogTitle>
         </AlertDialogHeader>
         {previewError ? (
           <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 text-center text-muted-foreground">
             <LuFolderX className="size-12" />
-            <span>{t("submitAmssPlus.previewError")}</span>
+            <span>{t("submitFrigatePlus.previewError")}</span>
           </div>
         ) : (
           <img
@@ -422,7 +420,7 @@ function AmssPlusUploadButton({
             onClick={onUploadFrame}
             disabled={previewError}
           >
-            {t("submitAmssPlus.submit")}
+            {t("submitFrigatePlus.submit")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

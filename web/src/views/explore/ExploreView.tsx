@@ -19,7 +19,7 @@ import { useTrackedObjectUpdate } from "@/api/ws";
 import TimeAgo from "@/components/dynamic/TimeAgo";
 import SearchResultActions from "@/components/menu/SearchResultActions";
 import { SearchTab } from "@/components/overlay/detail/SearchDetailDialog";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useTranslation } from "react-i18next";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { LuSearchX } from "react-icons/lu";
@@ -215,7 +215,7 @@ function ExploreThumbnailImage({
   onSelectSearch,
 }: ExploreThumbnailImageProps) {
   const apiHost = useApiHost();
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [imgRef, imgLoaded, onImgLoad] = useImageLoaded();
   const navigate = useNavigate();
 

@@ -24,7 +24,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTranslation } from "react-i18next";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { CameraNameLabel } from "../camera/FriendlyNameLabel";
 import { isReplayCamera } from "@/utils/cameraUtil";
 import { isDesktop, isMobile } from "react-device-detect";
@@ -39,7 +39,7 @@ import {
 
 type CreateRoleOverlayProps = {
   show: boolean;
-  config: AmssConfig;
+  config: FrigateConfig;
   onCreate: (role: string, cameras: string[]) => void;
   onCancel: () => void;
 };
@@ -92,7 +92,7 @@ export default function CreateRoleDialog({
     try {
       await onCreate(values.role, values.cameras);
       form.reset();
-    } catch (error) {
+    } catch {
       // Error handled in parent
     } finally {
       setIsLoading(false);

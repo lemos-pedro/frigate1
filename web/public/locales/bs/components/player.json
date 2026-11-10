@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nisu pronađeni snimci za ovo vrijeme",
   "noPreviewFound": "Nije pronađen pregled",
   "noPreviewFoundFor": "Nije pronađen pregled za {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Pošalji ovaj okvir AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Pošalji ovaj okvir Frigate+?",
     "submit": "Pošalji",
     "previewError": "Nije moguće učitati prikaz snimke. Snimka možda trenutno nije dostupna."
   },
@@ -12,7 +12,6 @@
     "title": "Prijenos je offline",
     "desc": "Nisu primljeni okviri na {{cameraName}} <code>detect</code> prijenos, provjerite zapise o greškama"
   },
-  "cameraDisabled": "Kamera je onemogućena",
   "stats": {
     "streamType": {
       "title": "Tip prijenosa:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "Širina pojasa:",
       "short": "Širina pojasa"
-    },
-    "latency": {
-      "title": "Kasnjenje:",
-      "value": "{{seconds}} sekundi",
-      "short": {
-        "title": "Kasnjenje",
-        "value": "{{seconds}} sek"
-      }
     },
     "totalFrames": "Ukupno okvira:",
     "droppedFrames": {
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Uspješno je poslano okvir AMSS+"
+      "submittedFrigatePlus": "Uspješno je poslano okvir Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Neuspješno slanje okvira AMSS+"
+      "submitFrigatePlusFailed": "Neuspješno slanje okvira Frigate+"
     }
   }
 }

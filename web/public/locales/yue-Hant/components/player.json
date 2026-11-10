@@ -1,27 +1,18 @@
 {
   "noRecordingsFoundForThisTime": "此時間段內沒有錄影",
   "noPreviewFound": "找不到預覽",
-  "submitAMSSPlus": {
+  "submitFrigatePlus": {
     "submit": "提交",
-    "title": "提交此畫面至 AMSS+？"
+    "title": "提交此畫面至 Frigate+？"
   },
   "streamOffline": {
     "desc": "{{cameraName}} 的 <code>detect</code> 串流未接收到任何畫面，請檢查錯誤日誌",
     "title": "串流已離線"
   },
-  "cameraDisabled": "鏡頭已停用",
   "stats": {
     "bandwidth": {
       "short": "頻寬",
       "title": "頻寬："
-    },
-    "latency": {
-      "value": "{{seconds}} 秒",
-      "short": {
-        "value": "{{seconds}} 秒",
-        "title": "延遲"
-      },
-      "title": "延遲："
     },
     "totalFrames": "總畫面數：",
     "droppedFrames": {
@@ -40,10 +31,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "成功提交畫面至 AMSS+"
+      "submittedFrigatePlus": "成功提交畫面至 Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "提交畫面至 AMSS+ 失敗"
+      "submitFrigatePlusFailed": "提交畫面至 Frigate+ 失敗"
     }
   },
   "noPreviewFoundFor": "找不到 {{cameraName}} 的預覽",

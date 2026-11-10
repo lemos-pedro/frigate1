@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "カメラ統計情報 - AMSS",
-    "general": "一般統計 - AMSS",
-    "storage": "ストレージ統計 - AMSS",
-    "enrichments": "高度解析統計 - AMSS",
+    "cameras": "カメラ統計情報 - Frigate",
+    "general": "一般統計 - Frigate",
+    "storage": "ストレージ統計 - Frigate",
+    "enrichments": "高度解析統計 - Frigate",
     "logs": {
-      "frigate": "AMSS ログ - AMSS",
-      "go2rtc": "Go2RTC ログ - AMSS",
-      "nginx": "Nginx ログ - AMSS",
-      "websocket": "メッセージログ - AMSS"
+      "frigate": "Frigate ログ - Frigate",
+      "go2rtc": "Go2RTC ログ - Frigate",
+      "nginx": "Nginx ログ - Frigate",
+      "websocket": "メッセージログ - Frigate"
     }
   },
   "title": "システム",
@@ -105,11 +105,6 @@
       },
       "npuUsage": "NPU 使用率",
       "npuMemory": "NPU メモリ",
-      "intelGpuWarning": {
-        "title": "Intel GPU 統計情報の警告",
-        "message": "GPU の統計情報を取得できません",
-        "description": "これは Intel の GPU 統計取得ツール（intel_gpu_top）における既知の不具合です。ハードウェアアクセラレーションやオブジェクト検知が (i)GPU 上で正しく動作している場合でも、GPU 使用率が 0% と繰り返し表示されることがあります。これは AMSS の不具合ではありません。ホストを再起動することで一時的に解消し、GPU が正常に動作していることを確認できます。本問題はパフォーマンスには影響しません。"
-      },
       "gpuCompute": "GPU 演算 / エンコード",
       "gpuTemperature": "GPU 温度",
       "npuTemperature": "NPU 温度"
@@ -132,7 +127,7 @@
     "overview": "概要",
     "recordings": {
       "title": "録画",
-      "tips": "この値は AMSS のデータベースで録画が使用している総ストレージ量を表します。AMSS はディスク上のすべてのファイルの使用量を追跡しているわけではありません。",
+      "tips": "この値は Frigate のデータベースで録画が使用している総ストレージ量を表します。Frigate はディスク上のすべてのファイルの使用量を追跡しているわけではありません。",
       "earliestRecording": "利用可能な最古の録画:"
     },
     "shm": {
@@ -152,7 +147,7 @@
       "bandwidth": "帯域幅",
       "unused": {
         "title": "未使用",
-        "tips": "AMSS の録画以外にドライブへ保存しているファイルがある場合、この値は AMSS が利用できる空き容量を正確に表さないことがあります。AMSS は録画以外のストレージ使用量を追跡しません。"
+        "tips": "Frigate の録画以外にドライブへ保存しているファイルがある場合、この値は Frigate が利用できる空き容量を正確に表さないことがあります。Frigate は録画以外のストレージ使用量を追跡しません。"
       }
     }
   },
@@ -185,8 +180,6 @@
         "gap": "キーフレームの間隔（最小／平均／最大）：",
         "segmentLength": "録画セグメントの長さ：",
         "ok": "キーフレーム間隔は約 {{seconds}} 秒で、録画および再生に適しています。",
-        "warning": "キーフレームがまばら、または変動的（最長間隔 ~{{seconds}}秒）で、スマートコーデック（H.264+/H.265+）である可能性が高いです。これは推奨されません。",
-        "error": "キーフレーム間隔（約{{seconds}}秒）が録画セグメントの長さ（{{segmentTime}}秒）を超えています。一部のセグメントにキーフレームが含まれない場合があり、再生に支障をきたす可能性があります。カメラでスマート/+コーデックを無効にするか、キーフレーム間隔を短縮してください。",
         "unknown": "キーフレーム間隔を特定できませんでした。",
         "recordDisabled": "このカメラでは録画が無効になっています。"
       }
@@ -234,14 +227,11 @@
   },
   "lastRefreshed": "最終更新: ",
   "stats": {
-    "ffmpegHighCpuUsage": "{{camera}} の FFmpeg の CPU 使用率が高い（{{ffmpegAvg}}%）",
-    "detectHighCpuUsage": "{{camera}} の検知の CPU 使用率が高い（{{detectAvg}}%）",
     "healthy": "システムは正常です",
     "reindexingEmbeddings": "埋め込みを再インデックス中（{{processed}}% 完了）",
     "cameraIsOffline": "{{camera}} はオフラインです",
     "detectIsSlow": "{{detect}} が遅い（{{speed}} ms）",
     "detectIsVerySlow": "{{detect}} が非常に遅い（{{speed}} ms）",
-    "shmTooLow": "/dev/shm の割り当て（{{total}} MB）は少なくとも {{min}} MB に増やす必要があります。",
     "debugReplayActive": "デバッグリプレイセッションが実行中です"
   },
   "enrichments": {

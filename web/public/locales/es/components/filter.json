@@ -5,7 +5,6 @@
       "short": "Etiquetas",
       "title": "Todas las etiquetas"
     },
-    "count": "{{count}} Etiquetas",
     "label": "Etiquetas",
     "count_one": "{{count}} Etiqueta",
     "count_other": "{{count}} Etiquetas"
@@ -33,9 +32,9 @@
   "estimatedSpeed": "Velocidad estimada ({{unit}})",
   "features": {
     "label": "Características",
-    "submittedToAMSSPlus": {
-      "label": "Enviado a AMSS+",
-      "tips": "Primero debes filtrar por objetos rastreados que tengan una captura de pantalla.<br /><br />Los objetos rastreados sin una captura de pantalla no pueden enviarse a AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Enviado a Frigate+",
+      "tips": "Primero debes filtrar por objetos rastreados que tengan una captura de pantalla.<br /><br />Los objetos rastreados sin una captura de pantalla no pueden enviarse a Frigate+."
     },
     "hasSnapshot": "Tiene una captura instantánea",
     "hasVideoClip": "Tiene un clip de vídeo"

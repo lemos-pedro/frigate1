@@ -1,6 +1,6 @@
 {
   "generativeAI": "生成AI",
-  "documentTitle": "探索 - AMSS",
+  "documentTitle": "探索 - Frigate",
   "details": {
     "timestamp": "タイムスタンプ",
     "item": {
@@ -19,7 +19,7 @@
           "regenerate": "{{provider}} に新しい説明をリクエストしました。プロバイダの速度により再生成に時間がかかる場合があります。",
           "updatedSublabel": "サブラベルを更新しました。",
           "updatedLPR": "ナンバープレートを更新しました。",
-          "audioTranscription": "音声文字起こしのリクエストは正常に送信されました。AMSS サーバーの処理速度によっては、文字起こしの完了までにしばらく時間がかかる場合があります。",
+          "audioTranscription": "音声文字起こしのリクエストは正常に送信されました。Frigate サーバーの処理速度によっては、文字起こしの完了までにしばらく時間がかかる場合があります。",
           "updatedAttributes": "属性が正常に更新されました。"
         },
         "error": {
@@ -101,7 +101,7 @@
       }
     },
     "downloadingModels": {
-      "context": "AMSS はセマンティック検索(意味理解型画像検索)をサポートするために必要な埋め込みモデルをダウンロードしています。ネットワーク速度により数分かかる場合があります。",
+      "context": "Frigate はセマンティック検索(意味理解型画像検索)をサポートするために必要な埋め込みモデルをダウンロードしています。ネットワーク速度により数分かかる場合があります。",
       "setup": {
         "visionModel": "ビジョンモデル",
         "visionModelFeatureExtractor": "ビジョンモデル特徴抽出器",
@@ -111,7 +111,7 @@
       "tips": {
         "context": "モデルのダウンロード後、追跡オブジェクトの埋め込みを再インデックスすることを検討してください。"
       },
-      "error": "エラーが発生しました。AMSS のログを確認してください。"
+      "error": "エラーが発生しました。Frigate のログを確認してください。"
     }
   },
   "trackedObjectDetails": "追跡オブジェクトの詳細",
@@ -119,57 +119,11 @@
     "details": "詳細",
     "snapshot": "スナップショット",
     "video": "動画",
-    "object_lifecycle": "オブジェクトのライフサイクル",
     "thumbnail": "サムネイル",
     "tracking_details": "追跡詳細"
   },
   "objectLifecycle": {
-    "title": "オブジェクトのライフサイクル",
-    "noImageFound": "このタイムスタンプの画像は見つかりません。",
-    "createObjectMask": "オブジェクトマスクを作成",
-    "adjustAnnotationSettings": "アノテーション設定を調整",
-    "scrollViewTips": "スクロールしてこのオブジェクトのライフサイクルの重要な瞬間を表示します。",
-    "autoTrackingTips": "オートトラッキングカメラではバウンディングボックスの位置が正確でない場合があります。",
-    "count": "{{first}} / {{second}}",
-    "trackedPoint": "追跡ポイント",
-    "lifecycleItemDesc": {
-      "visible": "{{label}} を検出",
-      "entered_zone": "{{label}} が {{zones}} に進入",
-      "active": "{{label}} がアクティブになりました",
-      "stationary": "{{label}} が静止しました",
-      "attribute": {
-        "faceOrLicense_plate": "{{label}} の {{attribute}} を検出",
-        "other": "{{label}} を {{attribute}} として認識"
-      },
-      "gone": "{{label}} が離脱",
-      "heard": "{{label}} を検知（音声）",
-      "external": "{{label}} を検出",
-      "header": {
-        "zones": "ゾーン",
-        "ratio": "比率",
-        "area": "面積"
-      }
-    },
-    "annotationSettings": {
-      "title": "アノテーション設定",
-      "showAllZones": {
-        "title": "すべてのゾーンを表示",
-        "desc": "オブジェクトがゾーンに入ったフレームでは常にゾーンを表示します。"
-      },
-      "offset": {
-        "label": "アノテーションオフセット",
-        "desc": "このデータはカメラの detect フィードから来ていますが、record フィードの画像に重ねて表示されます。2つのストリームが完全に同期していない可能性があるため、バウンディングボックスと映像が完全には一致しないことがあります。<code>annotation_offset</code> フィールドで調整できます。",
-        "millisecondsToOffset": "detect のアノテーションをオフセットするミリ秒数。<em>既定: 0</em>",
-        "tips": "ヒント: 左から右へ歩く人物のイベントクリップを想像してください。タイムラインのバウンディングボックスが人物より常に左側にあるなら値を小さく、常に先行しているなら値を大きくします。",
-        "toast": {
-          "success": "{{camera}} のアノテーションオフセットを設定ファイルに保存しました。変更を適用するには AMSS を再起動してください。"
-        }
-      }
-    },
-    "carousel": {
-      "previous": "前のスライド",
-      "next": "次のスライド"
-    }
+    "noImageFound": "このタイムスタンプの画像は見つかりません。"
   },
   "itemMenu": {
     "downloadVideo": {
@@ -179,10 +133,6 @@
     "downloadSnapshot": {
       "label": "スナップショットをダウンロード",
       "aria": "スナップショットをダウンロード"
-    },
-    "viewObjectLifecycle": {
-      "label": "オブジェクトのライフサイクルを表示",
-      "aria": "オブジェクトのライフサイクルを表示"
     },
     "findSimilar": {
       "label": "類似を検索",
@@ -197,8 +147,8 @@
       "aria": "音声文字起こしをリクエスト"
     },
     "submitToPlus": {
-      "label": "AMSS+ に送信",
-      "aria": "AMSS Plus に送信"
+      "label": "Frigate+ に送信",
+      "aria": "Frigate Plus に送信"
     },
     "viewInHistory": {
       "label": "履歴で表示",

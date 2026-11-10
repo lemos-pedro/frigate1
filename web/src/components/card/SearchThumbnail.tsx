@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { useApiHost } from "@/api";
 import { getIconForLabel } from "@/utils/iconUtil";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { isIOS, isSafari } from "react-device-detect";
 import Chip from "@/components/indicators/Chip";
 import useImageLoaded from "@/hooks/use-image-loaded";
@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { TooltipPortal } from "@radix-ui/react-tooltip";
 import useContextMenu from "@/hooks/use-contextmenu";
 import { getTranslatedLabel } from "@/utils/i18n";
+import { isAttributeOfLabel } from "@/utils/modelUtil";
 
 type SearchThumbnailProps = {
   searchResult: SearchResult;
@@ -24,7 +25,7 @@ export default function SearchThumbnail({
   onClick,
 }: SearchThumbnailProps) {
   const apiHost = useApiHost();
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [imgRef, imgLoaded, onImgLoad] = useImageLoaded();
 
   // interactions
@@ -58,9 +59,7 @@ export default function SearchThumbnail({
     }
 
     if (
-      config.model.attributes_map[searchResult.label]?.includes(
-        searchResult.sub_label,
-      )
+      isAttributeOfLabel(config, searchResult.label, searchResult.sub_label)
     ) {
       return searchResult.sub_label;
     }
@@ -82,9 +81,7 @@ export default function SearchThumbnail({
     }
 
     if (
-      config.model.attributes_map[searchResult.label]?.includes(
-        searchResult.sub_label,
-      )
+      isAttributeOfLabel(config, searchResult.label, searchResult.sub_label)
     ) {
       return "";
     }

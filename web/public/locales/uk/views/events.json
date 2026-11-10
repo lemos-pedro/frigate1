@@ -18,16 +18,15 @@
       "description": "Елементи рецензування можна створювати для камери, лише якщо для цієї камери ввімкнено запис."
     }
   },
-  "timeline": "Хронологія",
   "timeline.aria": "Вибрати хронiку",
   "events": {
     "label": "Події",
     "aria": "Выбрати події",
     "noFoundForTimePeriod": "За цей період подій не знайдено."
   },
-  "documentTitle": "Перегляд подiя - AMSS",
+  "documentTitle": "Перегляд подiя - Frigate",
   "recordings": {
-    "documentTitle": "Записи - AMSS"
+    "documentTitle": "Записи - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Останні 24 години"
@@ -39,8 +38,6 @@
     "button": "Нові матеріали для перегляду"
   },
   "detected": "виявлено",
-  "suspiciousActivity": "Підозріла активність",
-  "threateningActivity": "Загрозлива діяльність",
   "detail": {
     "noDataFound": "Немає детальних даних для перегляду",
     "aria": "Перемикання детального перегляду",

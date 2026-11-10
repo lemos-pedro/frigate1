@@ -5,11 +5,11 @@
   },
   "safe_mode": {
     "label": "Safe mode",
-    "description": "When enabled, start AMSS in safe mode with reduced features for troubleshooting."
+    "description": "When enabled, start Frigate in safe mode with reduced features for troubleshooting."
   },
   "environment_vars": {
     "label": "Environment variables",
-    "description": "Key/value pairs of environment variables to set for the AMSS process in Home Assistant OS. Non-HAOS users must use Docker environment variable configuration instead."
+    "description": "Key/value pairs of environment variables to set for the Frigate process in Home Assistant OS. Non-HAOS users must use Docker environment variable configuration instead."
   },
   "logger": {
     "label": "Logging",
@@ -28,7 +28,7 @@
     "description": "Authentication and session-related settings including cookie and rate limit options.",
     "enabled": {
       "label": "Enable authentication",
-      "description": "Enable native authentication for the AMSS UI."
+      "description": "Enable native authentication for the Frigate UI."
     },
     "reset_admin_password": {
       "label": "Reset admin password",
@@ -40,7 +40,7 @@
     },
     "cookie_secure": {
       "label": "Secure cookie flag",
-      "description": "Set the secure flag on the auth cookie; should be true when using TLS."
+      "description": "Always set the secure flag on the auth cookie. Frigate sets it automatically when serving TLS; enable this when a reverse proxy terminates TLS in front of Frigate. A proxy that connects to the TLS port must serve Frigate to browsers over HTTPS."
     },
     "session_length": {
       "label": "Session length",
@@ -73,10 +73,10 @@
   },
   "database": {
     "label": "Database",
-    "description": "Settings for the SQLite database used by AMSS to store tracked object and recording metadata.",
+    "description": "Settings for the SQLite database used by Frigate to store tracked object and recording metadata.",
     "path": {
       "label": "Database path",
-      "description": "Filesystem path where the AMSS SQLite database file will be stored."
+      "description": "Filesystem path where the Frigate SQLite database file will be stored."
     }
   },
   "go2rtc": {
@@ -100,7 +100,7 @@
     },
     "topic_prefix": {
       "label": "Topic prefix",
-      "description": "MQTT topic prefix for all AMSS topics; must be unique if running multiple instances."
+      "description": "MQTT topic prefix for all Frigate topics; must be unique if running multiple instances."
     },
     "client_id": {
       "label": "Client ID",
@@ -154,6 +154,10 @@
       "label": "Cooldown period",
       "description": "Cooldown (seconds) between notifications to avoid spamming recipients."
     },
+    "ttl": {
+      "label": "Notification TTL",
+      "description": "How the push service handles a notification sent while an alert is active if your device can't be reached. Immediate delivers it right away or drops it. Reliable keeps retrying for up to 30 seconds. The notification sent when an alert ends is always kept for up to an hour."
+    },
     "enabled_in_config": {
       "label": "Original notifications state",
       "description": "Indicates whether notifications were enabled in the original static configuration."
@@ -161,13 +165,13 @@
   },
   "networking": {
     "label": "Networking",
-    "description": "Network-related settings such as IPv6 enablement for AMSS endpoints.",
+    "description": "Network-related settings such as IPv6 enablement for Frigate endpoints.",
     "ipv6": {
       "label": "IPv6 configuration",
-      "description": "IPv6-specific settings for AMSS network services.",
+      "description": "IPv6-specific settings for Frigate network services.",
       "enabled": {
         "label": "Enable IPv6",
-        "description": "Enable IPv6 support for AMSS services (API and UI) where applicable."
+        "description": "Enable IPv6 support for Frigate services (API and UI) where applicable."
       }
     },
     "listen": {
@@ -175,20 +179,20 @@
       "description": "Configuration for internal and external listening ports. This is for advanced users. For the majority of use cases it's recommended to change the ports section of your Docker compose file.",
       "internal": {
         "label": "Internal port",
-        "description": "Internal listening port for AMSS (default 5000)."
+        "description": "Internal listening port for Frigate (default 5000)."
       },
       "external": {
         "label": "External port",
-        "description": "External listening port for AMSS (default 8971)."
+        "description": "External listening port for Frigate (default 8971)."
       }
     }
   },
   "proxy": {
     "label": "Proxy",
-    "description": "Settings for integrating AMSS behind a reverse proxy that passes authenticated user headers.",
+    "description": "Settings for integrating Frigate behind a reverse proxy that passes authenticated user headers.",
     "header_map": {
       "label": "Header mapping",
-      "description": "Map incoming proxy headers to AMSS user and role fields for proxy-based auth.",
+      "description": "Map incoming proxy headers to Frigate user and role fields for proxy-based auth.",
       "user": {
         "label": "User header",
         "description": "Header containing the authenticated username provided by the upstream proxy."
@@ -199,7 +203,7 @@
       },
       "role_map": {
         "label": "Role mapping",
-        "description": "Map upstream group values to AMSS roles (for example map admin groups to the admin role)."
+        "description": "Map upstream group values to Frigate roles (for example map admin groups to the admin role)."
       }
     },
     "logout_url": {
@@ -212,7 +216,7 @@
     },
     "default_role": {
       "label": "Default role",
-      "description": "Default role assigned to proxy-authenticated users when no role mapping applies."
+      "description": "Default role assigned to proxy-authenticated users when no role mapping applies. Set to 'none' to deny access to unmapped users."
     },
     "separator": {
       "label": "Separator character",
@@ -222,6 +226,10 @@
   "telemetry": {
     "label": "Telemetry",
     "description": "System telemetry and stats options including GPU and network bandwidth monitoring.",
+    "analytics": {
+      "label": "Share anonymous analytics",
+      "description": "Send one anonymous usage report a day to help the Frigate maintainers decide what to support. Nothing is sent until this is on."
+    },
     "network_interfaces": {
       "label": "Network interfaces",
       "description": "List of network interface name prefixes to monitor for bandwidth statistics."
@@ -248,15 +256,15 @@
     },
     "version_check": {
       "label": "Version check",
-      "description": "Enable an outbound check to detect if a newer AMSS version is available."
+      "description": "Enable an outbound check to detect if a newer Frigate version is available."
     }
   },
   "tls": {
     "label": "TLS",
-    "description": "TLS settings for AMSS's web endpoints (port 8971).",
+    "description": "TLS settings for Frigate's web endpoints (port 8971).",
     "enabled": {
       "label": "Enable TLS",
-      "description": "Enable TLS for AMSS's web UI and API on the configured TLS port."
+      "description": "Enable TLS for Frigate's web UI and API on the configured TLS port."
     }
   },
   "ui": {
@@ -275,175 +283,20 @@
       "description": "Unit system for display (metric or imperial) used in the UI and MQTT."
     }
   },
-  "detectors": {
-    "label": "Detector hardware",
-    "description": "Configuration for object detectors (CPU, GPU, ONNX backends) and any detector-specific model settings.",
-    "type": {
-      "label": "Type"
+  "models": {
+    "label": "Detection models",
+    "description": "Object detection models and the hardware each one runs on. Cameras pick a model by matching their detect.scene against a model's scene, falling back to the 'default' model.",
+    "scene": {
+      "label": "Model scene",
+      "description": "A name for the camera environment this model is used for, such as 'thermal'. Cameras select a model by setting detect.scene to a matching value, and the 'default' model is used by any camera that does not set one."
     },
-    "model": {
-      "label": "Detector specific model configuration",
-      "description": "Detector-specific model configuration options (path, input size, etc.).",
-      "path": {
-        "label": "Custom object detector model path",
-        "description": "Path to a custom detection model file (or plus://<model_id> for AMSS+ models)."
-      },
-      "labelmap_path": {
-        "label": "Label map for custom object detector",
-        "description": "Path to a labelmap file that maps numeric classes to string labels for the detector."
-      },
-      "width": {
-        "label": "Object detection model input width",
-        "description": "Width of the model input tensor in pixels."
-      },
-      "height": {
-        "label": "Object detection model input height",
-        "description": "Height of the model input tensor in pixels."
-      },
-      "labelmap": {
-        "label": "Labelmap customization",
-        "description": "Overrides or remapping entries to merge into the standard labelmap."
-      },
-      "attributes_map": {
-        "label": "Map of object labels to their attribute labels",
-        "description": "Mapping from object labels to attribute labels used to attach metadata (for example 'car' -> ['license_plate'])."
-      },
-      "input_tensor": {
-        "label": "Model Input Tensor Shape",
-        "description": "Tensor format expected by the model: 'nhwc' or 'nchw'."
-      },
-      "input_pixel_format": {
-        "label": "Model Input Pixel Color Format",
-        "description": "Pixel colorspace expected by the model: 'rgb', 'bgr', or 'yuv'."
-      },
-      "input_dtype": {
-        "label": "Model Input D Type",
-        "description": "Data type of the model input tensor (for example 'float32')."
-      },
-      "model_type": {
-        "label": "Object Detection Model Type",
-        "description": "Detector model architecture type (ssd, yolox, yolonas, yolo-generic, rfdetr, dfine) used by some detectors for optimization."
-      }
+    "devices": {
+      "label": "Detection hardware",
+      "description": "Hardware this model runs on, as '<detector>' or '<detector>:<device>' (for example 'edgetpu:pci:0' or 'openvino:GPU'). Listing the same device more than once runs additional inference processes on it."
     },
-    "model_path": {
-      "label": "Detector specific model path",
-      "description": "File path to the detector model binary if required by the chosen detector."
-    },
-    "axengine": {
-      "label": "AXEngine NPU",
-      "description": "AXERA AX650N/AX8850N NPU detector running compiled .axmodel files via the AXEngine runtime."
-    },
-    "cpu": {
-      "label": "CPU",
-      "description": "CPU TFLite detector that runs TensorFlow Lite models on the host CPU without hardware acceleration. Not recommended.",
-      "num_threads": {
-        "label": "Number of detection threads",
-        "description": "The number of threads used for CPU-based inference."
-      }
-    },
-    "deepstack": {
-      "label": "DeepStack",
-      "description": "DeepStack/CodeProject.AI detector that sends images to a remote DeepStack HTTP API for inference. Not recommended.",
-      "api_url": {
-        "label": "DeepStack API URL",
-        "description": "The URL of the DeepStack API."
-      },
-      "api_timeout": {
-        "label": "DeepStack API timeout (in seconds)",
-        "description": "Maximum time allowed for a DeepStack API request."
-      },
-      "api_key": {
-        "label": "DeepStack API key (if required)",
-        "description": "Optional API key for authenticated DeepStack services."
-      }
-    },
-    "edgetpu": {
-      "label": "EdgeTPU",
-      "description": "EdgeTPU detector that runs TensorFlow Lite models compiled for Coral EdgeTPU using the EdgeTPU delegate.",
-      "device": {
-        "label": "Device Type",
-        "description": "The device to use for EdgeTPU inference (e.g. 'usb', 'pci')."
-      }
-    },
-    "hailo8l": {
-      "label": "Hailo-8/Hailo-8L",
-      "description": "Hailo-8/Hailo-8L detector using HEF models and the HailoRT SDK for inference on Hailo hardware.",
-      "device": {
-        "label": "Device Type",
-        "description": "The device to use for Hailo inference (e.g. 'PCIe', 'M.2')."
-      }
-    },
-    "memryx": {
-      "label": "MemryX",
-      "description": "MemryX MX3 detector that runs compiled DFP models on MemryX accelerators.",
-      "device": {
-        "label": "Device Path",
-        "description": "The device to use for MemryX inference (e.g. 'PCIe')."
-      }
-    },
-    "onnx": {
-      "label": "ONNX",
-      "description": "ONNX detector for running ONNX models; will use available acceleration backends (CUDA/ROCm/OpenVINO) when available.",
-      "device": {
-        "label": "Device Type",
-        "description": "The device to use for ONNX inference (e.g. 'AUTO', 'CPU', 'GPU')."
-      }
-    },
-    "openvino": {
-      "label": "OpenVINO",
-      "description": "OpenVINO detector for AMD and Intel CPUs, Intel GPUs and Intel VPU hardware.",
-      "device": {
-        "label": "Device Type",
-        "description": "The device to use for OpenVINO inference (e.g. 'CPU', 'GPU', 'NPU')."
-      }
-    },
-    "rknn": {
-      "label": "RKNN",
-      "description": "RKNN detector for Rockchip NPUs; runs compiled RKNN models on Rockchip hardware.",
-      "num_cores": {
-        "label": "Number of NPU cores to use.",
-        "description": "The number of NPU cores to use (0 for auto)."
-      }
-    },
-    "synaptics": {
-      "label": "Synaptics",
-      "description": "Synaptics NPU detector for models in .synap format using the Synap SDK on Synaptics hardware."
-    },
-    "teflon_tfl": {
-      "label": "Teflon",
-      "description": "Teflon delegate detector for TFLite using Mesa Teflon delegate library to accelerate inference on supported GPUs."
-    },
-    "tensorrt": {
-      "label": "TensorRT",
-      "description": "TensorRT detector for Nvidia Jetson devices using serialized TensorRT engines for accelerated inference.",
-      "device": {
-        "label": "GPU Device Index",
-        "description": "The GPU device index to use."
-      }
-    },
-    "zmq": {
-      "label": "ZMQ IPC",
-      "description": "ZMQ IPC detector that offloads inference to an external process via a ZeroMQ IPC endpoint.",
-      "endpoint": {
-        "label": "ZMQ IPC endpoint",
-        "description": "The ZMQ endpoint to connect to."
-      },
-      "request_timeout_ms": {
-        "label": "ZMQ request timeout in milliseconds",
-        "description": "Timeout for ZMQ requests in milliseconds."
-      },
-      "linger_ms": {
-        "label": "ZMQ socket linger in milliseconds",
-        "description": "Socket linger period in milliseconds."
-      }
-    }
-  },
-  "model": {
-    "label": "Detection model",
-    "description": "Settings to configure a custom object detection model and its input shape.",
     "path": {
       "label": "Custom object detector model path",
-      "description": "Path to a custom detection model file (or plus://<model_id> for AMSS+ models)."
+      "description": "Path to a custom detection model file (or plus://<model_id> for Frigate+ models)."
     },
     "labelmap_path": {
       "label": "Label map for custom object detector",
@@ -503,7 +356,7 @@
     },
     "roles": {
       "label": "Roles",
-      "description": "GenAI roles (chat, descriptions, embeddings); one provider per role."
+      "description": "GenAI roles (chat, descriptions, embeddings, transcribe); one provider per role. Only chat, descriptions, and embeddings are granted by default; transcribe must be listed explicitly."
     },
     "provider_options": {
       "label": "Provider options",
@@ -533,6 +386,10 @@
       "label": "Listen types",
       "description": "List of audio event types to detect (for example: bark, fire_alarm, speech, yell)."
     },
+    "labelmap": {
+      "label": "Audio labelmap customization",
+      "description": "Overrides or remapping entries to merge into the standard audio labelmap."
+    },
     "filters": {
       "label": "Audio filters",
       "description": "Per-audio-type filter settings such as confidence thresholds used to reduce false positives.",
@@ -557,9 +414,9 @@
       "label": "Enable Birdseye",
       "description": "Enable or disable the Birdseye view feature."
     },
-    "mode": {
-      "label": "Tracking mode",
-      "description": "Mode for including cameras in Birdseye: 'objects', 'motion', or 'continuous'."
+    "modes": {
+      "label": "Activity types",
+      "description": "Activity types that include cameras in Birdseye."
     },
     "restream": {
       "label": "Restream RTSP",
@@ -616,6 +473,10 @@
     "width": {
       "label": "Detect width",
       "description": "Width (pixels) of frames used for the detect stream; leave empty to use the native stream resolution."
+    },
+    "scene": {
+      "label": "Detect scene",
+      "description": "The environment this camera looks at, used to pick which of the configured models runs on it. Cameras left on 'default' run the model configured with a scene of 'default'."
     },
     "fps": {
       "label": "Detect FPS",
@@ -691,6 +552,10 @@
       "record": {
         "label": "Record output arguments",
         "description": "Default output arguments for record role streams."
+      },
+      "record_sub": {
+        "label": "Sub stream record output arguments",
+        "description": "Output arguments for record_sub role streams. The record output arguments are used when this is not set."
       }
     },
     "retry_interval": {
@@ -736,6 +601,30 @@
     "streams": {
       "label": "Live stream names",
       "description": "Mapping of configured stream names to restream/go2rtc names used for live playback."
+    },
+    "transcode": {
+      "label": "Transcoded streams",
+      "description": "Lower-quality live streams transcoded on demand by go2rtc.",
+      "enabled": {
+        "label": "Enable transcoded streams",
+        "description": "Add lower-quality live streams that go2rtc transcodes in real time while someone is watching."
+      },
+      "source": {
+        "label": "Source stream",
+        "description": "go2rtc stream to transcode. Defaults to the first live stream."
+      },
+      "qualities": {
+        "label": "Qualities",
+        "description": "One transcoded stream is added per quality.",
+        "height": {
+          "label": "Height",
+          "description": "Output height in pixels; width follows the source aspect ratio."
+        },
+        "bitrate": {
+          "label": "Bitrate",
+          "description": "Target and maximum video bitrate in kbps."
+        }
+      }
     },
     "height": {
       "label": "Live height",
@@ -1032,6 +921,54 @@
         "description": "Preview quality level (very_low, low, medium, high, very_high)."
       }
     },
+    "sub": {
+      "label": "Sub stream recording",
+      "description": "Settings for recording a second, lower quality stream.",
+      "enabled": {
+        "label": "Enable sub stream recording",
+        "description": "Enable recording of a second, lower quality stream for adaptive quality playback and extended retention."
+      },
+      "continuous": {
+        "label": "Sub stream continuous retention",
+        "description": "Number of days to retain sub stream recordings regardless of tracked objects or motion.",
+        "days": {
+          "label": "Retention days",
+          "description": "Days to retain recordings."
+        }
+      },
+      "motion": {
+        "label": "Sub stream motion retention",
+        "description": "Number of days to retain sub stream recordings triggered by motion.",
+        "days": {
+          "label": "Retention days",
+          "description": "Days to retain recordings."
+        }
+      },
+      "alerts": {
+        "label": "Sub stream alert retention",
+        "description": "Retention settings for sub stream recordings of alerts.",
+        "days": {
+          "label": "Retention days",
+          "description": "Number of days to retain recordings of detection events."
+        },
+        "mode": {
+          "label": "Retention mode",
+          "description": "Mode for retention: all (save all segments), motion (save segments with motion), or active_objects (save segments with active objects)."
+        }
+      },
+      "detections": {
+        "label": "Sub stream detection retention",
+        "description": "Retention settings for sub stream recordings of detections.",
+        "days": {
+          "label": "Retention days",
+          "description": "Number of days to retain recordings of detection events."
+        },
+        "mode": {
+          "label": "Retention mode",
+          "description": "Mode for retention: all (save all segments), motion (save segments with motion), or active_objects (save segments with active objects)."
+        }
+      }
+    },
     "enabled_in_config": {
       "label": "Original recording state",
       "description": "Indicates whether recording was enabled in the original static configuration."
@@ -1122,6 +1059,14 @@
       "preferred_language": {
         "label": "Preferred language",
         "description": "Preferred language to request from the GenAI provider for generated responses."
+      },
+      "frame_mode": {
+        "label": "Frame mode",
+        "description": "How frames are presented to the model. 'frames' sends the prompt followed by the frames, which suits models that track a sequence well on their own. 'annotated_frames' labels each frame and interleaves notes derived from object tracking, which helps models that lose track of activity that repeats or reverses."
+      },
+      "response_style": {
+        "label": "Response style",
+        "description": "Writing style preset for generated review descriptions. Presets adjust the tone and level of detail of the user-facing title, summary, and scene description; 'default' leaves the built-in prompt unchanged."
       },
       "activity_context_prompt": {
         "label": "Activity context prompt",
@@ -1218,7 +1163,11 @@
     },
     "language": {
       "label": "Transcription language",
-      "description": "Language code used for transcription/translation (for example 'en' for English). See https://whisper-api.com/docs/languages/ for supported language codes."
+      "description": "Language code used for transcription/translation (for example 'en' for English), or 'auto' to let the model detect it. See https://whisper-api.com/docs/languages/ for supported language codes."
+    },
+    "model": {
+      "label": "Audio transcription model or GenAI provider name",
+      "description": "The transcription backend: 'whisper' for Frigate's built-in local models, or the name of a GenAI provider with the transcribe role."
     },
     "device": {
       "label": "Transcription device",
@@ -1571,7 +1520,7 @@
       },
       "calibrate_on_startup": {
         "label": "Calibrate on start",
-        "description": "Measure PTZ motor speeds on startup to improve tracking accuracy. AMSS will update config with movement_weights after calibration."
+        "description": "Measure PTZ motor speeds on startup to improve tracking accuracy. Frigate will update config with movement_weights after calibration."
       },
       "zooming": {
         "label": "Zoom mode",
@@ -1608,7 +1557,7 @@
     },
     "ignore_time_mismatch": {
       "label": "Ignore time mismatch",
-      "description": "Ignore time synchronization differences between camera and AMSS server for ONVIF communication."
+      "description": "Ignore time synchronization differences between camera and Frigate server for ONVIF communication."
     }
   }
 }

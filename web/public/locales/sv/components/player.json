@@ -2,15 +2,15 @@
   "noPreviewFound": "Ingen förhandsvisning hittad",
   "noRecordingsFoundForThisTime": "Inga inspelningar hittades vid den här tidpunkten",
   "noPreviewFoundFor": "Ingen förhandsvisning hittad för {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Skicka denna bild till AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Skicka denna bild till Frigate+?",
     "submit": "Skicka",
     "previewError": "Det gick inte att ladda förhandsgranskningen av ögonblicksbilden. Inspelningen är kanske inte tillgänglig just nu."
   },
   "livePlayerRequiredIOSVersion": "iOS 17.1 eller senare krävs för den här typen av livestream.",
   "streamOffline": {
     "title": "Strömmen är inte tillgänglig",
-    "desc": "Inga bildrutor har tagits emot från <code>detect</code>-strömmen för {{cameraName}}. Kontrollera felloggarna."
+    "desc": "Inga bildrutor har mottagits på {{cameraName}} <code>detect</code>-strömmen, kontrollera felloggarna"
   },
   "stats": {
     "streamType": {
@@ -20,14 +20,6 @@
     "bandwidth": {
       "title": "Bandbredd:",
       "short": "Bandbredd"
-    },
-    "latency": {
-      "title": "Latens:",
-      "short": {
-        "title": "Latens",
-        "value": "{{seconds}} s"
-      },
-      "value": "{{seconds}} sekunder"
     },
     "totalFrames": "Totalt antal bildrutor:",
     "droppedFrames": {
@@ -40,13 +32,12 @@
     "decodedFrames": "Avkodade bildrutor:",
     "droppedFrameRate": "Andel förlorade bildrutor:"
   },
-  "cameraDisabled": "Kameran är inaktiverad",
   "toast": {
     "error": {
-      "submitAMSSPlusFailed": "Det gick inte att skicka bildrutan till AMSS+"
+      "submitFrigatePlusFailed": "Det gick inte att skicka bildrutan till Frigate+"
     },
     "success": {
-      "submittedAMSSPlus": "Bildrutan har skickats till AMSS+"
+      "submittedFrigatePlus": "Bildrutan har skickats till Frigate+"
     }
   },
   "cameraOff": "Kameran är avstängd"

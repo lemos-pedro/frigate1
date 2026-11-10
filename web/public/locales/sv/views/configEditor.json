@@ -10,9 +10,9 @@
       "savingError": "Det gick inte att spara konfigurationen"
     }
   },
-  "documentTitle": "Redigera konfiguration – AMSS",
+  "documentTitle": "Redigera konfiguration – Frigate",
   "configEditor": "Redigera konfiguration",
   "confirm": "Avsluta utan att spara?",
   "safeConfigEditor": "Konfigurationsredigerare (felsäkert läge)",
-  "safeModeDescription": "AMSS är i felsäkert läge på grund av ett konfigurationsvalideringsfel."
+  "safeModeDescription": "Frigate är i felsäkert läge på grund av ett konfigurationsvalideringsfel."
 }

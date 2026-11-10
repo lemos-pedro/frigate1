@@ -1,32 +1,29 @@
 {
   "documentTitle": {
-    "default": "Innstillinger - AMSS",
-    "authentication": "Autentiseringsinnstillinger - AMSS",
-    "camera": "Kamerainnstillinger - AMSS",
-    "masksAndZones": "Maske- og soneeditor - AMSS",
-    "motionTuner": "Bevegelsesjustering - AMSS",
-    "object": "Test og feilsøk - AMSS",
-    "general": "Innstillinger for brukergrensesnitt - AMSS",
-    "classification": "Klassifiseringsinnstillinger - AMSS",
-    "frigatePlus": "AMSS+ innstillinger - AMSS",
-    "notifications": "Innstillinger for meldingsvarsler - AMSS",
-    "enrichments": "Innstillinger for utvidelser - AMSS",
-    "cameraManagement": "Administrer kameraer - AMSS",
-    "cameraReview": "Innstillinger for kamerainspeksjon - AMSS",
-    "globalConfig": "Global konfigurasjon - AMSS",
-    "cameraConfig": "Kamerakonfigurasjon - AMSS",
-    "profiles": "Profiler - AMSS",
-    "maintenance": "Vedlikehold - AMSS",
-    "detectorsAndModel": "Detektorer og modell - AMSS"
+    "default": "Innstillinger - Frigate",
+    "authentication": "Autentiseringsinnstillinger - Frigate",
+    "masksAndZones": "Maske- og soneeditor - Frigate",
+    "motionTuner": "Bevegelsesjustering - Frigate",
+    "object": "Test og feilsøk - Frigate",
+    "general": "Innstillinger for brukergrensesnitt - Frigate",
+    "frigatePlus": "Frigate+ innstillinger - Frigate",
+    "notifications": "Innstillinger for meldingsvarsler - Frigate",
+    "enrichments": "Innstillinger for utvidelser - Frigate",
+    "cameraManagement": "Administrer kameraer - Frigate",
+    "cameraReview": "Innstillinger for kamerainspeksjon - Frigate",
+    "globalConfig": "Global konfigurasjon - Frigate",
+    "cameraConfig": "Kamerakonfigurasjon - Frigate",
+    "profiles": "Profiler - Frigate",
+    "maintenance": "Vedlikehold - Frigate",
+    "detectorsAndModel": "Detektorer og modell - Frigate"
   },
   "menu": {
-    "classification": "Klassifisering",
     "cameras": "Kamerainnstillinger",
     "masksAndZones": "Masker / Soner",
     "motionTuner": "Finjustering av bevegelse",
     "debug": "Test og feilsøk",
     "users": "Brukere",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "ui": "Brukergrensesnitt",
     "notifications": "Meldingsvarsler",
     "enrichments": "Utvidelser",
@@ -43,7 +40,6 @@
     "systemUi": "Brukergrensesnitt",
     "cameraUi": "Brukergrensesnitt for kamera",
     "systemDatabase": "Database",
-    "systemDetectionModel": "Deteksjonsmodell",
     "cameraLivePlayback": "Direkteavspilling",
     "globalLivePlayback": "Direkteavspilling",
     "cameraFfmpeg": "Strømmer (FFmpeg)",
@@ -66,7 +62,6 @@
     "globalAudioEvents": "Lyd-deteksjon",
     "cameraAudioTranscription": "Lydtranskripsjon",
     "integrationAudioTranscription": "Lydtranskripsjon",
-    "systemDetectorHardware": "Maskinvare for detektor",
     "mediaSync": "Mediesynkronisering",
     "cameraNotifications": "Meldingsvarsler",
     "systemEnvironmentVariables": "Miljøvariabler",
@@ -163,140 +158,6 @@
       "clearAll": "Fjern alle strømmingsinnstillinger"
     }
   },
-  "classification": {
-    "semanticSearch": {
-      "title": "Semantisk søk",
-      "desc": "Semantisk søk i AMSS lar deg finne sporede objekter i inspeksjonselementene ved hjelp av enten bildet, en egendefinert tekstbeskrivelse eller en automatisk generert beskrivelse.",
-      "reindexNow": {
-        "confirmTitle": "Bekreft reindeksering",
-        "error": "Kunne ikke starte reindeksering: {{errorMessage}}",
-        "label": "Reindekser nå",
-        "confirmButton": "Reindekser",
-        "success": "Reindeksering startet.",
-        "alreadyInProgress": "Reindeksering pågår allerede.",
-        "desc": "Reindeksering vil regenerere vektorrepresentasjoner for alle sporede objekter. Prosessen kjøres i bakgrunnen, kan belaste CPU-en maksimalt og ta mye tid avhengig av antall sporede objekter.",
-        "confirmDesc": "Er du sikker på at du vil reindeksere vektorrepresentasjoner for alle sporede objekter? Dette vil kjøres i bakgrunnen, men kan bruke all CPU og ta tid. Du kan følge fremdriften på Utforsk-siden."
-      },
-      "readTheDocumentation": "Les dokumentasjonen",
-      "modelSize": {
-        "label": "Modellstørrelse",
-        "small": {
-          "title": "liten",
-          "desc": "Ved å bruke <em>liten</em> brukes en kvantisert modell som bruker mindre RAM og er raskere, med ubetydelig tap av kvalitet for vektorrepresentasjoner."
-        },
-        "large": {
-          "title": "stor",
-          "desc": "Ved å bruke <em>stor</em> brukes hele Jina-modellen og den vil automatisk bruke GPU hvis tilgjengelig."
-        },
-        "desc": "Størrelsen på modellen som brukes for vektorrepresentasjoner for semantiske søk."
-      }
-    },
-    "faceRecognition": {
-      "title": "Ansiktsgjenkjenning",
-      "modelSize": {
-        "small": {
-          "title": "liten",
-          "desc": "<em>Liten</em> bruker en FaceNet-modell for vektorrepresentasjoner som fungerer effektivt på de fleste CPU-er."
-        },
-        "large": {
-          "title": "stor",
-          "desc": "<em>Stor</em> bruker en ArcFace-modell for vektorrepresentasjoner og vil automatisk kjøre på GPU hvis tilgjengelig."
-        },
-        "label": "Modellstørrelse",
-        "desc": "Størrelsen på modellen brukt for ansiktsgjenkjenning."
-      },
-      "readTheDocumentation": "Les dokumentasjonen",
-      "desc": "Ansiktsgjenkjenning lar deg tilordne navn til personer. Når et ansikt gjenkjennes, legges navnet til som under-merkelapp. Denne informasjonen vises i brukergrensesnittet, i filtre, samt i meldingsvarsler."
-    },
-    "licensePlateRecognition": {
-      "title": "Gjenkjenning av kjennemerker",
-      "readTheDocumentation": "Les dokumentasjonen",
-      "desc": "AMSS kan gjenkjenne kjennemerker og automatisk legge inn tall/bokstaver i 'recognized_license_plate'-feltet, eller et kjent navn som under-merkelapp til objekter av typen bil. Vanlig bruk er å lese kjennemerker ved innkjørsel eller på vei."
-    },
-    "title": "Klassifiseringsinnstillinger",
-    "toast": {
-      "success": "Klassifiseringsinnstillinger lagret. Start AMSS på nytt for å bruke endringene.",
-      "error": "Kunne ikke lagre konfigurasjonsendringer: {{errorMessage}}"
-    },
-    "birdClassification": {
-      "title": "Artsbestemmelse for fugler",
-      "desc": "Artsbestemmelse identifiserer kjente fugler ved hjelp av en kvantisert TensorFlow-modell. Når en kjent fugl gjenkjennes, legges det vanlige navnet til som en under-merkelapp. Denne informasjonen vises i brukergrensesnittet, i filtre, samt i meldingsvarsler."
-    },
-    "restart_required": "Omstart påkrevd (Klassifiseringsinnstillinger endret)",
-    "unsavedChanges": "Ulagrede endringer i klassifiseringsinnstillinger"
-  },
-  "camera": {
-    "streams": {
-      "desc": "Midlertidig deaktiver et kamera til AMSS startes på nytt. Deaktivering av et kamera stopper AMSSs behandling av dette kameraets strømmer fullstendig. Deteksjon, opptak og feilsøking vil være utilgjengelig.<br /> <em>Merk: Dette deaktiverer ikke go2rtc-restrømming.</em>",
-      "title": "Strømmer"
-    },
-    "reviewClassification": {
-      "title": "Inspeksjonssklassifisering",
-      "zoneObjectAlertsTips": "Alle {{alertsLabels}}-objekter oppdaget i {{zone}} på {{cameraName}} vises som varsler.",
-      "zoneObjectDetectionsTips": {
-        "text": "Alle {{detectionsLabels}}-objekter som ikke er kategorisert i {{zone}} på {{cameraName}}, vises som deteksjoner.",
-        "regardlessOfZoneObjectDetectionsTips": "Alle {{detectionsLabels}}-objekter som ikke er kategorisert på {{cameraName}}, vises som deteksjoner uavhengig av sone.",
-        "notSelectDetections": "Alle {{detectionsLabels}}-objekter oppdaget i {{zone}} på {{cameraName}} som ikke er kategorisert som Varsler, vises som deteksjoner uavhengig av sone."
-      },
-      "selectAlertsZones": "Velg soner for varsler",
-      "desc": "AMSS kategoriserer inspeksjonselementer som Varsler og Deteksjoner. Som standard regnes alle <em>person</em>- og <em>bil</em>-objekter som Varsler. Du kan finjustere klassifiseringen ved å konfigurere nødvendige soner.",
-      "readTheDocumentation": "Se dokumentasjonen",
-      "noDefinedZones": "Ingen soner er definert for dette kameraet.",
-      "objectAlertsTips": "Alle {{alertsLabels}}-objekter på {{cameraName}} vises som varsler.",
-      "objectDetectionsTips": "Alle {{detectionsLabels}}-objekter som ikke er kategorisert på {{cameraName}}, vises som deteksjoner uavhengig av sone.",
-      "selectDetectionsZones": "Velg soner for deteksjoner",
-      "limitDetections": "Avgrens deteksjoner til bestemte soner",
-      "toast": {
-        "success": "Konfigurasjonen for inspeksjonsklassifisering er lagret. Start AMSS på nytt for å bruke endringer."
-      },
-      "unsavedChanges": "Ulagrede innstillinger for inspeksjonsklassifisering for {{camera}}"
-    },
-    "title": "Kamerainnstillinger",
-    "review": {
-      "title": "Inspeksjon",
-      "desc": "Aktiver/deaktiver varsler og deteksjoner midlertidig for dette kameraet til AMSS startes på nytt. Når deaktivert, vil det ikke genereres nye inspeksjonselementer. ",
-      "alerts": "Varsler ",
-      "detections": "Deteksjoner "
-    },
-    "object_descriptions": {
-      "desc": "Midlertidig aktiver/deaktiver generative KI-objektbeskrivelser for dette kameraet. Når deaktivert, vil KI-genererte beskrivelser ikke bli forespurt for sporede objekter på dette kameraet.",
-      "title": "Generative KI-objektbeskrivelser"
-    },
-    "cameraConfig": {
-      "nameInvalid": "Kameranavnet kan bare inneholde bokstaver, tall, understreker eller bindestreker",
-      "add": "Legg til kamera",
-      "edit": "Rediger kamera",
-      "description": "Konfigurer kamerainnstillinger, inkludert strømmeinnganger og roller.",
-      "name": "Kamera navn",
-      "nameRequired": "Kamera navn er påkrevd",
-      "nameLength": "Kamera navn må være mindre enn 24 tegn.",
-      "namePlaceholder": "f.eks front_dør",
-      "enabled": "Aktivert",
-      "ffmpeg": {
-        "inputs": "Inngangsstrømmer",
-        "path": "Lenke til strøm",
-        "pathRequired": "Lenke til strøm er påkrevd",
-        "pathPlaceholder": "rtsp://...",
-        "roles": "Roller",
-        "rolesRequired": "Minst én rolle er påkrevd",
-        "rolesUnique": "Hver rolle (lyd, gjenkjenning, opptak) kan bare tildeles én strøm",
-        "addInput": "Legg til inngangsstrøm",
-        "removeInput": "Fjern inngangsstrøm",
-        "inputsRequired": "Minst én inngangsstrøm er påkrevd"
-      },
-      "toast": {
-        "success": "Kamera {{cameraName}} ble lagret"
-      }
-    },
-    "review_descriptions": {
-      "title": "Generative KI beskrivelser for inspeksjon",
-      "desc": "Midlertidig aktiver/deaktiver inspeksjonsbeskrivelser med generativ KI for dette kameraet. Når deaktivert, vil det ikke bli bedt om KI-genererte beskrivelser for inspeksjonselementer på dette kameraet."
-    },
-    "addCamera": "Legg til nytt kamera",
-    "editCamera": "Rediger kamera:",
-    "selectCamera": "Velg et kamera",
-    "backToSettings": "Tilbake til kamerainnstillinger"
-  },
   "masksAndZones": {
     "filter": {
       "all": "Alle masker og soner"
@@ -382,7 +243,7 @@
     },
     "zones": {
       "label": "Soner",
-      "documentTitle": "Rediger sone - AMSS",
+      "documentTitle": "Rediger sone - Frigate",
       "edit": "Rediger sone",
       "point_one": "{{count}} punkt",
       "point_other": "{{count}} punkter",
@@ -413,7 +274,6 @@
       "speedEstimation": {
         "title": "Hastighetsestimering",
         "desc": "Aktiver hastighetsestimering for objekter i denne sonen. Sonen må ha nøyaktig 4 punkter.",
-        "docs": "Se dokumentasjonen",
         "lineADistance": "Linje A avstand ({{unit}})",
         "lineBDistance": "Linje B avstand ({{unit}})",
         "lineCDistance": "Linje C avstand ({{unit}})",
@@ -444,19 +304,17 @@
         "title": "Bevegelsesmasker brukes til å hindre uønsket type bevegelse fra å utløse deteksjon. For mye maskering kan gjøre det vanskeligere å spore objekter."
       },
       "add": "Ny bevegelsesmaske",
-      "documentTitle": "Rediger bevegelsesmaske - AMSS",
+      "documentTitle": "Rediger bevegelsesmaske - Frigate",
       "edit": "Rediger bevegelsesmaske",
       "context": {
-        "title": "Bevegelsesmasker brukes til å hindre uønsket type bevegelse fra å utløse deteksjon (eksempel: tregrener, kameratidsstempler). Bevegelsesmasker bør brukes <em>svært sparsomt</em>. For mye maskering vil gjøre det vanskeligere å spore objekter.",
-        "documentation": "Se dokumentasjonen"
+        "title": "Bevegelsesmasker brukes til å hindre uønsket type bevegelse fra å utløse deteksjon (eksempel: tregrener, kameratidsstempler). Bevegelsesmasker bør brukes <em>svært sparsomt</em>. For mye maskering vil gjøre det vanskeligere å spore objekter."
       },
       "point_one": "{{count}} punkt",
       "point_other": "{{count}} punkter",
       "clickDrawPolygon": "Klikk for å tegne et polygon på bildet.",
       "polygonAreaTooLarge": {
         "title": "Bevegelsesmasken dekker {{polygonArea}}% av kameraets bilde. Store bevegelsesmasker anbefales ikke.",
-        "tips": "Bevegelsesmasker hindrer ikke objektene fra å bli detektert. Du bør bruke en påkrevd sone i stedet.",
-        "documentation": "Se dokumentasjonen"
+        "tips": "Bevegelsesmasker hindrer ikke objektene fra å bli detektert. Du bør bruke en påkrevd sone i stedet."
       },
       "toast": {
         "success": {
@@ -476,7 +334,7 @@
       "point_one": "{{count}} punkt",
       "point_other": "{{count}} punkter",
       "label": "Objektmasker",
-      "documentTitle": "Rediger objektmaske - AMSS",
+      "documentTitle": "Rediger objektmaske - Frigate",
       "desc": {
         "title": "Objektfiltermasker brukes for å filtrere ut falske positiver for en gitt objekttype basert på plassering.",
         "documentation": "Dokumentasjon"
@@ -530,7 +388,7 @@
       "title": "Forbedre kontrast"
     },
     "desc": {
-      "title": "AMSS bruker bevegelsesdeteksjon som en første sjekk for å se om det skjer noe i bildet som er verdt å sjekke med objektdeteksjon.",
+      "title": "Frigate bruker bevegelsesdeteksjon som en første sjekk for å se om det skjer noe i bildet som er verdt å sjekke med objektdeteksjon.",
       "documentation": "Les guiden for bevegelsesjustering"
     },
     "toast": {
@@ -569,7 +427,6 @@
       "desc": "Vis en boks for interesseområdet sendt til objektdetektoren"
     },
     "objectShapeFilterDrawing": {
-      "document": "Se dokumentasjonen ",
       "score": "Score",
       "ratio": "Sideforhold",
       "area": "Areal",
@@ -577,7 +434,7 @@
       "desc": "Tegn et rektangel på bildet for å vise areal- og størrelsesforhold",
       "tips": "Aktiver dette alternativet for å tegne et rektangel på kamerabildet for å vise areal og størrelsesforholdet. Disse verdiene kan deretter brukes til å sette filterparametere for objektform i konfigurasjonen."
     },
-    "detectorDesc": "AMSS bruker dine detektorer ({{detectors}}) for å oppdage objekter i kameraets videostrøm.",
+    "detectorDesc": "Frigate bruker dine detektorer ({{detectors}}) for å oppdage objekter i kameraets videostrøm.",
     "desc": "Test og feilsøk viser sporede objekter i sanntid og deres statistikk. Objektlisten viser en tidsforsinket oppsummering av detekterte objekter.",
     "debugging": "Test og feilsøk",
     "mask": {
@@ -602,7 +459,7 @@
     "title": "Brukere",
     "management": {
       "title": "Brukeradministrasjon",
-      "desc": "Administrer brukerprofiler for denne AMSS-instansen."
+      "desc": "Administrer brukerprofiler for denne Frigate-instansen."
     },
     "addUser": "Legg til bruker",
     "updatePassword": "Nullstill passord",
@@ -634,23 +491,13 @@
             "placeholder": "Bekreft passord",
             "title": "Bekreft passord"
           },
-          "strength": {
-            "title": "Passordstyrke: ",
-            "veryStrong": "Veldig sterkt",
-            "weak": "Svakt",
-            "medium": "Medium",
-            "strong": "Sterkt"
-          },
           "match": "Passordene samsvarer",
           "notMatch": "Passordene samsvarer ikke",
           "show": "Vis passord",
           "hide": "Skjul passord",
           "requirements": {
             "title": "Passordkrav:",
-            "length": "Minst 12 tegn",
-            "uppercase": "Minst en stor bokstav",
-            "digit": "Minst ett tall",
-            "special": "Minst ett spesialtegn (!@#$%^&*(),.?\":{}|<>)"
+            "length": "Minst 12 tegn"
           }
         },
         "newPassword": {
@@ -682,7 +529,7 @@
       },
       "createUser": {
         "title": "Opprett ny bruker",
-        "desc": "Legg til en ny brukerkonto og spesifiser en rolle for tilgang til AMSS-brukergrensesnittet.",
+        "desc": "Legg til en ny brukerkonto og spesifiser en rolle for tilgang til Frigate-brukergrensesnittet.",
         "usernameOnlyInclude": "Brukernavn kan bare inneholde bokstaver, tall, punktum eller _",
         "confirmPassword": "Vennligst bekreft ditt passord"
       },
@@ -716,15 +563,12 @@
   },
   "notification": {
     "notificationSettings": {
-      "desc": "AMSS kan sende push-varsler til enheten din når den kjører i nettleseren eller er installert som en progressiv webapplikasjon (PWA).",
-      "documentation": "Se dokumentasjonen",
+      "desc": "Frigate kan sende push-varsler til enheten din når den kjører i nettleseren eller er installert som en progressiv webapplikasjon (PWA).",
       "title": "Innstillinger for meldingsvarsler"
     },
     "notificationUnavailable": {
-      "documentation": "Se dokumentasjonen",
-      "title": "Meldingsvarsler utilgjengelig",
-      "desc": "Nettleser push-varsler krever et sikkert miljø (<code>https://…</code>). Dette er en nettleserbegrensning. Få tilgang til AMSS på en sikker måte for å bruke meldingsvarsler.",
-      "descPwa": "På iOS er web-pushvarsler kun tilgjengelig når AMSS er installert på hjemskjermen din. Åpne <strong>Del</strong>-menyen, velg <strong>Legg til på hjemskjermen</strong>, og åpne deretter AMSS fra det nye ikonet for å registrere denne enheten for varsler."
+      "desc": "Nettleser push-varsler krever et sikkert miljø (<code>https://…</code>). Dette er en nettleserbegrensning. Få tilgang til Frigate på en sikker måte for å bruke meldingsvarsler.",
+      "descPwa": "På iOS er web-pushvarsler kun tilgjengelig når Frigate er installert på hjemskjermen din. Åpne <strong>Del</strong>-menyen, velg <strong>Legg til på hjemskjermen</strong>, og åpne deretter Frigate fra det nye ikonet for å registrere denne enheten for varsler."
     },
     "email": {
       "title": "E-post",
@@ -752,7 +596,7 @@
     "suspended": "Meldingsvarsler suspendert {{time}}",
     "toast": {
       "success": {
-        "registered": "Registrering for meldingsvarsler var vellykket. En omstart av AMSS er nødvendig før noen meldingsvarsler (inkludert et testvarsel) kan sendes.",
+        "registered": "Registrering for meldingsvarsler var vellykket. En omstart av Frigate er nødvendig før noen meldingsvarsler (inkludert et testvarsel) kan sendes.",
         "settingSaved": "Innstillinger for meldingsvarsler er lagret."
       },
       "error": {
@@ -772,11 +616,11 @@
   },
   "frigatePlus": {
     "apiKey": {
-      "notValidated": "AMSS+ API-nøkkel er ikke detektert eller validert",
-      "title": "AMSS+ API-nøkkel",
-      "validated": "AMSS+ API-nøkkel er detektert og validert",
-      "desc": "AMSS+ API-nøkkelen muliggjør integrasjon med AMSS+ tjenesten.",
-      "plusLink": "Les mer om AMSS+"
+      "notValidated": "Frigate+ API-nøkkel er ikke detektert eller validert",
+      "title": "Frigate+ API-nøkkel",
+      "validated": "Frigate+ API-nøkkel er detektert og validert",
+      "desc": "Frigate+ API-nøkkelen muliggjør integrasjon med Frigate+ tjenesten.",
+      "plusLink": "Les mer om Frigate+"
     },
     "modelInfo": {
       "trainDate": "Treningsdato",
@@ -787,15 +631,14 @@
       "title": "Modellinformasjon",
       "modelType": "Modelltype",
       "supportedDetectors": "Støttede detektorer",
-      "dimensions": "Dimensjoner",
       "cameras": "Kameraer",
-      "availableModels": "Tilgjengelige AMSS+ modeller",
-      "modelSelect": "Dine tilgjengelige modeller på AMSS+ kan velges her. Merk at bare modeller som er kompatible med din nåværende detektorkonfigurasjon kan velges.",
+      "availableModels": "Tilgjengelige Frigate+ modeller",
+      "modelSelect": "Dine tilgjengelige modeller på Frigate+ kan velges her. Merk at bare modeller som er kompatible med din nåværende detektorkonfigurasjon kan velges.",
       "plusModelType": {
         "userModel": "Finjustert",
         "baseModel": "Basismodell"
       },
-      "noModelLoaded": "Ingen AMSS+-modell er lastet inn for øyeblikket.",
+      "noModelLoaded": "Ingen Frigate+-modell er lastet inn for øyeblikket.",
       "selectModel": "Velg en modell",
       "noModelsAvailable": "Ingen modeller tilgjengelig",
       "filter": {
@@ -804,39 +647,36 @@
         "fineTunedModels": "Finjusterte modeller"
       }
     },
-    "title": "AMSS+ Innstillinger",
+    "title": "Frigate+ Innstillinger",
     "snapshotConfig": {
       "title": "Konfigurasjon av stillbilde",
-      "desc": "Innsending til AMSS+ krever at både stillbilder og <code>clean_copy</code>-stillbilder er aktivert i konfigurasjonen din.",
-      "documentation": "Se dokumentasjonen",
+      "desc": "Innsending til Frigate+ krever at både stillbilder og <code>clean_copy</code>-stillbilder er aktivert i konfigurasjonen din.",
       "table": {
         "camera": "Kamera",
-        "snapshots": "Stillbilder",
-        "cleanCopySnapshots": "<code>clean_copy</code>-stillbilder"
+        "snapshots": "Stillbilder"
       },
       "cleanCopyWarning": "Noen kameraer har stillbilder deaktivert"
     },
     "toast": {
-      "success": "AMSS+ innstillingene er lagret. Start AMSS på nytt for å aktivere endringene.",
+      "success": "Frigate+ innstillingene er lagret. Start Frigate på nytt for å aktivere endringene.",
       "error": "Kunne ikke lagre konfigurasjonsendringer: {{errorMessage}}"
     },
-    "restart_required": "Omstart påkrevd (AMSS+ modell endret)",
-    "unsavedChanges": "Ulagrede endringer for AMSS+ innstillinger",
+    "restart_required": "Omstart påkrevd (Frigate+ modell endret)",
+    "unsavedChanges": "Ulagrede endringer for Frigate+ innstillinger",
     "cardTitles": {
       "otherModels": "Andre modeller",
       "api": "API",
       "currentModel": "Gjeldende modell",
       "configuration": "Konfigurasjon"
     },
-    "description": "AMSS+ er en abonnementstjeneste som gir tilgang til tilleggsfunksjoner og kapasiteter for AMSS-instansen din, inkludert muligheten til å bruke egendefinerte objektdeteksjonsmodeller trent på dine egne data. Du kan administrere innstillingene for AMSS+-modellen din her.",
+    "description": "Frigate+ er en abonnementstjeneste som gir tilgang til tilleggsfunksjoner og kapasiteter for Frigate-instansen din, inkludert muligheten til å bruke egendefinerte objektdeteksjonsmodeller trent på dine egne data. Du kan administrere innstillingene for Frigate+-modellen din her.",
     "changeInDetectorsAndModel": "Endre modell"
   },
   "enrichments": {
     "title": "Innstillinger for utvidelser",
     "licensePlateRecognition": {
-      "desc": "AMSS kan gjenkjenne kjennemerker på kjøretøy og automatisk legge til de oppdagede tegnene i feltet \"recognized_license_plate\", eller et kjent navn som en underetikett på objekter av typen bil. Et vanlig brukstilfelle kan være å lese kjennemerker på biler som kjører inn i en innkjørsel eller biler som passerer på en gate.",
-      "title": "Kjennemerke gjenkjenning",
-      "readTheDocumentation": "Se dokumentasjonen"
+      "desc": "Frigate kan gjenkjenne kjennemerker på kjøretøy og automatisk legge til de oppdagede tegnene i feltet \"recognized_license_plate\", eller et kjent navn som en underetikett på objekter av typen bil. Et vanlig brukstilfelle kan være å lese kjennemerker på biler som kjører inn i en innkjørsel eller biler som passerer på en gate.",
+      "title": "Kjennemerke gjenkjenning"
     },
     "birdClassification": {
       "desc": "Fugleklassifisering identifiserer kjente fugler ved hjelp av en kvantisert TensorFlow-modell. Når en fugl gjenkjennes, vil det vanlige navnet legges til som en underetikett. Denne informasjonen vises i brukergrensesnittet, filtre, samt i meldingsvarsler.",
@@ -866,8 +706,7 @@
         }
       },
       "title": "Semantisk søk",
-      "desc": "Semantisk søk i AMSS lar deg finne sporede objekter i inspeksjonsselementene dine ved å bruke enten selve bildet, en brukerdefinert tekstbeskrivelse eller en automatisk generert beskrivelse.",
-      "readTheDocumentation": "Se dokumentasjonen"
+      "desc": "Semantisk søk i Frigate lar deg finne sporede objekter i inspeksjonsselementene dine ved å bruke enten selve bildet, en brukerdefinert tekstbeskrivelse eller en automatisk generert beskrivelse."
     },
     "faceRecognition": {
       "modelSize": {
@@ -883,13 +722,12 @@
         }
       },
       "title": "Ansiktsgjenkjenning",
-      "desc": "Ansiktsgjenkjenning gjør det mulig å tildele navn til personer, og når ansiktet deres gjenkjennes, vil AMSS tildele personens navn som en underetikett. Denne informasjonen vises i brukergrensesnittet, filtre, samt i meldingsvarsler.",
-      "readTheDocumentation": "Se dokumentasjonen"
+      "desc": "Ansiktsgjenkjenning gjør det mulig å tildele navn til personer, og når ansiktet deres gjenkjennes, vil Frigate tildele personens navn som en underetikett. Denne informasjonen vises i brukergrensesnittet, filtre, samt i meldingsvarsler."
     },
     "unsavedChanges": "Ulagrede endringer i innstillinger for utvidelser",
     "restart_required": "Omstart påkrevd (Innstillinger for utvidelser er endret)",
     "toast": {
-      "success": "Innstillinger for utvidelser har blitt lagret. Start AMSS på nytt for å aktivere endringene.",
+      "success": "Innstillinger for utvidelser har blitt lagret. Start Frigate på nytt for å aktivere endringene.",
       "error": "Kunne ikke lagre konfigurasjonsendringer: {{errorMessage}}"
     }
   },
@@ -916,7 +754,6 @@
       "description": "Beskrivelse"
     },
     "actions": {
-      "alert": "Marker som varsel",
       "notification": "Send meldingsvarsel",
       "sub_label": "Legg til underetikett",
       "attribute": "Legg til attributt"
@@ -974,15 +811,10 @@
         },
         "actions": {
           "title": "Handlinger",
-          "desc": "Som standard sender AMSS en MQTT-melding for alle utløsere. Underetiketter legger til navnet på utløseren i objektetiketten. Attributter er søkbare metadata som lagres separat i objektets sporingsmetadata.",
+          "desc": "Som standard sender Frigate en MQTT-melding for alle utløsere. Underetiketter legger til navnet på utløseren i objektetiketten. Attributter er søkbare metadata som lagres separat i objektets sporingsmetadata.",
           "error": {
             "min": "Minst én handling må velges."
           }
-        },
-        "friendly_name": {
-          "description": "Et valgfritt brukervennlig navn eller beskrivende tekst for denne utløseren.",
-          "title": "Brukervennlig navn",
-          "placeholder": "Navngi eller beskriv denne utløseren"
         }
       }
     },
@@ -999,7 +831,6 @@
       }
     },
     "semanticSearch": {
-      "title": "Semantisk søk er deaktivert",
       "desc": "Semantisk søk må aktiveres for å bruke utløsere."
     },
     "wizard": {
@@ -1023,7 +854,7 @@
   "roles": {
     "management": {
       "title": "Administrasjon av visningsrolle",
-      "desc": "Administrer tilpassede visningsroller og deres kameratilgangstillatelser for denne AMSS-instansen."
+      "desc": "Administrer tilpassede visningsroller og deres kameratilgangstillatelser for denne Frigate-instansen."
     },
     "addRole": "Legg til rolle",
     "table": {
@@ -1083,7 +914,7 @@
   },
   "cameraWizard": {
     "title": "Legg til kamera",
-    "description": "Følg trinnene nedenfor for å legge til et nytt kamera i din AMSS-installasjon.",
+    "description": "Følg trinnene nedenfor for å legge til et nytt kamera i din Frigate-installasjon.",
     "steps": {
       "nameAndConnection": "Navn og tilkobling",
       "streamConfiguration": "Strømkonfigurasjon",
@@ -1121,30 +952,13 @@
       "brandInformation": "Merkevare-informasjon",
       "brandUrlFormat": "For kameraer med RTSP URL-format som: {{exampleUrl}}",
       "customUrlPlaceholder": "rtsp://brukernavn:passord@vert:port/sti",
-      "testConnection": "Test tilkobling",
-      "testSuccess": "Tilkoblingstesten var vellykket!",
-      "testFailed": "Tilkoblingstesten feilet. Vennligst sjekk inntastingen din og prøv igjen.",
-      "streamDetails": "Strømdetaljer",
-      "warnings": {
-        "noSnapshot": "Kunne ikke hente et øyeblikksbilde fra den konfigurerte strømmen."
-      },
       "errors": {
         "brandOrCustomUrlRequired": "Enten velg et kameramerke med vert/IP eller velg 'Annet' med en egendefinert URL",
         "nameRequired": "Kameranavn er påkrevd",
         "nameLength": "Kameranavnet må være 64 tegn eller mindre",
         "invalidCharacters": "Kameranavnet inneholder ugyldige tegn",
         "nameExists": "Kameranavnet finnes allerede",
-        "brands": {
-          "reolink-rtsp": "Reolink RTSP anbefales ikke. Aktiver HTTP i kameraets fastvare-innstillinger og start kameraveiviseren på nytt."
-        },
         "customUrlRtspRequired": "Egendefinerte URL-er må begynne med «rtsp://» eller «rtsps://». Manuell konfigurasjon kreves for kamerastrømmer som ikke bruker RTSP."
-      },
-      "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
-      },
-      "testing": {
-        "probingMetadata": "Henter kamerametadata…",
-        "fetchingSnapshot": "Henter øyeblikksbilde for kamera..."
       },
       "connectionSettings": "Tilkoblingsinnstillinger",
       "detectionMethod": "Metode for strømdeteksjon",
@@ -1158,42 +972,11 @@
     },
     "step2": {
       "description": "Sjekk kameraet for tilgjengelige strømmer eller konfigurer manuelle innstillinger basert på valgt deteksjonsmetode.",
-      "streamsTitle": "Kamerastrømmer",
-      "addStream": "Legg til strøm",
-      "addAnotherStream": "Legg til en annen strøm",
-      "streamTitle": "Strøm {{number}}",
-      "streamUrl": "Strøm-URL",
-      "streamUrlPlaceholder": "rtsp://brukernavn:passord@vert:port/sti",
-      "url": "URL",
-      "resolution": "Oppløsning",
-      "selectResolution": "Velg oppløsning",
-      "quality": "Kvalitet",
-      "selectQuality": "Velg kvalitet",
-      "roles": "Roller",
-      "roleLabels": {
-        "detect": "Objektdeteksjon",
-        "record": "Opptak",
-        "audio": "Lyd"
-      },
-      "testStream": "Test tilkobling",
       "testSuccess": "Tilkoblingstest vellykket!",
       "testFailed": "Tilkoblingstest feilet. Vennligst sjekk inndataene dine og prøv igjen.",
       "testFailedTitle": "Test feilet",
       "connected": "Tilkoblet",
       "notConnected": "Ikke tilkoblet",
-      "featuresTitle": "Funksjoner",
-      "go2rtc": "Reduser tilkoblinger til kameraet",
-      "detectRoleWarning": "Minst én strøm må ha rollen «deteksjon» for å fortsette.",
-      "rolesPopover": {
-        "title": "Strømroller",
-        "detect": "Hovedstrøm for objektdeteksjon.",
-        "record": "Lagrer segmenter av videostrømmen basert på konfigurasjonsinnstillinger.",
-        "audio": "Strøm for lydbasert deteksjon."
-      },
-      "featuresPopover": {
-        "title": "Strømfunksjoner",
-        "description": "Bruk go2rtc-restrømming for å redusere antall tilkoblinger til kameraet ditt."
-      },
       "streamDetails": "Strømdetaljer",
       "probing": "Test kamera...",
       "retry": "Prøv igjen",
@@ -1229,47 +1012,8 @@
     },
     "step3": {
       "description": "Konfigurer strømroller og legg til flere strømmer for kameraet ditt.",
-      "validationTitle": "Strømvalidering",
-      "connectAllStreams": "Koble til alle strømmer",
-      "reconnectionSuccess": "Gjenoppkobling vellykket.",
-      "reconnectionPartial": "Noen strømmer kunne ikke gjenoppkobles.",
-      "streamUnavailable": "Forhåndsvisning av strøm utilgjengelig",
-      "reload": "Last inn på nytt",
-      "connecting": "Kobler til...",
       "streamTitle": "Strøm {{number}}",
-      "valid": "Gyldig",
-      "failed": "Feilet",
-      "notTested": "Ikke testet",
-      "connectStream": "Koble til",
-      "connectingStream": "Kobler til",
-      "disconnectStream": "Koble fra",
-      "estimatedBandwidth": "Estimert båndbredde",
       "roles": "Roller",
-      "none": "Ingen",
-      "error": "Feil",
-      "streamValidated": "Strøm {{number}} ble validert",
-      "streamValidationFailed": "Validering av strøm {{number}} feilet",
-      "saveAndApply": "Lagre nytt kamera",
-      "saveError": "Ugyldig konfigurasjon. Vennligst sjekk innstillingene dine.",
-      "issues": {
-        "title": "Strømvalidering",
-        "videoCodecGood": "Video-kodek er {{codec}}.",
-        "audioCodecGood": "Lyd-kodek er {{codec}}.",
-        "noAudioWarning": "Ingen lyd oppdaget for denne strømmen, opptak vil ikke ha lyd.",
-        "audioCodecRecordError": "AAC lyd-kodek er påkrevd for å støtte lyd i opptak.",
-        "audioCodecRequired": "En lydstrøm er påkrevd for å støtte lyddeteksjon.",
-        "restreamingWarning": "Å redusere tilkoblinger til kameraet for opptaksstrømmen kan øke CPU-bruken noe.",
-        "dahua": {
-          "substreamWarning": "Substrøm 1 er låst til lav oppløsning. Mange Dahua / Amcrest / EmpireTech-kameraer støtter flere substrømmer som må aktiveres i kameraets innstillinger. Det anbefales å sjekke og benytte disse strømmene hvis de er tilgjengelige."
-        },
-        "hikvision": {
-          "substreamWarning": "Substrøm 1 er låst til lav oppløsning. Mange Hikvision-kameraer støtter flere substrømmer som må aktiveres i kameraets innstillinger. Det anbefales å sjekke og benytte disse strømmene hvis de er tilgjengelige."
-        },
-        "resolutionHigh": "En oppløsning på {{resolution}} kan føre til økt ressursbruk.",
-        "resolutionLow": "En oppløsning på {{resolution}} kan være for lav for pålitelig deteksjon av små objekter."
-      },
-      "ffmpegModuleDescription": "Hvis strømmen ikke lastes inn etter flere forsøk, kan du prøve å aktivere dette. Når det er aktivert, vil AMSS bruke ffmpeg-modulen sammen med go2rtc. Dette kan gi bedre kompatibilitet med enkelte kamerastrømmer.",
-      "ffmpegModule": "Bruk kompatibilitetsmodus for strøm",
       "streamsTitle": "Kamerastrømmer",
       "addStream": "Legg til strøm",
       "addAnotherStream": "Legg til en annen strøm",
@@ -1305,7 +1049,7 @@
       },
       "featuresPopover": {
         "title": "Strømfunksjoner",
-        "description": "Bruk go2rtc-restrømming for å redusere antall tilkoblinger til kameraet."
+        "description": "Bruk go2rtc-viderestrømming for å redusere antall tilkoblinger til kameraet."
       }
     },
     "step4": {
@@ -1327,7 +1071,7 @@
       "estimatedBandwidth": "Estimert båndbredde",
       "roles": "Roller",
       "ffmpegModule": "Bruk kompatibilitetsmodus for strøm",
-      "ffmpegModuleDescription": "Hvis strømmen ikke lastes etter flere forsøk, prøv å aktivere dette. Når aktivert, vil AMSS bruke ffmpeg-modulen med go2rtc. Dette kan gi bedre kompatibilitet med noen kamerastrømmer.",
+      "ffmpegModuleDescription": "Hvis strømmen ikke lastes etter flere forsøk, prøv å aktivere dette. Når aktivert, vil Frigate bruke ffmpeg-modulen med go2rtc. Dette kan gi bedre kompatibilitet med noen kamerastrømmer.",
       "none": "Ingen",
       "error": "Feil",
       "streamValidated": "Strøm {{number}} validert",
@@ -1366,23 +1110,12 @@
     "backToSettings": "Tilbake til kamerainnstillinger",
     "streams": {
       "title": "Kamerastatus og detaljer",
-      "desc": "Midlertidig deaktiver et kamera til AMSS startes på nytt. Deaktivering av et kamera stopper AMSSs behandling av dette kameraets strømmer fullstendig. Deteksjon, opptak og feilsøking vil være utilgjengelig.<br /> <em>Merk: Dette deaktiverer ikke go2rtc-restrømming.</em>",
-      "disableDesc": "Aktiver et kamera som for øyeblikket ikke er synlig i grensesnittet og deaktivert i konfigurasjonen. En omstart av AMSS kreves etter aktivering.",
-      "enableSuccess": "Aktiverte {{cameraName}}. Start AMSS på nytt for å ta i bruk.",
-      "enableLabel": "Aktiverte kameraer",
-      "enableDesc": "Deaktiver et aktivert kamera midlertidig frem til AMSS starter på nytt. Deaktivering av et kamera stopper all prosessering av kameraets strømmer. Deteksjon, opptak og feilsøking vil være utilgjengelig.<br /> <em>Merk: Dette deaktiverer ikke videreformidling (restream) i go2rtc.</em><br /><br />Dra i feltet for å endre rekkefølgen på kameraene slik de vises i grensesnittet. Rekkefølgen på de aktiverte kameraene vil gjenspeiles i hele grensesnittet, inkludert Live-dashbordet og rullegardinmenyene for kameravalg.",
-      "disableLabel": "Deaktiverte kameraer",
-      "friendlyName": {
-        "edit": "Rediger visningsnavn for kamera",
-        "title": "Rediger visningsnavn",
-        "description": "Angi visningsnavnet som skal brukes for dette kameraet i AMSS-grensesnittet. La feltet stå tomt for å bruke kamera-ID.",
-        "rename": "Omdøp"
-      },
+      "enableSuccess": "Aktiverte {{cameraName}}. Start Frigate på nytt for å ta i bruk.",
       "reorderHandle": "Dra for å endre rekkefølge",
       "saving": "Lagrer…",
       "saved": "Lagret",
       "label": "Kamerastatus",
-      "description": "Angi driftsstatus for hvert kamera.<br /><br /><strong>På</strong>: Strømmer behandles normalt.<br /><strong>Av</strong>: Setter behandlingen midlertidig på pause. Vedvarer ikke etter omstart av AMSS.<br /><strong>Deaktivert</strong>: Stopper behandlingen og lagrer endringen i konfigurasjonen din. En omstart kreves for å aktivere et deaktivert kamera igjen.<br /><br /><em>Merk: Deaktivering påvirker ikke videreformidling (restream) i go2rtc.</em><br /><br />Dra i ikonet for å endre rekkefølgen på aktive kameraer slik de vises i grensesnittet, inkludert Live-dashbordet og rullegardinmenyene for kameravalg.",
+      "description": "Angi driftsstatus for hvert kamera.<br /><br /><strong>På</strong>: Strømmer behandles normalt.<br /><strong>Av</strong>: Setter behandlingen midlertidig på pause. Vedvarer ikke etter omstart av Frigate.<br /><strong>Deaktivert</strong>: Stopper behandlingen og lagrer endringen i konfigurasjonen din. En omstart kreves for å aktivere et deaktivert kamera igjen.<br /><br /><em>Merk: Deaktivering påvirker ikke viderestrømming (restream) i go2rtc.</em><br /><br />Dra i ikonet for å endre rekkefølgen på aktive kameraer slik de vises i grensesnittet, inkludert Direkte-dashbordet og rullegardinmenyene for kameravalg.",
       "disabledSubheading": "Deaktivert i konfigurasjonen",
       "status": {
         "on": "På",
@@ -1393,14 +1126,14 @@
       "details": {
         "edit": "Rediger kameradetaljer",
         "title": "Rediger kameradetaljer",
-        "description": "Oppdater visningsnavn, ekstern URL og synlighet brukt for dette kameraet i AMSS-grensesnittet.",
+        "description": "Oppdater visningsnavn, ekstern URL og synlighet brukt for dette kameraet i Frigate-grensesnittet.",
         "friendlyNameLabel": "Visningsnavn",
-        "friendlyNameHelp": "Vennlig navn som vises for dette kameraet i AMSS-grensesnittet. La stå tomt for å bruke kamera-ID.",
+        "friendlyNameHelp": "Vennlig navn som vises for dette kameraet i Frigate-grensesnittet. La stå tomt for å bruke kamera-ID.",
         "webuiUrlLabel": "URL til kameraets webgrensesnitt",
         "webuiUrlHelp": "URL for å besøke kameraets webgrensesnitt direkte fra feilsøkingsvisningen (Debug). La stå tomt for å deaktivere lenken.",
         "webuiUrlInvalid": "Må være en gyldig URL (f.eks. https://example.com).",
-        "dashboardLabel": "Vis på Live-dashbordet",
-        "dashboardHelp": "Vis dette kameraet på Live-dashbordet.",
+        "dashboardLabel": "Vis på Direkte-dashbordet",
+        "dashboardHelp": "Vis dette kameraet på Direkte-dashbordet.",
         "reviewLabel": "Vis i Inspeksjons-modus",
         "reviewHelp": "Vis dette kameraet i Inspeksjon (Review), inkludert kamerafilteret, bevegelsesgjennomgang og historikkvisningen."
       }
@@ -1435,9 +1168,7 @@
       }
     },
     "profiles": {
-      "enabled": "Aktivert",
       "inherit": "Arv",
-      "disabled": "Deaktivert",
       "description": "Konfigurer hvilke kameraer som slås på eller av når en profil aktiveres. Kameraer satt til «Arv» beholder sin standardstatus.",
       "title": "Profiloverstyringer for kamera",
       "selectLabel": "Velg profil",
@@ -1453,7 +1184,7 @@
       "confirmButton": "Slett permanent",
       "confirmWarning": "Sletting av <strong>{{cameraName}}</strong> kan ikke angres.",
       "description": "Sletting av et kamera vil fjerne alle opptak, sporede objekter og konfigurasjon for dette kameraet permanent. Eventuelle go2rtc-strømmer tilknyttet kameraet må eventuelt fjernes manuelt.",
-      "selectPlaceholder": "Velg kamera..."
+      "selectPlaceholder": "Velg kamera…"
     },
     "deleteCamera": "Slett kamera",
     "cameraType": {
@@ -1462,7 +1193,7 @@
       "description": "Angi type for hvert kamera. Dedikerte LPR-kameraer er spesialkameraer med kraftig optisk zoom for å fange opp kjennemerker på kjøretøy langt unna. De fleste kameraer bør bruke typen \"Normal\", med mindre kameraet er spesifikt for gjenkjenning av kjennemerker og har et snevert fokus på kjennemerker.",
       "normal": "Normal",
       "dedicatedLpr": "Dedikert LPR (lesing av kjennemerker)",
-      "saveSuccess": "Kameratype oppdatert for {{cameraName}}. Start AMSS på nytt for å bruke endringene."
+      "saveSuccess": "Kameratype oppdatert for {{cameraName}}. Start Frigate på nytt for å bruke endringene."
     },
     "description": "Legg til, rediger og slett kameraer, kontroller statusen til hvert kamera, og konfigurer overstyringer per profil og kameratype. For å konfigurere strømmer, deteksjon, bevegelse og andre kameraspesifikke innstillinger, velg den aktuelle seksjonen under Kamerakonfigurasjon.",
     "clone": {
@@ -1538,7 +1269,7 @@
       },
       "toast": {
         "success": "Innstillinger kopiert til {{cameraName}}",
-        "successWithRestart": "Innstillinger kopiert til {{cameraName}}. Start AMSS på nytt for å ta i bruk alle endringer.",
+        "successWithRestart": "Innstillinger kopiert til {{cameraName}}. Start Frigate på nytt for å ta i bruk alle endringer.",
         "partialFailure": "{{successCount}} seksjoner ble tatt i bruk; «{{failedSection}}» feilet: {{errorMessage}}",
         "partialFailureMulti": "Kopiert til {{successCount}} kamera(er); feilet for {{failed}}: {{errorMessage}}",
         "newCameraPartialFailure": "Kameraet {{cameraName}} ble opprettet, men noen innstillinger kunne ikke kopieres: {{errorMessage}}",
@@ -1546,8 +1277,8 @@
         "submitError": "Kunne ikke klone kamera: {{errorMessage}}",
         "successMulti_one": "Innstillinger kopiert til {{count}} kamera",
         "successMulti_other": "Innstillinger kopiert til {{count}} kameraer",
-        "successMultiWithRestart_one": "Innstillinger kopiert til {{count}} kamera. Start AMSS på nytt for å aktivere alle endringene.",
-        "successMultiWithRestart_other": "Innstillinger kopiert til {{count}} kameraer. Start AMSS på nytt for å bruke alle endringene."
+        "successMultiWithRestart_one": "Innstillinger kopiert til {{count}} kamera. Start Frigate på nytt for å aktivere alle endringene.",
+        "successMultiWithRestart_other": "Innstillinger kopiert til {{count}} kameraer. Start Frigate på nytt for å bruke alle endringene."
       }
     }
   },
@@ -1555,21 +1286,21 @@
     "title": "Innstillinger for kamerainspeksjon",
     "object_descriptions": {
       "title": "Generative KI-objektbeskrivelser",
-      "desc": "Midlertidig aktiver/deaktiver generative KI-objektbeskrivelser for dette kameraet til AMSS starter på nytt. Når deaktivert, vil KI-genererte beskrivelser ikke bli forespurt for sporede objekter på dette kameraet."
+      "desc": "Midlertidig aktiver/deaktiver generative KI-objektbeskrivelser for dette kameraet til Frigate starter på nytt. Når deaktivert, vil KI-genererte beskrivelser ikke bli forespurt for sporede objekter på dette kameraet."
     },
     "review_descriptions": {
       "title": "Generative KI beskrivelser for inspeksjon",
-      "desc": "Midlertidig aktiver/deaktiver inspeksjonsbeskrivelser med generativ KI for dette kameraet til AMSS startes på nytt. Når deaktivert, vil det ikke bli bedt om KI-genererte beskrivelser for inspeksjonselementer på dette kameraet."
+      "desc": "Midlertidig aktiver/deaktiver inspeksjonsbeskrivelser med generativ KI for dette kameraet til Frigate startes på nytt. Når deaktivert, vil det ikke bli bedt om KI-genererte beskrivelser for inspeksjonselementer på dette kameraet."
     },
     "review": {
       "title": "Inspiser",
-      "desc": "Aktiver/deaktiver varsler og deteksjoner midlertidig for dette kameraet til AMSS startes på nytt. Når deaktivert, vil det ikke genereres nye inspeksjonselementer. ",
+      "desc": "Aktiver/deaktiver varsler og deteksjoner midlertidig for dette kameraet til Frigate startes på nytt. Når deaktivert, vil det ikke genereres nye inspeksjonselementer. ",
       "alerts": "Varsler ",
       "detections": "Deteksjoner "
     },
     "reviewClassification": {
       "title": "Inspeksjonsklassifisering",
-      "desc": "AMSS kategoriserer inspeksjonselementer som Varsler og Deteksjoner. Som standard regnes alle <em>person</em>- og <em>bil</em>-objekter som Varsler. Du kan finjustere klassifiseringen ved å konfigurere nødvendige soner.",
+      "desc": "Frigate kategoriserer inspeksjonselementer som Varsler og Deteksjoner. Som standard regnes alle <em>person</em>- og <em>bil</em>-objekter som Varsler. Du kan finjustere klassifiseringen ved å konfigurere nødvendige soner.",
       "noDefinedZones": "Ingen soner er definert for dette kameraet.",
       "objectAlertsTips": "Alle {{alertsLabels}}-objekter på {{cameraName}} vil bli vist som varsler.",
       "zoneObjectAlertsTips": "Alle {{alertsLabels}}-objekter oppdaget i {{zone}} på {{cameraName}} vil bli vist som varsler.",
@@ -1584,7 +1315,7 @@
       "selectDetectionsZones": "Velg soner for deteksjoner",
       "limitDetections": "Avgrens deteksjoner til bestemte soner",
       "toast": {
-        "success": "Konfigurasjonen for inspeksjonsklassifisering er lagret. Start AMSS på nytt for å aktivere endringer."
+        "success": "Konfigurasjonen for inspeksjonsklassifisering er lagret. Start Frigate på nytt for å aktivere endringer."
       }
     }
   },
@@ -1670,8 +1401,8 @@
         "preset-rtmp-generic": "RTMP (Generisk)",
         "preset-rtsp-blue-iris": "RTSP - Blue Iris",
         "preset-rtsp-udp": "RTSP - UDP",
-        "preset-rtsp-restream": "RTSP - Videreformidling fra go2rtc",
-        "preset-rtsp-restream-low-latency": "RTSP - Videreformidling fra go2rtc (lav forsinkelse)",
+        "preset-rtsp-restream": "RTSP - Viderestrømming fra go2rtc",
+        "preset-rtsp-restream-low-latency": "RTSP - Viderestrømming fra go2rtc (lav forsinkelse)",
         "preset-rtsp-generic": "RTSP (Generisk)",
         "preset-vaapi": "VAAPI (Intel/AMD GPU)"
       },
@@ -1690,16 +1421,6 @@
       "integrations": "Integrasjoner",
       "system": "System"
     },
-    "detectors": {
-      "keyDuplicate": "Detektornavn eksisterer allerede.",
-      "keyRequired": "Detektornavn er påkrevd.",
-      "none": "Ingen detektor-instanser er konfigurert.",
-      "noSchema": "Ingen detektorskjemaer er tilgjengelige.",
-      "title": "Innstillinger for detektorer",
-      "singleType": "Kun én {{type}}-detektor er tillatt.",
-      "add": "Legg til detektor",
-      "addCustomKey": "Legg til egendefinert nøkkel"
-    },
     "global": {
       "description": "Disse innstillingene gjelder for alle kameraer med mindre de overstyres i kameraspesifikke innstillinger.",
       "title": "Globale innstillinger"
@@ -1712,8 +1433,6 @@
     "genaiRoles": {
       "options": {
         "embeddings": "Vektorrepresentasjoner",
-        "tools": "Verktøy",
-        "vision": "Bildegjenkjenning",
         "descriptions": "Beskrivelser",
         "chat": "Chat"
       }
@@ -1725,7 +1444,11 @@
       "valueLabel": "Verdi",
       "providerNamePlaceholder": "f.eks. openai",
       "variableNameLabel": "Variabelnavn",
-      "variableNamePlaceholder": "f.eks MIN_VARIABEL"
+      "variableNamePlaceholder": "f.eks MIN_VARIABEL",
+      "providerNameLabel": "Tilbydernavn",
+      "loggerNameLabel": "Loggernavn",
+      "loggerNamePlaceholder": "f.eks. frigate.record",
+      "keyPatternError": "Bruk kun bokstaver, tall, bindestreker og understreker (ingen mellomrom)"
     },
     "roleMap": {
       "remove": "Fjern",
@@ -1775,7 +1498,7 @@
     "cameraInputs": {
       "itemTitle": "Strøm {{index}}",
       "sourceMode": {
-        "restream": "Videreformidling / Restream (go2rtc)",
+        "restream": "Viderestrøm (go2rtc)",
         "manual": "Manuell kildesti",
         "go2rtcStreamLabel": "go2rtc-strøm",
         "go2rtcStreamPlaceholder": "Velg en go2rtc-strøm",
@@ -1850,17 +1573,8 @@
     "overriddenBaseConfigHeading_other": "{{profile}}-profilen overstyrer {{count}} felt fra basiskonfigurasjonen:",
     "overriddenBaseConfigNoDeltas": "{{profile}}-profilen overstyrer denne seksjonen, men ingen feltverdier er forskjellige fra basiskonfigurasjonen."
   },
-  "detectionModel": {
-    "plusActive": {
-      "title": "Administrasjon av AMSS+-modell",
-      "description": "Denne instansen kjører en AMSS+-modell. Velg eller endre modell i AMSS+-innstillingene.",
-      "goToAMSSPlus": "Gå til AMSS+-innstillinger",
-      "label": "Kilde for gjeldende modell",
-      "showModelForm": "Konfigurer en modell manuelt"
-    }
-  },
   "go2rtcStreams": {
-    "description": "Administrer go2rtc-strømkonfigurasjoner for videreformidling av kamera-strømmer. Hver strøm har ett navn og én eller flere kilde-URL-er.",
+    "description": "Administrer go2rtc-strømkonfigurasjoner for viderestrømming av kamera-strømmer. Hver strøm har ett navn og én eller flere kilde-URL-er.",
     "ffmpeg": {
       "hardwareAuto": "Automatisk (anbefalt)",
       "useFfmpegModule": "Bruk kompatibilitetsmodus (ffmpeg)",
@@ -1908,7 +1622,6 @@
     "renameStreamDesc": "Skriv inn et nytt navn for denne strømmen. Endring av navn kan ødelegge for kameraer eller andre strømmer som refererer til den ved navn.",
     "deleteStream": "Slett strøm",
     "streamName": "Strømnavn",
-    "streamNumber": "Strøm {{index}}",
     "sourceNumber": "Kilde {{index}}"
   },
   "profiles": {
@@ -1958,11 +1671,7 @@
       "allNonAlertDetections": "All aktivitet som ikke er et varsel, vil bli inkludert som deteksjoner.",
       "detectDisabled": "Objektdeteksjon er deaktivert. Inspeksjonselementer krever detekterte objekter for å kategorisere varsler og deteksjoner.",
       "recordDisabled": "Opptak er deaktivert, inspeksjonselementer vil ikke bli generert.",
-      "genaiImageSourceRecordingsRecordDisabled": "Bildekilde er satt til \"opptak\", men opptak er deaktivert. AMSS vil falle tilbake til forhåndsvisningsbilder."
-    },
-    "detectors": {
-      "mixedTypesSuggestion": "Alle detektorer må bruke samme type. Fjern eksisterende detektorer eller velg {{type}}.",
-      "mixedTypes": "Alle detektorer må bruke samme type. Fjern eksisterende detektorer for å bruke en annen type."
+      "genaiImageSourceRecordingsRecordDisabled": "Bildekilde er satt til \"opptak\", men opptak er deaktivert. Frigate vil falle tilbake til forhåndsvisningsbilder."
     },
     "faceRecognition": {
       "globalDisabled": "Utvidelse for ansiktsgjenkjenning må være aktivert for at funksjoner for ansiktsgjenkjenning skal fungere på dette kameraet.",
@@ -1979,9 +1688,6 @@
       "resolutionHigh": "Denne deteksjonsoppløsningen er høyere enn anbefalt og kan føre til økt ressursbruk uten å forbedre deteksjonsnøyaktigheten. En deteksjonsoppløsning på eller under 1080p anbefales for de fleste kameraer.",
       "globalResolutionMultipleCameras": "En global deteksjonsoppløsning er satt samtidig som flere kameraer er konfigurert. Med mindre alle kameraer deler nøyaktig samme oppløsning og sideforhold, bør deteksjonsbredden og -høyden defineres per kamera for å matche hvert kameras opprinnelige sideforhold."
     },
-    "birdseye": {
-      "objectsModeDetectDisabled": "Fugleperspektiv er satt til 'objekter'-modus, men objektdeteksjon er deaktivert for dette kameraet. Kameraet vil ikke vises i Fugleperspektiv."
-    },
     "audio": {
       "noAudioRole": "Ingen strømmer har definert lydrolle. Du må aktivere lydrollen for at lyddeteksjon skal fungere."
     },
@@ -1996,7 +1702,7 @@
     },
     "lpr": {
       "globalDisabled": "Utvidelse for identifisering av kjennemerker må være aktivert for at LPR-funksjoner skal fungere på dette kameraet.",
-      "vehicleNotTracked": "Identifisering av kjennemerker krever at 'bil' eller 'motorsykkel' spores. Aktiver 'bil' eller 'motorsykkel' under Objekter for dette kameraet.",
+      "vehicleNotTracked": "Identifisering av kjennemerker krever at et kjøretøy spores. Aktiver 'bil' eller et annet kjøretøy under Objekter for dette kameraet.",
       "modelSizeLarge": "Den store (large) modellen er optimalisert for kjennemerker over flere linjer. Den lille (small) modellen gir bedre ytelse og bør brukes med mindre din region bruker skiltformater med flere linjer."
     },
     "objects": {
@@ -2006,11 +1712,12 @@
       "jinav2SmallModelSize": "Størrelsen \"liten\" med Jina V2-modellen har høyt minnebruk og beregningskostnad. Den \"store\" modellen med en dedikert GPU anbefales."
     },
     "model": {
-      "optimizedFor320": "AMSS er optimalisert for en 320x320-modell, som er det beste valget for de fleste oppsett. En 640x640-modell er tregere og hjelper kun i spesifikke scenarier.",
+      "optimizedFor320": "Frigate er optimalisert for en 320x320-modell, som er det beste valget for de fleste oppsett. En 640x640-modell er tregere og hjelper kun i spesifikke scenarier.",
       "inputDimensionsNotDetectResolution": "Modellens inndata for bredde og høyde er dimensjonene til selve objektdeteksjonsmodellen, ikke kameraets deteksjonsoppløsning. De skal samsvare med dimensjonene til modellen du bruker – vanligvis en kvadratisk størrelse som 320x320 eller 640x640."
     },
     "ffmpeg": {
-      "hwaccelManualNotRecommended": "Manuelle argumenter for maskinvareakselerasjon anbefales ikke. Med mindre det foreligger et spesifikt behov, bør du velge forhåndsinnstillingen som samsvarer med maskinvaren din."
+      "hwaccelManualNotRecommended": "Manuelle argumenter for maskinvareakselerasjon anbefales ikke. Med mindre det foreligger et spesifikt behov, bør du velge forhåndsinnstillingen som samsvarer med maskinvaren din.",
+      "inputsMissingGo2rtcStream": "En innstrøm nedenfor peker til en go2rtc-viderestrøm som ikke lenger eksisterer. Velg en eksisterende viderestrømeller oppgi kameraets URL manuelt, ellers vil ikke kameraet klarer å koble til."
     },
     "onvif": {
       "autotrackingNoZones": "Autosporing krever minst én sone. Definer en sone for dette kameraet under Masker / Soner, og angi den deretter som en påkrevd sone nedenfor."
@@ -2033,7 +1740,7 @@
       "errorLabel": "Feil",
       "dryRunDisabled": "Filer vil bli slettet",
       "previews": "Forhåndsvisninger",
-      "desc": "AMSS vil periodisk rydde opp i mediefiler etter en fast plan i samsvar med din konfigurasjon for bevaring. Det er normalt at noen foreldreløse filer oppstår mens AMSS kjører. Bruk denne funksjonen til å fjerne foreldreløse mediefiler fra disk som ikke lenger er referert til i databasen.",
+      "desc": "Frigate vil periodisk rydde opp i mediefiler etter en fast plan i samsvar med din konfigurasjon for bevaring. Det er normalt at noen foreldreløse filer oppstår mens Frigate kjører. Bruk denne funksjonen til å fjerne foreldreløse mediefiler fra disk som ikke lenger er referert til i databasen.",
       "status": {
         "completed": "Fullført",
         "queued": "I kø",
@@ -2065,12 +1772,12 @@
       "force": "Tving"
     },
     "regionGrid": {
-      "clearConfirmDesc": "Det anbefales ikke å tømme regionrutenettet med mindre du nylig har endret størrelsen på detektormodellen eller har endret kameraets fysiske posisjon og har problemer med objektsporing. Rutenettet vil automatisk bli bygget opp igjen over tid etter hvert som objekter spores. En omstart av AMSS kreves for at endringene skal tre i kraft.",
+      "clearConfirmDesc": "Det anbefales ikke å tømme regionrutenettet med mindre du nylig har endret størrelsen på detektormodellen eller har endret kameraets fysiske posisjon og har problemer med objektsporing. Rutenettet vil automatisk bli bygget opp igjen over tid etter hvert som objekter spores. En omstart av Frigate kreves for at endringene skal tre i kraft.",
       "clearError": "Kunne ikke tømme regionrutenettet",
       "restartRequired": "Omstart kreves for at endringer i regionrutenettet skal tre i kraft",
       "title": "Regionrutenett",
       "clearSuccess": "Regionrutenettet ble tømt",
-      "desc": "Regionrutenettet er en optimalisering som lærer hvor objekter av ulike størrelser vanligvis dukker opp i hvert kameras synsfelt. AMSS bruker disse dataene til å dimensjonere deteksjonsregioner effektivt. Rutenettet bygges automatisk over tid basert på data fra sporede objekter.",
+      "desc": "Regionrutenettet er en optimalisering som lærer hvor objekter av ulike størrelser vanligvis dukker opp i hvert kameras synsfelt. Frigate bruker disse dataene til å dimensjonere deteksjonsregioner effektivt. Rutenettet bygges automatisk over tid basert på data fra sporede objekter.",
       "clear": "Tøm regionrutenett",
       "clearConfirmTitle": "Tøm regionrutenett"
     },
@@ -2122,7 +1829,7 @@
   },
   "toast": {
     "success": "Innstillinger lagret",
-    "successRestartRequired": "Innstillinger lagret. Start AMSS på nytt for å aktivere endringene.",
+    "successRestartRequired": "Innstillinger lagret. Start Frigate på nytt for å aktivere endringene.",
     "applied": "Innstillinger tatt i bruk",
     "saveAllFailure": "Kunne ikke lagre alle seksjoner.",
     "error": "Kunne ikke lagre innstillinger",
@@ -2133,8 +1840,8 @@
     "saveAllPartial_other": "{{successCount}} av {{totalCount}} seksjoner lagret. {{failCount}} feilet.",
     "saveAllSuccess_one": "{{count}} seksjon ble lagret.",
     "saveAllSuccess_other": "{{count}} seksjoner ble lagret.",
-    "saveAllSuccessRestartRequired_one": "Lagret {{count}} seksjon. Start AMSS på nytt for å aktivere endringene.",
-    "saveAllSuccessRestartRequired_other": "Alle {{count}} seksjoner ble lagret. Start AMSS på nytt for å aktivere endringene."
+    "saveAllSuccessRestartRequired_one": "Lagret {{count}} seksjon. Start Frigate på nytt for å aktivere endringene.",
+    "saveAllSuccessRestartRequired_other": "Alle {{count}} seksjoner ble lagret. Start Frigate på nytt for å aktivere endringene."
   },
   "cameraConfig": {
     "toast": {
@@ -2153,11 +1860,6 @@
     "tl": "Øverst til venstre"
   },
   "birdseye": {
-    "trackingMode": {
-      "objects": "Objekter",
-      "motion": "Bevegelse",
-      "continuous": "Kontinuerlig"
-    },
     "cameraOrder": {
       "label": "Kamerarekkefølge",
       "description": "Dra kameraene for å angi rekkefølgen deres i Fugleperspektiv-oppsettet.",
@@ -2166,24 +1868,11 @@
       "saved": "Lagret"
     }
   },
-  "snapshot": {
-    "retainMode": {
-      "all": "Alle",
-      "motion": "Bevegelse",
-      "active_objects": "Aktive objekter"
-    }
-  },
   "ui": {
     "timeFormat": {
       "browser": "Nettleser",
       "12hour": "12 timer",
       "24hour": "24 timer"
-    },
-    "TimeOrDateStyle": {
-      "full": "Full",
-      "long": "Lang",
-      "medium": "Middels",
-      "short": "Kort"
     },
     "unitSystem": {
       "metric": "Metrisk",
@@ -2225,30 +1914,5 @@
     "overrideGlobal": "Denne seksjonen overstyrer den globale konfigurasjonen",
     "overrideProfile": "Denne seksjonen overstyres av {{profile}}-profilen",
     "unsaved": "Denne seksjonen har ulagrede endringer"
-  },
-  "detectorsAndModel": {
-    "title": "Detektorer og modell",
-    "description": "Konfigurer detektor-bakenden som kjører objektdeteksjon, og modellen den bruker. Endringer lagres sammen slik at detektoren og modellen forblir synkronisert.",
-    "cardTitles": {
-      "detector": "Detektor-maskinvare",
-      "model": "Deteksjonsmodell"
-    },
-    "tabs": {
-      "plus": "AMSS+",
-      "custom": "Egendefinert modell"
-    },
-    "mismatch": {
-      "warning": "Den gjeldende AMSS+-modellen \"{{model}}\" krever {{required}}-detektoren. Velg en kompatibel modell nedenfor eller bytt til Egendefinert modell før du lagrer."
-    },
-    "plusModel": {
-      "requiresDetector": "Krever: {{detector}}",
-      "noModelSelected": "Velg en AMSS+ modell"
-    },
-    "toast": {
-      "saveSuccess": "Innstillinger for detektorer og modell er lagret. Start AMSS på nytt for å aktivere endringene.",
-      "saveError": "Kunne ikke lagre innstillinger for detektorer og modell"
-    },
-    "unsavedChanges": "Ulagrede endringer for detektorer og modell",
-    "restartRequired": "Omstart kreves (detektor eller modell er endret)"
   }
 }

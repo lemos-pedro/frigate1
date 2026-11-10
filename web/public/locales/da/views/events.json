@@ -6,7 +6,6 @@
     "only": "Kun bevægelse"
   },
   "allCameras": "Alle kameraer",
-  "timeline": "Tidslinje",
   "camera": "Kamera",
   "empty": {
     "alert": "Der er ingen advarsler at gennemgå",
@@ -16,9 +15,9 @@
       "title": "Optagelser skal være aktiveret"
     }
   },
-  "documentTitle": "Gennemse - AMSS",
+  "documentTitle": "Gennemse - Frigate",
   "recordings": {
-    "documentTitle": "Optagelser - AMSS"
+    "documentTitle": "Optagelser - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Sidste 24 timer"
@@ -28,5 +27,8 @@
   "detail": {
     "aria": "Skift til detaljevisning"
   },
-  "timeline.aria": "Vælg tidslinje"
+  "timeline.aria": "Vælg tidslinje",
+  "motionPreviews": {
+    "crop": "Beskær til filter"
+  }
 }

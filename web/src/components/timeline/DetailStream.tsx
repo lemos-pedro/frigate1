@@ -11,7 +11,7 @@ import {
 import { use24HourTime } from "@/hooks/use-date-utils";
 import { useTranslation } from "react-i18next";
 import AnnotationOffsetSlider from "@/components/overlay/detail/AnnotationOffsetSlider";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import useSWR from "swr";
 import ActivityIndicator from "../indicators/activity-indicator";
 import { Event } from "@/types/event";
@@ -21,7 +21,7 @@ import { REVIEW_PADDING, ReviewSegment } from "@/types/review";
 import { LuChevronDown, LuCircle, LuChevronRight } from "react-icons/lu";
 import { getTranslatedLabel } from "@/utils/i18n";
 import EventMenu from "@/components/timeline/EventMenu";
-import { AmssPlusDialog } from "@/components/overlay/dialog/AmssPlusDialog";
+import { FrigatePlusDialog } from "@/components/overlay/dialog/FrigatePlusDialog";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { Link } from "react-router-dom";
@@ -49,7 +49,7 @@ export default function DetailStream({
   isPlaying = false,
   onSeek,
 }: DetailStreamProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { t } = useTranslation("views/events");
   const { annotationOffset, selectedObjectIds, setSelectedObjectIds } =
     useDetailStream();
@@ -147,7 +147,18 @@ export default function DetailStream({
   // away instead of waiting for a future effectiveTime change.
   useEffect(() => {
     if (!reviewItems || reviewItems.length === 0) return;
-    if (activeReviewId) return;
+
+    // an id left over from another camera's items counts as unset
+    if (
+      activeReviewId &&
+      reviewItems.some(
+        (r) =>
+          `review-${r.id ?? r.start_time ?? Math.floor(r.start_time ?? 0)}` ===
+          activeReviewId,
+      )
+    ) {
+      return;
+    }
 
     let target: ReviewSegment | undefined;
     let closest: { r: ReviewSegment; diff: number } | undefined;
@@ -273,7 +284,7 @@ export default function DetailStream({
 
   return (
     <>
-      <AmssPlusDialog
+      <FrigatePlusDialog
         upload={upload}
         onClose={() => setUpload(undefined)}
         onEventUploaded={() => {
@@ -371,7 +382,7 @@ export default function DetailStream({
 type ReviewGroupProps = {
   review: ReviewSegment;
   id: string;
-  config: AmssConfig;
+  config: FrigateConfig;
   onSeek: (timestamp: number, play?: boolean) => void;
   isActive?: boolean;
   onActivate?: () => void;
@@ -635,7 +646,7 @@ function EventList({
   onSeek,
   onOpenUpload,
 }: EventListProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const { selectedObjectIds, setSelectedObjectIds, toggleObjectSelection } =
     useDetailStream();
@@ -727,6 +738,7 @@ function EventList({
                     <div className="text-sm text-secondary-foreground">
                       <Link
                         to={`/explore?recognized_license_plate=${event.data.recognized_license_plate}`}
+                        state={{ canGoBack: true }}
                         className="text-sm"
                       >
                         {event.data.recognized_license_plate}
@@ -782,7 +794,7 @@ function LifecycleItem({
   isTimelineActive = false,
 }: LifecycleItemProps) {
   const { t } = useTranslation("views/events");
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const aspectRatio = useMemo(() => {
     if (!config || !item?.camera) {
@@ -1014,7 +1026,7 @@ function ObjectTimeline({
     },
   ]);
 
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const timeline = useMemo(() => {
     if (!fullTimeline) {
       return fullTimeline;

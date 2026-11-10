@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { AmssStats } from "@/types/stats";
+import { FrigateStats } from "@/types/stats";
 import {
   startTransition,
   useCallback,
@@ -7,7 +7,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { useAmssStats } from "@/api/ws";
+import { useFrigateStats } from "@/api/ws";
 import { EmbeddingThreshold, GenAIThreshold, Threshold } from "@/types/graph";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ThresholdBarGraph } from "@/components/graph/SystemGraph";
@@ -28,15 +28,15 @@ export default function EnrichmentMetrics({
   // stats
   const { t } = useTranslation(["views/system"]);
 
-  const { data: initialStats, mutate: refreshStats } = useSWR<AmssStats[]>(
+  const { data: initialStats, mutate: refreshStats } = useSWR<FrigateStats[]>(
     ["stats/history", { keys: "embeddings,service.last_updated" }],
     {
       revalidateOnFocus: false,
     },
   );
 
-  const [statsHistory, setStatsHistory] = useState<AmssStats[]>([]);
-  const updatedStats = useAmssStats();
+  const [statsHistory, setStatsHistory] = useState<FrigateStats[]>([]);
+  const updatedStats = useFrigateStats();
 
   useEffect(() => {
     if (initialStats == undefined || initialStats.length == 0) {
@@ -114,6 +114,11 @@ export default function EnrichmentMetrics({
       }
 
       Object.entries(stats.embeddings).forEach(([rawKey, stat]) => {
+        // embeddings.devices is a label map, not a metric series
+        if (typeof stat !== "number") {
+          return;
+        }
+
         const key = rawKey.replaceAll("_", " ");
         if (!(key in series)) {
           const classificationIndex = rawKey.indexOf("_classification_");
@@ -173,7 +178,7 @@ export default function EnrichmentMetrics({
         isSpeed = false;
       }
 
-      let categoryName = "";
+      let categoryName: string;
       // Get translated category name
       if (categoryKey.endsWith("_classification")) {
         const name = categoryKey.replace("_classification", "");

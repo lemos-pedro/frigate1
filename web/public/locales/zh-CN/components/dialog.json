@@ -1,40 +1,32 @@
 {
   "restart": {
-    "title": "你确定要重启 AMSS?",
+    "title": "你确定要重启 Frigate?",
     "button": "重启",
     "restarting": {
-      "title": "AMSS 正在重启",
+      "title": "Frigate 正在重启",
       "content": "该页面将会在 {{countdown}} 秒后自动刷新。",
       "button": "强制刷新"
     },
-    "description": "AMSS 在重启期间将短暂停止运行。"
+    "description": "Frigate 在重启期间将短暂停止运行。"
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "提交至 AMSS+",
+        "label": "提交至 Frigate+",
         "desc": "你不希望检测指定地点中的目标或物体不应被视为误报。若将其作为误报提交，可能会导致 AI 模型容易混淆相关目标或物体的识别。"
       },
       "review": {
-        "true": {
-          "label": "为 AMSS Plus 确认此标签",
-          "true_other": "这是 {{label}}"
-        },
-        "false": {
-          "label": "不为 AMSS Plus 确认此标签",
-          "false_other": "这不是 {{label}}"
-        },
         "state": {
           "submitted": "已提交"
         },
         "question": {
-          "label": "为 AMSS Plus 确认此标签",
+          "label": "为 Frigate Plus 确认此标签",
           "ask_a": "这个目标/物体是 <code>{{label}}</code> 吗？",
           "ask_an": "这个目标/物体是 <code>{{label}}</code> 吗？",
           "ask_full": "这个目标/物体是 <code>{{untranslatedLabel}}</code> ({{translatedLabel}}) 吗？"
         },
         "toast": {
-          "error": "提交至 AMSS+ 失败，请检查您的网络连接并重试。"
+          "error": "提交至 Frigate+ 失败，请检查您的网络连接并重试。"
         }
       }
     },
@@ -67,7 +59,6 @@
       "error": {
         "failed": "未能加入导出队列：{{error}}",
         "endTimeMustAfterStartTime": "结束时间必须在开始时间之后",
-        "noVaildTimeSelected": "未选择有效的时间范围",
         "noValidTimeSelected": "未选择有效的时间范围"
       },
       "view": "查看",
@@ -75,7 +66,7 @@
       "batchSuccess_other": "已开始 {{count}} 个导出，正在打开合集。",
       "batchPartial": "已开始 {{total}} 个导出中的 {{successful}} 个。失败的摄像头：{{failedCameras}}",
       "batchFailed": "启动导出失败（共 {{total}} 个）。失败的摄像头：{{failedCameras}}",
-      "batchQueuedSuccess_other": "已排队 {{count}} 个导出，正在打开合集。",
+      "batchQueuedSuccess_other": "已排队 {{count}} 个导出。",
       "batchQueuedPartial": "已将 {{total}} 个导出中的 {{successful}} 个加入队列。失败的摄像头：{{failedCameras}}",
       "batchQueueFailed": "未能将 {{total}} 个导出加入队列。失败的摄像头：{{failedCameras}}"
     },
@@ -90,8 +81,7 @@
       "placeholder": "选择合集",
       "newCaseOption": "创建新合集",
       "newCaseNamePlaceholder": "新合集名称",
-      "newCaseDescriptionPlaceholder": "合集描述",
-      "nonAdminHelp": "将为这些导出文件创建一个新的合集。"
+      "newCaseDescriptionPlaceholder": "合集描述"
     },
     "queueing": "正在加入导出队列…",
     "tabs": {
@@ -126,8 +116,7 @@
       "exportButton_other": "导出 {{count}} 个核查",
       "exportingButton": "导出中…",
       "toast": {
-        "started_other": "已开始 {{count}} 个导出。正在打开合集。",
-        "startedNoCase_other": "已开始 {{count}} 个导出。",
+        "started_other": "已开始 {{count}} 个导出。",
         "partial": "已启动 {{total}} 个导出，其中 {{successful}} 个成功。失败项：{{failedItems}}",
         "failed": "启动导出失败（共 {{total}} 个）。失败项：{{failedItems}}"
       }
@@ -138,8 +127,7 @@
     "restreaming": {
       "disabled": "此摄像头未启用视频流转发功能。",
       "desc": {
-        "title": "为此摄像头设置 go2rtc，以获取额外的实时预览选项和音频支持。",
-        "readTheDocumentation": "阅读文档"
+        "title": "为此摄像头设置 go2rtc，以获取额外的实时预览选项和音频支持。"
       }
     },
     "showStats": {
@@ -182,10 +170,10 @@
     "shareTimestamp": {
       "label": "分享该时间片段",
       "title": "分享该时间片段",
-      "description": "分享带当前录制的播放时间的地址，或选择自定义时间。请注意，这不是公开的分享链接，只有具有 AMSS 和此摄像头访问权限的用户才能访问。",
+      "description": "分享带当前录制的播放时间的地址，或选择自定义时间。请注意，这不是公开的分享链接，只有具有 Frigate 和此摄像头访问权限的用户才能访问。",
       "custom": "自定义时间",
       "button": "分享时间片段地址",
-      "shareTitle": "AMSS 核查时间：{{camera}}"
+      "shareTitle": "Frigate 核查时间：{{camera}}"
     }
   },
   "imagePicker": {

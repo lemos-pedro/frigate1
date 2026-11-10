@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import { AmssStats, GpuInfo, GpuStats } from "@/types/stats";
+import { FrigateStats, GpuInfo, GpuStats } from "@/types/stats";
 import { startTransition, useEffect, useMemo, useState } from "react";
-import { useAmssStats } from "@/api/ws";
+import { useFrigateStats } from "@/api/ws";
 import {
   DetectorCpuThreshold,
   DetectorMemThreshold,
@@ -39,7 +39,7 @@ export default function GeneralMetrics({
 
   // stats
 
-  const { data: initialStats, mutate: refreshStats } = useSWR<AmssStats[]>(
+  const { data: initialStats, mutate: refreshStats } = useSWR<FrigateStats[]>(
     [
       "stats/history",
       {
@@ -51,8 +51,8 @@ export default function GeneralMetrics({
     },
   );
 
-  const [statsHistory, setStatsHistory] = useState<AmssStats[]>([]);
-  const updatedStats = useAmssStats();
+  const [statsHistory, setStatsHistory] = useState<FrigateStats[]>([]);
+  const updatedStats = useFrigateStats();
 
   useEffect(() => {
     if (initialStats == undefined || initialStats.length == 0) {
@@ -97,14 +97,13 @@ export default function GeneralMetrics({
     let vaCount = 0;
     let nvCount = 0;
 
-    statsHistory.length > 0 &&
-      Object.values(statsHistory[0]?.gpu_usages ?? {}).forEach((stats) => {
-        if (stats.vendor === "nvidia") {
-          nvCount += 1;
-        } else if (stats.vendor === "intel" || stats.vendor === "amd") {
-          vaCount += 1;
-        }
-      });
+    Object.values(statsHistory[0]?.gpu_usages ?? {}).forEach((stats) => {
+      if (stats.vendor === "nvidia") {
+        nvCount += 1;
+      } else if (stats.vendor === "intel" || stats.vendor === "amd") {
+        vaCount += 1;
+      }
+    });
 
     return [vaCount > 0 || nvCount > 0, nvCount > 0 ? "nvinfo" : "vainfo"];
   }, [statsHistory]);

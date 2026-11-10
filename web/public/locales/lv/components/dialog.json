@@ -3,7 +3,7 @@
     "title": "Vai esi pārliecināts, ka vēlies pārstartēt Frigati?",
     "button": "Pārstartēt",
     "restarting": {
-      "title": "AMSS tiek pārstartēta",
+      "title": "Frigate tiek pārstartēta",
       "content": "Šī lapa tiks atkārtoti ielādēta pēc {{countdown}} sekundēm.",
       "button": "Atjaunot tagad"
     }
@@ -11,12 +11,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Sūtīt uz AMSS+",
+        "label": "Sūtīt uz Frigate+",
         "desc": "Objekti vietās, no kurām vēlaties izvairīties, nav kļūdaini pozitīvi. To iesniegšana kā kļūdaini pozitīvi radīs modelim neskaidrības."
       },
       "review": {
         "question": {
-          "label": "Apstipriniet šo tagu pakalpojumam AMSS Plus",
+          "label": "Apstipriniet šo tagu pakalpojumam Frigate Plus",
           "ask_a": "Vai šis objekts<code>{{label}}</code>?",
           "ask_an": "Vai šis objekts ir<code>{{label}}</code>?",
           "ask_full": "Vai šis objekts<code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -57,8 +57,7 @@
       "view": "Skatīt",
       "error": {
         "failed": "Neizdevās sākt eksportēšanu: {{error}}",
-        "endTimeMustAfterStartTime": "Beigu laikam ir jābūt pēc sākuma laika",
-        "noVaildTimeSelected": "Nav izvēlēts derīgs laika diapazons"
+        "endTimeMustAfterStartTime": "Beigu laikam ir jābūt pēc sākuma laika"
       }
     },
     "fromTimeline": {

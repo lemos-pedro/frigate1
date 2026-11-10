@@ -1,9 +1,9 @@
 {
   "restart": {
-    "title": "Ali si prepričan, da želiš ponovno zagnati AMSS?",
+    "title": "Ali si prepričan, da želiš ponovno zagnati Frigate?",
     "button": "Ponovni zagon",
     "restarting": {
-      "title": "AMSS se ponovno zaganja",
+      "title": "Frigate se ponovno zaganja",
       "content": "Stran se bo osvežila čez {{countdown}} sekund.",
       "button": "Prisili osvežitev zdaj"
     },
@@ -14,7 +14,7 @@
       "review": {
         "question": {
           "ask_full": "Je ta predmet <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Potrdi to oznako za AMSS Plus",
+          "label": "Potrdi to oznako za Frigate Plus",
           "ask_a": "Je ta predmet <code>{{label}}</code>?",
           "ask_an": "Je ta predmet <code>{{label}}</code>?"
         },
@@ -23,7 +23,7 @@
         }
       },
       "submitToPlus": {
-        "label": "Pošlji v AMSS+",
+        "label": "Pošlji v Frigate+",
         "desc": "Predmeti na lokacijah, ki se jim želiš izogniti, niso lažni zadetki. Če jih pošlješ kot lažne zadetke, boš zmedli model."
       }
     },
@@ -58,8 +58,7 @@
       "success": "Izvoz se je uspešno začel. Datoteko si lahko ogledaš na strani z izvozi.",
       "error": {
         "failed": "Napaka pri izvozu: {{error}}",
-        "endTimeMustAfterStartTime": "Čas konca mora biti po času začetka",
-        "noVaildTimeSelected": "Ni izbranega veljavnega časovnega obdobja"
+        "endTimeMustAfterStartTime": "Čas konca mora biti po času začetka"
       },
       "view": "Poglej"
     },
@@ -77,8 +76,7 @@
     "restreaming": {
       "disabled": "Ponovno pretakanje za to kamero ni omogočeno.",
       "desc": {
-        "title": "Nastavi go2rtc za dodatne možnosti ogleda v živo in zvok za to kamero.",
-        "readTheDocumentation": "Preberi dokumentacijo"
+        "title": "Nastavi go2rtc za dodatne možnosti ogleda v živo in zvok za to kamero."
       }
     },
     "showStats": {

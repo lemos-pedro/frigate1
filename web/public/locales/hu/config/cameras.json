@@ -36,7 +36,7 @@
     },
     "friendly_name": {
         "label": "Egyszerű név",
-        "description": "A AMSS felhasználói felületén használt, könnyen megjegyezhető kamera név"
+        "description": "A Frigate felhasználói felületén használt, könnyen megjegyezhető kamera név"
     },
     "enabled": {
         "label": "Engedélyezve",
@@ -74,6 +74,11 @@
         "description": "„Beállítások élő hang és beszéd automatikus szöveggé alakításához, eseményekhez és élő feliratozáshoz.",
         "enabled": {
             "label": "Hangról szövegre alakítás engedélyezése"
+        }
+    },
+    "zones": {
+        "speed_threshold": {
+            "label": "Minimum sebesség"
         }
     }
 }

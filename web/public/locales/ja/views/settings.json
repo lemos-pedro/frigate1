@@ -1,22 +1,21 @@
 {
   "documentTitle": {
-    "authentication": "認証設定 - AMSS",
-    "camera": "カメラ設定 - AMSS",
-    "default": "設定 - AMSS",
-    "enrichments": "高度解析設定 - AMSS",
-    "masksAndZones": "マスク／ゾーンエディタ - AMSS",
-    "motionTuner": "モーションチューナー - AMSS",
-    "object": "デバッグ - AMSS",
-    "general": "UI設定 - AMSS",
-    "frigatePlus": "AMSS+ 設定 - AMSS",
-    "notifications": "通知設定 - AMSS",
-    "cameraManagement": "カメラ設定 - AMSS",
-    "cameraReview": "カメラレビュー設定 - AMSS",
-    "maintenance": "メンテナンス - AMSS",
-    "profiles": "プロファイル - AMSS",
-    "globalConfig": "グローバル設定 - AMSS",
-    "cameraConfig": "カメラ設定 - AMSS",
-    "detectorsAndModel": "検出器とモデル - AMSS"
+    "authentication": "認証設定 - Frigate",
+    "default": "設定 - Frigate",
+    "enrichments": "高度解析設定 - Frigate",
+    "masksAndZones": "マスク／ゾーンエディタ - Frigate",
+    "motionTuner": "モーションチューナー - Frigate",
+    "object": "デバッグ - Frigate",
+    "general": "UI設定 - Frigate",
+    "frigatePlus": "Frigate+ 設定 - Frigate",
+    "notifications": "通知設定 - Frigate",
+    "cameraManagement": "カメラ設定 - Frigate",
+    "cameraReview": "カメラレビュー設定 - Frigate",
+    "maintenance": "メンテナンス - Frigate",
+    "profiles": "プロファイル - Frigate",
+    "globalConfig": "グローバル設定 - Frigate",
+    "cameraConfig": "カメラ設定 - Frigate",
+    "detectorsAndModel": "検出器とモデル - Frigate"
   },
   "menu": {
     "ui": "UI",
@@ -28,7 +27,7 @@
     "debug": "デバッグ",
     "users": "ユーザー",
     "notifications": "通知",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "cameraManagement": "管理",
     "cameraReview": "レビュー",
     "roles": "ロール",
@@ -168,7 +167,7 @@
     },
     "semanticSearch": {
       "title": "セマンティック検索",
-      "desc": "AMSS のセマンティック検索では、画像そのもの、ユーザー定義のテキスト説明、または自動生成された説明を用いて、レビュー項目内の追跡オブジェクトを検索できます。",
+      "desc": "Frigate のセマンティック検索では、画像そのもの、ユーザー定義のテキスト説明、または自動生成された説明を用いて、レビュー項目内の追跡オブジェクトを検索できます。",
       "reindexNow": {
         "label": "今すぐ再インデックス",
         "desc": "インデックスの再構築を行うと、追跡対象のすべてのオブジェクトの埋め込みが再生成されます。この処理はバックグラウンドで実行され、追跡対象のオブジェクトの数によってはCPU使用率が最大になり、かなりの時間がかかる場合があります。",
@@ -214,78 +213,8 @@
     },
     "restart_required": "再起動が必要です（高度解析設定を変更）",
     "toast": {
-      "success": "高度解析設定を保存しました。変更を適用するには AMSS を再起動してください。",
+      "success": "高度解析設定を保存しました。変更を適用するには Frigate を再起動してください。",
       "error": "設定変更の保存に失敗しました: {{errorMessage}}"
-    }
-  },
-  "camera": {
-    "title": "カメラ設定",
-    "streams": {
-      "title": "ストリーム",
-      "desc": "AMSS の再起動まで、カメラを一時的に無効化します。無効化すると、このカメラのストリーム処理は完全に停止します。検出、録画、デバッグは利用できません。<br /> <em>注: これは go2rtc のリストリームは無効化しません。</em>"
-    },
-    "object_descriptions": {
-      "title": "生成 AI オブジェクト説明",
-      "desc": "このカメラの生成 AI によるオブジェクト説明を一時的に有効／無効にします。無効にすると、追跡オブジェクトに対して説明はリクエストされません。"
-    },
-    "review_descriptions": {
-      "title": "生成 AI レビュー説明",
-      "desc": "このカメラの生成 AI によるレビュー説明を一時的に有効／無効にします。無効にすると、レビュー項目に対して説明はリクエストされません。"
-    },
-    "review": {
-      "title": "レビュー",
-      "desc": "AMSS の再起動まで、このカメラのアラートと検出を一時的に有効／無効にします。無効時は新しいレビュー項目は生成されません。 ",
-      "alerts": "アラート ",
-      "detections": "検出 "
-    },
-    "reviewClassification": {
-      "title": "レビュー分類",
-      "desc": "AMSS はレビュー項目をアラートと検出に分類します。既定では <em>person</em> と <em>car</em> はアラートです。必要ゾーンを設定することで分類を細かく調整できます。",
-      "noDefinedZones": "このカメラにはゾーンが定義されていません。",
-      "objectAlertsTips": "{{cameraName}} 上の {{alertsLabels}} はすべてアラートとして表示されます。",
-      "zoneObjectAlertsTips": "{{cameraName}} の {{zone}} で検出された {{alertsLabels}} はすべてアラートとして表示されます。",
-      "objectDetectionsTips": "{{cameraName}} で未分類の {{detectionsLabels}} は、ゾーンに関わらず検出として表示されます。",
-      "zoneObjectDetectionsTips": {
-        "text": "{{cameraName}} の {{zone}} で未分類の {{detectionsLabels}} は検出として表示されます。",
-        "notSelectDetections": "{{cameraName}} の {{zone}} で検出された {{detectionsLabels}} のうちアラートに分類されないものは、ゾーンに関わらず検出として表示されます。",
-        "regardlessOfZoneObjectDetectionsTips": "{{cameraName}} で未分類の {{detectionsLabels}} は、ゾーンに関わらず検出として表示されます。"
-      },
-      "unsavedChanges": "{{camera}} のレビュー分類設定に未保存の変更があります",
-      "selectAlertsZones": "アラートのゾーンを選択",
-      "selectDetectionsZones": "検出のゾーンを選択",
-      "limitDetections": "検出を特定ゾーンに制限",
-      "toast": {
-        "success": "レビュー分類設定を保存しました。変更を適用するには AMSS を再起動してください。"
-      }
-    },
-    "addCamera": "新しいカメラを追加",
-    "editCamera": "カメラを編集:",
-    "selectCamera": "カメラを選択",
-    "backToSettings": "カメラ設定に戻る",
-    "cameraConfig": {
-      "add": "カメラを追加",
-      "edit": "カメラを編集",
-      "description": "ストリーム入力とロールを含むカメラ設定を構成します。",
-      "name": "カメラ名",
-      "nameRequired": "カメラ名は必須です",
-      "nameLength": "カメラ名は24文字未満である必要があります。",
-      "namePlaceholder": "例: front_door",
-      "enabled": "有効",
-      "ffmpeg": {
-        "inputs": "入力ストリーム",
-        "path": "ストリームパス",
-        "pathRequired": "ストリームパスは必須です",
-        "pathPlaceholder": "rtsp://...",
-        "roles": "ロール",
-        "rolesRequired": "少なくとも1つのロールが必要です",
-        "rolesUnique": "各ロール（audio, detect, record）は1つのストリームにのみ割り当て可能です",
-        "addInput": "入力ストリームを追加",
-        "removeInput": "入力ストリームを削除",
-        "inputsRequired": "少なくとも1つの入力ストリームが必要です"
-      },
-      "toast": {
-        "success": "カメラ {{cameraName}} を保存しました"
-      }
     }
   },
   "masksAndZones": {
@@ -376,7 +305,7 @@
     },
     "zones": {
       "label": "ゾーン",
-      "documentTitle": "ゾーンを編集 - AMSS",
+      "documentTitle": "ゾーンを編集 - Frigate",
       "desc": {
         "title": "ゾーンを使うと、フレーム内の特定領域を定義し、オブジェクトがその領域内にいるかどうかを判断できます。",
         "documentation": "ドキュメント"
@@ -431,7 +360,7 @@
     },
     "motionMasks": {
       "label": "モーションマスク",
-      "documentTitle": "モーションマスクを編集 - AMSS",
+      "documentTitle": "モーションマスクを編集 - Frigate",
       "desc": {
         "title": "モーションマスクは、望ましくない種類の動きで検知がトリガーされるのを防ぎます。過度なマスクはオブジェクト追跡を困難にします。",
         "documentation": "ドキュメント"
@@ -462,7 +391,7 @@
     },
     "objectMasks": {
       "label": "オブジェクトマスク",
-      "documentTitle": "オブジェクトマスクを編集 - AMSS",
+      "documentTitle": "オブジェクトマスクを編集 - Frigate",
       "desc": {
         "title": "オブジェクトフィルタマスクは、位置に基づいて特定のオブジェクトタイプの誤検知を除外するために使用します。",
         "documentation": "ドキュメント"
@@ -504,7 +433,7 @@
     "title": "モーション検知チューナー",
     "unsavedChanges": "未保存のモーションチューナーの変更（{{camera}}）",
     "desc": {
-      "title": "AMSS は、フレーム内に物体検知で確認すべき動きがあるかの一次チェックとしてモーション検知を使用します。",
+      "title": "Frigate は、フレーム内に物体検知で確認すべき動きがあるかの一次チェックとしてモーション検知を使用します。",
       "documentation": "モーション調整ガイドを読む"
     },
     "Threshold": {
@@ -525,7 +454,7 @@
   },
   "debug": {
     "title": "デバッグ",
-    "detectorDesc": "AMSS は検出器（{{detectors}}）を使用して、カメラの映像ストリーム内のオブジェクトを検知します。",
+    "detectorDesc": "Frigate は検出器（{{detectors}}）を使用して、カメラの映像ストリーム内のオブジェクトを検知します。",
     "desc": "デバッグビューは、追跡オブジェクトとその統計をリアルタイムに表示します。オブジェクト一覧には、検知オブジェクトの時差サマリが表示されます。",
     "openCameraWebUI": "{{camera}} の Web UI を開く",
     "debugging": "デバッグ",
@@ -586,7 +515,7 @@
     "title": "ユーザー",
     "management": {
       "title": "ユーザー管理",
-      "desc": "この AMSS インスタンスのユーザーアカウントを管理します。"
+      "desc": "この Frigate インスタンスのユーザーアカウントを管理します。"
     },
     "addUser": "ユーザーを追加",
     "updatePassword": "パスワードをリセット",
@@ -627,23 +556,13 @@
             "title": "パスワードの確認",
             "placeholder": "パスワードを再入力"
           },
-          "strength": {
-            "title": "パスワード強度: ",
-            "weak": "弱い",
-            "medium": "普通",
-            "strong": "強い",
-            "veryStrong": "非常に強い"
-          },
           "match": "パスワードが一致しています",
           "notMatch": "パスワードが一致しません",
           "show": "パスワードを表示",
           "hide": "パスワードを非表示",
           "requirements": {
             "title": "パスワード要件：",
-            "length": "12文字以上",
-            "uppercase": "大文字を 1 文字以上含める",
-            "digit": "数字を 1 文字以上含める",
-            "special": "少なくとも 1 つの特殊文字（!@#$%^&*(),.?”:{}|<>）が必要です"
+            "length": "12文字以上"
           }
         },
         "newPassword": {
@@ -662,7 +581,7 @@
       },
       "createUser": {
         "title": "新規ユーザーを作成",
-        "desc": "新しいユーザーアカウントを追加し、AMSS UIの各エリアへのアクセス権限となる役割を指定します。",
+        "desc": "新しいユーザーアカウントを追加し、Frigate UIの各エリアへのアクセス権限となる役割を指定します。",
         "usernameOnlyInclude": "ユーザー名に使用できるのは英数字、.、_ のみです",
         "confirmPassword": "パスワードを確認してください"
       },
@@ -701,7 +620,7 @@
   "roles": {
     "management": {
       "title": "閲覧者ロール管理",
-      "desc": "この AMSS インスタンスのカスタム閲覧者ロールと、そのカメラアクセス権を管理します。"
+      "desc": "この Frigate インスタンスのカスタム閲覧者ロールと、そのカメラアクセス権を管理します。"
     },
     "addRole": "ロールを追加",
     "table": {
@@ -762,12 +681,11 @@
     "title": "通知",
     "notificationSettings": {
       "title": "通知設定",
-      "desc": "AMSS はブラウザで実行中、または PWA としてインストールされている場合に、端末へネイティブのプッシュ通知を送信できます。"
+      "desc": "Frigate はブラウザで実行中、または PWA としてインストールされている場合に、端末へネイティブのプッシュ通知を送信できます。"
     },
     "notificationUnavailable": {
-      "title": "通知は利用できません",
-      "desc": "Web プッシュ通知にはセキュアコンテキスト（<code>https://…</code>）が必要です。これはブラウザの制限です。通知を利用するには、セキュアに AMSS へアクセスしてください。",
-      "descPwa": "iOSでは、AMSSをホーム画面に追加した場合にのみ、Webプッシュ通知を利用できます。<strong>共有</strong>メニューを開き、<strong>ホーム画面に追加</strong>を選択してから、新しいアイコンからAMSSを起動し、このデバイスを通知対象として登録してください。"
+      "desc": "Web プッシュ通知にはセキュアコンテキスト（<code>https://…</code>）が必要です。これはブラウザの制限です。通知を利用するには、セキュアに Frigate へアクセスしてください。",
+      "descPwa": "iOSでは、Frigateをホーム画面に追加した場合にのみ、Webプッシュ通知を利用できます。<strong>共有</strong>メニューを開き、<strong>ホーム画面に追加</strong>を選択してから、新しいアイコンからFrigateを起動し、このデバイスを通知対象として登録してください。"
     },
     "globalSettings": {
       "title": "グローバル設定",
@@ -804,7 +722,7 @@
     "cancelSuspension": "一時停止を解除",
     "toast": {
       "success": {
-        "registered": "通知の登録に成功しました。通知（テスト通知を含む）を送信するには AMSS の再起動が必要です。",
+        "registered": "通知の登録に成功しました。通知（テスト通知を含む）を送信するには Frigate の再起動が必要です。",
         "settingSaved": "通知設定を保存しました。"
       },
       "error": {
@@ -813,22 +731,21 @@
     }
   },
   "frigatePlus": {
-    "title": "AMSS+ 設定",
+    "title": "Frigate+ 設定",
     "apiKey": {
-      "title": "AMSS+ API キー",
-      "validated": "AMSS+ API キーが検出され、検証されました",
-      "notValidated": "AMSS+ API キーが検出されないか、検証されていません",
-      "desc": "AMSS+ API キーは AMSS+ サービスとの統合を有効にします。",
-      "plusLink": "AMSS+ の詳細を読む"
+      "title": "Frigate+ API キー",
+      "validated": "Frigate+ API キーが検出され、検証されました",
+      "notValidated": "Frigate+ API キーが検出されないか、検証されていません",
+      "desc": "Frigate+ API キーは Frigate+ サービスとの統合を有効にします。",
+      "plusLink": "Frigate+ の詳細を読む"
     },
     "snapshotConfig": {
       "title": "スナップショット設定",
-      "desc": "AMSS+ への送信には、設定でスナップショットを有効にする必要があります。",
+      "desc": "Frigate+ への送信には、設定でスナップショットを有効にする必要があります。",
       "cleanCopyWarning": "一部のカメラではスナップショット機能が無効になっています",
       "table": {
         "camera": "カメラ",
-        "snapshots": "スナップショット",
-        "cleanCopySnapshots": "<code>clean_copy</code> スナップショット"
+        "snapshots": "スナップショット"
       }
     },
     "modelInfo": {
@@ -846,8 +763,8 @@
       "error": "モデル情報の読み込みに失敗しました",
       "availableModels": "利用可能なモデル",
       "loadingAvailableModels": "利用可能なモデルを読み込み中…",
-      "modelSelect": "ここで AMSS+ 上の利用可能なモデルを選択できます。現在の検出器構成と互換性のあるモデルのみ選択可能です。",
-      "noModelLoaded": "AMSS+ モデルは現在読み込まれていません。",
+      "modelSelect": "ここで Frigate+ 上の利用可能なモデルを選択できます。現在の検出器構成と互換性のあるモデルのみ選択可能です。",
+      "noModelLoaded": "Frigate+ モデルは現在読み込まれていません。",
       "selectModel": "モデルを選択",
       "noModelsAvailable": "利用可能なモデルがありません",
       "filter": {
@@ -856,13 +773,13 @@
         "fineTunedModels": "ファインチューニング済みモデル"
       }
     },
-    "unsavedChanges": "未保存の AMSS+ 設定の変更",
-    "restart_required": "再起動が必要です（AMSS+ モデルを変更）",
+    "unsavedChanges": "未保存の Frigate+ 設定の変更",
+    "restart_required": "再起動が必要です（Frigate+ モデルを変更）",
     "toast": {
-      "success": "AMSS+ 設定を保存しました。変更を適用するには AMSS を再起動してください。",
+      "success": "Frigate+ 設定を保存しました。変更を適用するには Frigate を再起動してください。",
       "error": "設定変更の保存に失敗しました: {{errorMessage}}"
     },
-    "description": "AMSS+ はサブスクリプションサービスで、独自データで学習させたカスタム物体検知モデルなど、AMSS インスタンスに追加機能を提供します。AMSS+ モデルの設定はここから管理できます。",
+    "description": "Frigate+ はサブスクリプションサービスで、独自データで学習させたカスタム物体検知モデルなど、Frigate インスタンスに追加機能を提供します。Frigate+ モデルの設定はここから管理できます。",
     "cardTitles": {
       "api": "API",
       "currentModel": "現在のモデル",
@@ -894,7 +811,6 @@
       "description": "説明"
     },
     "actions": {
-      "alert": "アラートとしてマーク",
       "notification": "通知を送信",
       "sub_label": "サブラベルを追加",
       "attribute": "属性を追加"
@@ -952,15 +868,10 @@
         },
         "actions": {
           "title": "操作",
-          "desc": "デフォルトでは、AMSS はすべてのトリガーに対して MQTT メッセージを送信します。サブラベルは、トリガー名をオブジェクトのラベルに追加します。属性（Attributes）は、追跡オブジェクトのメタデータとは別に保存される検索可能なメタデータです。",
+          "desc": "デフォルトでは、Frigate はすべてのトリガーに対して MQTT メッセージを送信します。サブラベルは、トリガー名をオブジェクトのラベルに追加します。属性（Attributes）は、追跡オブジェクトのメタデータとは別に保存される検索可能なメタデータです。",
           "error": {
             "min": "少なくとも1つのアクションを選択してください。"
           }
-        },
-        "friendly_name": {
-          "title": "表示名",
-          "placeholder": "このトリガーの名前または説明",
-          "description": "このトリガーの表示名または説明文"
         }
       }
     },
@@ -977,8 +888,7 @@
       }
     },
     "semanticSearch": {
-      "desc": "トリガーを使用するにはセマンティック検索を有効にする必要があります。",
-      "title": "セマンティック検索が無効です"
+      "desc": "トリガーを使用するにはセマンティック検索を有効にする必要があります。"
     },
     "wizard": {
       "title": "トリガーを作成",
@@ -1000,44 +910,9 @@
   },
   "cameraWizard": {
     "step3": {
-      "saveAndApply": "新しいカメラを保存",
       "description": "カメラのストリームの役割を設定し、必要に応じてストリームを追加します。",
-      "validationTitle": "ストリーム検証",
-      "connectAllStreams": "すべてのストリームを接続",
-      "reconnectionSuccess": "再接続に成功しました。",
-      "reconnectionPartial": "一部のストリームの再接続に失敗しました。",
-      "streamUnavailable": "ストリームプレビューは利用できません",
-      "reload": "再読み込み",
-      "connecting": "接続中…",
       "streamTitle": "ストリーム {{number}}",
-      "valid": "有効",
-      "failed": "失敗",
-      "notTested": "未テスト",
-      "connectStream": "接続",
-      "connectingStream": "接続中",
-      "disconnectStream": "切断",
-      "estimatedBandwidth": "推定帯域幅",
       "roles": "ロール",
-      "none": "なし",
-      "error": "エラー",
-      "streamValidated": "ストリーム {{number}} の検証に成功しました",
-      "streamValidationFailed": "ストリーム {{number}} の検証に失敗しました",
-      "saveError": "無効な構成です。設定を確認してください。",
-      "issues": {
-        "title": "ストリーム検証",
-        "videoCodecGood": "ビデオコーデックは {{codec}} です。",
-        "audioCodecGood": "オーディオコーデックは {{codec}} です。",
-        "noAudioWarning": "このストリームでは音声が検出されません。録画には音声が含まれません。",
-        "audioCodecRecordError": "録画に音声を含めるには AAC オーディオコーデックが必要です。",
-        "audioCodecRequired": "音声検出を有効にするには音声ストリームが必要です。",
-        "restreamingWarning": "録画ストリームでカメラへの接続数を減らすと、CPU 使用率がわずかに増加する場合があります。",
-        "hikvision": {
-          "substreamWarning": "サブストリーム1は低解像度に固定されています。多くの Hikvision 製カメラでは、追加のサブストリームが利用可能であり、カメラ本体の設定で有効化する必要があります。使用できる場合は、それらのストリームを確認して活用することを推奨します。"
-        },
-        "dahua": {
-          "substreamWarning": "サブストリーム1は低解像度に固定されています。多くの Dahua／Amcrest／EmpireTech 製カメラでは、追加のサブストリームが利用可能であり、カメラ本体の設定で有効化する必要があります。使用できる場合は、それらのストリームを確認して活用することを推奨します。"
-        }
-      },
       "streamsTitle": "カメラ ストリーム",
       "addStream": "ストリームを追加",
       "addAnotherStream": "別のストリームを追加",
@@ -1077,7 +952,7 @@
       }
     },
     "title": "カメラを追加",
-    "description": "以下の手順に従って、AMSS に新しいカメラを追加します。",
+    "description": "以下の手順に従って、Frigate に新しいカメラを追加します。",
     "steps": {
       "nameAndConnection": "名称と接続",
       "streamConfiguration": "ストリーム設定",
@@ -1115,26 +990,13 @@
       "brandInformation": "ブランド情報",
       "brandUrlFormat": "RTSP URL 形式が {{exampleUrl}} のカメラ向け",
       "customUrlPlaceholder": "rtsp://username:password@host:port/path",
-      "testConnection": "接続テスト",
-      "testSuccess": "接続テストに成功しました！",
-      "testFailed": "接続テストに失敗しました。入力内容を確認して再試行してください。",
-      "streamDetails": "ストリーム詳細",
-      "warnings": {
-        "noSnapshot": "設定されたストリームからスナップショットを取得できません。"
-      },
       "errors": {
         "brandOrCustomUrlRequired": "ホスト／IP とブランドを選択するか、「その他」を選んでカスタム URL を指定してください",
         "nameRequired": "カメラ名は必須です",
         "nameLength": "カメラ名は64文字以下である必要があります",
         "invalidCharacters": "カメラ名に無効な文字が含まれています",
         "nameExists": "このカメラ名は既に存在します",
-        "brands": {
-          "reolink-rtsp": "Reolink の RTSP は推奨されません。カメラ設定で http を有効にし、カメラウィザードを再起動することを推奨します。"
-        },
         "customUrlRtspRequired": "カスタムURLは「rtsp://」または「rtsps://」で始まる必要があります。RTSP以外のカメラストリームについては、手動での設定が必要です。"
-      },
-      "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
       },
       "connectionSettings": "接続設定",
       "detectionMethod": "ストリーム検知方法",
@@ -1148,42 +1010,11 @@
     },
     "step2": {
       "description": "選択した検知方法に応じて、カメラから利用可能なストリームを自動検知するか、手動で設定してください。",
-      "streamsTitle": "カメラストリーム",
-      "addStream": "ストリームを追加",
-      "addAnotherStream": "ストリームをさらに追加",
-      "streamTitle": "ストリーム {{number}}",
-      "streamUrl": "ストリーム URL",
-      "streamUrlPlaceholder": "rtsp://username:password@host:port/path",
-      "url": "URL",
-      "resolution": "解像度",
-      "selectResolution": "解像度を選択",
-      "quality": "品質",
-      "selectQuality": "品質を選択",
-      "roles": "ロール",
-      "roleLabels": {
-        "detect": "物体検出",
-        "record": "録画",
-        "audio": "音声"
-      },
-      "testStream": "接続テスト",
       "testSuccess": "接続テストに成功しました！",
       "testFailed": "接続テストに失敗しました。入力を確認し、もう一度実行してください。",
       "testFailedTitle": "テスト失敗",
       "connected": "接続済み",
       "notConnected": "未接続",
-      "featuresTitle": "機能",
-      "go2rtc": "カメラへの接続数を削減",
-      "detectRoleWarning": "\"detect\" ロールを持つストリームが少なくとも1つ必要です。",
-      "rolesPopover": {
-        "title": "ストリームロール",
-        "detect": "物体検出のメインフィード。",
-        "record": "設定に基づいて映像フィードのセグメントを保存します。",
-        "audio": "音声検出用のフィード。"
-      },
-      "featuresPopover": {
-        "title": "ストリーム機能",
-        "description": "go2rtc のリストリーミングを使用してカメラへの接続数を削減します。"
-      },
       "streamDetails": "ストリームの詳細",
       "probing": "カメラをプローブ中…",
       "retry": "再試行",
@@ -1264,7 +1095,7 @@
         "noAudioWarning": "このストリームでは音声が検知されていません。録画には音声が含まれません。",
         "resolutionUnknown": "このストリームの解像度を取得できませんでした。設定画面または設定ファイルで検知解像度を手動で指定してください。"
       },
-      "ffmpegModuleDescription": "何度か試してもストリームが読み込まれない場合は、このオプションを有効にしてください。有効にすると、AMSS は go2rtc と併用して ffmpeg モジュールを使用します。一部のカメラストリームでは、互換性が向上する場合があります。"
+      "ffmpegModuleDescription": "何度か試してもストリームが読み込まれない場合は、このオプションを有効にしてください。有効にすると、Frigate は go2rtc と併用して ffmpeg モジュールを使用します。一部のカメラストリームでは、互換性が向上する場合があります。"
     }
   },
   "cameraManagement": {
@@ -1275,16 +1106,15 @@
     "backToSettings": "カメラ設定に戻る",
     "streams": {
       "title": "カメラの有効化／無効化",
-      "desc": "AMSS を再起動するまで一時的にカメラを無効化します。無効化すると、このカメラのストリーム処理は完全に停止し、検出・録画・デバッグは利用できません。<br /> <em>注: これは go2rtc のリストリームを無効にはしません。</em>",
       "label": "カメラの状態",
-      "description": "各カメラの動作状態を設定します。<br /><br /><strong>オン</strong>: ストリームを通常通り処理します。<br /><strong>オフ</strong>: 処理を一時停止します。AMSS の再起動後は保持されません。<br /><strong>無効</strong>: 処理を停止し、設定ファイルに保存されます。再有効化には再起動が必要です。<br /><br /><em>注: 無効化しても go2rtc のリストリームには影響しません。</em><br /><br />ハンドルをドラッグすると、ライブダッシュボードやカメラ選択ドロップダウンなど、UI 内のアクティブなカメラの並び順を変更できます。",
+      "description": "各カメラの動作状態を設定します。<br /><br /><strong>オン</strong>: ストリームを通常通り処理します。<br /><strong>オフ</strong>: 処理を一時停止します。Frigate の再起動後は保持されません。<br /><strong>無効</strong>: 処理を停止し、設定ファイルに保存されます。再有効化には再起動が必要です。<br /><br /><em>注: 無効化しても go2rtc のリストリームには影響しません。</em><br /><br />ハンドルをドラッグすると、ライブダッシュボードやカメラ選択ドロップダウンなど、UI 内のアクティブなカメラの並び順を変更できます。",
       "disabledSubheading": "設定で無効化されています",
       "status": {
         "on": "オン",
         "off": "オフ",
         "disabled": "無効"
       },
-      "enableSuccess": "{{cameraName}} を有効にしました。適用するには AMSS を再起動してください。",
+      "enableSuccess": "{{cameraName}} を有効にしました。適用するには Frigate を再起動してください。",
       "disableSuccess": "{{cameraName}} を無効化し、設定に保存しました。",
       "reorderHandle": "ドラッグで並び替え",
       "saving": "保存中…",
@@ -1292,14 +1122,14 @@
       "details": {
         "edit": "カメラ詳細を編集",
         "title": "カメラ詳細を編集",
-        "description": "AMSS UI 全体で、このカメラに使用されている表示名、外部 URL、および公開設定を更新します。",
+        "description": "Frigate UI 全体で、このカメラに使用されている表示名、外部 URL、および公開設定を更新します。",
         "friendlyNameLabel": "表示名",
-        "friendlyNameHelp": "AMSS UI 全体でこのカメラに表示される名前です。空欄にするとカメラ ID が使用されます。",
+        "friendlyNameHelp": "Frigate UI 全体でこのカメラに表示される名前です。空欄にするとカメラ ID が使用されます。",
         "webuiUrlLabel": "カメラ Web UI の URL",
         "webuiUrlHelp": "デバッグビューからカメラの Web UI に直接アクセスするための URL です。空欄にするとリンクが無効になります。",
         "webuiUrlInvalid": "有効な URL を入力してください (例: https://example.com)。",
         "dashboardLabel": "ライブダッシュボードに表示",
-        "dashboardHelp": "このカメラをライブダッシュボードに表示します。",
+        "dashboardHelp": "このカメラを、デフォルトの「すべてのカメラ」ライブダッシュボードに表示します。カメラグループなど、他の場所でも引き続き利用可能です。",
         "reviewLabel": "レビューに表示",
         "reviewHelp": "このカメラを、カメラフィルター、モーションレビュー、履歴ビューを含め、レビューに表示します。"
       }
@@ -1338,7 +1168,7 @@
     "deleteCameraDialog": {
       "title": "カメラを削除",
       "description": "カメラを削除すると、そのカメラのすべての録画、追跡オブジェクト、設定が完全に削除されます。このカメラに関連する go2rtc ストリームは手動で削除が必要な場合があります。",
-      "selectPlaceholder": "カメラを選択...",
+      "selectPlaceholder": "カメラを選択…",
       "confirmTitle": "本当によろしいですか？",
       "confirmWarning": "<strong>{{cameraName}}</strong> の削除は元に戻せません。",
       "deleteExports": "このカメラのエクスポートも削除する",
@@ -1360,7 +1190,7 @@
       "description": "各カメラのタイプを設定します。専用 LPR カメラは、遠方の車両のナンバープレートを捉えるために強力な光学ズームを備えた専用カメラです。LPR 専用かつナンバープレートに焦点を絞った設置でない限り、通常は「Normal」を使用してください。",
       "normal": "通常",
       "dedicatedLpr": "専用 LPR",
-      "saveSuccess": "{{cameraName}} のカメラタイプを更新しました。変更を適用するには AMSS を再起動してください。"
+      "saveSuccess": "{{cameraName}} のカメラタイプを更新しました。変更を適用するには Frigate を再起動してください。"
     },
     "clone": {
       "sectionTitle": "設定を複製",
@@ -1434,9 +1264,9 @@
       },
       "toast": {
         "success": "設定が {{cameraName}} にコピーされました",
-        "successWithRestart": "設定が {{cameraName}} にコピーされました。すべての変更を適用するには、AMSS を再起動してください。",
+        "successWithRestart": "設定が {{cameraName}} にコピーされました。すべての変更を適用するには、Frigate を再起動してください。",
         "successMulti_other": "設定が {{count}} 台のカメラにコピーされました",
-        "successMultiWithRestart_other": "設定が {{count}} 台のカメラにコピーされました。すべての変更を適用するには、AMSS を再起動してください。",
+        "successMultiWithRestart_other": "設定が {{count}} 台のカメラにコピーされました。すべての変更を適用するには、Frigate を再起動してください。",
         "partialFailure": "{{successCount}} セクションが適用されました。「{{failedSection}}」で失敗しました: {{errorMessage}}",
         "partialFailureMulti": "{{successCount}} 台のカメラにコピーされました。{{failed}} で失敗しました: {{errorMessage}}",
         "newCameraPartialFailure": "カメラ {{cameraName}} が作成されましたが、一部の設定のコピーに失敗しました: {{errorMessage}}",
@@ -1449,21 +1279,21 @@
     "title": "カメラレビュー設定",
     "object_descriptions": {
       "title": "生成AIによるオブジェクト説明",
-      "desc": "AMSSが再起動するまで、このカメラの生成AIによる物体説明を一時的に有効/無効にします。無効にすると、このカメラで追跡された物体に対してAI生成の説明は生成されません。"
+      "desc": "Frigateが再起動するまで、このカメラの生成AIによる物体説明を一時的に有効/無効にします。無効にすると、このカメラで追跡された物体に対してAI生成の説明は生成されません。"
     },
     "review_descriptions": {
       "title": "生成AIによるレビュー説明",
-      "desc": "AMSSが再起動するまで、このカメラの生成AIによるレビュー説明を一時的に有効/無効にします。無効にすると、このカメラのレビュー項目に対してAI生成の説明は生成されません。"
+      "desc": "Frigateが再起動するまで、このカメラの生成AIによるレビュー説明を一時的に有効/無効にします。無効にすると、このカメラのレビュー項目に対してAI生成の説明は生成されません。"
     },
     "review": {
       "title": "レビュー",
-      "desc": "AMSS を再起動するまで、このカメラのアラートと検知を一時的に有効／無効にします。無効にすると、新しいレビュー項目は生成されません。 ",
+      "desc": "Frigate を再起動するまで、このカメラのアラートと検知を一時的に有効／無効にします。無効にすると、新しいレビュー項目は生成されません。 ",
       "alerts": "アラート ",
       "detections": "検知 "
     },
     "reviewClassification": {
       "title": "レビュー分類",
-      "desc": "AMSS はレビュー項目をアラートと検知に分類します。既定では、すべての <em>person</em> と <em>car</em> オブジェクトはアラートとして扱われます。必須ゾーンを設定することで、分類をより細かく調整できます。",
+      "desc": "Frigate はレビュー項目をアラートと検知に分類します。既定では、すべての <em>person</em> と <em>car</em> オブジェクトはアラートとして扱われます。必須ゾーンを設定することで、分類をより細かく調整できます。",
       "noDefinedZones": "このカメラにはゾーンが定義されていません。",
       "objectAlertsTips": "すべての {{alertsLabels}} オブジェクトは {{cameraName}} でアラートとして表示されます。",
       "zoneObjectAlertsTips": "{{cameraName}} の {{zone}} で検知されたすべての {{alertsLabels}} オブジェクトはアラートとして表示されます。",
@@ -1478,7 +1308,7 @@
       "selectDetectionsZones": "検知用のゾーンを選択",
       "limitDetections": "特定のゾーンに検知を限定する",
       "toast": {
-        "success": "レビュー分類の設定を保存しました。変更を適用するには AMSS を再起動してください。"
+        "success": "レビュー分類の設定を保存しました。変更を適用するには Frigate を再起動してください。"
       }
     }
   },
@@ -1492,7 +1322,7 @@
         "notRunning": "実行されていません"
       },
       "title": "メディア同期",
-      "desc": "AMSS は保持設定に従って定期的にメディアを整理します。動作中に孤立ファイルが少数発生するのは正常です。この機能を使うと、データベース上で参照されなくなった孤立メディアファイルをディスクから削除できます。",
+      "desc": "Frigate は保持設定に従って定期的にメディアを整理します。動作中に孤立ファイルが少数発生するのは正常です。この機能を使うと、データベース上で参照されなくなった孤立メディアファイルをディスクから削除できます。",
       "started": "メディア同期を開始しました。",
       "alreadyRunning": "同期ジョブはすでに実行中です",
       "error": "同期の開始に失敗しました",
@@ -1533,10 +1363,10 @@
     "title": "メンテナンス",
     "regionGrid": {
       "title": "リージョングリッド",
-      "desc": "リージョングリッドは、各カメラの画角内でさまざまなサイズのオブジェクトが通常出現する位置を学習する最適化機能です。AMSS はこのデータをもとに検知領域のサイズを効率化します。グリッドは追跡オブジェクトのデータから時間をかけて自動的に構築されます。",
+      "desc": "リージョングリッドは、各カメラの画角内でさまざまなサイズのオブジェクトが通常出現する位置を学習する最適化機能です。Frigate はこのデータをもとに検知領域のサイズを効率化します。グリッドは追跡オブジェクトのデータから時間をかけて自動的に構築されます。",
       "clear": "リージョングリッドをクリア",
       "clearConfirmTitle": "リージョングリッドをクリア",
-      "clearConfirmDesc": "リージョングリッドのクリアは、検出器のモデルサイズを最近変更した場合や、カメラの物理的な位置を変更してオブジェクト追跡に問題がある場合を除き、推奨されません。追跡が進むにつれて自動的に再構築されます。変更を反映するには AMSS の再起動が必要です。",
+      "clearConfirmDesc": "リージョングリッドのクリアは、検出器のモデルサイズを最近変更した場合や、カメラの物理的な位置を変更してオブジェクト追跡に問題がある場合を除き、推奨されません。追跡が進むにつれて自動的に再構築されます。変更を反映するには Frigate の再起動が必要です。",
       "clearSuccess": "リージョングリッドをクリアしました",
       "clearError": "リージョングリッドのクリアに失敗しました",
       "restartRequired": "リージョングリッドの変更を反映するには再起動が必要です"
@@ -1589,31 +1419,6 @@
     "tr": "右上",
     "bl": "左下",
     "br": "右下"
-  },
-  "detectorsAndModel": {
-    "title": "検出器とモデル",
-    "description": "物体検知を実行する検出器のバックエンドと、使用するモデルを設定します。検出器とモデルが同期するよう、変更は一括で保存されます。",
-    "cardTitles": {
-      "detector": "検出器ハードウェア",
-      "model": "検知モデル"
-    },
-    "tabs": {
-      "plus": "AMSS+",
-      "custom": "カスタムモデル"
-    },
-    "mismatch": {
-      "warning": "現在の AMSS+ モデル「{{model}}」は {{required}} 検出器が必要です。下から対応するモデルを選ぶか、保存前にカスタムモデルへ切り替えてください。"
-    },
-    "plusModel": {
-      "requiresDetector": "必要な検出器: {{detector}}",
-      "noModelSelected": "AMSS+ モデルを選択"
-    },
-    "toast": {
-      "saveSuccess": "検出器とモデルの設定を保存しました。変更を適用するには AMSS を再起動してください。",
-      "saveError": "検出器とモデルの設定の保存に失敗しました"
-    },
-    "unsavedChanges": "検出器・モデルに未保存の変更があります",
-    "restartRequired": "再起動が必要です（検出器またはモデルが変更されました）"
   },
   "configForm": {
     "global": {
@@ -1740,16 +1545,6 @@
     },
     "detect": {
       "title": "検知設定"
-    },
-    "detectors": {
-      "title": "検出器設定",
-      "singleType": "{{type}} 検出器は 1 つしか追加できません。",
-      "keyRequired": "検出器名は必須です。",
-      "keyDuplicate": "この検出器名は既に存在します。",
-      "noSchema": "利用可能な検出器スキーマがありません。",
-      "none": "検出器インスタンスが設定されていません。",
-      "add": "検出器を追加",
-      "addCustomKey": "カスタムキーを追加"
     },
     "record": {
       "title": "録画設定"
@@ -1878,13 +1673,13 @@
   "toast": {
     "success": "設定を保存しました",
     "applied": "設定を適用しました",
-    "successRestartRequired": "設定を保存しました。変更を適用するには AMSS を再起動してください。",
+    "successRestartRequired": "設定を保存しました。変更を適用するには Frigate を再起動してください。",
     "error": "設定の保存に失敗しました",
     "validationError": "入力検証に失敗しました: {{message}}",
     "resetSuccess": "グローバルのデフォルトにリセットしました",
     "resetError": "設定のリセットに失敗しました",
     "saveAllSuccess_other": "{{count}} 件のセクションをすべて保存しました。",
-    "saveAllSuccessRestartRequired_other": "{{count}} 件のセクションをすべて保存しました。変更を適用するには AMSS を再起動してください。",
+    "saveAllSuccessRestartRequired_other": "{{count}} 件のセクションをすべて保存しました。変更を適用するには Frigate を再起動してください。",
     "saveAllPartial_other": "{{totalCount}} 件中 {{successCount}} 件のセクションを保存しました。{{failCount}} 件失敗。",
     "saveAllFailure": "すべてのセクションの保存に失敗しました。"
   },
@@ -1939,7 +1734,6 @@
     "addStream": "ストリームを追加",
     "addStreamDesc": "新しいストリームの名前を入力してください。この名前はカメラ設定でストリームを参照する際に使用されます。",
     "addUrl": "URL を追加",
-    "streamNumber": "ストリーム {{index}}",
     "streamName": "ストリーム名",
     "streamNamePlaceholder": "例: front_door",
     "streamUrlPlaceholder": "例: rtsp://user:pass@192.168.1.100/stream",
@@ -1986,11 +1780,6 @@
     "sourceNumber": "ソース {{index}}"
   },
   "birdseye": {
-    "trackingMode": {
-      "objects": "オブジェクト",
-      "motion": "モーション",
-      "continuous": "常時"
-    },
     "cameraOrder": {
       "label": "カメラ順序",
       "description": "カメラをドラッグしてバードアイレイアウト内の順序を設定します。",
@@ -2016,12 +1805,6 @@
       "browser": "ブラウザ設定",
       "12hour": "12 時間表示",
       "24hour": "24 時間表示"
-    },
-    "TimeOrDateStyle": {
-      "full": "完全表示",
-      "long": "長い形式",
-      "medium": "中程度",
-      "short": "短い形式"
     },
     "unitSystem": {
       "metric": "メートル法",
@@ -2049,8 +1832,8 @@
     "autotracking": {
       "zooming": {
         "disabled": "無効",
-        "absolute": "絶対値",
-        "relative": "相対値"
+        "absolute": "絶対的",
+        "relative": "相対的"
       }
     }
   },
@@ -2063,7 +1846,7 @@
       "recordDisabled": "録画が無効化されているため、レビュー項目は生成されません。",
       "detectDisabled": "物体検知が無効化されています。レビュー項目はアラートと検知を分類するために検知オブジェクトが必要です。",
       "allNonAlertDetections": "アラート以外のすべてのアクティビティが検知として含まれます。",
-      "genaiImageSourceRecordingsRecordDisabled": "画像ソースが「録画」に設定されていますが、録画は無効化されています。AMSS はプレビュー画像を代わりに使用します。"
+      "genaiImageSourceRecordingsRecordDisabled": "画像ソースが「録画」に設定されていますが、録画は無効化されています。Frigate はプレビュー画像を代わりに使用します。"
     },
     "audio": {
       "noAudioRole": "audio ロールが定義されたストリームがありません。音声検知を機能させるには audio ロールを有効にする必要があります。"
@@ -2097,15 +1880,8 @@
     "record": {
       "noRecordRole": "record ロールが定義されたストリームがありません。録画は機能しません。"
     },
-    "birdseye": {
-      "objectsModeDetectDisabled": "バードアイが「objects」モードに設定されていますが、このカメラの物体検知は無効化されています。このカメラはバードアイに表示されません。"
-    },
     "snapshots": {
       "detectDisabled": "物体検知が無効化されています。スナップショットは追跡オブジェクトから生成されるため、作成されません。"
-    },
-    "detectors": {
-      "mixedTypes": "すべての検出器は同じタイプである必要があります。別のタイプを使うには既存の検出器を削除してください。",
-      "mixedTypesSuggestion": "すべての検出器は同じタイプである必要があります。既存の検出器を削除するか、{{type}} を選択してください。"
     },
     "semanticSearch": {
       "jinav2SmallModelSize": "Jina V2 モデルの「small」サイズは RAM と推論コストが高くなります。専用 GPU と「large」モデルの組み合わせを推奨します。"
@@ -2114,11 +1890,12 @@
       "autotrackingNoZones": "オートトラッキング機能を使用するには、少なくとも1つのゾーンが必要です。「マスク / ゾーン」でこのカメラ用のゾーンを定義し、以下でそれを必須ゾーンとして設定してください。"
     },
     "model": {
-      "optimizedFor320": "AMSSは320x320のモデルに最適化されており、これはほとんどのセットアップにおいて最適な選択です。640x640のモデルは処理速度が遅く、特定のシナリオでのみ有効です。",
+      "optimizedFor320": "Frigateは320x320のモデルに最適化されており、これはほとんどのセットアップにおいて最適な選択です。640x640のモデルは処理速度が遅く、特定のシナリオでのみ有効です。",
       "inputDimensionsNotDetectResolution": "モデルの入力幅と高さはオブジェクト検出モデルの入力寸法であり、カメラの検出解像度ではありません。これらは使用しているモデルの寸法と一致している必要があります。通常、320x320や640x640のような正方形のサイズになります。"
     },
     "ffmpeg": {
-      "hwaccelManualNotRecommended": "手動でのハードウェアアクセラレーション引数の指定は推奨されません。特定の要件がない限り、お使いのハードウェアに合ったプリセットを選択してください。"
+      "hwaccelManualNotRecommended": "手動でのハードウェアアクセラレーション引数の指定は推奨されません。特定の要件がない限り、お使いのハードウェアに合ったプリセットを選択してください。",
+      "inputsMissingGo2rtcStream": "以下の入力項目は、現在は存在しない go2rtc の再ストリーム（restream）を指定しています。既存の再ストリームを選択するか、カメラの URL を手動で入力してください。そうしないと、このカメラへの接続に失敗します。"
     }
   }
 }

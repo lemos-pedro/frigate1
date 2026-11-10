@@ -5,11 +5,11 @@
     },
     "safe_mode": {
         "label": "Trygg modus",
-        "description": "Når aktivert, start AMSS i trygg modus med redusert funksjonalitet for feilsøking."
+        "description": "Når aktivert, start Frigate i trygg modus med redusert funksjonalitet for feilsøking."
     },
     "environment_vars": {
         "label": "Miljøvariabler",
-        "description": "Nøkkel-/verdipar for miljøvariabler som skal settes for AMSS-prosessen i Home Assistant OS. Brukere uten HAOS må bruke miljøvariabelkonfigurasjon i Docker i stedet."
+        "description": "Nøkkel-/verdipar for miljøvariabler som skal settes for Frigate-prosessen i Home Assistant OS. Brukere uten HAOS må bruke miljøvariabelkonfigurasjon i Docker i stedet."
     },
     "logger": {
         "label": "Logging",
@@ -28,7 +28,7 @@
         "description": "Innstillinger for autentisering og økter, inkludert alternativer for informasjonskapsler (cookies) og hastighetsbegrensning.",
         "enabled": {
             "label": "Aktiver autentisering",
-            "description": "Aktiver innebygd autentisering for AMSS-grensesnittet."
+            "description": "Aktiver innebygd autentisering for Frigate-grensesnittet."
         },
         "reset_admin_password": {
             "label": "Nullstill admin-passord",
@@ -73,15 +73,15 @@
     },
     "database": {
         "label": "Database",
-        "description": "Innstillinger for SQLite-databasen som brukes av AMSS til å lagre sporede objekter og metadata for opptak.",
+        "description": "Innstillinger for SQLite-databasen som brukes av Frigate til å lagre sporede objekter og metadata for opptak.",
         "path": {
             "label": "Sti til database",
-            "description": "Sti i filsystemet der AMSSs SQLite-databasefil vil bli lagret."
+            "description": "Sti i filsystemet der Frigates SQLite-databasefil vil bli lagret."
         }
     },
     "go2rtc": {
         "label": "go2rtc",
-        "description": "Innstillinger for den integrerte go2rtc-tjenesten for videreformidling og oversettelse av direktestrømmer."
+        "description": "Innstillinger for den integrerte go2rtc-tjenesten for viderestrømming og oversettelse av direktestrømmer."
     },
     "mqtt": {
         "label": "MQTT",
@@ -100,7 +100,7 @@
         },
         "topic_prefix": {
             "label": "Emne-prefiks",
-            "description": "MQTT-emneprefiks for alle AMSS-emner; må være unikt hvis man kjører flere instanser."
+            "description": "MQTT-emneprefiks for alle Frigate-emner; må være unikt hvis man kjører flere instanser."
         },
         "client_id": {
             "label": "Klient-ID",
@@ -161,13 +161,13 @@
     },
     "networking": {
         "label": "Nettverk",
-        "description": "Nettverksrelaterte innstillinger, som aktivering av IPv6 for AMSS-endepunkter.",
+        "description": "Nettverksrelaterte innstillinger, som aktivering av IPv6 for Frigate-endepunkter.",
         "ipv6": {
             "label": "IPv6-konfigurasjon",
-            "description": "IPv6-spesifikke innstillinger for AMSSs nettverkstjenester.",
+            "description": "IPv6-spesifikke innstillinger for Frigates nettverkstjenester.",
             "enabled": {
                 "label": "Aktiver IPv6",
-                "description": "Aktiver IPv6-støtte for AMSS-tjenester (API og brukergrensesnitt) der det er aktuelt."
+                "description": "Aktiver IPv6-støtte for Frigate-tjenester (API og brukergrensesnitt) der det er aktuelt."
             }
         },
         "listen": {
@@ -175,20 +175,20 @@
             "description": "Konfigurasjon for interne og eksterne lytteporter. Dette er for avanserte brukere. For de fleste brukstilfeller anbefales det å endre port-seksjonen i din Docker compose-fil i stedet.",
             "internal": {
                 "label": "Intern port",
-                "description": "Intern lytteport for AMSS (standard 5000)."
+                "description": "Intern lytteport for Frigate (standard 5000)."
             },
             "external": {
                 "label": "Ekstern port",
-                "description": "Ekstern lytteport for AMSS (standard 8971)."
+                "description": "Ekstern lytteport for Frigate (standard 8971)."
             }
         }
     },
     "proxy": {
         "label": "Proxy",
-        "description": "Innstillinger for å integrere AMSS bak en reverse proxy som sender videre hoder for autentiserte brukere.",
+        "description": "Innstillinger for å integrere Frigate bak en reverse proxy som sender videre hoder for autentiserte brukere.",
         "header_map": {
             "label": "Tilordning av hoder (Header mapping)",
-            "description": "Tilordne innkommende proxy-hoder til AMSSs bruker- og rollefelt for proxy-basert autentisering.",
+            "description": "Tilordne innkommende proxy-hoder til Frigates bruker- og rollefelt for proxy-basert autentisering.",
             "user": {
                 "label": "Bruker-hode (User header)",
                 "description": "Hode (header) som inneholder det autentiserte brukernavnet fra oppstrøms proxy."
@@ -199,7 +199,7 @@
             },
             "role_map": {
                 "label": "Rolletilordning",
-                "description": "Tilordne gruppeverdier fra oppstrøms proxy til AMSS-roller (for eksempel tilordne admin-grupper til admin-rollen)."
+                "description": "Tilordne gruppeverdier fra oppstrøms proxy til Frigate-roller (for eksempel tilordne admin-grupper til admin-rollen)."
             }
         },
         "logout_url": {
@@ -248,15 +248,15 @@
         },
         "version_check": {
             "label": "Versjonskontroll",
-            "description": "Aktiver en utgående sjekk for å oppdage om en nyere versjon av AMSS er tilgjengelig."
+            "description": "Aktiver en utgående sjekk for å oppdage om en nyere versjon av Frigate er tilgjengelig."
         }
     },
     "tls": {
         "label": "TLS",
-        "description": "TLS-innstillinger for AMSSs web-endepunkter (port 8971).",
+        "description": "TLS-innstillinger for Frigates web-endepunkter (port 8971).",
         "enabled": {
             "label": "Aktiver TLS",
-            "description": "Aktiver TLS for AMSSs web-grensesnitt og API på den konfigurerte TLS-porten."
+            "description": "Aktiver TLS for Frigates web-grensesnitt og API på den konfigurerte TLS-porten."
         }
     },
     "ui": {
@@ -270,240 +270,9 @@
             "label": "Tidsformat",
             "description": "Tidsformat som skal brukes i grensesnittet (nettleser, 12-timers eller 24-timers)."
         },
-        "date_style": {
-            "label": "Datostil",
-            "description": "Datostil som skal brukes i grensesnittet (full, lang, middels, kort)."
-        },
-        "time_style": {
-            "label": "Tidsstil",
-            "description": "Tidsstil som skal brukes i grensesnittet (full, lang, middels, kort)."
-        },
         "unit_system": {
             "label": "Enhetssystem",
             "description": "Enhetssystem for visning (metrisk eller imperisk) brukt i grensesnittet og MQTT."
-        }
-    },
-    "detectors": {
-        "label": "Maskinvare for detektor",
-        "description": "Konfigurasjon for objektdetektorer (CPU, GPU, ONNX-bakender) og eventuelle detektorspesifikke modellinnstillinger.",
-        "type": {
-            "label": "Type"
-        },
-        "model": {
-            "label": "Detektorspesifikk modellkonfigurasjon",
-            "description": "Detektorspesifikke konfigurasjonsalternativer for modell (sti, inndatastørrelse, osv.).",
-            "path": {
-                "label": "Sti til egendefinert objektdetektormodell",
-                "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for AMSS+-modeller)."
-            },
-            "labelmap_path": {
-                "label": "Etikettkart (labelmap) for egendefinert detektor",
-                "description": "Sti til en labelmap-fil som kobler numeriske klasser til tekstetiketter for detektoren."
-            },
-            "width": {
-                "label": "Inndatabredde for deteksjonsmodell",
-                "description": "Bredden på modellens inndata-tensor i piksler."
-            },
-            "height": {
-                "label": "Inndatahøyde for deteksjonsmodell",
-                "description": "Høyden på modellens inndata-tensor i piksler."
-            },
-            "labelmap": {
-                "label": "Tilpasning av etikettkart (labelmap)",
-                "description": "Overstyringer eller tilordninger som skal flettes inn i standard etikettkart."
-            },
-            "attributes_map": {
-                "label": "Kartlegging av objektetiketter til deres egenskaper",
-                "description": "Kobling fra objektetiketter til egenskapsetiketter brukt for metadata (f.eks. 'bil' -> ['kjennemerke'])."
-            },
-            "input_tensor": {
-                "label": "Modellens inndata-tensorform",
-                "description": "Tensorformatet som forventes av modellen: 'nhwc' eller 'nchw'."
-            },
-            "input_pixel_format": {
-                "label": "Pikselformat for modellens inndata",
-                "description": "Pikselfargerom som forventes av modellen: 'rgb', 'bgr' eller 'yuv'."
-            },
-            "input_dtype": {
-                "label": "Datatype for modellens inndata",
-                "description": "Datatypen til modellens inndata-tensor (for eksempel 'float32')."
-            },
-            "model_type": {
-                "label": "Type objektdeteksjonsmodell",
-                "description": "Arkitekturtype for detektormodellen (ssd, yolox, yolonas, yolo-generic, rfdetr, dfine) brukt av enkelte detektorer for optimalisering."
-            }
-        },
-        "model_path": {
-            "label": "Detektorspesifikk modellsti",
-            "description": "Filsti til detektormodellens binærfil hvis påkrevd av valgt detektor."
-        },
-        "axengine": {
-            "label": "AXEngine NPU",
-            "description": "AXERA AX650N/AX8850N NPU-detektor som kjører kompilerte .axmodel-filer via AXEngine-miljøet."
-        },
-        "cpu": {
-            "label": "CPU",
-            "description": "CPU TFLite-detektor som kjører TensorFlow Lite-modeller på vertens CPU uten maskinvareakselerasjon. Ikke anbefalt.",
-            "num_threads": {
-                "label": "Antall deteksjonstråder",
-                "description": "Antallet tråder som brukes til CPU-basert inferens."
-            }
-        },
-        "deepstack": {
-            "label": "DeepStack",
-            "description": "DeepStack/CodeProject.AI-detektor som sender bilder til et eksternt DeepStack HTTP-API for inferens. Ikke anbefalt.",
-            "api_url": {
-                "label": "URL for DeepStack-API",
-                "description": "URL-adressen til DeepStack-API-et."
-            },
-            "api_timeout": {
-                "label": "Tidsavbrudd for DeepStack-API (i sekunder)",
-                "description": "Maksimal tid tillatt for en forespørsel til DeepStack-API-et."
-            },
-            "api_key": {
-                "label": "DeepStack-API-nøkkel (hvis påkrevd)",
-                "description": "Valgfri API-nøkkel for autentiserte DeepStack-tjenester."
-            }
-        },
-        "degirum": {
-            "label": "DeGirum",
-            "description": "DeGirum-detektor for kjøring av modeller via DeGirum-skyen eller lokale inferens-tjenester.",
-            "location": {
-                "label": "Inferenslokasjon",
-                "description": "Lokasjonen til DeGirim-inferensmotoren (f.eks. '@cloud', '127.0.0.1')."
-            },
-            "zoo": {
-                "label": "Modell-zoo",
-                "description": "Sti eller URL til DeGirum modell-zoo."
-            },
-            "token": {
-                "label": "DeGirum-skytoken",
-                "description": "Token for tilgang til DeGirum-skyen."
-            }
-        },
-        "edgetpu": {
-            "label": "EdgeTPU",
-            "description": "EdgeTPU-detektor som kjører TensorFlow Lite-modeller kompilert for Coral EdgeTPU ved bruk av EdgeTPU-delegaten.",
-            "device": {
-                "label": "Enhetstype",
-                "description": "Enheten som skal brukes til EdgeTPU-inferens (f.eks. 'usb', 'pci')."
-            }
-        },
-        "hailo8l": {
-            "label": "Hailo-8/Hailo-8L",
-            "description": "Hailo-8/Hailo-8L-detektor som bruker HEF-modeller og HailoRT SDK for inferens på Hailo-maskinvare.",
-            "device": {
-                "label": "Enhetstype",
-                "description": "Enheten som skal brukes til Hailo-inferens (f.eks. 'PCIe', 'M.2')."
-            }
-        },
-        "memryx": {
-            "label": "MemryX",
-            "description": "MemryX MX3-detektor som kjører kompilerte DFP-modeller på MemryX-akseleratorer.",
-            "device": {
-                "label": "Enhetssti",
-                "description": "Enheten som skal brukes for MemryX-inferens (f.eks. 'PCIe')."
-            }
-        },
-        "onnx": {
-            "label": "ONNX",
-            "description": "ONNX-detektor for kjøring av ONNX-modeller; bruker tilgjengelige akselerasjonsbakender (CUDA/ROCm/OpenVINO) når de er tilgjengelige.",
-            "device": {
-                "label": "Enhetstype",
-                "description": "Enheten som skal brukes for ONNX-inferens (f.eks. 'AUTO', 'CPU', 'GPU')."
-            }
-        },
-        "openvino": {
-            "label": "OpenVINO",
-            "description": "OpenVINO-detektor for AMD- og Intel-CPU-er, Intel-GPU-er og Intel VPU-maskinvare.",
-            "device": {
-                "label": "Enhetstype",
-                "description": "Enheten som skal brukes for OpenVINO-inferens (f.eks. 'CPU', 'GPU', 'NPU')."
-            }
-        },
-        "rknn": {
-            "label": "RKNN",
-            "description": "RKNN-detektor for Rockchip NPU-er; kjører kompilerte RKNN-modeller på Rockchip-maskinvare.",
-            "num_cores": {
-                "label": "Antall NPU-kjerner som skal brukes.",
-                "description": "Antall NPU-kjerner som skal brukes (0 for auto)."
-            }
-        },
-        "synaptics": {
-            "label": "Synaptics",
-            "description": "Synaptics NPU-detektor for modeller i .synap-format ved bruk av Synap SDK på Synaptics-maskinvare."
-        },
-        "teflon_tfl": {
-            "label": "Teflon",
-            "description": "Teflon-delegatdetektor for TFLite som bruker Mesa Teflon-delegatbiblioteket for å akselerere inferens på støttede GPU-er."
-        },
-        "tensorrt": {
-            "label": "TensorRT",
-            "description": "TensorRT-detektor for Nvidia Jetson-enheter som bruker serialiserte TensorRT-motorer for akselerert inferens.",
-            "device": {
-                "label": "GPU-enhetsindeks",
-                "description": "GPU-enhetsindeksen som skal brukes."
-            }
-        },
-        "zmq": {
-            "label": "ZMQ IPC",
-            "description": "ZMQ IPC-detektor som flytter inferenssprosesser til en ekstern prosess via et ZeroMQ IPC-endepunkt.",
-            "endpoint": {
-                "label": "ZMQ IPC-endepunkt",
-                "description": "ZMQ-endepunktet som skal tilkobles."
-            },
-            "request_timeout_ms": {
-                "label": "Tidsavbrudd for ZMQ-forespørsel i millisekunder",
-                "description": "Tidsavbrudd for ZMQ-forespørsler i millisekunder."
-            },
-            "linger_ms": {
-                "label": "ZMQ-sokkel ventetid i millisekunder",
-                "description": "Sokkelens ventetid i millisekunder."
-            }
-        }
-    },
-    "model": {
-        "label": "Deteksjonsmodell",
-        "description": "Innstillinger for å konfigurere en egendefinert objektdeteksjonsmodell og dens inndataform.",
-        "path": {
-            "label": "Sti til egendefinert objektdeteksjonsmodell",
-            "description": "Sti til en egendefinert deteksjonsmodellfil (eller plus://<modell_id> for AMSS+-modeller)."
-        },
-        "labelmap_path": {
-            "label": "Etikettkart (labelmap) for egendefinert detektor",
-            "description": "Sti til en labelmap-fil som kobler numeriske klasser til tekstetiketter for detektoren."
-        },
-        "width": {
-            "label": "Inndatabredde for deteksjonsmodell",
-            "description": "Bredden på modellens inndata-tensor i piksler."
-        },
-        "height": {
-            "label": "Inndatahøyde for deteksjonsmodell",
-            "description": "Høyden på modellens inndata-tensor i piksler."
-        },
-        "labelmap": {
-            "label": "Tilpasning av etikettkart (labelmap)",
-            "description": "Overstyringer eller tilordninger som skal flettes inn i standard etikettkart."
-        },
-        "attributes_map": {
-            "label": "Kartlegging av objektetiketter til deres egenskaper",
-            "description": "Kobling fra objektetiketter til egenskapsetiketter brukt for metadata (f.eks. 'bil' -> ['kjennemerke'])."
-        },
-        "input_tensor": {
-            "label": "Modellens inndata-tensorform",
-            "description": "Tensorformatet som forventes av modellen: 'nhwc' eller 'nchw'."
-        },
-        "input_pixel_format": {
-            "label": "Pikselformat for modellens inndata",
-            "description": "Pikselfargerom som forventes av modellen: 'rgb', 'bgr' eller 'yuv'."
-        },
-        "input_dtype": {
-            "label": "Datatype for modellens inndata",
-            "description": "Datatypen til modellens inndata-tensor (for eksempel 'float32')."
-        },
-        "model_type": {
-            "label": "Type objektdeteksjonsmodell",
-            "description": "Arkitekturtype for detektormodellen (ssd, yolox, yolonas, yolo-generic, rfdetr, dfine) brukt av enkelte detektorer for optimalisering."
         }
     },
     "genai": {
@@ -581,12 +350,8 @@
             "label": "Aktiver Fugleperspektiv",
             "description": "Aktiver eller deaktiver funksjonen for Fugleperspektiv."
         },
-        "mode": {
-            "label": "Sporingsmodus",
-            "description": "Modus for å inkludere kameraer i Fugleperspektiv: 'objects', 'motion' eller 'continuous'."
-        },
         "restream": {
-            "label": "Videreformidle RTSP",
+            "label": "Viderestrøm RTSP",
             "description": "Videreformidle Fugleperspektiv-utdataen som en RTSP-strøm; aktivering av dette vil holde Fugleperspektiv kjørende kontinuerlig."
         },
         "width": {
@@ -756,10 +521,10 @@
     },
     "live": {
         "label": "Direkteavspilling",
-        "description": "Innstillinger for å kontrollere oppløsning og kvalitet på jsmpeg-direktestrømmer. Dette påvirker ikke kameraer som bruker go2rtc for direktevisning.",
+        "description": "Innstillinger for å kontrollere oppløsning og kvalitet på jsmpeg-direktestrømmer. Dette påvirker ikke vderestrømmede kameraer som bruker go2rtc for direktevisning.",
         "streams": {
             "label": "Navn på direktestrømmer",
-            "description": "Kobling mellom konfigurerte strøm-navn og restream/go2rtc-navn brukt for direkteavspilling."
+            "description": "Kobling mellom konfigurerte strøm-navn og viderestrøm/go2rtc-navn brukt for direkteavspilling."
         },
         "height": {
             "label": "Direktevisningshøyde",
@@ -1187,10 +952,6 @@
                 "label": "Standard bevaring",
                 "description": "Standard antall dager stillbilder skal bevares."
             },
-            "mode": {
-                "label": "Bevaringsmodus",
-                "description": "Modus for bevaring: \"Alle\" (lagre alle segmenter), \"Bevegelse\" (lagre segmenter med bevegelse) eller \"Aktive objekter\" (lagre segmenter med aktive objekter)."
-            },
             "objects": {
                 "label": "Objektbevaring",
                 "description": "Overstyringer per objekt for antall dager stillbilder skal bevares."
@@ -1462,7 +1223,7 @@
         },
         "enhancement": {
             "label": "Forbedringsnivå",
-            "description": "Forbedringsnivå (0-10) som brukes på kjennemerkebeskjæringer før OCR; høyere verdier forbedrer ikke alltid resultatet, nivåer over 5 fungerer ofte kun på nattbilder og bør brukes med forsiktighet."
+            "description": "Forbedringsnivå (0-10) som brukes på beskjærte kjennemerker før OCR; høyere verdier forbedrer ikke alltid resultatet, nivåer over 5 fungerer ofte kun på nattbilder og bør brukes med forsiktighet."
         },
         "debug_save_plates": {
             "label": "Lagre feilsøkingsbilder",
@@ -1552,11 +1313,11 @@
         "description": "Sortering og synlighet for dette kameraet i grensesnittet. Sortering påvirker standard dashbord. For mer detaljert kontroll, bruk kameragrupper.",
         "order": {
             "label": "Rekkefølge i UI",
-            "description": "Numerisk rekkefølge for sortering av kameraet i grensesnittet; høyere tall vises senere."
+            "description": "Numerisk rekkefølge for sortering av kameraet i grensesnittet (standard dashbord og lister); høyere tall vises senere."
         },
         "dashboard": {
-            "label": "Vis i grensesnitt",
-            "description": "Velg om dette kameraet skal være synlig i AMSS-grensesnittet. Deaktivering krever manuell redigering av konfigurasjonen for å vise kameraet igjen."
+            "label": "Vis i Direkte-dashbord",
+            "description": "Velg om dette kameraet skal være synlig på standard direktedashbord for alle kameraer. Kameraet vil fortsatt være tilgjengelig alle andre steder i brukergrensesnittet, inkludert i kameragrupper og innstillinger."
         },
         "review": {
             "label": "Vis i inspeksjon",
@@ -1599,7 +1360,7 @@
             },
             "calibrate_on_startup": {
                 "label": "Kalibrer ved start",
-                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. AMSS vil oppdatere konfigurasjonen etter kalibrering."
+                "description": "Mål PTZ-motorhastigheter ved oppstart for å forbedre sporingsnøyaktighet. Frigate vil oppdatere konfigurasjonen etter kalibrering."
             },
             "zooming": {
                 "label": "Zoom-modus",

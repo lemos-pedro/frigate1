@@ -1,6 +1,5 @@
 {
-  "documentTitle": "Uživo - AMSS",
-  "documentTitle.withCamera": "{{camera}} - Uživo - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Uživo - Frigate",
   "lowBandwidthMode": "Režim niskog propusnog opsega",
   "twoWayTalk": {
     "enable": "Omogući dvosmerni razgovor",
@@ -52,10 +51,6 @@
       }
     },
     "presets": "Пресети PTZ камере"
-  },
-  "camera": {
-    "enable": "Укључивање камере",
-    "disable": "Онемогућавање камере"
   },
   "muteCameras": {
     "enable": "Мутирање свих камера",

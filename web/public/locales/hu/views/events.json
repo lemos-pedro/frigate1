@@ -33,16 +33,14 @@
   },
   "camera": "Kamera",
   "timeline.aria": "Válassza ki az idővonalat",
-  "documentTitle": "Áttekintés - AMSS",
+  "documentTitle": "Áttekintés - Frigate",
   "recordings": {
-    "documentTitle": "Felvételek - AMSS"
+    "documentTitle": "Felvételek - Frigate"
   },
   "markTheseItemsAsReviewed": "Ezen elemek megjelölése áttekintettként",
   "markAsReviewed": "Megjelölés Áttekintettként",
   "selected_one": "{{count}} kiválasztva",
   "selected_other": "{{count}} kiválasztva",
-  "suspiciousActivity": "Gyanús Tevékenység",
-  "threateningActivity": "Fenyegető Tevékenység",
   "zoomIn": "Nagyítás",
   "zoomOut": "Kicsinyítés",
   "detail": {

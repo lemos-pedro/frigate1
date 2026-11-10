@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Nu au fost gasite inregistrari in perioada de timp mentionata",
   "noPreviewFound": "Nu a fost gasita o Previzualizare",
   "noPreviewFoundFor": "Nu există previzualizari pentru {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Trimiteti acest cadru catre AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Trimiteti acest cadru catre Frigate+?",
     "submit": "Trimite",
     "previewError": "Nu s-a putut încărca previzualizarea snapshot-ului. S-ar putea ca înregistrarea să nu fie disponibilă în acest moment."
   },
@@ -12,7 +12,6 @@
     "title": "Stream Offline",
     "desc": "Nici un cadru nu a fost receptionat de la streamul {{cameraName}} <code>detect</code>, verifica logurile de eroare"
   },
-  "cameraDisabled": "Camera este dezactivata",
   "stats": {
     "streamType": {
       "title": "Tip Stream:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "Latime de Banda:",
       "short": "Latime de Banda"
-    },
-    "latency": {
-      "title": "Latenta:",
-      "value": "{{seconds}} secunde",
-      "short": {
-        "title": "Latenta",
-        "value": "{{seconds}} sec"
-      }
     },
     "totalFrames": "Total Cadre:",
     "droppedFrames": {
@@ -39,15 +30,32 @@
       }
     },
     "decodedFrames": "Cadre Decodate:",
-    "droppedFrameRate": "Rata de Cadre Pierdute:"
+    "droppedFrameRate": "Rata de Cadre Pierdute:",
+    "stream": "Stream:",
+    "streamAuto": "{{stream}} (auto)"
   },
   "toast": {
     "error": {
-      "submitAMSSPlusFailed": "Eraoare trimitere Cadru catre AMSS+"
+      "submitFrigatePlusFailed": "Eraoare trimitere Cadru catre Frigate+",
+      "playRecordingsFailed": "Redarea înregistrărilor a eșuat (eroare {{code}}): {{message}}"
     },
     "success": {
-      "submittedAMSSPlus": "Cadru trimis cu Succes catre AMSS+"
+      "submittedFrigatePlus": "Cadru trimis cu Succes catre Frigate+"
     }
   },
-  "cameraOff": "Camera este oprită"
+  "cameraOff": "Camera este oprită",
+  "quality": {
+    "auto": "Auto",
+    "autoLow": "Redare la calitate scăzută (lățime de bandă limitată)",
+    "autoLowCodec": "Redare la calitate scăzută (originalul nu este suportat de acest browser)",
+    "autoLowSaveData": "Redare la calitate scăzută (economisire date)",
+    "main": "Original",
+    "sub": "Scăzută",
+    "notSupportedBrowser": "Nu este suportat de acest browser",
+    "label": "Calitate",
+    "noAudio": "Fără audio",
+    "audioRate": "Audio {{rate}} kHz",
+    "audioCodecRate": "{{codec}} {{rate}} kHz",
+    "noRecordings": "Fără înregistrări în acest interval de timp"
+  }
 }

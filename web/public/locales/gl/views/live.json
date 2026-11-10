@@ -1,6 +1,5 @@
 {
-  "documentTitle": "Directo - AMSS",
-  "documentTitle.withCamera": "{{camera}} - Directo - AMSS",
+  "documentTitle.withCamera": "{{camera}} - Directo - Frigate",
   "twoWayTalk": {
     "disable": "Deshabilita a Conversa de dous sentidos",
     "enable": "Habilitar a Conversa de dous sentidos"

@@ -24,9 +24,10 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { LuX, LuPlus, LuInfo, LuExternalLink } from "react-icons/lu";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { getTranslatedLabel } from "@/utils/i18n";
 import { useDocDomain } from "@/hooks/use-doc-domain";
+import { isAttributeLabel } from "@/utils/modelUtil";
 import {
   Popover,
   PopoverContent,
@@ -58,7 +59,7 @@ export default function Step1NameAndDefine({
   onCancel,
 }: Step1NameAndDefineProps) {
   const { t } = useTranslation(["views/classificationModel"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { getLocaleDocUrl } = useDocDomain();
 
   const objectLabels = useMemo(() => {
@@ -72,7 +73,7 @@ export default function Step1NameAndDefine({
       }
 
       cameraConfig.objects.track.forEach((label) => {
-        if (!config.model.all_attributes.includes(label)) {
+        if (!isAttributeLabel(config, label)) {
           labels.add(label);
         }
       });

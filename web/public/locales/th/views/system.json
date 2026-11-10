@@ -57,15 +57,15 @@
     "detectIsVerySlow": "{{detect}} ช้ามาก ({{speed}} มิลลิวินาที)"
   },
   "documentTitle": {
-    "cameras": "ข้อมูลกล้อง - AMSS",
-    "storage": "สถิติคลังข้อมูล - AMSS",
-    "general": "สถิติทั่วไป - AMSS",
-    "enrichments": "สถิติเพิ่มเติม - AMSS",
+    "cameras": "ข้อมูลกล้อง - Frigate",
+    "storage": "สถิติคลังข้อมูล - Frigate",
+    "general": "สถิติทั่วไป - Frigate",
+    "enrichments": "สถิติเพิ่มเติม - Frigate",
     "logs": {
-      "frigate": "AMSS Logs - AMSS",
-      "go2rtc": "Logs ของ Go2RTC - AMSS",
-      "nginx": "Logs ของ Nginx - AMSS",
-      "websocket": "ประวัติข้อความ - AMSS"
+      "frigate": "Frigate Logs - Frigate",
+      "go2rtc": "Logs ของ Go2RTC - Frigate",
+      "nginx": "Logs ของ Nginx - Frigate",
+      "websocket": "ประวัติข้อความ - Frigate"
     }
   },
   "logs": {

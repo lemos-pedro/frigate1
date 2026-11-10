@@ -1,8 +1,8 @@
 {
   "noPreviewFound": "कुनै पूर्वावलोकन फेला परेन",
   "noPreviewFoundFor": "{{cameraName}} को लागि कुनै पूर्वावलोकन फेला परेन।",
-  "submitAMSSPlus": {
-    "title": "यो फ्रेम AMSS+ मा बुझाउने हो?",
+  "submitFrigatePlus": {
+    "title": "यो फ्रेम Frigate+ मा बुझाउने हो?",
     "submit": "पेश गर्नुहोस्",
     "previewError": "स्न्यापसट पूर्वावलोकन लोड गर्न सकिएन। रेकर्डिङ यस समयमा उपलब्ध नहुन सक्छ।"
   },
@@ -12,7 +12,6 @@
     "title": "अफलाइन स्ट्रिम गर्नुहोस्",
     "desc": "{{cameraName}} <code>detect</code> स्ट्रिममा कुनै पनि फ्रेमहरू प्राप्त भएका छैनन्, त्रुटि लगहरू जाँच गर्नुहोस्"
   },
-  "cameraDisabled": "क्यामेरा असक्षम पारिएको छ",
   "stats": {
     "streamType": {
       "title": "स्ट्रिम प्रकार:",

@@ -2,7 +2,7 @@
   "time": {
     "untilForTime": "Bis {{time}}",
     "last7": "Letzte 7 Tage",
-    "untilForRestart": "Bis AMSS neu startet ist.",
+    "untilForRestart": "Bis Frigate neu startet ist.",
     "today": "Heute",
     "yesterday": "Gestern",
     "thisWeek": "Diese Woche",
@@ -47,16 +47,7 @@
       "12hour": "d. MMM, hh:mm:ss aaa",
       "24hour": "dd. MMM, hh:mm:ss aaa"
     },
-    "formattedTimestampWithYear": {
-      "24hour": "%-d %b %Y, %H:%M",
-      "12hour": "%-d %b %Y, %H:%M"
-    },
-    "formattedTimestampOnlyMonthAndDay": "%-d %b",
     "am": "vormittags",
-    "formattedTimestampExcludeSeconds": {
-      "24hour": "%-d %b, %H:%M",
-      "12hour": "%-d %b, %H:%M"
-    },
     "formattedTimestampHourMinute": {
       "12hour": "h:mm aaa",
       "24hour": "HH:mm"
@@ -130,12 +121,16 @@
     "copiedToClipboard": "In die Zwischenablage kopiert",
     "modified": "Verändert",
     "overridden": "Überschrieben",
-    "resetToGlobal": "Auf Global zurückgesetzen",
+    "resetToGlobal": "Auf Global zurücksetzen",
     "resetToDefault": "Auf Werkseinstellungen zurücksetzten",
     "saveAll": "Alle speichern",
     "savingAll": "Alle werden gespeichert…",
     "undoAll": "Alle rückgängig",
-    "retry": "Wiederholen"
+    "retry": "Wiederholen",
+    "expand": "Maximieren",
+    "collapse": "Minimieren",
+    "clear": "Löschen",
+    "reload": "Neu laden"
   },
   "label": {
     "back": "Zurück",
@@ -194,7 +189,8 @@
       "id": "Bahasa Indonesia (Indonesisch)",
       "hr": "Hrvatski (Kroatisch)",
       "bs": "Bosanski (Bosnisch)",
-      "zhHant": "Traditional Chinese"
+      "zhHant": "Traditional Chinese",
+      "be": "Беларуская (Belarussisch)"
     },
     "appearance": "Erscheinung",
     "theme": {
@@ -204,13 +200,12 @@
       "default": "Standard",
       "nord": "Nord",
       "red": "Rot",
-      "contrast": "Hoher Kontrast",
       "highcontrast": "Hoher Kontrast"
     },
     "help": "Hilfe",
     "documentation": {
       "title": "Dokumentation",
-      "label": "AMSS Dokumentation"
+      "label": "Frigate Dokumentation"
     },
     "live": {
       "allCameras": "Alle Kameras",
@@ -222,7 +217,7 @@
       "title": "Live"
     },
     "review": "Überprüfen",
-    "restart": "AMSS neu starten",
+    "restart": "Frigate neu starten",
     "darkMode": {
       "light": "Hell",
       "label": "Dunkler Modus",
@@ -235,7 +230,7 @@
     "configuration": "Konfigurieren",
     "withSystem": "System",
     "settings": "Einstellungen",
-    "systemLogs": "Systemprotokoll",
+    "systemLogs": "Protokoll",
     "systemMetrics": "Systemstatistiken",
     "explore": "Erkunden",
     "faceLibrary": "Gesichterbibliothek",
@@ -288,7 +283,7 @@
     "title": "Rolle",
     "admin": "Administrator",
     "viewer": "Zuschauer",
-    "desc": "Administratoren haben vollen Zugang zu allen Funktionen der AMSS Benutzeroberfläche. Zuschauer können nur Kameras betrachten, erkannte Objekte überprüfen und historische Aufnahmen durchsehen."
+    "desc": "Administratoren haben vollen Zugang zu allen Funktionen der Frigate Benutzeroberfläche. Zuschauer können nur Kameras betrachten, erkannte Objekte überprüfen und historische Aufnahmen durchsehen."
   },
   "pagination": {
     "previous": {
@@ -305,13 +300,13 @@
   "notFound": {
     "title": "404",
     "desc": "Seite nicht gefunden",
-    "documentTitle": "Nicht gefunden - AMSS"
+    "documentTitle": "Nicht gefunden - Frigate"
   },
   "selectItem": "Wähle {{item}}",
   "readTheDocumentation": "Dokumentation lesen",
   "accessDenied": {
     "desc": "Du hast keine Berechtigung diese Seite anzuzeigen.",
-    "documentTitle": "Zugang verweigert - AMSS",
+    "documentTitle": "Zugang verweigert - Frigate",
     "title": "Zugang verweigert"
   },
   "information": {
@@ -319,7 +314,7 @@
   },
   "field": {
     "optional": "Optional",
-    "internalID": "Die interne ID, die AMSS in der Konfiguration und Datenbank verwendet"
+    "internalID": "Die interne ID, die Frigate in der Konfiguration und Datenbank verwendet"
   },
   "list": {
     "two": "{{0}} und {{1}}",
@@ -330,5 +325,33 @@
   "validation_errors": "Validierungsfehler",
   "credentialField": {
     "savedPlaceholder": "Gespeichert – leer lassen, um den aktuellen Stand beizubehalten"
+  },
+  "error": {
+    "title": "Seite arbeitet nicht mehr",
+    "desc": "Die Seite erzeugt einen unerwarteten Fehler. Ein Reload löst das Problem meist. Wenn der Fehler weiter besteht, dann kopiere die Details und füge diese in einen Github-Diskussions-Eintrag hinzu.",
+    "staleTitle": "Neuladen erforderlich",
+    "staleDesc": "Ein Teil des Interface konnte nicht geladen werden, welches meist die Ursache hat, das Frigate eine Aktualisierung durchgeführt hat während das Tab offen war. Bitte neuladen.",
+    "partial": "Teil des Interfaces arbeitet nicht",
+    "copyDetails": "Kopiere Details",
+    "copyFailed": "Kann die Details nicht in die Zwischenablage kopieren"
+  },
+  "commandMenu": {
+    "title": "Befehlsmenu",
+    "empty": "Keine Treffer",
+    "section": {
+      "recent": "aktuell",
+      "pages": "Seiten",
+      "cameras": "Kameras",
+      "cameraGroups": "Kameragruppen",
+      "settings": "Einstellungen",
+      "actions": "Aktionen"
+    },
+    "camera": {
+      "live": "Live",
+      "review": "Review"
+    },
+    "action": {
+      "toggleTheme": "hell/dunkel umschalten"
+    }
   }
 }

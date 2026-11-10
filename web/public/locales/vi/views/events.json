@@ -9,7 +9,7 @@
   "allCameras": "Tất cả Camera",
   "detected": "Đã phát hiện",
   "recordings": {
-    "documentTitle": "Bản ghi - AMSS"
+    "documentTitle": "Bản ghi - Frigate"
   },
   "events": {
     "aria": "Chọn sự kiện",
@@ -24,8 +24,7 @@
     "detection": "Không có phát hiện nào để xem xét",
     "motion": "Không tìm thấy dữ liệu chuyển động"
   },
-  "timeline": "Dòng thời gian",
-  "documentTitle": "Xem lại - AMSS",
+  "documentTitle": "Xem lại - Frigate",
   "calendarFilter": {
     "last24Hours": "24 giờ qua"
   },
@@ -35,8 +34,6 @@
   },
   "markAsReviewed": "Đánh dấu là đã xem xét",
   "markTheseItemsAsReviewed": "Đánh dấu các mục này là đã xem xét",
-  "suspiciousActivity": "Hoạt động đáng ngờ",
-  "threateningActivity": "Hoạt động đe dọa",
   "zoomIn": "Phóng To",
   "zoomOut": "Thu nhỏ",
   "detail": {

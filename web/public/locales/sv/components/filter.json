@@ -5,7 +5,6 @@
       "short": "Etiketter"
     },
     "label": "Etiketter",
-    "count": "{{count}} Etiketter",
     "count_one": "{{count}} etikett",
     "count_other": "{{count}} etiketter"
   },
@@ -20,9 +19,9 @@
   "features": {
     "hasSnapshot": "Har ögonblicksbild",
     "hasVideoClip": "Har videoklipp",
-    "submittedToAMSSPlus": {
-      "label": "Skickat till AMSS+",
-      "tips": "Du måste först filtrera på spårade objekt som har en ögonblicksbild. <br /><br />Spårade objekt utan ögonblicksbild kan inte skickas till AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Skickat till Frigate+",
+      "tips": "Du måste först filtrera på spårade objekt som har en ögonblicksbild. <br /><br />Spårade objekt utan ögonblicksbild kan inte skickas till Frigate+."
     },
     "label": "Detaljer"
   },

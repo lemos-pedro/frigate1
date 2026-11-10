@@ -1,15 +1,15 @@
 {
   "documentTitle": {
-    "cameras": "Statistika kamer - AMSS",
-    "storage": "Statistika shrambe - AMSS",
-    "general": "Splošna statistika - AMSS",
+    "cameras": "Statistika kamer - Frigate",
+    "storage": "Statistika shrambe - Frigate",
+    "general": "Splošna statistika - Frigate",
     "logs": {
-      "frigate": "AMSS dnevniki - AMSS",
-      "go2rtc": "Go2RTC dnevniki - AMSS",
-      "nginx": "Nginx dnevniki - AMSS",
-      "websocket": "Dnevniki sporočil - AMSS"
+      "frigate": "Frigate dnevniki - Frigate",
+      "go2rtc": "Go2RTC dnevniki - Frigate",
+      "nginx": "Nginx dnevniki - Frigate",
+      "websocket": "Dnevniki sporočil - Frigate"
     },
-    "enrichments": "Statistika obogatenih podatkov - AMSS"
+    "enrichments": "Statistika obogatenih podatkov - Frigate"
   },
   "logs": {
     "download": {
@@ -56,14 +56,13 @@
       "empty": "Ni še ujetih sporočil",
       "expanded": {
         "payload": "Tovor (payload)"
-      },
-      "count": "{{count}} sporočil"
+      }
     }
   },
   "storage": {
     "recordings": {
       "title": "Posnetki",
-      "tips": "Ta vrednost predstavlja skupno shrambo, ki jo zasedajo posnetki v podatkovni bazi AMSS. AMSS ne spremlja porabe shrambe za vse datoteke na tvojem disku.",
+      "tips": "Ta vrednost predstavlja skupno shrambo, ki jo zasedajo posnetki v podatkovni bazi Frigate. Frigate ne spremlja porabe shrambe za vse datoteke na tvojem disku.",
       "earliestRecording": "Najstarejši razpoložljiv posnetek:"
     },
     "title": "Shramba",
@@ -77,7 +76,7 @@
       "bandwidth": "Pasovna širina",
       "unused": {
         "title": "Neporabljeno",
-        "tips": "Ta vrednost morda ne predstavlja natančno prostega prostora, ki je na voljo programu AMSS, če imaš na disku poleg posnetkov AMSS shranjene še druge datoteke. AMSS ne spremlja porabe shrambe izven svojih posnetkov."
+        "tips": "Ta vrednost morda ne predstavlja natančno prostega prostora, ki je na voljo programu Frigate, če imaš na disku poleg posnetkov Frigate shranjene še druge datoteke. Frigate ne spremlja porabe shrambe izven svojih posnetkov."
       }
     },
     "shm": {
@@ -122,11 +121,6 @@
         }
       },
       "npuUsage": "Uporaba NPU",
-      "intelGpuWarning": {
-        "message": "Statistika GPU ni na voljo",
-        "description": "To je znana napaka v Intelovih orodjih za poročanje (intel_gpu_top), kjer orodje neha delovati in nenehno vrača 0 % porabo GPU, čeprav strojno pospeševanje in zaznavanje objektov pravilno delujeta na (i)GPU. To ni napaka programa AMSS. Za začasno rešitev in potrditev delovanja lahko ponovno zaženeš gostiteljski sistem. To ne vpliva na zmogljivost.",
-        "title": "Opozorilo za Intel GPU"
-      },
       "gpuTemperature": "Temperatura GPU",
       "npuTemperature": "Temperatura NPU"
     },
@@ -213,14 +207,11 @@
   },
   "lastRefreshed": "Zadnja osvežitev: ",
   "stats": {
-    "ffmpegHighCpuUsage": "{{camera}} ima visoko porabo procesorja FFmpeg ({{ffmpegAvg}} %)",
-    "detectHighCpuUsage": "{{camera}} ima visoko porabo procesorja za zaznavanje ({{detectAvg}} %)",
     "healthy": "Sistem deluje brezhibno",
     "reindexingEmbeddings": "Ponovno indeksiranje vdelav ({{processed}} % končano)",
     "cameraIsOffline": "Kamera {{camera}} je brez povezave",
     "detectIsSlow": "Zaznavanje ({{detect}}) je počasno ({{speed}} ms)",
     "detectIsVerySlow": "Zaznavanje ({{detect}}) je zelo počasno ({{speed}} ms)",
-    "shmTooLow": "Dodelitev /dev/shm ({{total}} MB) bi morala biti povečana na vsaj {{min}} MB.",
     "debugReplayActive": "Seja ponovnega predvajanja za razhroščevanje je aktivna"
   },
   "enrichments": {

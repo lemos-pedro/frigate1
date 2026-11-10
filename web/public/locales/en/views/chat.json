@@ -1,6 +1,6 @@
 {
-  "documentTitle": "Chat - AMSS",
-  "title": "AMSS Chat",
+  "documentTitle": "Chat - Frigate",
+  "title": "Frigate Chat",
   "subtitle": "Your AI assistant for camera management and insights",
   "placeholder": "Ask anything...",
   "error": "Something went wrong. Please try again.",
@@ -55,6 +55,12 @@
     "auto_scroll": {
       "title": "Auto-scroll",
       "desc": "Follow new messages as they arrive."
+    },
+    "always_allow": {
+      "title": "Always allowed actions",
+      "desc": "Actions the assistant may run without asking first.",
+      "none": "None",
+      "reset": "Reset"
     }
   },
   "stats": {
@@ -68,5 +74,15 @@
   },
   "thinking": {
     "toggle": "Toggle thinking"
+  },
+  "approval": {
+    "title": "Approve {{tool}}?",
+    "desc": "This action changes something in Frigate. Review the details before approving.",
+    "approve": "Approve",
+    "always_allow": "Always allow",
+    "reject": "Reject",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "placeholder": "Approve or reject the pending action to continue"
   }
 }

@@ -6,7 +6,7 @@ import isEqual from "lodash/isEqual";
 import get from "lodash/get";
 import set from "lodash/set";
 import type { RJSFSchema } from "@rjsf/utils";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { JsonObject, JsonValue } from "@/types/configForm";
 import { isJsonObject } from "@/lib/utils";
 import {
@@ -123,8 +123,7 @@ function getDefaultFilter(
   if (!schema) return undefined;
   const sectionSchema = extractSectionSchema(schema, sectionPath, "camera");
   const filtersSchema = sectionSchema?.properties?.filters as
-    | RJSFSchema
-    | undefined;
+    RJSFSchema | undefined;
   if (!filtersSchema) return undefined;
 
   // An optional map (`dict[str, X] | None`, as `audio.filters` is declared)
@@ -244,8 +243,8 @@ export interface OverrideStatus {
 }
 
 export interface UseConfigOverrideOptions {
-  /** Full AMSS config */
-  config: AmssConfig | undefined;
+  /** Full Frigate config */
+  config: FrigateConfig | undefined;
   /** Camera name for per-camera settings */
   cameraName?: string;
   /** Config section path (e.g., "detect", "record.events") */
@@ -474,13 +473,13 @@ export const OVERRIDABLE_SECTIONS: ReadonlyArray<{
   { key: "review" },
   { key: "audio" },
   { key: "notifications" },
-  { key: "live" },
+  { key: "live", compareFields: ["transcode", "height", "quality"] },
   { key: "timestamp_style" },
   {
     key: "audio_transcription",
     compareFields: ["enabled", "live_enabled"],
   },
-  { key: "birdseye", compareFields: ["enabled", "mode"] },
+  { key: "birdseye", compareFields: ["enabled", "modes"] },
   { key: "face_recognition", compareFields: ["enabled", "min_area"] },
   {
     key: "ffmpeg",
@@ -505,7 +504,7 @@ export const OVERRIDABLE_SECTIONS: ReadonlyArray<{
  * Hook to get all overridden fields for a camera
  */
 export function useAllCameraOverrides(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   cameraName: string | undefined,
 ) {
   const { data: schema } = useSWR<RJSFSchema>("config/schema.json");
@@ -684,7 +683,7 @@ function isPathAllowed(path: string, compareFields?: string[]): boolean {
  *   hasn't loaded yet or the section isn't in it.
  */
 function getEffectiveGlobalBaseline(
-  config: AmssConfig,
+  config: FrigateConfig,
   sectionPath: string,
   compareFields?: string[],
   schema?: RJSFSchema,
@@ -774,7 +773,7 @@ function isCrossCameraIgnoredPath(path: string): boolean {
  * ```
  */
 export function useCamerasOverridingSection(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   sectionPath: string,
 ): CameraOverrideEntry[] {
   const { data: schema } = useSWR<RJSFSchema>("config/schema.json");
@@ -879,7 +878,7 @@ export function useCamerasOverridingSection(
  * ```
  */
 export function useCameraSectionDeltas(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   cameraName: string | undefined,
   sectionPath: string,
 ): FieldDelta[] {
@@ -951,7 +950,7 @@ export function useCameraSectionDeltas(
  * ```
  */
 export function useProfileSectionDeltas(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   cameraName: string | undefined,
   profileName: string | undefined,
   sectionPath: string,
@@ -965,8 +964,7 @@ export function useProfileSectionDeltas(
 
     const profileSection = (
       cameraConfig.profiles?.[profileName] as
-        | Record<string, unknown>
-        | undefined
+        Record<string, unknown> | undefined
     )?.[sectionPath];
     if (profileSection == null) return [];
 

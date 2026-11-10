@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "V danom čase nenájdená žiadna nahrávka",
   "noPreviewFound": "Náhľad nenájdený",
   "noPreviewFoundFor": "Žiadný náhľad nájdený pre {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Odoslať tento rám na AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Odoslať tento rám na Frigate+?",
     "submit": "Odoslať"
   },
   "livePlayerRequiredIOSVersion": "Pre tento typ živého vysielania je potrebný systém iOS 17.1 alebo novší.",
@@ -11,7 +11,6 @@
     "title": "Streamujte Offline",
     "desc": "V streame <code>detect</code> {{cameraName}} neboli prijaté žiadne snímky, skontrolujte protokoly chýb"
   },
-  "cameraDisabled": "Kamera je zakázaná",
   "stats": {
     "streamType": {
       "title": "Typ streamu:",
@@ -20,14 +19,6 @@
     "bandwidth": {
       "title": "Šírka pásma:",
       "short": "Šírka pásma"
-    },
-    "latency": {
-      "title": "Latencia:",
-      "value": "{{seconds}} sekund",
-      "short": {
-        "title": "Latencia",
-        "value": "{{seconds}} sek"
-      }
     },
     "totalFrames": "Celkový počet snímok:",
     "droppedFrames": {
@@ -42,10 +33,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Snímok bol úspešne odoslaný službe AMSS+"
+      "submittedFrigatePlus": "Snímok bol úspešne odoslaný službe Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Nepodarilo sa odoslať snímku službe AMSS+"
+      "submitFrigatePlusFailed": "Nepodarilo sa odoslať snímku službe Frigate+"
     }
   }
 }

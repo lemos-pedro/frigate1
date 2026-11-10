@@ -78,7 +78,7 @@
     "inProgress": "Izpilda",
     "invalidStartTime": "Nederīgs sākuma laiks",
     "invalidEndTime": "Nederīgs beigu laiks",
-    "untilForRestart": "Līdz AMSS pārstartējas.",
+    "untilForRestart": "Līdz Frigate pārstartējas.",
     "untilRestart": "Līdz pārstartēšanai",
     "ago": "{{timeAgo}} pirms",
     "justNow": "Nupat",
@@ -241,9 +241,9 @@
     "help": "Palīdzība",
     "documentation": {
       "title": "Dokumentācija",
-      "label": "AMSSs dokumentācija"
+      "label": "Frigates dokumentācija"
     },
-    "restart": "Restartēt AMSS",
+    "restart": "Restartēt Frigate",
     "live": {
       "title": "Tiešraide",
       "allCameras": "Visas kameras",
@@ -284,7 +284,7 @@
     "title": "Loma",
     "admin": "Administrators",
     "viewer": "Skatītājs",
-    "desc": "Administratoriem ir pilna piekļuve visām AMSS funkcijām. Skatītāji var skatīt tikai kameras, skatāmos elementus un arhivētos ierakstus."
+    "desc": "Administratoriem ir pilna piekļuve visām Frigate funkcijām. Skatītāji var skatīt tikai kameras, skatāmos elementus un arhivētos ierakstus."
   },
   "pagination": {
     "label": "lappuse",
@@ -299,12 +299,12 @@
     "more": "Vairāk lapas"
   },
   "accessDenied": {
-    "documentTitle": "Piekļuve liegta - AMSS",
+    "documentTitle": "Piekļuve liegta - Frigate",
     "title": "Piekļuve liegta",
     "desc": "Jums nav atļaujas skatīt šo lapu."
   },
   "notFound": {
-    "documentTitle": "Nav atrasts - AMSS",
+    "documentTitle": "Nav atrasts - Frigate",
     "title": "404",
     "desc": "Lapa nav atrasta"
   },

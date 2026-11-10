@@ -1,19 +1,19 @@
 {
   "restart": {
-    "title": "你確定要重新啟動 AMSS 嗎？",
+    "title": "你確定要重新啟動 Frigate 嗎？",
     "button": "重新啟動",
     "restarting": {
-      "title": "AMSS 正在重新啟動",
+      "title": "Frigate 正在重新啟動",
       "content": "此頁面將在 {{countdown}} 秒後重新載入。",
       "button": "立即重新載入"
     },
-    "description": "AMSS 在重啟期間將短暫停止執行。"
+    "description": "Frigate 在重新啟動期間將短暫停止執行。"
   },
   "explore": {
     "plus": {
       "review": {
         "question": {
-          "label": "確認此 AMSS Plus 標籤",
+          "label": "確認此 Frigate Plus 標籤",
           "ask_a": "此物件是 <code>{{label}}</code> 嗎？",
           "ask_an": "此物件是 <code>{{label}}</code> 嗎？",
           "ask_full": "此物件是 <code>{{untranslatedLabel}}</code> ({{translatedLabel}}) 嗎？"
@@ -22,11 +22,11 @@
           "submitted": "已提交"
         },
         "toast": {
-          "error": "無法提交至 AMSS+，請檢查您的網路連線並再試一次。"
+          "error": "無法提交至 Frigate+，請檢查您的網路連線並再試一次。"
         }
       },
       "submitToPlus": {
-        "label": "提交到 AMSS+",
+        "label": "提交到 Frigate+",
         "desc": "在你欲遮蓋範圍內的物件並不是誤判。將他們標示為誤判並提交會使模型混淆。"
       }
     },
@@ -36,9 +36,9 @@
   },
   "export": {
     "time": {
-      "fromTimeline": "從時間線選擇",
+      "fromTimeline": "從時間軸選擇",
       "lastHour_other": "過去 {{count}} 個小時",
-      "custom": "自定義",
+      "custom": "自定",
       "start": {
         "title": "開始時間",
         "label": "選擇開始時間"
@@ -59,7 +59,6 @@
       "error": {
         "failed": "匯出失敗：{{error}}",
         "endTimeMustAfterStartTime": "結束時間必須要在開始時間之後",
-        "noVaildTimeSelected": "沒有選取有效的時間範圍",
         "noValidTimeSelected": "未選擇有效的時間範圍"
       },
       "view": "查看",
@@ -72,7 +71,7 @@
       "batchQueueFailed": "未能將 {{total}} 個匯出加入佇列。失敗的攝影機：{{failedCameras}}"
     },
     "fromTimeline": {
-      "saveExport": "保存匯出資料",
+      "saveExport": "儲存匯出資料",
       "previewExport": "預覽匯出資料",
       "queueingExport": "正在加入匯出佇列…",
       "useThisRange": "使用此範圍"
@@ -82,7 +81,6 @@
       "newCaseNamePlaceholder": "新案件名稱",
       "newCaseDescriptionPlaceholder": "案件描述",
       "label": "案件",
-      "nonAdminHelp": "將為這些匯出檔案建立一個新的案件。",
       "placeholder": "選擇案件"
     },
     "queueing": "正在加入匯出佇列…",
@@ -92,7 +90,7 @@
     },
     "multiCamera": {
       "timeRange": "時間範圍",
-      "selectFromTimeline": "從時間線選擇",
+      "selectFromTimeline": "從時間軸選擇",
       "cameraSelection": "攝影機",
       "cameraSelectionHelp": "在此時間範圍內具有追蹤目標的攝影機會被預先選中",
       "checkingActivity": "正在檢查攝影機活動…",
@@ -119,7 +117,6 @@
       "exportingButton": "匯出中…",
       "toast": {
         "started_other": "已開始 {{count}} 個匯出。正在開啟案件。",
-        "startedNoCase_other": "已開始 {{count}} 個匯出。",
         "partial": "已啟動 {{total}} 個匯出，其中 {{successful}} 個成功。失敗項：{{failedItems}}",
         "failed": "啟動匯出失敗（共 {{total}} 個）。失敗項：{{failedItems}}"
       }
@@ -130,8 +127,7 @@
     "restreaming": {
       "disabled": "此鏡頭並未啟用串流重導向。",
       "desc": {
-        "title": "設定 go2rtc 以啟用更多此鏡頭的預覽選項及音訊。",
-        "readTheDocumentation": "閱讀文件"
+        "title": "設定 go2rtc 以啟用更多此鏡頭的預覽選項及音訊。"
       }
     },
     "showStats": {
@@ -143,13 +139,13 @@
   "search": {
     "saveSearch": {
       "label": "儲存搜尋",
-      "desc": "替此保存的搜尋命名。",
+      "desc": "替此儲存的搜尋命名。",
       "placeholder": "請輸入搜尋的名稱",
-      "overwrite": "{{searchName}} 已存在。保存將會覆蓋現有資料。",
-      "success": "搜尋 {{searchName}} 已保存。",
+      "overwrite": "{{searchName}} 已存在。儲存將會覆蓋現有資料。",
+      "success": "搜尋 {{searchName}} 已儲存。",
       "button": {
         "save": {
-          "label": "保存此次搜尋"
+          "label": "儲存此次搜尋"
         }
       }
     }
@@ -174,10 +170,10 @@
     "shareTimestamp": {
       "label": "分享該時間片段",
       "title": "分享該時間片段",
-      "description": "分享帶當前錄製播放時間的網址，或選擇自訂時間。請注意這不是公開的分享連結，只有具備 AMSS 及此攝影機存取權限的使用者才能存取。",
+      "description": "分享帶目前錄製播放時間的網址，或選擇自訂時間。請注意這不是公開的分享連結，只有具備 Frigate 及此攝影機存取權限的使用者才能存取。",
       "custom": "自訂時間",
       "button": "分享時間片段網址",
-      "shareTitle": "AMSS 審閱時間：{{camera}}"
+      "shareTitle": "Frigate 審閱時間：{{camera}}"
     }
   },
   "imagePicker": {

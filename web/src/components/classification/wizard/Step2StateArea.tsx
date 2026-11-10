@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useState, useMemo, useRef, useCallback, useEffect } from "react";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import {
   Popover,
   PopoverContent,
@@ -40,7 +40,7 @@ export default function Step2StateArea({
   onBack,
 }: Step2StateAreaProps) {
   const { t } = useTranslation(["views/classificationModel"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const apiHost = useApiHost();
 
   const [cameraAreas, setCameraAreas] = useState<CameraAreaConfig[]>(

@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Models de classificació - AMSS",
+  "documentTitle": "Models de classificació - Frigate",
   "button": {
     "deleteClassificationAttempts": "Suprimeix les imatges de classificació",
     "renameCategory": "Reanomena la classe",
@@ -32,7 +32,7 @@
       "deleteImageFailed": "No s'ha pogut suprimir: {{errorMessage}}",
       "deleteCategoryFailed": "No s'ha pogut suprimir la classe: {{errorMessage}}",
       "categorizeFailed": "No s'ha pogut categoritzar la imatge: {{errorMessage}}",
-      "trainingFailed": "Ha fallat l'entrenament del model. Comproveu els registres de AMSS per a més detalls.",
+      "trainingFailed": "Ha fallat l'entrenament del model. Comproveu els registres de Frigate per a més detalls.",
       "deleteModelFailed": "No s'ha pogut suprimir el model: {{errorMessage}}",
       "updateModelFailed": "No s'ha pogut actualitzar el model: {{errorMessage}}",
       "renameCategoryFailed": "No s'ha pogut canviar el nom de la classe: {{errorMessage}}",
@@ -139,7 +139,7 @@
       "selectImagesDescription": "Feu clic a les imatges per a seleccionar-les. Feu clic a Continua quan hàgiu acabat amb aquesta classe.",
       "generating": {
         "title": "S'estan generant imatges de mostra",
-        "description": "AMSS està traient imatges representatives dels vostres enregistraments. Això pot trigar un moment..."
+        "description": "Frigate està traient imatges representatives dels vostres enregistraments. Això pot trigar un moment..."
       },
       "training": {
         "title": "Model d'entrenament",
@@ -213,7 +213,6 @@
     "modelNotReady": "El model no está preparat per entrenar",
     "noChanges": "No hi ha canvis al conjunt de dades des de l'última formació."
   },
-  "none": "Cap",
   "reclassifyImageAs": "Reclassifica la imatge com a:",
   "reclassifyImage": "Reclassifica la imatge",
   "disabled": "Desactivat"

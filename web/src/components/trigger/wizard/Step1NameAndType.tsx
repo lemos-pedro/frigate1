@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { Trigger, TriggerType } from "@/types/trigger";
 
 export type Step1FormData = {
@@ -47,7 +47,7 @@ export default function Step1NameAndType({
   onCancel,
 }: Step1NameAndTypeProps) {
   const { t } = useTranslation("views/settings");
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const existingTriggerNames = useMemo(() => {
     if (

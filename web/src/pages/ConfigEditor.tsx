@@ -17,7 +17,7 @@ import RestartDialog from "@/components/overlay/dialog/RestartDialog";
 import { useTranslation } from "react-i18next";
 import { useRestart } from "@/api/ws";
 import { useResizeObserver } from "@/hooks/resize-observer";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 
 type SaveOptions = "saveonly" | "restart";
 
@@ -34,7 +34,7 @@ function ConfigEditor() {
     document.title = t("documentTitle");
   }, [t]);
 
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const { data: rawConfig } = useSWR<string>("config/raw");
@@ -81,7 +81,7 @@ function ConfigEditor() {
           "Unknown error";
 
         setError(errorMessage);
-        throw new Error(errorMessage);
+        throw new Error(errorMessage, { cause: error });
       }
     },
     [editorRef, t],
@@ -102,7 +102,7 @@ function ConfigEditor() {
     try {
       await onHandleSaveConfig("saveonly");
       setRestartDialogOpen(true);
-    } catch (error) {
+    } catch {
       // If save fails, error is already set in onHandleSaveConfig, no dialog opens
     }
   }, [onHandleSaveConfig]);
@@ -123,7 +123,7 @@ function ConfigEditor() {
         hover: true,
         completion: true,
         validate: true,
-        format: true as any,
+        format: { enable: true },
         schemas: [
           {
             uri: `${apiHost}api/config/schema.json`,
@@ -147,6 +147,9 @@ function ConfigEditor() {
         language: "yaml",
         model: modelRef.current,
         scrollBeyondLastLine: false,
+        // Keep the textarea input. CommandMenu doesn't treat EditContext's
+        // host div as a text field, so "/" would open the menu.
+        editContext: false,
         theme: (systemTheme || theme) == "dark" ? "vs-dark" : "vs-light",
       });
       editorRef.current?.addCommand(

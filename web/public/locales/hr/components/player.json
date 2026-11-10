@@ -1,22 +1,13 @@
 {
   "noRecordingsFoundForThisTime": "Nisu pronađene snimke za ovo vrijeme",
-  "submitAMSSPlus": {
-    "title": "Pošalji ovaj kadar u AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Pošalji ovaj kadar u Frigate+?",
     "submit": "Pošalji"
   },
-  "cameraDisabled": "Kamera je onemogućena",
   "stats": {
     "streamType": {
       "short": "Vrsta",
       "title": "Tip Streama:"
-    },
-    "latency": {
-      "value": "{{seconds}} sekundi",
-      "short": {
-        "value": "{{seconds}} sekundi",
-        "title": "Kašnjenje"
-      },
-      "title": "Kašnjenje:"
     },
     "bandwidth": {
       "title": "Mrežna propusnost:",
@@ -42,10 +33,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Kadar je uspješno poslan u AMSS+"
+      "submittedFrigatePlus": "Kadar je uspješno poslan u Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Neuspješno slanje kadra u AMSS+"
+      "submitFrigatePlusFailed": "Neuspješno slanje kadra u Frigate+"
     }
   }
 }

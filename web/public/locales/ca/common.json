@@ -3,7 +3,7 @@
     "title": "Rol",
     "viewer": "Visualitzador",
     "admin": "Administrador",
-    "desc": "Els administradors tenen accés complet a totes les característiques de la interfície d'usuari de AMSS. Els visualitzadors es limiten a visualitzar càmeres, articles de revisió i imatges històriques a la interfície d'usuari."
+    "desc": "Els administradors tenen accés complet a totes les característiques de la interfície d'usuari de Frigate. Els visualitzadors es limiten a visualitzar càmeres, elements de revisió i imatges històriques a la interfície d'usuari."
   },
   "menu": {
     "language": {
@@ -51,12 +51,13 @@
       "ur": "اردو (Urdú)",
       "hr": "Hrvatski (croat)",
       "bs": "Bosanski (Bosni)",
-      "zhHant": "繁體中文 (Xinès Tradicional)"
+      "zhHant": "繁體中文 (Xinès Tradicional)",
+      "be": "Беларуская (belarús)"
     },
     "system": "Sistema",
-    "systemMetrics": "Mètriques del sistema",
+    "systemMetrics": "Salut i Mètriques",
     "configuration": "Configuració",
-    "systemLogs": "Registres del sistema",
+    "systemLogs": "Registres",
     "configurationEditor": "Editor de configuració",
     "languages": "Idiomes",
     "settings": "Opcions",
@@ -82,9 +83,9 @@
     "help": "Ajuda",
     "documentation": {
       "title": "Documentació",
-      "label": "Documentació de AMSS"
+      "label": "Documentació de Frigate"
     },
-    "restart": "Reinicia AMSS",
+    "restart": "Reinicia Frigate",
     "live": {
       "title": "Directe",
       "allCameras": "Totes les càmeres",
@@ -128,7 +129,7 @@
   },
   "time": {
     "untilForTime": "Fins les {{time}}",
-    "untilForRestart": "Fins que AMSS es reiniciï.",
+    "untilForRestart": "Fins que Frigate es reiniciï.",
     "untilRestart": "Fins que es reiniciï",
     "ago": "Fa {{timeAgo}}",
     "justNow": "Ara mateix",
@@ -209,7 +210,8 @@
     "inProgress": "En curs",
     "invalidStartTime": "Hora d'inici no vàlida",
     "invalidEndTime": "Hora de finalització no vàlida",
-    "never": "Mai"
+    "never": "Mai",
+    "custom": "Personalitzat..."
   },
   "unit": {
     "speed": {
@@ -286,7 +288,11 @@
     "savingAll": "S'està desant tot…",
     "undoAll": "Desfés-ho tot",
     "applying": "S'està aplicant…",
-    "retry": "Torna a intentar"
+    "retry": "Torna a intentar",
+    "expand": "Expandeix",
+    "collapse": "Redueix",
+    "reload": "Torna a carregar",
+    "clear": "Neteja"
   },
   "toast": {
     "copyUrlToClipboard": "URL copiada al porta-retalls.",
@@ -301,11 +307,11 @@
   },
   "accessDenied": {
     "desc": "No teniu permís per veure aquesta pàgina.",
-    "documentTitle": "Accés Denegat - AMSS",
+    "documentTitle": "Accés Denegat - Frigate",
     "title": "Accés Denegat"
   },
   "notFound": {
-    "documentTitle": "No s'ha trobat - AMSS",
+    "documentTitle": "No s'ha trobat - Frigate",
     "title": "404",
     "desc": "Pàgina no trobada"
   },
@@ -321,11 +327,42 @@
   },
   "field": {
     "optional": "Opcional",
-    "internalID": "L'ID intern que AMSS s'utilitza a la configuració i a la base de dades"
+    "internalID": "L'ID intern que Frigate s'utilitza a la configuració i a la base de dades"
   },
   "no_items": "Sense elements",
   "validation_errors": "Errors de validació",
   "credentialField": {
     "savedPlaceholder": "Desat — deixa en blanc per mantenir l'actual"
+  },
+  "error": {
+    "title": "Aquesta pàgina ha deixat de funcionar",
+    "desc": "La pàgina ha tingut un error inesperat. La recàrrega normalment la neteja. Si continua passant, copieu els detalls i adjunteu-los a una discussió sobre GitHub.",
+    "staleTitle": "Recàrrega requerida",
+    "staleDesc": "No s'ha pogut carregar part de la interfície, cosa que normalment significa que Frigate s'ha actualitzat mentre aquesta pestanya estava oberta. Torna a carregar per a recollir la nova versió.",
+    "partial": "Part de la interfície va deixar de funcionar.",
+    "copyDetails": "Copia els detalls",
+    "copyFailed": "No s'han pogut copiar els detalls al porta-retalls"
+  },
+  "commandMenu": {
+    "title": "Menú d'ordres",
+    "description": "Cerca pàgines, càmeres, paràmetres i accions",
+    "placeholder": "Cerca pàgines, càmeres, paràmetres i accions",
+    "empty": "Sense coincidències",
+    "hint": "{{key}} o / per obrir, Intro per executar",
+    "section": {
+      "recent": "Recent",
+      "pages": "Pàg",
+      "cameras": "Càmeres",
+      "cameraGroups": "Grups de càmera",
+      "settings": "Configuració",
+      "actions": "Accions"
+    },
+    "camera": {
+      "live": "Directe",
+      "review": "Revisió"
+    },
+    "action": {
+      "toggleTheme": "Commuta el mode clar i fosc"
+    }
   }
 }

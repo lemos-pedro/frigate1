@@ -23,13 +23,13 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Trans, useTranslation } from "react-i18next";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { CameraNameLabel } from "@/components/camera/FriendlyNameLabel";
 import { isReplayCamera } from "@/utils/cameraUtil";
 
 type EditRoleCamerasOverlayProps = {
   show: boolean;
-  config: AmssConfig;
+  config: FrigateConfig;
   role: string;
   currentCameras: string[];
   onSave: (cameras: string[]) => void;
@@ -74,7 +74,7 @@ export default function EditRoleCamerasDialog({
     try {
       await onSave(values.cameras);
       form.reset();
-    } catch (error) {
+    } catch {
       // Error handled in parent
     } finally {
       setIsLoading(false);

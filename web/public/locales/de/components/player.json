@@ -1,8 +1,8 @@
 {
   "noRecordingsFoundForThisTime": "Keine Aufnahmen für diesen Zeitpunkt gefunden",
   "noPreviewFound": "Keine Vorschau gefunden",
-  "submitAMSSPlus": {
-    "title": "Dieses Bild an AMSS+ senden?",
+  "submitFrigatePlus": {
+    "title": "Dieses Bild an Frigate+ senden?",
     "submit": "Absenden",
     "previewError": "Schnappschuss Vorschau konnte nicht geladen werden. Die Aufnahme ist möglicherweise derzeit nicht verfügbar."
   },
@@ -11,7 +11,6 @@
     "title": "Stream ist offline",
     "desc": "Es wurden keine Bilder vom <code>Erkennungsstream</code> der Kamera {{cameraName}} empfangen, bitte Logs überprüfen"
   },
-  "cameraDisabled": "Kamera ist deaktiviert",
   "stats": {
     "streamType": {
       "title": "Stream Typ:",
@@ -20,14 +19,6 @@
     "bandwidth": {
       "title": "Bandbreite:",
       "short": "Bandbreite"
-    },
-    "latency": {
-      "title": "Latenz:",
-      "value": "{{seconds}} Sekunden",
-      "short": {
-        "title": "Latenz",
-        "value": "{{seconds}} s"
-      }
     },
     "droppedFrames": {
       "short": {
@@ -42,10 +33,10 @@
   },
   "toast": {
     "error": {
-      "submitAMSSPlusFailed": "Bild an AMSS+ senden gescheitert"
+      "submitFrigatePlusFailed": "Bild an Frigate+ senden gescheitert"
     },
     "success": {
-      "submittedAMSSPlus": "Bild erfolgreich an AMSS+ gesendet"
+      "submittedFrigatePlus": "Bild erfolgreich an Frigate+ gesendet"
     }
   },
   "noPreviewFoundFor": "Keine Vorschau für {{cameraName}} gefunden",

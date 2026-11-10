@@ -8,17 +8,17 @@ import {
 } from "react";
 import {
   EmbeddingsReindexProgressType,
-  AmssCameraState,
-  AmssEvent,
-  AmssReview,
+  FrigateCameraState,
+  FrigateEvent,
+  FrigateReview,
   ModelState,
   ToggleableSetting,
   TrackedObjectUpdateReturnType,
   TriggerStatus,
-  AmssAudioDetections,
+  FrigateAudioDetections,
   Job,
 } from "@/types/ws";
-import { AmssStats } from "@/types/stats";
+import { FrigateStats } from "@/types/stats";
 import { isEqual } from "lodash";
 import { WsSendContext } from "./wsContext";
 import type { Update, WsSend } from "./wsContext";
@@ -158,7 +158,7 @@ function applyCameraActivity(payload: string) {
   if (payload === lastCameraActivityPayload) return;
   lastCameraActivityPayload = payload;
 
-  let activity: { [key: string]: Partial<AmssCameraState> };
+  let activity: { [key: string]: Partial<FrigateCameraState> };
 
   try {
     activity = JSON.parse(payload);
@@ -205,7 +205,7 @@ function applyCameraActivity(payload: string) {
     );
     applyTopicUpdate(
       `${name}/notifications/suspended`,
-      notifications_suspended || 0,
+      String(notifications_suspended ?? 0),
     );
     applyTopicUpdate(
       `${name}/ptz_autotracker/state`,
@@ -475,7 +475,7 @@ export function useRestart(): {
   return { payload: payload as string, send };
 }
 
-export function useAmssEvents(): { payload: AmssEvent } {
+export function useFrigateEvents(): { payload: FrigateEvent } {
   const {
     value: { payload },
   } = useWs("events", "");
@@ -486,7 +486,7 @@ export function useAmssEvents(): { payload: AmssEvent } {
   return { payload: parsed };
 }
 
-export function useAudioDetections(): { payload: AmssAudioDetections } {
+export function useAudioDetections(): { payload: FrigateAudioDetections } {
   const {
     value: { payload },
   } = useWs("audio_detections", "");
@@ -497,7 +497,7 @@ export function useAudioDetections(): { payload: AmssAudioDetections } {
   return { payload: parsed };
 }
 
-export function useAmssReviews(): AmssReview {
+export function useFrigateReviews(): FrigateReview {
   const {
     value: { payload },
   } = useWs("reviews", "");
@@ -507,7 +507,7 @@ export function useAmssReviews(): AmssReview {
   );
 }
 
-export function useAmssStats(): AmssStats {
+export function useFrigateStats(): FrigateStats {
   const {
     value: { payload },
   } = useWs("stats", "");
@@ -521,7 +521,7 @@ export function useInitialCameraState(
   camera: string,
   revalidateOnFocus: boolean,
 ): {
-  payload: AmssCameraState;
+  payload: FrigateCameraState;
 } {
   const {
     value: { payload },
@@ -529,7 +529,7 @@ export function useInitialCameraState(
   } = useWs(`camera_activity/${camera}`, "onConnect");
 
   // camera_activity sub-topic payload is already parsed by expandCameraActivity
-  const data = payload as AmssCameraState | undefined;
+  const data = payload as FrigateCameraState | undefined;
 
   // the cached snapshot is only written on onConnect and can be stale by the
   // time this hook mounts — re-request on mount and when the user tabs back in
@@ -551,7 +551,7 @@ export function useInitialCameraState(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revalidateOnFocus]);
 
-  return { payload: data as AmssCameraState };
+  return { payload: data as FrigateCameraState };
 }
 
 export function useModelState(
@@ -806,7 +806,7 @@ export function useNotificationSuspend(camera: string): {
     `${camera}/notifications/suspended`,
     `${camera}/notifications/suspend`,
   );
-  return { payload: payload as string, send };
+  return { payload: String(payload ?? 0), send };
 }
 
 export function useNotificationTest(): {

@@ -1,15 +1,6 @@
 {
   "noRecordingsFoundForThisTime": "Nie znaleziono żadnych nagrań w tym czasie",
-  "cameraDisabled": "Kamera jest wyłączona",
   "stats": {
-    "latency": {
-      "title": "Opóźnienie:",
-      "value": "{{seconds}} sekund",
-      "short": {
-        "title": "Opóźnienie",
-        "value": "{{seconds}} s"
-      }
-    },
     "totalFrames": "Całkowita liczba klatek:",
     "streamType": {
       "title": "Typ transmisji:",
@@ -31,8 +22,8 @@
   },
   "noPreviewFound": "Nie znaleziono podglądu",
   "noPreviewFoundFor": "Nie znaleziono podglądu dla {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Wyślij tę klatkę do AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Wyślij tę klatkę do Frigate+?",
     "submit": "Wyślij",
     "previewError": "Nie udało się załadować podglądu nagrania. Nagranie może być niedostępne w podanym czasie."
   },
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Pomyślnie wysłano klatkę do AMSS+"
+      "submittedFrigatePlus": "Pomyślnie wysłano klatkę do Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Nie udało się wysłać klatki do AMSS+"
+      "submitFrigatePlusFailed": "Nie udało się wysłać klatki do Frigate+"
     }
   },
   "cameraOff": "Kamera jest wyłączona"

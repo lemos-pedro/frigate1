@@ -1,13 +1,13 @@
 {
   "documentTitle": {
-    "cameras": "Statusi kamera - AMSS",
-    "storage": "Statistika skladištenja - AMSS",
+    "cameras": "Statusi kamera - Frigate",
+    "storage": "Statistika skladištenja - Frigate",
     "general": "Општа статистика - Фригејт",
-    "enrichments": "Statistika obogaćivanja - AMSS",
+    "enrichments": "Statistika obogaćivanja - Frigate",
     "logs": {
-      "frigate": "AMSS logovi - AMSS",
-      "go2rtc": "Go2RTC dnevnici - AMSS",
-      "nginx": "Nginx logovi - AMSS"
+      "frigate": "Frigate logovi - Frigate",
+      "go2rtc": "Go2RTC dnevnici - Frigate",
+      "nginx": "Nginx logovi - Frigate"
     }
   },
   "title": "Sistem",
@@ -76,12 +76,7 @@
         }
       },
       "npuUsage": "Употреба NPU",
-      "npuMemory": "NPU меморија",
-      "intelGpuWarning": {
-        "title": "Упозорење за Intel GPU статистику",
-        "message": "GPU статистика није доступна",
-        "description": "Ово је познати баг у алатима за извештавање статистике код Intel GPU (intel_gpu_top) где се јавља пуцање и враћа 0% као GPU искоришћење, чак и у случајевима када хардверска акцелерација и детектовање објекта регуларно раде на (i)GPU. Ово није баг у Фригејту. Можете рестартовати хост да привремено поправите проблем и потврдите да GPU ради исправно. Ово не утиче на перформансе."
-      }
+      "npuMemory": "NPU меморија"
     },
     "otherProcesses": {
       "title": "Остали процеси",

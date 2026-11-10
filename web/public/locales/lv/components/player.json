@@ -2,8 +2,8 @@
   "noRecordingsFoundForThisTime": "Šim laika brīdim nav atrasti ieraksti",
   "noPreviewFound": "Priekšskatījums nav atrasts",
   "noPreviewFoundFor": "{{cameraName}} nav atrasts priekšskatījums",
-  "submitAMSSPlus": {
-    "title": "Nosūtīt šo kadru uz AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Nosūtīt šo kadru uz Frigate+?",
     "submit": "Iesniegt",
     "previewError": "Nevar ielādēt atēla priekškatījumu. Ieraksts var nebūt pieejams, šōbrīd."
   },
@@ -12,7 +12,6 @@
     "title": "Bezsaistes straume",
     "desc": "No kameras {{cameraName}} <code>detect</code> straumes netika saņemti kadri, pārbaudiet kļūdu žurnālus"
   },
-  "cameraDisabled": "Kamera ir izslēgta",
   "stats": {
     "streamType": {
       "title": "Straumes veids:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "Joslas platums:",
       "short": "Joslas platums"
-    },
-    "latency": {
-      "title": "Latentums:",
-      "value": "{{seconds}} sekundes",
-      "short": {
-        "title": "Latentums",
-        "value": "{{seconds}} sek"
-      }
     },
     "totalFrames": "Kopējais kadru skaits:",
     "droppedFrames": {
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Kadrs veiksmīgi iesniegts pakalpojumam AMSS+"
+      "submittedFrigatePlus": "Kadrs veiksmīgi iesniegts pakalpojumam Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Neizdevās iesniegt kadru AMSS+"
+      "submitFrigatePlusFailed": "Neizdevās iesniegt kadru Frigate+"
     }
   },
   "cameraOff": "Kamera ir izslēgta"

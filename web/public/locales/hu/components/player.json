@@ -1,8 +1,8 @@
 {
   "noRecordingsFoundForThisTime": "Ebben az időpontban nem található felvétel",
   "noPreviewFound": "Nincs elérhető előkép",
-  "submitAMSSPlus": {
-    "title": "Elküldi ezt a képet a AMSS+-nak?",
+  "submitFrigatePlus": {
+    "title": "Elküldi ezt a képet a Frigate+-nak?",
     "submit": "Küldés",
     "previewError": "Nem sikerült betölteni a pillanatkép előnézetét. Előfordulhat, hogy a felvétel jelenleg nem elérhető."
   },
@@ -12,7 +12,6 @@
     "title": "Adás Nem Elérhető",
     "desc": "Nem érkezett kép a {{cameraName}}-n, <code>észlelés</code> adásban. Ellenőrizze a hibanaplót"
   },
-  "cameraDisabled": "Kamera kikapcsolva",
   "stats": {
     "streamType": {
       "title": "Adás Típus:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "Sávszélesség:",
       "short": "Sávszélesség"
-    },
-    "latency": {
-      "title": "Késleltetés:",
-      "value": "{{seconds}} másodperc",
-      "short": {
-        "title": "Késleltetés",
-        "value": "{{seconds}} másodperc"
-      }
     },
     "droppedFrames": {
       "title": "Hibás Képek:",
@@ -43,10 +34,10 @@
   },
   "toast": {
     "error": {
-      "submitAMSSPlusFailed": "Kép küldése a AMSS+-hoz meghiúsult"
+      "submitFrigatePlusFailed": "Kép küldése a Frigate+-hoz meghiúsult"
     },
     "success": {
-      "submittedAMSSPlus": "Kép sikeresen elküldve a AMSS+-nak"
+      "submittedFrigatePlus": "Kép sikeresen elküldve a Frigate+-nak"
     }
   }
 }

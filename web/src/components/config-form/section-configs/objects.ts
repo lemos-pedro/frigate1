@@ -2,7 +2,7 @@ import type { HiddenFieldContext } from "@/types/configForm";
 import { getEffectiveAttributeLabels } from "@/utils/configUtil";
 import type { SectionConfigOverrides } from "./types";
 
-// Attribute labels (face, license_plate, AMSS+ couriers like DHL/Amazon,
+// Attribute labels (face, license_plate, Frigate+ couriers like DHL/Amazon,
 // etc.) are populated into objects.filters by the backend for every
 // attribute the model knows about.
 //
@@ -63,6 +63,10 @@ const objects: SectionConfigOverrides = {
       {
         key: "detect-disabled",
         messageKey: "configMessages.detect.disabled",
+        runtimeOverride: {
+          section: "detect",
+          messageKey: "configMessages.detect.runtimeDisabled",
+        },
         severity: "info",
         condition: (ctx) =>
           ctx.level === "camera" &&
@@ -72,6 +76,9 @@ const objects: SectionConfigOverrides = {
     fieldMessages: [
       {
         key: "genai-no-descriptions-provider",
+        health: (ctx) =>
+          (ctx.formData as { genai?: { enabled?: boolean } })?.genai
+            ?.enabled === true,
         field: "genai.enabled",
         messageKey: "configMessages.objects.genaiNoDescriptionsProvider",
         severity: "warning",

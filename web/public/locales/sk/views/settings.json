@@ -1,17 +1,16 @@
 {
   "documentTitle": {
-    "default": "Nastavenia - AMSS",
-    "authentication": "Nastavenie autentifikácie- AMSS",
-    "camera": "Nastavenia Kamier– AMSS",
-    "enrichments": "Nastavenia obohatenia – AMSS",
-    "masksAndZones": "Editor masky a zón - AMSS",
-    "motionTuner": "Ladič detekcie pohybu - AMSS",
-    "object": "Ladenie - AMSS",
-    "general": "UI nastavenia – AMSS",
-    "frigatePlus": "Nastavenia AMSS+ – AMSS",
-    "notifications": "Nastavenia upozornení – AMSS",
-    "cameraManagement": "Manažment kamier - AMSS",
-    "cameraReview": "Nastavenie kamier - AMSS"
+    "default": "Nastavenia - Frigate",
+    "authentication": "Nastavenie autentifikácie- Frigate",
+    "enrichments": "Nastavenia obohatenia – Frigate",
+    "masksAndZones": "Editor masky a zón - Frigate",
+    "motionTuner": "Ladič detekcie pohybu - Frigate",
+    "object": "Ladenie - Frigate",
+    "general": "UI nastavenia – Frigate",
+    "frigatePlus": "Nastavenia Frigate+ – Frigate",
+    "notifications": "Nastavenia upozornení – Frigate",
+    "cameraManagement": "Manažment kamier - Frigate",
+    "cameraReview": "Nastavenie kamier - Frigate"
   },
   "menu": {
     "ui": "Uživaťelské rozohranie",
@@ -22,7 +21,7 @@
     "debug": "Ladenie",
     "users": "Uživatelia",
     "notifications": "Notifikacie",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "triggers": "Spúšťače",
     "roles": "Roly",
     "cameraManagement": "Manažment",
@@ -106,7 +105,7 @@
     },
     "semanticSearch": {
       "title": "Sémantické vyhľadávanie",
-      "desc": "Sémantické vyhľadávanie vo AMSS vám umožňuje nájsť sledované objekty v rámci vašich recenzovaných položiek pomocou samotného obrázka, textového popisu definovaného používateľom alebo automaticky vygenerovaného popisu.",
+      "desc": "Sémantické vyhľadávanie vo Frigate vám umožňuje nájsť sledované objekty v rámci vašich recenzovaných položiek pomocou samotného obrázka, textového popisu definovaného používateľom alebo automaticky vygenerovaného popisu.",
       "reindexNow": {
         "label": "Preindexovať teraz",
         "desc": "Reindexovanie obnoví vložené súbory pre všetky sledované objekty. Tento proces beží na pozadí a môže maximálne zaťažiť váš procesor a trvať pomerne dlho v závislosti od počtu sledovaných objektov, ktoré máte.",
@@ -132,7 +131,7 @@
     },
     "faceRecognition": {
       "title": "Rozpoznávanie tváre",
-      "desc": "Rozpoznávanie tváre umožňuje priradiť ľuďom mená a po rozpoznaní ich tváre AMSS priradí meno osoby ako podštítok. Tieto informácie sú zahrnuté v používateľskom rozhraní, filtroch, ako aj v upozorneniach.",
+      "desc": "Rozpoznávanie tváre umožňuje priradiť ľuďom mená a po rozpoznaní ich tváre Frigate priradí meno osoby ako podštítok. Tieto informácie sú zahrnuté v používateľskom rozhraní, filtroch, ako aj v upozorneniach.",
       "modelSize": {
         "label": "Veľkosť modelu",
         "desc": "Veľkosť modelu použitého na rozpoznávanie tváre.",
@@ -148,82 +147,12 @@
     },
     "licensePlateRecognition": {
       "title": "Rozpoznávanie Evidenčných Čísel Vozidiel",
-      "desc": "AMSS dokáže rozpoznávať evidenčné čísla vozidiel a automaticky pridávať detekované znaky do poľa recognized_license_plate alebo známy názov ako podradený štítok k objektom typu car. Bežným prípadom použitia môže byť čítanie evidenčných čísel áut vchádzajúcich na príjazdovú cestu alebo áut prechádzajúcich po ulici."
+      "desc": "Frigate dokáže rozpoznávať evidenčné čísla vozidiel a automaticky pridávať detekované znaky do poľa recognized_license_plate alebo známy názov ako podradený štítok k objektom typu car. Bežným prípadom použitia môže byť čítanie evidenčných čísel áut vchádzajúcich na príjazdovú cestu alebo áut prechádzajúcich po ulici."
     },
     "restart_required": "Vyžaduje sa reštart (zmenené nastavenia obohatenia)",
     "toast": {
-      "success": "Nastavenia obohatenia boli uložené. Reštartujte AMSS, aby sa zmeny prejavili.",
+      "success": "Nastavenia obohatenia boli uložené. Reštartujte Frigate, aby sa zmeny prejavili.",
       "error": "Nepodarilo sa uložiť zmeny konfigurácie: {{errorMessage}}"
-    }
-  },
-  "camera": {
-    "title": "Nastavenie kamier",
-    "streams": {
-      "title": "Streamy",
-      "desc": "Dočasne deaktivujte kameru, kým sa AMSS nereštartuje. Deaktivácia kamery úplne zastaví spracovanie streamov z tejto kamery aplikáciou AMSS. Detekcia, nahrávanie a ladenie nebudú k dispozícii.<br /> <em>Poznámka: Toto nezakáže restreamy go2rtc.</em>"
-    },
-    "review": {
-      "title": "Recenzia",
-      "desc": "Dočasne povoliť/zakázať upozornenia a detekcie pre túto kameru, kým sa AMSS nereštartuje. Po zakázaní sa nebudú generovať žiadne nové položky kontroly. ",
-      "alerts": "Upozornenia ",
-      "detections": "Detekcie "
-    },
-    "object_descriptions": {
-      "title": "Generatívne popisy objektov umelej inteligencie",
-      "desc": "Dočasne povoliť/zakázať generatívne popisy objektov AI pre túto kameru. Ak je táto funkcia zakázaná, pre sledované objekty na tejto kamere sa nebudú vyžadovať popisy generované AI."
-    },
-    "review_descriptions": {
-      "title": "Popisy generatívnej umelej inteligencie",
-      "desc": "Dočasne povoliť/zakázať generatívne popisy kontroly pomocou umelej inteligencie pre túto kameru. Ak je táto funkcia zakázaná, popisy generované umelou inteligenciou sa nebudú vyžadovať pre položky kontroly v tejto kamere."
-    },
-    "reviewClassification": {
-      "title": "Preskúmať klasifikáciu",
-      "desc": "AMSS kategorizuje položky recenzií ako Upozornenia a Detekcie. Predvolene sa všetky objekty typu <em>osoba</em> a <em>auto</em> považujú za Upozornenia. Kategorizáciu položiek recenzií môžete spresniť konfiguráciou požadovaných zón pre ne.",
-      "noDefinedZones": "Pre túto kameru nie sú definované žiadne zóny.",
-      "objectAlertsTips": "Všetky objekty {{alertsLabels}} na {{cameraName}} sa zobrazia ako Upozornenia.",
-      "zoneObjectAlertsTips": "Všetky objekty {{alertsLabels}} detekované v {{zone}} na {{cameraName}} budú zobrazené ako Upozornenia.",
-      "objectDetectionsTips": "Všetky objekty {{detectionsLabels}}, ktoré nie sú zaradené do kategórie {{cameraName}}, sa zobrazia ako detekcie bez ohľadu na to, v ktorej zóne sa nachádzajú.",
-      "zoneObjectDetectionsTips": {
-        "text": "Všetky objekty {{detectionsLabels}}, ktoré nie sú zaradené do kategórie {{zone}} na kamere {{cameraName}}, budú zobrazené ako detekcie.",
-        "notSelectDetections": "Všetky objekty typu {{detectionsLabels}} detekované v zóne {{zone}} na kamere {{cameraName}}, ktoré nie sú zaradené do kategórie Upozornenia, sa zobrazia ako Detekcie bez ohľadu na to, v ktorej zóne sa nachádzajú.",
-        "regardlessOfZoneObjectDetectionsTips": "Všetky objekty {{detectionsLabels}}, ktoré nie sú zaradené do kategórie {{cameraName}}, sa zobrazia ako detekcie bez ohľadu na to, v ktorej zóne sa nachádzajú."
-      },
-      "unsavedChanges": "Neuložené nastavenia klasifikácie recenzií pre {{camera}}",
-      "selectAlertsZones": "Vyberte podobné sledované objekty",
-      "selectDetectionsZones": "Vyberte zóny pre detekcie",
-      "limitDetections": "Obmedziť detekciu na konkrétne zóny",
-      "toast": {
-        "success": "Konfigurácia klasifikácie bola uložená. Reštartujte AMSS, aby sa zmeny prejavili."
-      }
-    },
-    "addCamera": "Pridať novu kameru",
-    "editCamera": "Upraviť kameru:",
-    "selectCamera": "Vyberte kameru",
-    "backToSettings": "Späť na nastavenia kamery",
-    "cameraConfig": {
-      "add": "Pridať kameru",
-      "edit": "Upraviť kameru",
-      "description": "Konfigurovať nastavenia kamery, vrátane vstupov streamu a rolí.",
-      "name": "Názov kamery",
-      "nameRequired": "Názov kamery je povinný",
-      "nameLength": "Názov kamery musí mať menej ako 24 znakov.",
-      "namePlaceholder": "napr. predné dvere",
-      "enabled": "Povoliť",
-      "ffmpeg": {
-        "inputs": "Vstupné streamy",
-        "path": "Cesta streamu",
-        "pathRequired": "Cesta k streamu je povinná",
-        "pathPlaceholder": "rtsp://...",
-        "roles": "Roly",
-        "rolesRequired": "Je vyžadovaná aspoň jedna rola",
-        "rolesUnique": "Každá rola (audio, detekcia, záznam) môže byť priradená iba k jednému streamu",
-        "addInput": "Pridať vstupný stream",
-        "removeInput": "Odobrať vstupný stream",
-        "inputsRequired": "Je vyžadovaný aspoň jeden vstupný stream"
-      },
-      "toast": {
-        "success": "Kamera {{cameraName}} bola úspešne uložená"
-      }
     }
   },
   "masksAndZones": {
@@ -292,7 +221,7 @@
     },
     "zones": {
       "label": "Zóny",
-      "documentTitle": "Upraviť Zónu - AMSS",
+      "documentTitle": "Upraviť Zónu - Frigate",
       "desc": {
         "title": "Zóny umožňujú definovať konkrétnu oblasť v zábere, vďaka čomu je možné určiť, či sa objekt nachádza v danej oblasti alebo nie.",
         "documentation": "Dokumentácia"
@@ -345,7 +274,7 @@
     },
     "motionMasks": {
       "label": "Maska Detekcia pohybu",
-      "documentTitle": "Editovať Masku Detekcia pohybu - AMSS",
+      "documentTitle": "Editovať Masku Detekcia pohybu - Frigate",
       "desc": {
         "title": "Masky detekcie pohybu slúžia na zabránenie nežiaducim typom pohybu v spustení detekcie. Príliš rozsiahle maskovanie však môže sťažiť sledovanie objektov.",
         "documentation": "Dokumentácia"
@@ -372,7 +301,7 @@
     },
     "objectMasks": {
       "label": "Masky Objektu",
-      "documentTitle": "Upraviť Masku Objektu - AMSS",
+      "documentTitle": "Upraviť Masku Objektu - Frigate",
       "desc": {
         "title": "Masky filtrovania objektov slúžia na odfiltrovanie falošných detekcií daného typu objektu na základe jeho umiestnenia.",
         "documentation": "Dokumentácia"
@@ -403,7 +332,7 @@
     "title": "Ladenie detekcie pohybu",
     "unsavedChanges": "Neuložené zmeny ladenia detekcie pohybu {{camera}}",
     "desc": {
-      "title": "AMSS používa detekciu pohybu ako prvú kontrolu na overenie, či sa v snímke deje niečo, čo stojí za ďalšiu analýzu pomocou detekcie objektov.",
+      "title": "Frigate používa detekciu pohybu ako prvú kontrolu na overenie, či sa v snímke deje niečo, čo stojí za ďalšiu analýzu pomocou detekcie objektov.",
       "documentation": "Prečítajte si príručku Ladenie detekcie pohybu"
     },
     "Threshold": {
@@ -424,7 +353,7 @@
   },
   "debug": {
     "title": "Ladenie",
-    "detectorDesc": "AMSS používa vaše detektory {{detectors}} na detekciu objektov v streame vašich kamier.",
+    "detectorDesc": "Frigate používa vaše detektory {{detectors}} na detekciu objektov v streame vašich kamier.",
     "desc": "Ladiace zobrazenie ukazuje sledované objekty a ich štatistiky v reálnom čase. Zoznam objektov zobrazuje časovo oneskorený prehľad detekovaných objektov.",
     "openCameraWebUI": "Otvoriť webové rozhranie {{camera}}",
     "debugging": "Ladenie",
@@ -483,7 +412,7 @@
   },
   "cameraWizard": {
     "title": "Pridať kameru",
-    "description": "Postupujte podľa pokynov nižšie a pridajte novú kameru na inštaláciu AMSS.",
+    "description": "Postupujte podľa pokynov nižšie a pridajte novú kameru na inštaláciu Frigate.",
     "steps": {
       "nameAndConnection": "Meno a pripojenie",
       "streamConfiguration": "Konfigurácia prúdu",
@@ -521,30 +450,13 @@
       "brandInformation": "Informácie o značke",
       "brandUrlFormat": "Pre kamery s formátom RTSP URL ako: {{exampleUrl}}",
       "customUrlPlaceholder": "rtsp://username:password@host:port/path",
-      "testConnection": "Testovacie pripojenie",
-      "testSuccess": "Test pripojenia úspešný!",
-      "testFailed": "Test pripojenia zlyhal. Skontrolujte svoj vstup a skúste to znova.",
-      "streamDetails": "Detaily vysielania",
-      "warnings": {
-        "noSnapshot": "Nemožno načítať snímku z konfigurovaného vysielania."
-      },
       "errors": {
         "brandOrCustomUrlRequired": "Buď vyberte značku kamery s hostiteľom / IP alebo si vyberte \"Iný\" s vlastnou URL",
         "nameRequired": "Názov kamery je povinný",
         "nameLength": "Názov kamery musí byť 64 znakov alebo menej",
         "invalidCharacters": "Názov kamery obsahuje neplatné znaky",
         "nameExists": "Názov kamery už existuje",
-        "brands": {
-          "reolink-rtsp": "Reolink RTSP sa neodporúča. Odporúča sa povoliť HTTP v nastavení kamery a reštartovať sprievodca kamery."
-        },
         "customUrlRtspRequired": "Vlastné URL musia začať s \"rtsp / \"\". Manuálna konfigurácia je potrebná pre non-RTSP kamerové prúdy."
-      },
-      "docs": {
-        "reolink": "https://docs.frigate.video/configuration/camera_specific.html#reolink-cameras"
-      },
-      "testing": {
-        "probingMetadata": "Skúmanie metadát kamery...",
-        "fetchingSnapshot": "Načítava sa snímka z kamery..."
       },
       "connectionSettings": "Nastavenie pripojenia",
       "detectionMethod": "Stream Detekcia Metóda",
@@ -558,42 +470,11 @@
     },
     "step2": {
       "description": "Vyhľadajte dostupné streamy z kamery alebo nakonfigurujte manuálne nastavenia na základe zvolenej metódy detekcie.",
-      "streamsTitle": "Kamerové prúdy",
-      "addStream": "Pridať Stream",
-      "addAnotherStream": "Pridať ďalší Stream",
-      "streamTitle": "Stream {{number}}",
-      "streamUrl": "Stream URL",
-      "streamUrlPlaceholder": "rtsp://username:password@host:port/path",
-      "url": "URL",
-      "resolution": "Rozlíšenie",
-      "selectResolution": "Vyberte rozlíšenie",
-      "quality": "Kvalita",
-      "selectQuality": "Vyberte kvalitu",
-      "roles": "Roly",
-      "roleLabels": {
-        "detect": "Detekcia objektov",
-        "record": "Nahrávanie",
-        "audio": "Zvuk"
-      },
-      "testStream": "Testovacie pripojenie",
       "testSuccess": "Test pripojenia bol úspešný!",
       "testFailed": "Test pripojenia zlyhal. Skontrolujte zadané údaje a skúste to znova.",
       "testFailedTitle": "Test Zlyhal",
       "connected": "Pripojené",
       "notConnected": "Nie je pripojený",
-      "featuresTitle": "Vlastnosti",
-      "go2rtc": "Znížte počet pripojení ku kamere",
-      "detectRoleWarning": "Aspoň jeden prúd musí mať \"detekt\" úlohu pokračovať.",
-      "rolesPopover": {
-        "title": "Roly streamu",
-        "detect": "Hlavné krmivo pre detekciu objektu.",
-        "record": "Ukladá segmenty video kanála na základe nastavení konfigurácie.",
-        "audio": "Kŕmenie pre detekciu zvuku."
-      },
-      "featuresPopover": {
-        "title": "Funkcie streamu",
-        "description": "Použite prekrytie go2rtc na zníženie pripojenia k fotoaparátu."
-      },
       "streamDetails": "Detaily vysielania",
       "probing": "Skúmajúca kamera...",
       "retry": "Skúste to znova",
@@ -628,46 +509,9 @@
       }
     },
     "step3": {
-      "connectStream": "Pripojiť",
-      "connectingStream": "Pripája",
-      "disconnectStream": "Odpojiť",
-      "estimatedBandwidth": "Odhadovaná šírka pásma",
       "roles": "Roly",
-      "none": "Žiadny",
-      "error": "Chyba",
-      "streamValidated": "Stream {{number}} úspešne overený",
-      "streamValidationFailed": "Stream {{number}} validácia zlyhala",
-      "saveAndApply": "Uložiť novú kameru",
-      "saveError": "Neplatná konfigurácia. Skontrolujte nastavenia.",
-      "issues": {
-        "title": "Stream Platnosť",
-        "videoCodecGood": "Kód videa {{codec}}.",
-        "audioCodecGood": "Audio kódc je {{codec}}.",
-        "noAudioWarning": "Žiadne audio zistené pre tento prúd, nahrávanie nebude mať audio.",
-        "audioCodecRecordError": "AAC audio kodek je potrebný na podporu audio v záznamoch.",
-        "audioCodecRequired": "Zvukový prúd je povinný podporovať detekciu zvuku.",
-        "restreamingWarning": "Zníženie pripojenia ku kamery pre rekordný prúd môže mierne zvýšiť využitie CPU.",
-        "dahua": {
-          "substreamWarning": "Substream 1 je uzamknutý na nízke rozlíšenie. Mnoho Dahua / Amcrest / EmpireTech kamery podporujú ďalšie podstreamy, ktoré musia byť povolené v nastavení kamery. Odporúča sa skontrolovať a využiť tie prúdy, ak je k dispozícii."
-        },
-        "hikvision": {
-          "substreamWarning": "Substream 1 je uzamknutý na nízke rozlíšenie. Mnoho Hikvision kamery podporujú ďalšie podstreamy, ktoré musia byť povolené v nastavení kamery. Odporúča sa skontrolovať a využiť tie prúdy, ak je k dispozícii."
-        },
-        "resolutionHigh": "Rozlíšenie {{resolution}} môže spôsobiť zvýšenú spotrebu zdrojov.",
-        "resolutionLow": "Rozlíšenie {{resolution}} môže byť príliš nízka pre spoľahlivú detekciu malých objektov."
-      },
       "description": "Nakonfigurujte role streamov a pridajte ďalšie streamy pre vašu kameru.",
-      "validationTitle": "Stream Platnosť",
-      "connectAllStreams": "Pripojte všetky prúdy",
-      "reconnectionSuccess": "Opätovné pripojenie bolo úspešné.",
-      "reconnectionPartial": "Niektoré prúdy sa nepodarilo prepojiť.",
-      "streamUnavailable": "Ukážka streamu nie je k dispozícii",
-      "reload": "Znovu načítať",
-      "connecting": "Pripája...",
       "streamTitle": "Stream {{number}}",
-      "valid": "Platné",
-      "failed": "Zlyhanie",
-      "notTested": "Netestované",
       "streamsTitle": "Kamerové prúdy",
       "addStream": "Pridať Stream",
       "addAnotherStream": "Pridať ďalší Stream",
@@ -725,7 +569,7 @@
       "estimatedBandwidth": "Odhadovaná šírka pásma",
       "roles": "Roly",
       "ffmpegModule": "Použite režim kompatibility prúdu",
-      "ffmpegModuleDescription": "Ak sa stream nenačíta ani po niekoľkých pokusoch, skúste túto funkciu povoliť. Keď je táto funkcia povolená, AMSS použije modul ffmpeg s go2rtc. To môže poskytnúť lepšiu kompatibilitu s niektorými streammi z kamier.",
+      "ffmpegModuleDescription": "Ak sa stream nenačíta ani po niekoľkých pokusoch, skúste túto funkciu povoliť. Keď je táto funkcia povolená, Frigate použije modul ffmpeg s go2rtc. To môže poskytnúť lepšiu kompatibilitu s niektorými streammi z kamier.",
       "none": "Žiadne",
       "error": "Chyba",
       "streamValidated": "Stream {{number}} úspešne overený",
@@ -761,8 +605,7 @@
     "selectCamera": "Vyberte kameru",
     "backToSettings": "Späť na nastavenia kamery",
     "streams": {
-      "title": "Enable / Disable kamery",
-      "desc": "Dočasne deaktivujte kameru, kým sa AMSS nereštartuje. Deaktivácia kamery úplne zastaví spracovanie streamov z tejto kamery aplikáciou AMSS. Detekcia, nahrávanie a ladenie nebudú k dispozícii.<br /> <em>Poznámka: Toto nezakáže restreamy go2rtc.</em>"
+      "title": "Enable / Disable kamery"
     },
     "cameraConfig": {
       "add": "Pridať kameru",
@@ -798,21 +641,21 @@
     "title": "Nastavenie recenzie kamery",
     "object_descriptions": {
       "title": "Generatívne popisy objektov umelej inteligencie",
-      "desc": "Dočasne povoľ/zakáž AI vygenerované popisy objektov pre túto kameru pokiaľ nebude AMSS reštartovaná. Keď je zakázané, AI vygenerované popisy nebudú žiadané pre sledované objekty na tejto kamere."
+      "desc": "Dočasne povoľ/zakáž AI vygenerované popisy objektov pre túto kameru pokiaľ nebude Frigate reštartovaná. Keď je zakázané, AI vygenerované popisy nebudú žiadané pre sledované objekty na tejto kamere."
     },
     "review_descriptions": {
       "title": "Popisy generatívnej umelej inteligencie",
-      "desc": "Dočasne povoľ/zakáž AI vygenerované popisy revízií pre túto kameru pokiaľ nebude AMSS reštartovaná. Keď je zakázané, AI vygenerované popisy nebudú žiadané pre sledované objekty na tejto kamere."
+      "desc": "Dočasne povoľ/zakáž AI vygenerované popisy revízií pre túto kameru pokiaľ nebude Frigate reštartovaná. Keď je zakázané, AI vygenerované popisy nebudú žiadané pre sledované objekty na tejto kamere."
     },
     "review": {
       "title": "Recenzia",
-      "desc": "Dočasne umožňujú/disable upozornenia a detekcia pre tento fotoaparát až do reštartu AMSS. Pri vypnutých, nebudú vygenerované žiadne nové položky preskúmania. ",
+      "desc": "Dočasne umožňujú/disable upozornenia a detekcia pre tento fotoaparát až do reštartu Frigate. Pri vypnutých, nebudú vygenerované žiadne nové položky preskúmania. ",
       "alerts": "Upozornenia ",
       "detections": "Detekcie "
     },
     "reviewClassification": {
       "title": "Preskúmať klasifikáciu",
-      "desc": "AMSS kategorizuje položky recenzií ako Upozornenia a Detekcie. Predvolene sa všetky objekty typu <em>osoba</em> a <em>auto</em> považujú za Upozornenia. Kategorizáciu položiek recenzií môžete spresniť konfiguráciou požadovaných zón pre ne.",
+      "desc": "Frigate kategorizuje položky recenzií ako Upozornenia a Detekcie. Predvolene sa všetky objekty typu <em>osoba</em> a <em>auto</em> považujú za Upozornenia. Kategorizáciu položiek recenzií môžete spresniť konfiguráciou požadovaných zón pre ne.",
       "noDefinedZones": "Pre túto kameru nie sú definované žiadne zóny.",
       "objectAlertsTips": "Všetky objekty {{alertsLabels}} na {{cameraName}} sa zobrazia ako Upozornenia.",
       "zoneObjectAlertsTips": "Všetky objekty {{alertsLabels}} detekované v {{zone}} na {{cameraName}} budú zobrazené ako Upozornenia.",
@@ -827,7 +670,7 @@
       "selectDetectionsZones": "Vyberte zóny pre detekcie",
       "limitDetections": "Obmedziť detekciu na konkrétne zóny",
       "toast": {
-        "success": "Konfigurácia klasifikácie bola uložená. Reštartujte AMSS, aby sa zmeny prejavili."
+        "success": "Konfigurácia klasifikácie bola uložená. Reštartujte Frigate, aby sa zmeny prejavili."
       }
     }
   },
@@ -835,7 +678,7 @@
     "title": "Používatelia",
     "management": {
       "title": "Správa používateľov",
-      "desc": "Spravovať používateľské účty tejto inštancie AMSS."
+      "desc": "Spravovať používateľské účty tejto inštancie Frigate."
     },
     "addUser": "Pridať používateľa",
     "updatePassword": "Obnoviť Heslo",
@@ -876,13 +719,6 @@
             "title": "Potvrdiť heslo",
             "placeholder": "Potvrdiť heslo"
           },
-          "strength": {
-            "title": "Sila hesla: ",
-            "weak": "Slabý",
-            "medium": "Stredná",
-            "strong": "Silný",
-            "veryStrong": "Veľmi silný"
-          },
           "match": "Heslá sa zhodujú",
           "notMatch": "Heslá sa nezhodujú"
         },
@@ -898,7 +734,7 @@
       },
       "createUser": {
         "title": "Vytvorenie nového užívateľa",
-        "desc": "Pridajte nový používateľský účet a zadajte rolu pre prístup k oblastiam používateľského rozhrania AMSS.",
+        "desc": "Pridajte nový používateľský účet a zadajte rolu pre prístup k oblastiam používateľského rozhrania Frigate.",
         "usernameOnlyInclude": "Používateľské meno môže obsahovať iba písmená, číslice, . alebo _",
         "confirmPassword": "Potvrďte svoje heslo"
       },
@@ -932,7 +768,7 @@
   "roles": {
     "management": {
       "title": "Správa roly diváka",
-      "desc": "Spravujte vlastné roly divákov a ich povolenia na prístup ku kamere pre túto inštanciu AMSS."
+      "desc": "Spravujte vlastné roly divákov a ich povolenia na prístup ku kamere pre túto inštanciu Frigate."
     },
     "addRole": "Pridať rolu",
     "table": {
@@ -995,11 +831,10 @@
     "title": "Notifikacie",
     "notificationSettings": {
       "title": "Nastavenia notifikácií",
-      "desc": "AMSS dokáže natívne odosielať push notifikácie do vášho zariadenia, keď je spustený v prehliadači alebo nainštalovaný ako PWA."
+      "desc": "Frigate dokáže natívne odosielať push notifikácie do vášho zariadenia, keď je spustený v prehliadači alebo nainštalovaný ako PWA."
     },
     "notificationUnavailable": {
-      "title": "Notifikacie su nedostupné",
-      "desc": "Webové push notifikácie vyžadujú zabezpečený kontext (<code>https://…</code>). Ide o obmedzenie prehliadača. Ak chcete používať notifikácie, pristupujte k AMSS bezpečne."
+      "desc": "Webové push notifikácie vyžadujú zabezpečený kontext (<code>https://…</code>). Ide o obmedzenie prehliadača. Ak chcete používať notifikácie, pristupujte k Frigate bezpečne."
     },
     "globalSettings": {
       "title": "Globálne nastavenia",
@@ -1036,7 +871,7 @@
     "cancelSuspension": "Zrušiť pozastavenie",
     "toast": {
       "success": {
-        "registered": "Úspešne zaregistrované pre upozornenia. Pred odoslaním akýchkoľvek upozornení (vrátane testovacieho upozornenia) je potrebné reštartovať AMSS.",
+        "registered": "Úspešne zaregistrované pre upozornenia. Pred odoslaním akýchkoľvek upozornení (vrátane testovacieho upozornenia) je potrebné reštartovať Frigate.",
         "settingSaved": "Nastavenie oznámenia boli uložené."
       },
       "error": {
@@ -1045,22 +880,21 @@
     }
   },
   "frigatePlus": {
-    "title": "Nastavenie AMSS+",
+    "title": "Nastavenie Frigate+",
     "apiKey": {
-      "title": "AMSS + API kľúč",
-      "validated": "AMSS + API kľúč je detekovaný a overený",
-      "notValidated": "AMSS + API kľúč nie je detekovaný alebo nie je overený",
-      "desc": "AMSS+ API kľúč umožňuje integráciu s AMSS+ služby.",
-      "plusLink": "Prečítajte si viac o AMSS+"
+      "title": "Frigate + API kľúč",
+      "validated": "Frigate + API kľúč je detekovaný a overený",
+      "notValidated": "Frigate + API kľúč nie je detekovaný alebo nie je overený",
+      "desc": "Frigate+ API kľúč umožňuje integráciu s Frigate+ služby.",
+      "plusLink": "Prečítajte si viac o Frigate+"
     },
     "snapshotConfig": {
       "title": "Konfigurácia snímky",
-      "desc": "Odosielanie do AMSS+ vyžaduje, aby boli v konfigurácii povolené snímky aj snímky <code>clean_copy</code>.",
-      "cleanCopyWarning": "Niektoré kamery majú povolené snímky, ale voľba <code>clean_copy</code> je zakázaná. Pre možnosť odosielania snímok z týchto kamier do služby AMSS+ je nutné túto voľbu povoliť v konfigurácii snímok.",
+      "desc": "Odosielanie do Frigate+ vyžaduje, aby boli v konfigurácii povolené snímky aj snímky <code>clean_copy</code>.",
+      "cleanCopyWarning": "Niektoré kamery majú povolené snímky, ale voľba <code>clean_copy</code> je zakázaná. Pre možnosť odosielania snímok z týchto kamier do služby Frigate+ je nutné túto voľbu povoliť v konfigurácii snímok.",
       "table": {
         "camera": "Kamera",
-        "snapshots": "Snímky",
-        "cleanCopySnapshots": "<code>clean_copy</code> Snímky"
+        "snapshots": "Snímky"
       }
     },
     "modelInfo": {
@@ -1078,19 +912,18 @@
       "error": "Chyba načítania informácií o modeli",
       "availableModels": "Dostupné Moduly",
       "loadingAvailableModels": "Načítavam dostupné modely…",
-      "modelSelect": "Tu môžete vybrať dostupné modely zo služby AMSS+. Upozorňujeme, že je možné zvoliť iba modely kompatibilné s aktuálnou konfiguráciou detektora."
+      "modelSelect": "Tu môžete vybrať dostupné modely zo služby Frigate+. Upozorňujeme, že je možné zvoliť iba modely kompatibilné s aktuálnou konfiguráciou detektora."
     },
-    "unsavedChanges": "Neuložené zmeny nastavenia AMSS+",
-    "restart_required": "Vyžadovaný reštart (model AMSS+ zmenený)",
+    "unsavedChanges": "Neuložené zmeny nastavenia Frigate+",
+    "restart_required": "Vyžadovaný reštart (model Frigate+ zmenený)",
     "toast": {
-      "success": "Nastavenia AMSS+ boli uložené. Reštartujte AMSS+ pre aplikovanie zmien.",
+      "success": "Nastavenia Frigate+ boli uložené. Reštartujte Frigate+ pre aplikovanie zmien.",
       "error": "Chyba pri ukladaní zmien konfigurácie: {{errorMessage}}"
     }
   },
   "triggers": {
     "documentTitle": "Spúšťače",
     "semanticSearch": {
-      "title": "Sémantické vyhľadávanie je vypnuté",
       "desc": "Na používanie spúšťačov musí byť povolené sémantické vyhľadávanie."
     },
     "management": {
@@ -1171,7 +1004,7 @@
         },
         "actions": {
           "title": "Akcie",
-          "desc": "V predvolenom nastavení AMSS odosiela MQTT správu pre všetky spúšťače. Zvoľte dodatočnú akciu, ktorá sa má vykonať, keď sa tento spúšťač aktivuje.",
+          "desc": "V predvolenom nastavení Frigate odosiela MQTT správu pre všetky spúšťače. Zvoľte dodatočnú akciu, ktorá sa má vykonať, keď sa tento spúšťač aktivuje.",
           "error": {
             "min": "Musí byť vybraná aspoň jedna akcia."
           }

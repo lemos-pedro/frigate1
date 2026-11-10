@@ -1,6 +1,6 @@
 import { Switch } from "../ui/switch";
 import { Label } from "../ui/label";
-import { CameraConfig } from "@/types/amssConfig";
+import { CameraConfig } from "@/types/frigateConfig";
 import { Button } from "../ui/button";
 import { LuSettings } from "react-icons/lu";
 import { useCallback, useMemo, useState } from "react";

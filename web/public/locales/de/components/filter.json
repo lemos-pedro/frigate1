@@ -36,9 +36,9 @@
     "label": "Eigenschaften",
     "hasSnapshot": "Hat einen Schnappschuss",
     "hasVideoClip": "Hat einen Video-Clip",
-    "submittedToAMSSPlus": {
-      "label": "Eingereicht bei AMSS+",
-      "tips": "Du musst zuerst nach deine erkannten Objekten, die einen Schnappschuss haben, filtern.<br /><br />Erkante Objekte ohne Schnappschuss können nicht zu AMSS+ übermittelt werden."
+    "submittedToFrigatePlus": {
+      "label": "Eingereicht bei Frigate+",
+      "tips": "Du musst zuerst nach deine erkannten Objekten, die einen Schnappschuss haben, filtern.<br /><br />Erkante Objekte ohne Schnappschuss können nicht zu Frigate+ übermittelt werden."
     }
   },
   "score": "Ergebnis",

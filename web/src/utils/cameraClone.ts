@@ -16,7 +16,7 @@ import {
 } from "@/utils/configUtil";
 import { applySchemaDefaults } from "@/lib/config-schema";
 import type { SaveAllPreviewItem } from "@/components/overlay/detail/SaveAllPreviewPopover";
-import type { CameraConfig, AmssConfig } from "@/types/amssConfig";
+import type { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
 import type {
   ConfigSectionData,
   JsonObject,
@@ -27,7 +27,7 @@ import { processCameraName } from "@/utils/cameraUtil";
 /**
  * Sections whose `filters` dict is auto-populated by the backend at parse
  * time. `attributeBump` reflects the global-level `min_score=0.7` override
- * the backend applies to attribute labels (face, license_plate, AMSS+
+ * the backend applies to attribute labels (face, license_plate, Frigate+
  * couriers) — see `frigate/config/config.py`.
  */
 const FILTER_SECTION_DEFS: Record<
@@ -63,7 +63,7 @@ function stripAutoDefaultFilters(
   section: string,
   sourceSection: JsonObject,
   fullSchema: RJSFSchema,
-  fullConfig: AmssConfig,
+  fullConfig: FrigateConfig,
   fullCameraConfig: CameraConfig,
 ): JsonObject {
   const def = FILTER_SECTION_DEFS[section];
@@ -459,7 +459,7 @@ type BuildClonedPayloadsArgs = {
   targetInput: string;
   targetIsNew: boolean;
   selectedKeys: Set<CloneCategoryKey>;
-  fullConfig: AmssConfig;
+  fullConfig: FrigateConfig;
   fullSchema: RJSFSchema;
   rawPaths?: RawCameraPaths;
 };
@@ -593,10 +593,10 @@ export function buildClonedCameraPayloads({
             cloneDeep((fullConfig as unknown as JsonObject)[s]),
           ]).filter(([, value]) => value !== undefined && value !== null),
         ),
-      } as unknown as AmssConfig["cameras"][string])
+      } as unknown as FrigateConfig["cameras"][string])
     : ((fullConfig.cameras?.[target]
         ? cloneDeep(fullConfig.cameras[target])
-        : { enabled: true }) as unknown as AmssConfig["cameras"][string]);
+        : { enabled: true }) as unknown as FrigateConfig["cameras"][string]);
 
   // Strip auto-default filters from the baseline (matching the per-section
   // source strip) so default-only entries cancel. Includes `base_config` (the
@@ -605,8 +605,7 @@ export function buildClonedCameraPayloads({
   // deleting a key not in the YAML. Cloned above so this won't mutate the cache.
   const syntheticCameraObj = syntheticTargetCamera as unknown as JsonObject;
   const baseConfigObj = syntheticCameraObj.base_config as
-    | Record<string, JsonObject>
-    | undefined;
+    Record<string, JsonObject> | undefined;
   for (const section of Object.keys(FILTER_SECTION_DEFS)) {
     const syntheticSection = syntheticCameraObj[section];
     if (syntheticSection && typeof syntheticSection === "object") {
@@ -645,7 +644,7 @@ export function buildClonedCameraPayloads({
     }
   }
 
-  const syntheticConfig: AmssConfig = {
+  const syntheticConfig: FrigateConfig = {
     ...fullConfig,
     cameras: {
       ...fullConfig.cameras,

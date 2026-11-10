@@ -15,16 +15,15 @@
       "description": "ניתן ליצור פריטי סקירה עבור מצלמה רק כאשר הקלטות מופעלות עבור אותה מצלמה."
     }
   },
-  "timeline": "ציר זמן",
   "timeline.aria": "בחירת ציר זמן",
   "events": {
     "label": "אירועים",
     "aria": "בחירת אירועים",
     "noFoundForTimePeriod": "לא נמצאו אירועים עבור תקופת זמן זו."
   },
-  "documentTitle": "סקירה - AMSS",
+  "documentTitle": "סקירה - Frigate",
   "recordings": {
-    "documentTitle": "הקלטות - AMSS"
+    "documentTitle": "הקלטות - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "24 שעות אחרונות"

@@ -1,6 +1,6 @@
 {
   "time": {
-    "untilForRestart": "Jusqu'à ce que AMSS redémarre.",
+    "untilForRestart": "Jusqu'à ce que Frigate redémarre.",
     "untilRestart": "Jusqu'au redémarrage",
     "untilForTime": "Jusqu'à {{time}}",
     "justNow": "À l'instant",
@@ -49,15 +49,6 @@
     "formattedTimestamp": {
       "12hour": "d MMM HH:mm:ss",
       "24hour": "d MMM HH:mm:ss"
-    },
-    "formattedTimestampWithYear": {
-      "24hour": "%b %-d %Y, %H:%M",
-      "12hour": "%b %-d %Y, %I:%M %p"
-    },
-    "formattedTimestampOnlyMonthAndDay": "%b %-d",
-    "formattedTimestampExcludeSeconds": {
-      "12hour": "%b %-d, %I:%M %p",
-      "24hour": "%b %-d, %H:%M"
     },
     "formattedTimestamp2": {
       "12hour": "dd/MM HH:mm:ss",
@@ -140,8 +131,12 @@
     "saveAll": "Tout enregistrer",
     "savingAll": "Enregistrement de tout en cours…",
     "undoAll": "Tout annuler",
-    "applying": "Enregistrement…",
-    "retry": "Réessayer"
+    "applying": "Enregistrement …",
+    "retry": "Réessayer",
+    "expand": "Développer",
+    "collapse": "Réduire",
+    "clear": "Vider",
+    "reload": "Recharger"
   },
   "menu": {
     "configuration": "Configuration",
@@ -190,7 +185,8 @@
       "ur": "اردو (Ourdou)",
       "hr": "Hrvatski (Croate)",
       "bs": "Bosanski (Bosnien)",
-      "zhHant": "繁體中文 (chinois traditionnel)"
+      "zhHant": "繁體中文 (chinois traditionnel)",
+      "be": "Bielorusse"
     },
     "appearance": "Apparence",
     "darkMode": {
@@ -215,13 +211,12 @@
     "systemLogs": "Journaux système",
     "documentation": {
       "title": "Documentation",
-      "label": "Documentation de AMSS"
+      "label": "Documentation de Frigate"
     },
     "system": "Système",
     "help": "Aide",
     "configurationEditor": "Éditeur de configuration",
     "theme": {
-      "contrast": "Contraste élevé",
       "blue": "Bleu",
       "green": "Vert",
       "nord": "Nord",
@@ -230,10 +225,10 @@
       "label": "Thème",
       "highcontrast": "Contraste élevé"
     },
-    "systemMetrics": "Métriques du système",
+    "systemMetrics": "Santé et Métriques système",
     "settings": "Paramètres",
     "withSystem": "Système",
-    "restart": "Redémarrer AMSS",
+    "restart": "Redémarrer Frigate",
     "live": {
       "cameras": {
         "count_one": "{{count}} caméra",
@@ -268,7 +263,7 @@
     "title": "Rôle",
     "viewer": "Observateur",
     "admin": "Administrateur",
-    "desc": "Les administrateurs ont un accès complet à toutes les fonctionnalités de l'interface AMSS. Les observateurs sont limités à la consultation des caméras, des activités, et à l'historique des enregistrements dans l'interface."
+    "desc": "Les administrateurs ont un accès complet à toutes les fonctionnalités de l'interface Frigate. Les observateurs sont limités à la consultation des caméras, des activités, et à l'historique des enregistrements dans l'interface."
   },
   "pagination": {
     "next": {
@@ -284,14 +279,14 @@
   },
   "notFound": {
     "title": "404",
-    "documentTitle": "Non trouvé - AMSS",
+    "documentTitle": "Non trouvé - Frigate",
     "desc": "Page non trouvée"
   },
   "selectItem": "Sélectionner {{item}}",
   "readTheDocumentation": "Lire la documentation",
   "accessDenied": {
     "title": "Accès refusé",
-    "documentTitle": "Accès refusé - AMSS",
+    "documentTitle": "Accès refusé - Frigate",
     "desc": "Vous n'avez pas l'autorisation de consulter cette page."
   },
   "label": {
@@ -326,7 +321,7 @@
   },
   "field": {
     "optional": "Facultatif",
-    "internalID": "L'ID interne utilisée par AMSS dans la configuration et la base de donnêes"
+    "internalID": "L'ID interne utilisée par Frigate dans la configuration et la base de donnêes"
   },
   "list": {
     "two": "{{0}} et {{1}}",
@@ -337,5 +332,36 @@
   "validation_errors": "Erreurs de validation",
   "credentialField": {
     "savedPlaceholder": "Enregistré — laissez vide pour conserver la version actuelle"
+  },
+  "error": {
+    "title": "Cette page a cesser de fonctionner",
+    "desc": "Une erreur inattendue s'est produite sur la page. Un rechargement permet généralement de la résoudre. Si le problème persiste, copiez les détails et joignez-les à une discussion sur GitHub.",
+    "staleTitle": "Rechargement requis",
+    "staleDesc": "Une partie de l'interface n'a pas pu être chargée, ce qui signifie généralement que Frigate a été mis à jour alors que cet onglet était ouvert. Actualisez la page pour charger la nouvelle version.",
+    "partial": "Une partie de l'interface a cessé de fonctionner",
+    "copyDetails": "Coper les détails",
+    "copyFailed": "Impossible de copier les détails dans le presse-papiers"
+  },
+  "commandMenu": {
+    "title": "Menu de commandes",
+    "description": "Chercher des pages, caméras, paramètres et actions",
+    "placeholder": "Chercher des pages, caméras, paramètres et actions",
+    "empty": "Aucun résultat",
+    "hint": "{{key}} ou / pour ouvrir, Entrée pour exécuter",
+    "section": {
+      "recent": "Récent",
+      "pages": "Pages",
+      "cameras": "Caméras",
+      "cameraGroups": "Groupes de caméra",
+      "settings": "Réglages",
+      "actions": "Actions"
+    },
+    "camera": {
+      "live": "Direct",
+      "review": "Vérifier"
+    },
+    "action": {
+      "toggleTheme": "Basculer entre les modes clair et sombre"
+    }
   }
 }

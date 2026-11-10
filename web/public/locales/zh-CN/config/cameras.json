@@ -70,10 +70,6 @@
             "label": "开启鸟瞰图",
             "description": "开启或关闭鸟瞰图功能。"
         },
-        "mode": {
-            "label": "追踪模式",
-            "description": "在鸟瞰视图中包含摄像头的模式有：“基于目标”、“基于画面变动”或“连续”。"
-        },
         "order": {
             "label": "排序位置",
             "description": "用于控制摄像头在鸟瞰视图布局中排序位置的数值。"
@@ -534,7 +530,7 @@
             "description": "控制界面中显示的录像预览质量的设置。",
             "quality": {
                 "label": "预览质量",
-                "description": "预览质量级别（very_low、low、medium、high、very_high）。"
+                "description": "预览质量级别（非常低、低、中等、高、非常高）。"
             }
         },
         "enabled_in_config": {
@@ -641,10 +637,6 @@
             "label": "开启快照",
             "description": "开启或关闭此摄像头的快照保存。"
         },
-        "clean_copy": {
-            "label": "保存干净副本",
-            "description": "除了带注释的快照外，还保存一份不带注释的干净快照副本。"
-        },
         "timestamp": {
             "label": "时间戳叠加",
             "description": "在 API 生成的快照上叠加时间戳。"
@@ -671,10 +663,6 @@
             "default": {
                 "label": "默认保留",
                 "description": "保留快照的默认天数。"
-            },
-            "mode": {
-                "label": "保留模式",
-                "description": "保留模式：all（保存所有片段）、motion（保存有动作的片段）或 active_objects（保存有活动目标的片段）。"
             },
             "objects": {
                 "label": "目标保留",
@@ -807,7 +795,7 @@
             },
             "calibrate_on_startup": {
                 "label": "启动时校准",
-                "description": "在启动时测量 PTZ 电机速度以提高追踪精度。AMSS 将在校准后用 movement_weights 更新配置。"
+                "description": "在启动时测量 PTZ 电机速度以提高追踪精度。Frigate 将在校准后用 movement_weights 更新配置。"
             },
             "zooming": {
                 "label": "变焦模式",
@@ -844,7 +832,7 @@
         },
         "ignore_time_mismatch": {
             "label": "忽略时间不匹配",
-            "description": "忽略 ONVIF 通信中摄像头和 AMSS 服务器之间的时间同步差异。"
+            "description": "忽略 ONVIF 通信中摄像头和 Frigate 服务器之间的时间同步差异。"
         },
         "profile": {
             "label": "ONVIF 配置文件",
@@ -859,8 +847,8 @@
             "description": "用于在页面中排序摄像头的顺序（只会影响默认仪表板和列表）；数值越大则在越后面。"
         },
         "dashboard": {
-            "label": "在页面中显示",
-            "description": "切换此摄像头在 AMSS 页面的所有位置是否可见。禁用此项将需要手动编辑配置才能在页面中再次查看此摄像头。"
+            "label": "在实时监控面板中显示",
+            "description": "切换此摄像头是否在默认的“所有摄像头”实时监控仪表盘上可见。该摄像头在页面的其他位置（例如摄像头分组和设置页）仍然可见。"
         },
         "review": {
             "label": "在核查中显示",
@@ -884,7 +872,7 @@
         "description": "区域允许您定义帧的特定区域，以便确定目标是否在特定区域内。",
         "friendly_name": {
             "label": "区域名称",
-            "description": "区域的友好名称，显示在 AMSS 页面中。如果未设置，将使用区域名称的格式化版本。"
+            "description": "区域的友好名称，显示在 Frigate 页面中。如果未设置，将使用区域名称的格式化版本。"
         },
         "enabled": {
             "label": "开启",

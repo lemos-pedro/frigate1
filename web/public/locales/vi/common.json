@@ -2,7 +2,7 @@
   "time": {
     "untilRestart": "Đến khi khởi động lại",
     "untilForTime": "Cho đến khi {{time}}",
-    "untilForRestart": "Cho đến khi AMSS khởi động lại.",
+    "untilForRestart": "Cho đến khi Frigate khởi động lại.",
     "ago": "{{timeAgo}} trước",
     "formattedTimestamp": {
       "12hour": "d MMM, h:mm:ss aaa",
@@ -40,15 +40,6 @@
       "12hour": "dd/MM h:mm:ssa",
       "24hour": "d MMM HH:mm:ss"
     },
-    "formattedTimestampExcludeSeconds": {
-      "12hour": "thời gian 12 giờ (không giây)",
-      "24hour": "thời gian 24 giờ (không giây)"
-    },
-    "formattedTimestampWithYear": {
-      "12hour": "thời gian 12 giờ kèm năm",
-      "24hour": "thời gian 24 giờ kèm năm"
-    },
-    "formattedTimestampOnlyMonthAndDay": "chỉ tháng và ngày",
     "yr": "{{time}} năm",
     "h": "{{time}} giờ",
     "formattedTimestampMonthDayYear": {
@@ -154,7 +145,6 @@
     "theme": {
       "label": "Giao diện",
       "red": "Đỏ",
-      "contrast": "tương phản",
       "blue": "Xanh dương",
       "green": "Xanh lá",
       "nord": "Nord",
@@ -244,7 +234,8 @@
     "deleteNow": "Xóa ngay",
     "next": "Tiếp theo",
     "saving": "Đang lưu…",
-    "continue": "Tiếp tục"
+    "continue": "Tiếp tục",
+    "clear": "Xóa"
   },
   "toast": {
     "copyUrlToClipboard": "Đã sao chép liên kết.",
@@ -260,7 +251,7 @@
     "title": "Vai trò",
     "admin": "Quản trị viên",
     "viewer": "Người xem",
-    "desc": "Quản trị viên có toàn quyền truy cập tất cả các tính năng trong giao diện AMSS. Người xem chỉ được phép xem camera, mục đã ghi lại và các đoạn video lịch sử trong giao diện."
+    "desc": "Quản trị viên có toàn quyền truy cập tất cả các tính năng trong giao diện Frigate. Người xem chỉ được phép xem camera, mục đã ghi lại và các đoạn video lịch sử trong giao diện."
   },
   "pagination": {
     "label": "Trang",
@@ -293,7 +284,7 @@
   },
   "field": {
     "optional": "Không bắt buộc",
-    "internalID": "Internal ID AMSS sử dụng trong cấu hình và cơ sở dữ liệu"
+    "internalID": "Internal ID Frigate sử dụng trong cấu hình và cơ sở dữ liệu"
   },
   "information": {
     "pixels": "{{area}}px"

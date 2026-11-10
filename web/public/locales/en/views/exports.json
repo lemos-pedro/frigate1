@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Export - AMSS",
+  "documentTitle": "Export - Frigate",
   "search": "Search",
   "noExports": "No exports found",
   "headings": {
@@ -63,6 +63,7 @@
     "copying": "Copying",
     "encoding": "Encoding",
     "encodingRetry": "Encoding (retry)",
+    "merging": "Merging",
     "finalizing": "Finalizing"
   },
   "caseView": {

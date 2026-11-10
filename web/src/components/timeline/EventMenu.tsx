@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Event } from "@/types/event";
 import { REVIEW_PADDING } from "@/types/review";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useCallback, useState } from "react";
 import { useIsAdmin } from "@/hooks/use-is-admin";
 import axios from "axios";
@@ -22,7 +22,7 @@ import { Button } from "../ui/button";
 
 type EventMenuProps = {
   event: Event;
-  config?: AmssConfig;
+  config?: FrigateConfig;
   onOpenUpload?: (e: Event) => void;
   onOpenSimilarity?: (e: Event) => void;
   isSelected?: boolean;
@@ -135,7 +135,9 @@ export default function EventMenu({
             <DropdownMenuItem
               className="cursor-pointer"
               onSelect={() => {
-                navigate(`/explore?event_id=${event.id}`);
+                navigate(`/explore?event_id=${event.id}`, {
+                  state: { canGoBack: true },
+                });
               }}
             >
               {t("details.item.button.viewInExplore")}
@@ -177,6 +179,7 @@ export default function EventMenu({
                   else
                     navigate(
                       `/explore?search_type=similarity&event_id=${event.id}`,
+                      { state: { canGoBack: true } },
                     );
                 }}
               >

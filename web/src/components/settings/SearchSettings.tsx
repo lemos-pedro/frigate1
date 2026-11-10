@@ -16,7 +16,7 @@ import { DropdownMenuSeparator } from "../ui/dropdown-menu";
 import FilterSwitch from "../filter/FilterSwitch";
 import { SearchFilter, SearchSource } from "@/types/search";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useTranslation } from "react-i18next";
 
 type ExploreSettingsProps = {
@@ -38,7 +38,7 @@ export default function ExploreSettings({
   onUpdateFilter,
 }: ExploreSettingsProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [open, setOpen] = useState(false);
 
   const [searchSources, setSearchSources] = useState<SearchSource[]>([

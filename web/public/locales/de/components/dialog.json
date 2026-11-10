@@ -1,39 +1,32 @@
 {
   "restart": {
-    "title": "Sind Sie sicher, dass Sie AMSS neustarten wollen?",
+    "title": "Sind Sie sicher, dass Sie Frigate neustarten wollen?",
     "restarting": {
-      "title": "AMSS startet neu",
+      "title": "Frigate startet neu",
       "content": "Diese Seite wird in {{countdown}} Sekunde(n) aktualisiert.",
       "button": "Neuladen erzwingen"
     },
     "button": "Neustarten",
-    "description": "Dies wird AMSS kurz stoppen, während es neu startet."
+    "description": "Dies wird Frigate kurz stoppen, während es neu startet."
   },
   "explore": {
     "plus": {
       "review": {
-        "true": {
-          "label": "Bestätigen Sie das Label für AMSS Plus",
-          "true_one": "Das ist ein/eine {{label}}",
-          "true_other": "Dies sind {{label}}"
-        },
         "state": {
           "submitted": "Übermittelt"
         },
-        "false": {
-          "false_one": "Das ist kein(e) {{label}}",
-          "false_other": "Das sind kein(e) {{label}}",
-          "label": "Bestätige dieses Label nicht für AMSS Plus"
-        },
         "question": {
-          "label": "Bestätige diese Beschriftung für AMSS Plus",
+          "label": "Bestätige diese Beschriftung für Frigate Plus",
           "ask_a": "Ist dieses Objekt ein <code>{{label}}</code>?",
           "ask_an": "Ist dieses Objekt ein <code>{{label}}</code>?",
           "ask_full": "Ist dieses Objekt ein <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
+        },
+        "toast": {
+          "error": "Übermittlung an Frigate+ fehlgeschlagen. Bitte überprüfen Sie Ihre Netzwerkverbindung und versuchen Sie es erneut."
         }
       },
       "submitToPlus": {
-        "label": "An AMSS+ übermitteln",
+        "label": "An Frigate+ übermitteln",
         "desc": "Objekte an Orten die du vermeiden möchtest, sind keine Fehlalarme. Wenn du sie als Fehlalarme meldest, verwirrst du das Modell."
       }
     },
@@ -65,7 +58,7 @@
       "error": {
         "endTimeMustAfterStartTime": "Die Endzeit darf nicht vor der Startzeit liegen",
         "failed": "Fehler beim Export in die Warteschlange: {{error}}",
-        "noVaildTimeSelected": "Kein gültiger Zeitraum ausgewählt"
+        "noValidTimeSelected": "Kein gültiger Zeitraum ausgewählt"
       },
       "success": "Export erfolgreich gestartet. Die Datei befindet sich auf der Exportseite.",
       "view": "Ansicht",
@@ -74,8 +67,8 @@
       "batchSuccess_other": "{{count}} Exports gestartet. Öffne den Fall jetzt.",
       "batchPartial": "{{successful}} von {{total}} Exporten gestartet. Fehlgeschlagene Kameras: {{failedCameras}}",
       "batchFailed": "Fehler beim Starten der {{total}} Exporte. Fehlgeschlagene Kameras: {{failedCameras}}",
-      "batchQueuedSuccess_one": "1 Export in die Warteschlange gestellt. Fall wird jetzt geöffnet.",
-      "batchQueuedSuccess_other": "{{count}} Exporte in der Warteschlange. Fall wird jetzt geöffnet.",
+      "batchQueuedSuccess_one": "1 Export in die Warteschlange gestellt.",
+      "batchQueuedSuccess_other": "{{count}} Exporte in der Warteschlange.",
       "batchQueuedPartial": "{{successful}} von {{total}} Exporten in die Warteschlange gestellt. Fehlerhafte Kameras: {{failedCameras}}",
       "batchQueueFailed": "Fehler beim Einreihen von {{total}} Exporten in die Warteschlange. Fehlerhafte Kameras: {{failedCameras}}"
     },
@@ -91,8 +84,7 @@
       "placeholder": "Einen Fall auswählen",
       "newCaseOption": "Einen neuen Fall erstellen",
       "newCaseNamePlaceholder": "Neuer Fallname",
-      "newCaseDescriptionPlaceholder": "Fall Beschreibung",
-      "nonAdminHelp": "Für diese Exporte wird ein neuer Fall angelegt."
+      "newCaseDescriptionPlaceholder": "Fall Beschreibung"
     },
     "queueing": "Export wird in die Warteschlange gestellt...",
     "tabs": {
@@ -108,7 +100,7 @@
       "noCameras": "Keine Kameras verfügbar",
       "detectionCount_one": "1 verfolgtes Objekt",
       "detectionCount_other": "{{count}} verfolgte Objekte",
-      "nameLabel": "Exportname",
+      "nameLabel": "Name exportieren",
       "namePlaceholder": "Optionaler Basisname für diese Exporte",
       "queueingButton": "Exporte werden in die Warteschlange gestellt...",
       "exportButton_one": "Export 1 Kamera",
@@ -131,10 +123,8 @@
       "exportButton_other": "{{count}} Bewertung exportieren",
       "exportingButton": "Exportieren...",
       "toast": {
-        "started_one": "1 Export gestartet. Fall wird jetzt geöffnet.",
-        "started_other": "{{count}} Exporte gestartet. Fall wird jetzt geöffnet.",
-        "startedNoCase_one": "1 Export gestartet.",
-        "startedNoCase_other": "{{count}} Exports gestartet.",
+        "started_one": "1 Export gestartet.",
+        "started_other": "{{count}} Exporte gestartet.",
         "partial": "{{successful}} von {{total}} Exporten gestartet. Fehlgeschlagen: {{failedItems}}",
         "failed": "Fehler beim Starten der {{total}} Exporte. Fehler: {{failedItems}}"
       }
@@ -144,7 +134,6 @@
     "restreaming": {
       "disabled": "Für diese Kamera ist das Restreaming nicht aktiviert.",
       "desc": {
-        "readTheDocumentation": "Weitere Informationen in der Dokumentation",
         "title": "Konfiguriere go2rtc, um erweiterte Live-Ansichtsoptionen und Audio für diese Kamera zu nutzen."
       }
     },
@@ -189,7 +178,7 @@
     "shareTimestamp": {
       "label": "Zeitstempel teilen",
       "title": "Zeitstempel teilen",
-      "description": "Teile eine URL mit Zeitstempel, die die aktuelle Position des Players angibt, oder wähle einen benutzerdefinierten Zeitstempel aus. Beachte, dass es sich hierbei nicht um eine öffentliche Freigabe-URL handelt und dass nur Benutzer Zugriff darauf haben, die Zugriff auf AMSS und diese Kamera haben.",
+      "description": "Teile eine URL mit Zeitstempel, die die aktuelle Position des Players angibt, oder wähle einen benutzerdefinierten Zeitstempel aus. Beachte, dass es sich hierbei nicht um eine öffentliche Freigabe-URL handelt und dass nur Benutzer Zugriff darauf haben, die Zugriff auf Frigate und diese Kamera haben.",
       "custom": "Benutzerdefinierter Zeitstempel",
       "button": "URL des Zeitstempels teilen",
       "shareTitle": "Zeitstempel der Fregattenbewertung: {{camera}}"

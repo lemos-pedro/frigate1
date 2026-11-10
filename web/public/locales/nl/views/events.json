@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Beoordelen - AMSS",
+  "documentTitle": "Beoordelen - Frigate",
   "camera": "Camera",
   "newReviewItems": {
     "button": "Nieuwe items om te beoordelen",
@@ -7,7 +7,7 @@
   },
   "timeline.aria": "Selecteer tijdlijn",
   "recordings": {
-    "documentTitle": "Opnamen - AMSS"
+    "documentTitle": "Opnamen - Frigate"
   },
   "timeline": {
     "label": "Tijdslijn"
@@ -41,8 +41,6 @@
   "selected_other": "{{count}} geselecteerd",
   "selected_one": "{{count}} geselecteerd",
   "detected": "gedetecteerd",
-  "suspiciousActivity": "Verdachte activiteit",
-  "threateningActivity": "Bedreigende activiteit",
   "detail": {
     "noDataFound": "Geen gedetailleerde gegevens om te beoordelen",
     "aria": "Detailweergave in- of uitschakelen",

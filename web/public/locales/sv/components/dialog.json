@@ -2,17 +2,17 @@
   "restart": {
     "button": "Starta om",
     "restarting": {
-      "title": "AMSS startar om",
+      "title": "Frigate startar om",
       "content": "Sidan uppdateras om {{countdown}} sekunder.",
       "button": "Tvinga omladdning nu"
     },
-    "title": "Är du säker på att du vill starta om AMSS?",
-    "description": "AMSS stoppas tillfälligt under omstarten."
+    "title": "Är du säker på att du vill starta om Frigate?",
+    "description": "Frigate stoppas tillfälligt under omstarten."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Skicka till AMSS+",
+        "label": "Skicka till Frigate+",
         "desc": "Objekt på platser du vill undvika är inte falska positiva resultat. Att skicka in dem som falska positiva resultat kommer att förvirra modellen."
       },
       "review": {
@@ -20,13 +20,13 @@
           "ask_a": "Är detta objekt en/ett <code>{{label}}</code>?",
           "ask_an": "Är detta objekt en/ett <code>{{label}}</code>?",
           "ask_full": "Är detta objekt en/ett <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?",
-          "label": "Bekräfta etiketten för AMSS+"
+          "label": "Bekräfta etiketten för Frigate+"
         },
         "state": {
           "submitted": "Inskickad"
         },
         "toast": {
-          "error": "Det gick inte att skicka till AMSS+. Kontrollera nätverksanslutningen och försök igen."
+          "error": "Misslyckades att skicka till Frigate+. Kontrollera din nätverksanslutning och prova igen."
         }
       }
     },
@@ -60,7 +60,6 @@
       "error": {
         "failed": "Det gick inte att köa exporten: {{error}}",
         "endTimeMustAfterStartTime": "Sluttiden måste vara efter starttiden",
-        "noVaildTimeSelected": "Inget giltigt tidsintervall valt",
         "noValidTimeSelected": "Inget giltigt tidsintervall valt"
       },
       "view": "Visa",
@@ -69,8 +68,8 @@
       "batchSuccess_other": "Startade {{count}} exporter. Öppnar ärendet nu.",
       "batchPartial": "Startade {{successful}} av {{total}} exporter. Misslyckade kameror: {{failedCameras}}",
       "batchFailed": "Det gick inte att starta {{total}} exporter. Berörda kameror: {{failedCameras}}",
-      "batchQueuedSuccess_one": "1 export har köats. Ärendet öppnas nu.",
-      "batchQueuedSuccess_other": "{{count}} exporter har köats. Öppnar ärendet nu.",
+      "batchQueuedSuccess_one": "1 export har köats.",
+      "batchQueuedSuccess_other": "{{count}} exporter har köats.",
       "batchQueuedPartial": "Köade {{successful}} av {{total}} exporter. Misslyckade kameror: {{failedCameras}}",
       "batchQueueFailed": "Det gick inte att köa {{total}} exporter. Berörda kameror: {{failedCameras}}"
     },
@@ -85,7 +84,6 @@
       "newCaseNamePlaceholder": "Namn på nytt ärende",
       "newCaseDescriptionPlaceholder": "Ärendebeskrivning",
       "label": "Ärende",
-      "nonAdminHelp": "Ett nytt ärende kommer att skapas för dessa exporter.",
       "placeholder": "Välj ett ärende"
     },
     "queueing": "Köar export…",
@@ -97,7 +95,7 @@
       "timeRange": "Tidsintervall",
       "selectFromTimeline": "Välj från tidslinjen",
       "cameraSelection": "Kameror",
-      "cameraSelectionHelp": "Kameror med spårade objekt inom tidsintervallet är förvalda.",
+      "cameraSelectionHelp": "Kameror med spårade objekt inom tidsintervallet är förvalda",
       "checkingActivity": "Kontrollerar kameraaktivitet…",
       "noCameras": "Inga kameror tillgängliga",
       "detectionCount_one": "1 spårat objekt",
@@ -111,7 +109,7 @@
       "selectWithActivity": "Kameror med spårade objekt",
       "selectGroup": "Välj grupp",
       "noMatchingCameras": "Ingen kamera matchar din sökning",
-      "searchOrSelectGroup": "Sök eller välj en kameragrupp…",
+      "searchOrSelectGroup": "Sök, eller välj kameragrupp...",
       "clearSelection": "Rensa val",
       "selectedCount": "{{selected}} / {{total}} valda"
     },
@@ -125,10 +123,8 @@
       "exportButton_other": "Exportera {{count}} granskningsobjekt",
       "exportingButton": "Exporterar…",
       "toast": {
-        "started_one": "Startade 1 export. Öppnar ärendet nu.",
-        "started_other": "Startade {{count}} exporter. Öppnar ärendet nu.",
-        "startedNoCase_one": "Startade 1 export.",
-        "startedNoCase_other": "Startade {{count}} exporter.",
+        "started_one": "Startade 1 export.",
+        "started_other": "Startade {{count}} exporter.",
         "partial": "Startade {{successful}} av {{total}} exporter. Följande misslyckades: {{failedItems}}",
         "failed": "Det gick inte att starta {{total}} exporter. Följande misslyckades: {{failedItems}}"
       }
@@ -139,8 +135,7 @@
     "restreaming": {
       "disabled": "Vidareströmning är inte aktiverad för den här kameran.",
       "desc": {
-        "title": "Konfigurera go2rtc för fler alternativ för livevisning och ljud från den här kameran.",
-        "readTheDocumentation": "Läs dokumentationen"
+        "title": "Konfigurera go2rtc för fler alternativ för livevisning och ljud från den här kameran."
       }
     },
     "showStats": {
@@ -183,10 +178,10 @@
     "shareTimestamp": {
       "label": "Dela tidsstämpel",
       "title": "Dela tidsstämpel",
-      "description": "Dela en tidsstämplad URL för spelarens nuvarande position eller välj en anpassad tidsstämpel. Observera att detta inte är en offentlig delnings-URL och endast är tillgänglig för användare med åtkomst till AMSS och den här kameran.",
+      "description": "Dela en tidsstämplad URL för spelarens nuvarande position eller välj en anpassad tidsstämpel. Observera att detta inte är en offentlig delnings-URL och endast är tillgänglig för användare med åtkomst till Frigate och den här kameran.",
       "custom": "Anpassad tidsstämpel",
       "button": "Dela URL med tidsstämpel",
-      "shareTitle": "Tidsstämpel för AMSS-granskning: {{camera}}"
+      "shareTitle": "Tidsstämpel för Frigate-granskning: {{camera}}"
     }
   },
   "imagePicker": {

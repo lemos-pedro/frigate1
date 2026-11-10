@@ -1,5 +1,5 @@
 import { baseUrl } from "@/api/baseUrl";
-import { CameraConfig } from "@/types/amssConfig";
+import { CameraConfig } from "@/types/frigateConfig";
 import { useCallback, useMemo, useRef } from "react";
 
 const GRID_SIZE = 16;

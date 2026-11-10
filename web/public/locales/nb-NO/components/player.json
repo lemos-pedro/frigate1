@@ -16,22 +16,14 @@
       "title": "Båndbredde:",
       "short": "Båndbredde"
     },
-    "latency": {
-      "title": "Forsinkelse:",
-      "value": "{{seconds}} sekunder",
-      "short": {
-        "title": "Forsinkelse",
-        "value": "{{seconds}} sek"
-      }
-    },
     "totalFrames": "Totalt antall bilder:",
     "decodedFrames": "Dekodede bilder:",
     "droppedFrameRate": "Tapte bilder per sekund:"
   },
   "noPreviewFound": "Ingen forhåndsvisning funnet",
   "noPreviewFoundFor": "Ingen forhåndsvisning funnet for {{cameraName}}",
-  "submitAMSSPlus": {
-    "title": "Send dette bildet til AMSS+?",
+  "submitFrigatePlus": {
+    "title": "Send dette bildet til Frigate+?",
     "submit": "Send",
     "previewError": "Kunne ikke laste forhåndsvisning av stillbilde. Opptaket er kanskje ikke tilgjengelig for øyeblikket."
   },
@@ -40,13 +32,12 @@
     "title": "Strømmen er frakoblet",
     "desc": "Ingen bilder er mottatt på {{cameraName}} <code>detekt</code>-strømmen, sjekk feilloggene"
   },
-  "cameraDisabled": "Kameraet er deaktivert",
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Bildet ble sendt til AMSS+"
+      "submittedFrigatePlus": "Bildet ble sendt til Frigate+"
     },
     "error": {
-      "submitAMSSPlusFailed": "Kunne ikke sende bildet til AMSS+"
+      "submitFrigatePlusFailed": "Kunne ikke sende bildet til Frigate+"
     }
   },
   "cameraOff": "Kameraet er av"

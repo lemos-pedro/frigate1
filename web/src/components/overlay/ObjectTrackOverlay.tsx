@@ -1,6 +1,6 @@
 import { useMemo, useCallback } from "react";
 import { TrackingDetailsSequence, LifecycleClassType } from "@/types/timeline";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import useSWR from "swr";
 import { useDetailStream } from "@/context/detail-stream-context";
 import {
@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { Event } from "@/types/event";
 import { resolveZoneName } from "@/hooks/use-zone-friendly-name";
+import { getPrimaryModel } from "@/utils/modelUtil";
 
 // Use a small tolerance (10ms) for browsers with seek precision by-design issues
 const TOLERANCE = 0.01;
@@ -55,7 +56,7 @@ export default function ObjectTrackOverlay({
   onSeekToTime,
 }: ObjectTrackOverlayProps) {
   const { t } = useTranslation("views/events");
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { annotationOffset, selectedObjectIds } = useDetailStream();
 
   const effectiveCurrentTime = currentTime - annotationOffset / 1000;
@@ -129,7 +130,7 @@ export default function ObjectTrackOverlay({
 
   const getZonesFriendlyNames = (
     zones: string[],
-    config: AmssConfig,
+    config: FrigateConfig,
     cameraId?: string,
   ) => {
     return zones?.map((zone) => resolveZoneName(config, zone, cameraId)) ?? [];
@@ -178,7 +179,7 @@ export default function ObjectTrackOverlay({
 
   const getObjectColor = useCallback(
     (label: string, objectId: string) => {
-      const objectColor = config?.model?.colormap[label];
+      const objectColor = getPrimaryModel(config)?.colormap?.[label];
       if (objectColor) {
         const reversed = [...objectColor].reverse();
         return `rgb(${reversed.join(",")})`;

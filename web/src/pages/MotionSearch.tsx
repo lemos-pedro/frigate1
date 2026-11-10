@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useTimezone } from "@/hooks/use-date-utils";
 import MotionSearchView from "@/views/motion-search/MotionSearchView";
 import {
@@ -15,7 +15,7 @@ import ActivityIndicator from "@/components/indicators/activity-indicator";
 export default function MotionSearch() {
   const { t } = useTranslation(["views/motionSearch"]);
 
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
 

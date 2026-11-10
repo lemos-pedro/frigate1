@@ -1,4 +1,4 @@
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { useMemo } from "react";
 import { useDateLocale } from "@/hooks/use-date-locale";
@@ -48,7 +48,7 @@ export function useFormattedRange(
   return `${formattedStart} - ${formattedEnd}`;
 }
 
-export function useTimezone(config: AmssConfig | undefined) {
+export function useTimezone(config: FrigateConfig | undefined) {
   return useMemo(() => {
     if (!config) {
       return undefined;
@@ -60,7 +60,7 @@ export function useTimezone(config: AmssConfig | undefined) {
   }, [config]);
 }
 
-export function use24HourTime(config: AmssConfig | undefined) {
+export function use24HourTime(config: FrigateConfig | undefined) {
   const localeUses24HourTime = useMemo(
     () =>
       new Intl.DateTimeFormat(undefined, {
@@ -90,14 +90,14 @@ export function use24HourTime(config: AmssConfig | undefined) {
  * to correctly handle the "browser" setting.
  */
 export function useTimeFormat(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
 ): "24hour" | "12hour" {
   const is24Hour = use24HourTime(config);
   return is24Hour ? "24hour" : "12hour";
 }
 
 export function useFormattedHour(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   time: string, // hour is assumed to be in 24 hour format per the Date object
 ) {
   const hour24 = use24HourTime(config);

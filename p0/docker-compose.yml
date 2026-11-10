@@ -1,0 +1,25 @@
+
+services:
+  frigate:
+    container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:stable
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+    shm_size: "1gb"
+
+    volumes:
+      - ./config:/config
+      - /mnt/frigate-storage:/media/frigate
+      - /etc/localtime:/etc/localtime:ro
+
+    ports:
+      - "8971:8971"
+      - "8554:8554"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
+
+    environment:
+      FRIGATE_RTSP_PASSWORD: "${FRIGATE_RTSP_PASSWORD:?Define FRIGATE_RTSP_PASSWORD no ficheiro .env}"
+
+    # CPU-only: sem GPU nem Coral por enquanto.

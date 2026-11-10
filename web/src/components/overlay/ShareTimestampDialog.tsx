@@ -18,7 +18,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { useFormattedTimestamp, useTimeFormat } from "@/hooks/use-date-utils";
 import { cn } from "@/lib/utils";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { getUTCOffset } from "@/utils/dateUtil";
 import { useCallback, useMemo, useState } from "react";
 import useSWR from "swr";
@@ -119,7 +119,7 @@ export function ShareTimestampContent({
   onCancel,
 }: Readonly<ShareTimestampContentProps>) {
   const { t } = useTranslation(["common", "components/dialog"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const timeFormat = useTimeFormat(config);
   const currentTimestampLabel = useFormattedTimestamp(
     currentTime,
@@ -228,7 +228,7 @@ function CustomTimestampSelector({
   label,
 }: Readonly<CustomTimestampSelectorProps>) {
   const { t } = useTranslation(["common"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const timeFormat = useTimeFormat(config);
 
   const timezoneOffset = useMemo(

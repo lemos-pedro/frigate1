@@ -6,15 +6,14 @@
       "title": "Alle etiketter",
       "short": "Etiketter"
     },
-    "count": "{{count}} merkelapper",
     "count_other": "{{count}} Etiketter",
     "count_one": "{{count}} Etikett"
   },
   "features": {
     "hasVideoClip": "Har et videoklipp",
-    "submittedToAMSSPlus": {
-      "label": "Sendt til AMSS+",
-      "tips": "Du må først filtrere på sporede objekter som har et stillbilde.<br /><br />Sporede objekter uten et stillbilde kan ikke sendes til AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Sendt til Frigate+",
+      "tips": "Du må først filtrere på sporede objekter som har et stillbilde.<br /><br />Sporede objekter uten et stillbilde kan ikke sendes til Frigate+."
     },
     "label": "Funksjoner",
     "hasSnapshot": "Har et stillbilde"

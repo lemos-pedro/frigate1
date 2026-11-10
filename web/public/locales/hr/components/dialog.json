@@ -1,9 +1,9 @@
 {
   "restart": {
-    "title": "Jeste li sigurni da želite ponovno pokrenuti AMSS?",
+    "title": "Jeste li sigurni da želite ponovno pokrenuti Frigate?",
     "button": "Ponovno pokreni",
     "restarting": {
-      "title": "AMSS se ponovno pokreće",
+      "title": "Frigate se ponovno pokreće",
       "content": "Ova stranica će se osvježiti za {{countdown}} sekundi.",
       "button": "Forsiraj ponovno pokretanje odmah"
     }
@@ -11,12 +11,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Pošalji u AMSS+",
+        "label": "Pošalji u Frigate+",
         "desc": "Objekti u lokacijama koje želiš izbjeći nisu lažno pozitivni. Slanjem njih kao lažno pozitivnih će zbuniti model."
       },
       "review": {
         "question": {
-          "label": "Potvrdi oznaku za AMSS Plus",
+          "label": "Potvrdi oznaku za Frigate Plus",
           "ask_a": "Da li je ovaj objekt <code>{{label}}</code>?",
           "ask_an": "Da li je ovaj objekt <code>{{label}}</code>?",
           "ask_full": "Da li je ovaj objekt <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -57,8 +57,7 @@
       "view": "Prikaz",
       "error": {
         "failed": "Nije uspjelo pokretanje izvoza: {{error}}",
-        "endTimeMustAfterStartTime": "Vrijeme završetka mora biti nakon vremena početka",
-        "noVaildTimeSelected": "Nema odabranog valjanog vremenskog raspona"
+        "endTimeMustAfterStartTime": "Vrijeme završetka mora biti nakon vremena početka"
       }
     },
     "fromTimeline": {

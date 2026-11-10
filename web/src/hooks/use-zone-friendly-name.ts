@@ -1,9 +1,9 @@
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useMemo } from "react";
 import useSWR from "swr";
 
 export function resolveZoneName(
-  config: AmssConfig | undefined,
+  config: FrigateConfig | undefined,
   zoneId: string,
   cameraId?: string,
 ) {
@@ -30,7 +30,7 @@ export function resolveZoneName(
 }
 
 export function useZoneFriendlyName(zoneId: string, cameraId?: string): string {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const name = useMemo(
     () => resolveZoneName(config, zoneId, cameraId),

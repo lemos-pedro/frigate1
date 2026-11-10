@@ -1,45 +1,46 @@
-from typing import Annotated
+from enum import Enum
+from typing import TYPE_CHECKING, TypedDict
 
-from pydantic import BaseModel, ConfigDict, Field, StringConstraints
+from frigate.camera import CameraMetrics
+from frigate.data_processing.types import DataProcessorMetrics
+from frigate.object_detection.base import ObjectDetectProcess
 
-ObservationItem = Annotated[str, StringConstraints(min_length=20, max_length=200)]
+if TYPE_CHECKING:
+    from frigate.storage import StorageMaintainer
 
 
-class ReviewMetadata(BaseModel):
-    model_config = ConfigDict(extra="ignore", protected_namespaces=())
+class StatsTrackingTypes(TypedDict):
+    camera_metrics: dict[str, CameraMetrics]
+    embeddings_metrics: DataProcessorMetrics
+    detectors: dict[str, ObjectDetectProcess]
+    started: int
+    latest_frigate_version: str
+    last_updated: int
+    processes: dict[str, int]
+    storage_maintainer: "StorageMaintainer | None"
 
-    observations: list[ObservationItem] = Field(
-        ...,
-        min_length=3,
-        max_length=8,
-        description="Enumerate the significant observations across all frames, in chronological order.",
-    )
-    scene: str = Field(
-        min_length=150,
-        max_length=600,
-        description="A chronological narrative of what happens from start to finish, drawing directly from the items in observations.",
-    )
-    title: str = Field(
-        max_length=80,
-        description="Title for the activity.",
-    )
-    shortSummary: str = Field(
-        min_length=70,
-        max_length=140,
-        description="A brief summary for the activity.",
-    )
-    confidence: float = Field(
-        ge=0.0,
-        le=1.0,
-        description="Confidence in the analysis as a decimal between 0.0 and 1.0, where 0.0 means no confidence and 1.0 means complete confidence. Express ONLY as a decimal.",
-    )
-    potential_threat_level: int = Field(
-        ge=0,
-        le=2,
-        description="Threat level: 0 = normal, 1 = suspicious, 2 = critical threat.",
-    )
-    other_concerns: list[str] | None = Field(
-        default=None,
-        description="Other concerns highlighted by the user that are observed.",
-    )
-    time: str | None = Field(default=None, description="Time of activity.")
+
+class ModelStatusTypesEnum(str, Enum):
+    not_downloaded = "not_downloaded"
+    downloading = "downloading"
+    downloaded = "downloaded"
+    error = "error"
+    training = "training"
+    complete = "complete"
+    failed = "failed"
+
+
+class JobStatusTypesEnum(str, Enum):
+    pending = "pending"
+    queued = "queued"
+    running = "running"
+    success = "success"
+    failed = "failed"
+    cancelled = "cancelled"
+
+
+class TrackedObjectUpdateTypesEnum(str, Enum):
+    description = "description"
+    face = "face"
+    lpr = "lpr"
+    classification = "classification"

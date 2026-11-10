@@ -1,19 +1,19 @@
 {
   "restart": {
-    "title": "האם אתה בטוח שברצונך להפעיל מחדש את AMSS?",
-    "button": "הפעלה מחדש - AMSS",
+    "title": "האם אתה בטוח שברצונך להפעיל מחדש את Frigate?",
+    "button": "הפעלה מחדש - Frigate",
     "restarting": {
-      "title": "AMSS מופעל מחדש כעת",
+      "title": "Frigate מופעל מחדש כעת",
       "content": "דף זה ייטען מחדש בעוד {{countdown}} שניות.",
       "button": "אילוץ טעינה מחדש"
-    }
+    },
+    "description": "המערכת לא תגיב בעת אתחול מחדש"
   },
   "export": {
     "toast": {
       "error": {
         "endTimeMustAfterStartTime": "שעת הסיום חייבת להיות אחרי שעת ההתחלה",
-        "failed": "נכשל בהתחלת הייצוא: {{error}}",
-        "noVaildTimeSelected": "לא נבחר טווח זמן תקף"
+        "failed": "נכשל בהתחלת הייצוא: {{error}}"
       },
       "success": "הייצוא התחיל בהצלחה. ניתן לצפות בקובץ בעמוד הייצוא.",
       "view": "תצוגה"
@@ -42,13 +42,19 @@
     "fromTimeline": {
       "saveExport": "שמירת ייצוא",
       "previewExport": "תצוגה מקדימה של ייצוא"
+    },
+    "case": {
+      "newCaseOption": "צור מקרה חדש",
+      "newCaseNamePlaceholder": "שם מקרה",
+      "newCaseDescriptionPlaceholder": "תיאור המקרה",
+      "label": "מקרה",
+      "placeholder": "בחר מקרה"
     }
   },
   "streaming": {
     "restreaming": {
       "desc": {
-        "title": "הגדר את go2rtc לקבלת אפשרויות נוספות של תצוגה חיה ושמע עבור מצלמה זו.",
-        "readTheDocumentation": "קרא את התיעוד"
+        "title": "הגדר את go2rtc לקבלת אפשרויות נוספות של תצוגה חיה ושמע עבור מצלמה זו."
       },
       "disabled": "הזרמה מחדש אינה פעילה עבור מצלמה זו."
     },
@@ -62,12 +68,12 @@
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "העלה ל- +AMSS",
+        "label": "העלה ל- +Frigate",
         "desc": "אובייקטים במיקומים שברצונך להימנע מהם אינם תוצאות חיוביות שגויות. הגשתם כתוצאות חיוביות שגויות תבלבל את המודל."
       },
       "review": {
         "question": {
-          "label": "אשר תווית זו עבור +AMSS",
+          "label": "אשר תווית זו עבור +Frigate",
           "ask_a": "האם אובייקט זה הוא <code>{{label}}</code>?",
           "ask_an": "האם אובייקט זה הוא - <code>{{label}}</code>?",
           "ask_full": "האם אובייקט זה הוא <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"

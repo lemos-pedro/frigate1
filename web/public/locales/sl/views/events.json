@@ -16,17 +16,16 @@
     }
   },
   "recordings": {
-    "documentTitle": "Posnetki - AMSS"
+    "documentTitle": "Posnetki - Frigate"
   },
   "camera": "Kamera",
-  "documentTitle": "Pregled - AMSS",
+  "documentTitle": "Pregled - Frigate",
   "alerts": "Opozorila",
   "detections": "Zaznave",
   "motion": {
     "label": "Gibanje",
     "only": "Samo gibanje"
   },
-  "timeline": "Časovnica",
   "timeline.aria": "Izberi časovnico",
   "calendarFilter": {
     "last24Hours": "Zadnjih 24 ur"

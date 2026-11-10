@@ -2,7 +2,7 @@
   "time": {
     "untilForTime": "{{time}} ideig",
     "s": "{{time}} másodperc",
-    "untilForRestart": "Amíg a AMSS újraindul.",
+    "untilForRestart": "Amíg a Frigate újraindul.",
     "untilRestart": "Amíg újraindul",
     "justNow": "Most",
     "ago": "Ennyi ideje: {{timeAgo}}",
@@ -99,7 +99,7 @@
     },
     "documentation": {
       "title": "Dokumentáció",
-      "label": "AMSS dokumentáció"
+      "label": "Frigate dokumentáció"
     },
     "help": "Segítség",
     "explore": "Felfedezés",
@@ -155,11 +155,13 @@
       "gl": "Galego (Galíciai)",
       "id": "Bahasa Indonesia (Indonéz)",
       "ur": "اردو (Urdu)",
-      "hr": "Horvát"
+      "hr": "Horvát",
+      "zhHant": "Hagyományos kínai",
+      "bs": "Bosnyák"
     },
     "uiPlayground": "UI játszótér",
     "faceLibrary": "Arc Könyvtár",
-    "restart": "AMSS Újraindítása",
+    "restart": "Frigate Újraindítása",
     "live": {
       "title": "Élő",
       "allCameras": "Minden Kamera",
@@ -179,7 +181,10 @@
     "systemLogs": "Rendszer naplók",
     "settings": "Beállítások",
     "classification": "Osztályozás",
-    "profiles": "Profilok"
+    "profiles": "Profilok",
+    "actions": "Műveletek",
+    "features": "Jellemzők",
+    "chat": "Csevegés"
   },
   "role": {
     "viewer": "Néző",
@@ -200,14 +205,14 @@
     "label": "lapozás"
   },
   "accessDenied": {
-    "documentTitle": "Belépés Megtagadva - AMSS",
+    "documentTitle": "Belépés Megtagadva - Frigate",
     "title": "Belépés Megtagadva",
     "desc": "Nincs jogolultsága ehhez az oldalhoz."
   },
   "notFound": {
     "title": "404",
     "desc": "Oldal nem található",
-    "documentTitle": "Nem található - AMSS"
+    "documentTitle": "Nem található - Frigate"
   },
   "toast": {
     "copyUrlToClipboard": "URL kimásolva a vágólapra.",
@@ -216,7 +221,8 @@
       "error": {
         "title": "Sikertelen konfiguráció mentés: {{errorMessage}}",
         "noMessage": "Konfigurációs változtatások mentése sikertelen"
-      }
+      },
+      "success": "Kunfigurációs változtatások sikeresen mentve."
     }
   },
   "selectItem": "Kiválasztani {{item}}-et",
@@ -275,7 +281,18 @@
     "deleteNow": "Törlés Most",
     "next": "Következő",
     "continue": "Tovább",
-    "add": "Hozzáad"
+    "add": "Hozzáad",
+    "applying": "Alkalmazás…",
+    "undo": "Vissza",
+    "copiedToClipboard": "Vágólapra kimásolva",
+    "modified": "Módosítva",
+    "overridden": "Felülírva",
+    "resetToDefault": "Visszatérés az alapbeállításhoz",
+    "saveAll": "Minden mentésa",
+    "savingAll": "Mentés…",
+    "undoAll": "Mindent visszavonni",
+    "retry": "Újra",
+    "resetToGlobal": "Visszaállítás Globális helyzetbe"
   },
   "label": {
     "back": "Vissza",
@@ -297,6 +314,11 @@
   },
   "field": {
     "optional": "Opcionális",
-    "internalID": "A belső ID, amelyet a AMSS használ a konfigurációban és az adatbázisban"
+    "internalID": "A belső ID, amelyet a Frigate használ a konfigurációban és az adatbázisban"
+  },
+  "no_items": "Nincsenek elemek",
+  "validation_errors": "Érvényesítési Hibák",
+  "credentialField": {
+    "savedPlaceholder": "Mentve - hagyd üresen a jelenlegi megtartásáért"
   }
 }

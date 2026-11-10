@@ -2,8 +2,8 @@
   "noPreviewFound": "Esikatselua ei löytynyt",
   "noPreviewFoundFor": "Ei esikatselua {{cameraName}}lle",
   "noRecordingsFoundForThisTime": "Ei tallenteita valitulta ajalta",
-  "submitAMSSPlus": {
-    "title": "Lähetä tämä kuva AMSS+:aan?",
+  "submitFrigatePlus": {
+    "title": "Lähetä tämä kuva Frigate+:aan?",
     "submit": "Lähetä",
     "previewError": "Pysäytyskuvan esikatselua ei voi ladata. Tallenne ei ole ehkä saatavissa tällä hetkellä."
   },
@@ -12,7 +12,6 @@
     "title": "Kamera poissa verkosta",
     "desc": "Kuvaruutuja ei vastaanotettu kameran {{cameraName}} <code>detect</code>-kuvavirrasta, tarkista virhelogit"
   },
-  "cameraDisabled": "Kamera on poistettu käytöstä",
   "stats": {
     "streamType": {
       "title": "Kuvavirran tyyppi:",
@@ -21,14 +20,6 @@
     "bandwidth": {
       "title": "Kaistanleveys:",
       "short": "Kaistanleveys"
-    },
-    "latency": {
-      "title": "Latenssi:",
-      "value": "{{seconds}} sekuntia",
-      "short": {
-        "value": "{{seconds}} sek",
-        "title": "Latenssi"
-      }
     },
     "totalFrames": "Kehyksiä yhteensä:",
     "droppedFrames": {
@@ -43,10 +34,10 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Onnistuneesti lähetetty AMSS+:aan"
+      "submittedFrigatePlus": "Onnistuneesti lähetetty Frigate+:aan"
     },
     "error": {
-      "submitAMSSPlusFailed": "AMSS+:aan lähetys epäonnistui"
+      "submitFrigatePlusFailed": "Frigate+:aan lähetys epäonnistui"
     }
   }
 }

@@ -1,23 +1,23 @@
 {
   "restart": {
-    "title": "Estàs segur que vols reiniciar AMSS?",
+    "title": "Estàs segur que vols reiniciar Frigate?",
     "button": "Reiniciar",
     "restarting": {
-      "title": "AMSS s'està reiniciant",
+      "title": "Frigate s'està reiniciant",
       "content": "Aquesta pàgina es tornarà a carregar d'aquí a {{countdown}} segons.",
       "button": "Forçar la recàrrega ara"
     },
-    "description": "Això aturarà breument AMSS mentre es reinicia."
+    "description": "Això aturarà breument Frigate mentre es reinicia."
   },
   "explore": {
     "plus": {
       "submitToPlus": {
-        "label": "Enviar a AMSS+",
+        "label": "Enviar a Frigate+",
         "desc": "Els objectes a les ubicacions que voleu evitar no són falsos positius. Enviar-los com a falsos positius confondrà el model."
       },
       "review": {
         "question": {
-          "label": "Confirmar aquesta etiqueta per a AMSS Plus",
+          "label": "Confirmar aquesta etiqueta per a Frigate Plus",
           "ask_a": "Aquest objecte és un <code>{{label}}</code>?",
           "ask_an": "Aquest objecte és un <code>{{label}}</code>?",
           "ask_full": "Aquest objecte és un <code>{{untranslatedLabel}}</code> ({{translatedLabel}})?"
@@ -26,7 +26,7 @@
           "submitted": "Enviat"
         },
         "toast": {
-          "error": "No s'ha pogut enviar a AMSS+. Si us plau, comproveu la vostra connexió de xarxa i torneu-ho a provar."
+          "error": "No s'ha pogut enviar a Frigate+. Si us plau, comproveu la vostra connexió de xarxa i torneu-ho a provar."
         }
       }
     },
@@ -60,7 +60,6 @@
       "success": "Exportació inciada amb èxit. Pots veure l'arxiu a la pàgina d'exportacions.",
       "error": {
         "endTimeMustAfterStartTime": "L'hora de finalització ha de ser posterior a l'hora d'inici",
-        "noVaildTimeSelected": "No s'ha seleccionat un rang de temps vàlid",
         "failed": "No s'ha pogut inciar l'exportació: {{error}}",
         "noValidTimeSelected": "No s'ha seleccionat cap interval de temps vàlid"
       },
@@ -71,9 +70,9 @@
       "batchSuccess_other": "S'han iniciat {{count}} exportacions. Obrint el cas ara.",
       "batchPartial": "S'han iniciat {{successful}} de {{total}} exportacions. Càmeres fallides: {{failedCameras}}",
       "batchFailed": "No s'han pogut iniciar {{total}} exportacions. Càmeres fallides: {{failedCameras}}",
-      "batchQueuedSuccess_one": "Exporta a la cua 1. Obrint el cas ara.",
-      "batchQueuedSuccess_many": "{{count}} exportacions a la cua. Obrint el cas ara.",
-      "batchQueuedSuccess_other": "{{count}} exportacions a la cua. Obrint el cas ara.",
+      "batchQueuedSuccess_one": "Exporta a la cua 1.",
+      "batchQueuedSuccess_many": "{{count}} exportacions a la cua.",
+      "batchQueuedSuccess_other": "{{count}} exportacions a la cua.",
       "batchQueuedPartial": "{{successful}} de {{total}} exportacions a la cua. Càmeres fallides: {{failedCameras}}",
       "batchQueueFailed": "No s'han pogut posar a la cua {{total}} exportacions. Càmeres fallides: {{failedCameras}}"
     },
@@ -89,7 +88,7 @@
       "newCaseOption": "Crea un cas no",
       "newCaseNamePlaceholder": "Nom de cas nou",
       "newCaseDescriptionPlaceholder": "Descripció del cas",
-      "nonAdminHelp": "Es crearà un nou cas per a aquestes exportacions."
+      "nameRequired": "Es requereix el nom del cas"
     },
     "queueing": "S'està fent la cua de l'exportació...",
     "tabs": {
@@ -118,7 +117,9 @@
       "selectWithActivity": "Càmeres amb objectes rastrejats",
       "selectGroup": "Selecciona un grup",
       "noMatchingCameras": "No hi ha càmeres que coincideixin amb la cerca",
-      "selectedCount": "{{selected}} / {{total}} seleccionats"
+      "selectedCount": "{{selected}} / {{total}} seleccionats",
+      "noCamerasSelected": "Selecciona almenys una càmera",
+      "caseNameDefault": "Exportació multicàmera - {{date}}"
     },
     "multi": {
       "title_one": "Exporta {{count}} ressenyes",
@@ -132,15 +133,21 @@
       "exportButton_other": "Exporta {{count}} ressenyes",
       "exportingButton": "S'està exportant...",
       "toast": {
-        "started_one": "S'ha iniciat l'exportació 1. Obrint el cas ara.",
-        "started_many": "S'han iniciat {{count}} exportacions. Obrint el cas ara.",
-        "started_other": "S'han iniciat {{count}} exportacions. Obrint el cas ara.",
-        "startedNoCase_one": "S'ha iniciat l'exportació 1.",
-        "startedNoCase_many": "S'han iniciat {{count}} exportacions.",
-        "startedNoCase_other": "S'han iniciat {{count}} exportacions.",
+        "started_one": "S'ha iniciat l'exportació 1.",
+        "started_many": "S'han iniciat {{count}} exportacions.",
+        "started_other": "S'han iniciat {{count}} exportacions.",
         "partial": "S'han iniciat {{successful}} de {{total}} exportacions. Ha fallat: {{failedItems}}",
         "failed": "No s'han pogut iniciar {{total}} exportacions. Ha fallat: {{failedItems}}"
       }
+    },
+    "stream": {
+      "label": "Qualitat",
+      "auto": "Automàtic",
+      "main": "Original",
+      "sub": "Baix",
+      "autoDesc": "Utilitza el flux principal i torna al flux de menor qualitat quan el principal no està disponible.",
+      "mainDesc": "Exporta només el flux principal de qualitat original. Faltaran els intervals de temps on el flux principal no està disponible.",
+      "subDesc": "Exporta només el subflux de menor qualitat. Faltaran els intervals de temps on el subflux no està disponible."
     }
   },
   "streaming": {
@@ -148,8 +155,7 @@
     "restreaming": {
       "disabled": "La retransmissió no està habilitada per a aquesta càmera.",
       "desc": {
-        "title": "Configurar go2rtc per a àudio i opcions addicionals de visualització en directe per a aquesta càmera.",
-        "readTheDocumentation": "Llegir la documentació"
+        "title": "Configurar go2rtc per a àudio i opcions addicionals de visualització en directe per a aquesta càmera."
       }
     },
     "showStats": {
@@ -177,7 +183,8 @@
       "deleteNow": "Suprimir ara",
       "export": "Exportar",
       "markAsReviewed": "Marcar com a revisat",
-      "markAsUnreviewed": "Marcar com no revisat"
+      "markAsUnreviewed": "Marcar com no revisat",
+      "generateDescription": "Genera la descripció"
     },
     "confirmDelete": {
       "title": "Confirmar la supressió",
@@ -192,10 +199,16 @@
     "shareTimestamp": {
       "label": "Comparteix la marca horària",
       "title": "Comparteix la marca horària",
-      "description": "Comparteix un URL amb marca horària de la posició actual del jugador o tria una marca horària personalitzada. Tingueu en compte que aquest no és un URL de compartició pública i només és accessible per als usuaris amb accés a AMSS i aquesta càmera.",
+      "description": "Comparteix un URL amb marca horària de la posició actual del jugador o tria una marca horària personalitzada. Tingueu en compte que aquest no és un URL de compartició pública i només és accessible per als usuaris amb accés a Frigate i aquesta càmera.",
       "custom": "Marca horària personalitzada",
       "button": "Comparteix l'URL de la marca horària",
-      "shareTitle": "Marca de temps de revisió de AMSS: {{camera}}"
+      "shareTitle": "Marca de temps de revisió de Frigate: {{camera}}"
+    },
+    "genaiDescription": {
+      "toast": {
+        "success": "S'ha sol·licitat una descripció de IA Generativa per a aquest element de revisió.",
+        "error": "No s'ha pogut sol·licitar la descripció: {{error}}"
+      }
     }
   },
   "imagePicker": {

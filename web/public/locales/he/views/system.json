@@ -1,24 +1,21 @@
 {
   "lastRefreshed": "רענון אחרון: ",
   "stats": {
-    "ffmpegHighCpuUsage": "ל-{{camera}} יש צריכת מעבד גבוהה של FFmpeg ({{ffmpegAvg}}%)",
-    "detectHighCpuUsage": "ל-{{camera}} יש צריכת CPU גבוהה ({{detectAvg}}%)",
     "healthy": "המערכת פועלת בצורה תקינה",
     "reindexingEmbeddings": "אינדקס מחדש של ההטמעות ({{processed}}% הושלם)",
     "cameraIsOffline": "{{camera}} לא זמינה",
     "detectIsSlow": "{{detect}} איטי ({{speed}} אלפיות שנייה)",
-    "detectIsVerySlow": "{{detect}} איטי מאוד ({{speed}} אלפיות שנייה)",
-    "shmTooLow": "יש להגדיל את הקצאת ‎/dev/shm‏ ({{total}} MB) לפחות ל־{{min}} MB."
+    "detectIsVerySlow": "{{detect}} איטי מאוד ({{speed}} אלפיות שנייה)"
   },
   "documentTitle": {
-    "cameras": "מצב מצלמות - AMSS",
-    "storage": "מצב אחסון - AMSS",
-    "general": "סטטיסטיקה כללית - AMSS",
-    "enrichments": "סטטיסטיקת העשרה - AMSS",
+    "cameras": "מצב מצלמות - Frigate",
+    "storage": "מצב אחסון - Frigate",
+    "general": "סטטיסטיקה כללית - Frigate",
+    "enrichments": "סטטיסטיקת העשרה - Frigate",
     "logs": {
-      "frigate": "לוגים - AMSS",
-      "go2rtc": "לוגים - Go2RTC - AMSS",
-      "nginx": "לוגים - Nginx - AMSS"
+      "frigate": "לוגים - Frigate",
+      "go2rtc": "לוגים - Go2RTC - Frigate",
+      "nginx": "לוגים - Nginx - Frigate"
     }
   },
   "title": "מערכת",
@@ -87,12 +84,7 @@
         }
       },
       "npuUsage": "שימוש ב-NPU",
-      "npuMemory": "NPU זיכרון",
-      "intelGpuWarning": {
-        "title": "אזהרת סטטיסטיקות GPU של Intel",
-        "message": "נתוני ה־GPU אינם זמינים",
-        "description": "זהו באג ידוע בכלי הדיווח של Intel לסטטיסטיקות GPU ‏(intel_gpu_top): לפעמים הוא “נשבר” ומתחיל להחזיר שוב ושוב שימוש GPU של 0%, גם במקרים שבהם ההאצה החומרתית וזיהוי האובייקטים כן עובדים תקין על ה־(i)GPU.\nזה לא באג של AMSS. אפשר לאתחל את ה־Host כדי לתקן את זה זמנית, וככה גם לוודא שה־GPU באמת עובד כמו שצריך.\nהתקלה הזו לא משפיעה על הביצועים."
-      }
+      "npuMemory": "NPU זיכרון"
     },
     "otherProcesses": {
       "title": "תהליכים אחרים",
@@ -141,7 +133,7 @@
       "bandwidth": "רוחב פס",
       "unused": {
         "title": "לא בשימוש",
-        "tips": "ייתכן שערך זה לא מייצג במדויק את השטח הפנוי הזמין ל-AMSS אם יש לך קבצים אחרים המאוחסנים בכונן שלך מעבר להקלטות של AMSS. AMSS אינו עוקב אחר ניצול האחסון מלבד להקלטות שלו."
+        "tips": "ייתכן שערך זה לא מייצג במדויק את השטח הפנוי הזמין ל-Frigate אם יש לך קבצים אחרים המאוחסנים בכונן שלך מעבר להקלטות של Frigate. Frigate אינו עוקב אחר ניצול האחסון מלבד להקלטות שלו."
       },
       "title": "אחסון מצלמה",
       "camera": "מצלמה",
@@ -152,7 +144,7 @@
     "recordings": {
       "title": "הקלטות",
       "earliestRecording": "ההקלטה המוקדמת ביותר הזמינה:",
-      "tips": "ערך זה מייצג את סך האחסון בו משתמשים ההקלטות במסד הנתונים של AMSS. AMSS אינו עוקב אחר ניצול האחסון עבור כל הקבצים בדיסק שלך."
+      "tips": "ערך זה מייצג את סך האחסון בו משתמשים ההקלטות במסד הנתונים של Frigate. Frigate אינו עוקב אחר ניצול האחסון עבור כל הקבצים בדיסק שלך."
     },
     "shm": {
       "title": "הקצאת SHM (זיכרון משותף)",

@@ -1,5 +1,5 @@
 {
-  "documentTitle": "Tyrinėti - AMSS",
+  "documentTitle": "Tyrinėti - Frigate",
   "generativeAI": "Generatyvinis DI",
   "exploreMore": "Apžvelgti daugiau {{label}} objektų",
   "exploreIsUnavailable": {
@@ -16,7 +16,7 @@
     },
     "title": "Tyrinėjimai Negalimi",
     "downloadingModels": {
-      "context": "AMSS siunčiasi reikalingus įterpimo modelius, kad būtų palaikoma Semantic Paieškos funkcija. Tai gali užtrukti priklausomai nuo duomenų srauto greičio.",
+      "context": "Frigate siunčiasi reikalingus įterpimo modelius, kad būtų palaikoma Semantic Paieškos funkcija. Tai gali užtrukti priklausomai nuo duomenų srauto greičio.",
       "setup": {
         "visionModel": "Vaizdo modelis",
         "visionModelFeatureExtractor": "Vaizdo modelio funkcijų išgavimas",
@@ -26,7 +26,7 @@
       "tips": {
         "context": "Galimai norėsite iš naujo indeksuoti savo sekamų objektų įterpius po to kai modeliai parsisiųs."
       },
-      "error": "Įvyko klaida. Patikrinkite AMSS įrašus."
+      "error": "Įvyko klaida. Patikrinkite Frigate įrašus."
     }
   },
   "details": {
@@ -36,7 +36,7 @@
         "mismatch_one": "{{count}} neesamas objektas aptiktas ir pridėtas į šį peržiuros įrašą. Tie objektai arba neatitinką įspėjimų ar aptikimų sąlygų arba jau buvo išvalyti/ištrinti.",
         "mismatch_few": "{{count}} neesami objektai aptikti ir pridėti į šį peržiuros įrašą. Tie objektai arba neatitinką įspėjimų ar aptikimų sąlygų arba jau buvo išvalyti/ištrinti.",
         "mismatch_other": "{{count}} neesamų objektų aptiktų ir pridėtų į šį peržiuros įrašą. Tie objektai arba neatitinką įspėjimų ar aptikimų sąlygų arba jau buvo išvalyti/ištrinti.",
-        "hasMissingObjects": "Koreguokite savo nustatymus jeigu norite, kad AMSS saugoti objektus su šiomis etiketėmis: <em>{{objects}}</em>"
+        "hasMissingObjects": "Koreguokite savo nustatymus jeigu norite, kad Frigate saugoti objektus su šiomis etiketėmis: <em>{{objects}}</em>"
       },
       "title": "Peržiūrėti Įrašo Detales",
       "desc": "Peržiūrėti Įrašo detales",
@@ -49,7 +49,7 @@
           "regenerate": "Gauta nauja užklausa iš {{provider}} naujam aprašymui. Priklausomai nuo jūsų tiekėjo greičio, naują aprašymą sukurti gali užtrukti.",
           "updatedSublabel": "Sėkmingai atnaujinta sub etiketė.",
           "updatedLPR": "Sėkmingai atnaujinti registracijos numeriai.",
-          "audioTranscription": "Sėkmingai užklausta garso aprašymo. Priklausomai nuo jūsų AMSS serverio pajėgumų, tai gali užtrukti.",
+          "audioTranscription": "Sėkmingai užklausta garso aprašymo. Priklausomai nuo jūsų Frigate serverio pajėgumų, tai gali užtrukti.",
           "updatedAttributes": "Atributai sekmingai atnaujinti."
         },
         "error": {
@@ -97,7 +97,7 @@
     "description": {
       "label": "Aprašymas",
       "placeholder": "Sekamo objekto aprašymas",
-      "aiTips": "Iki kol sekamo objekto gyvavimo ciklas užsibaigs AMSS neklaus aprašymo iš jūsų Generatyvinio DI tiekėjo."
+      "aiTips": "Iki kol sekamo objekto gyvavimo ciklas užsibaigs Frigate neklaus aprašymo iš jūsų Generatyvinio DI tiekėjo."
     },
     "expandRegenerationMenu": "Išskleisti regeneravimo meniu",
     "regenerateFromSnapshot": "Regeneruoti iš Momentinės Nuotraukos",
@@ -113,63 +113,22 @@
     "attributes": "Klasifikavimo Atributai",
     "title": {
       "label": "Antraštė"
-    }
+    },
+    "scoreInfo": "Balo Informacija"
   },
   "trackedObjectsCount_one": "{{count}} sekamas objektas ",
   "trackedObjectsCount_few": "{{count}} sekami objektai ",
   "trackedObjectsCount_other": "{{count}} sekamų objektų ",
   "objectLifecycle": {
-    "lifecycleItemDesc": {
-      "visible": "{{label}} aptikta",
-      "attribute": {
-        "faceOrLicense_plate": "{{attribute}} aptiktas etiketei {{label}}",
-        "other": "{{label}} atpažintas kaip {{attribute}}"
-      },
-      "external": "{{label}} aptiktas",
-      "entered_zone": "{{label}} pateko į {{zones}}",
-      "active": "{{label}} tapo aktyvus",
-      "stationary": "{{label}} nebejuda",
-      "gone": "{{label}} paliko",
-      "heard": "{{label}} girdėta",
-      "header": {
-        "zones": "Zonos",
-        "ratio": "Santykis",
-        "area": "Plotas"
-      }
-    },
-    "annotationSettings": {
-      "offset": {
-        "desc": "Šie duomenys gaunami iš jūsų kameros aptikimo srauto bet yra užkeliami ant vaizdo gaunamo iš įrašymo srauto. Mažai tikėtina kad abeji srautais bus tobulai sinchronizuoti. Rezultate, apibrėžimo dėžutė ir įrašas nesilygiuos tobulai. Tačiau, <code>annotation_offset</code> reikšmė gali būti naudojama tai koreguoti.",
-        "millisecondsToOffset": "Praslinkti aptikimų anotacijas per mili-sekundes. <em>Bazinis: 0</em>",
-        "label": "Anotacijos Perstūmimas",
-        "tips": "Patarimas: Įsivaizduokite kad yra įvykio klipas kur žmogus eina iš kairės į dešinę. Jei apibrėžimo dėžutė nuolatos yra žmogui iš kairės tuomet reikšmę sumažinkite. Analogiškai, jei dėžutė piešiama priekyje žmogaus tuomet reikšmę padidinkite.",
-        "toast": {
-          "success": "Anotacijos perslinkimas kamerai {{camera}} buvo išsaugota konfiguracijoje. Perkraukite AMSS, kad pritaikytumėte pokyčius."
-        }
-      },
-      "title": "Anotacijų Nustatymai",
-      "showAllZones": {
-        "title": "Rodyti Visas Zonas",
-        "desc": "Visada rodyti zonas tuose kadruose, kuriuose objektas pateko į zoną."
-      }
-    },
-    "title": "Objekto Gyvavimo Ciklas",
-    "noImageFound": "Šiam laikotarpiui vaizdų nerasta.",
-    "createObjectMask": "Sukurta Objekto Maskuotė",
-    "adjustAnnotationSettings": "Koreguoti anotacijų nustatymus",
-    "scrollViewTips": "Peržiūrėti šio objekto gyvavimo cikle esančius reikšmingus momentus.",
-    "autoTrackingTips": "Automatiškai sekančių kamerų apibrėžiančios dėžutės pozicija bus netiksli.",
-    "count": "{{first}} iš {{second}}",
-    "trackedPoint": "Sekamas Taškas",
-    "carousel": {
-      "previous": "Ankstesnė skaidrė",
-      "next": "Sekanti skaidrė"
-    }
+    "noImageFound": "Šiam laikotarpiui vaizdų nerasta."
   },
   "dialog": {
     "confirmDelete": {
       "desc": "Trinant šį sekamą objektą taip pat bus pašalintos momentinės iškarpos, išsaugoti įterpiai ir kitos susios sekimo detalės. Šių sekamų objektų įrašyta filmuota medžiaga Istorijos vaizde ištrinta <em>NEBUS</em>.<br /><br />Ar esate įsitikinę, kad norite tęsti?",
       "title": "Patvirtinti Ištrynimą"
+    },
+    "toast": {
+      "error": "Klaida trinant šį susektą objektą: {{errorMessage}}"
     }
   },
   "trackedObjectDetails": "Sekamų Objektų Detalės",
@@ -177,7 +136,6 @@
     "details": "detalės",
     "snapshot": "momentinės nuotraukos",
     "video": "vaizdas",
-    "object_lifecycle": "objekto gyvavimo ciklas",
     "thumbnail": "miniatiūra",
     "tracking_details": "sekimo detalės"
   },
@@ -189,10 +147,6 @@
     "downloadSnapshot": {
       "label": "Atsisiųsti momentinę nuotrauką",
       "aria": "Atsisiųsti momentinę nuotrauką"
-    },
-    "viewObjectLifecycle": {
-      "label": "Peržiūrėti objekto gyvavimo ciklą",
-      "aria": "Rodyti objekto gyvavimo ciklą"
     },
     "findSimilar": {
       "label": "Rasti panašų",
@@ -207,8 +161,8 @@
       "aria": "Užklausti garso aprašymo"
     },
     "submitToPlus": {
-      "label": "Pateikti į AMSS+",
-      "aria": "Pateikti į AMSS Plius"
+      "label": "Pateikti į Frigate+",
+      "aria": "Pateikti į Frigate Plius"
     },
     "viewInHistory": {
       "label": "Žiūrėti Istorijoje",
@@ -224,12 +178,19 @@
       "label": "Slėpti objektų kelią"
     },
     "downloadCleanSnapshot": {
-      "label": "Atsisiųsti švarią nuotrauką",
-      "aria": "Atsisiųsti švarią nuotrauką"
+      "label": "Atsisiųsti nuotrauką",
+      "aria": "Atsisiųsti nuotrauką"
     },
     "viewTrackingDetails": {
       "label": "Žiūrėti sekimo detales",
       "aria": "Rodyti sekimo detales"
+    },
+    "debugReplay": {
+      "label": "Derinimo Peržiūra",
+      "aria": "Peržiūrėti šį susektą objektą derinimo peržiūros vaizde"
+    },
+    "more": {
+      "aria": "Daugiau"
     }
   },
   "noTrackedObjects": "Sekamų Objektų Nerasta",
@@ -276,7 +237,10 @@
         "zones": "Zonos",
         "ratio": "Santykis",
         "area": "Plotas",
-        "score": "Balas"
+        "score": "Balas",
+        "computedScore": "Apskaičiuotas Balas",
+        "topScore": "Aukščiausias Balas",
+        "toggleAdvancedScores": "Perjungti išplėstinius įverčius"
       }
     },
     "annotationSettings": {

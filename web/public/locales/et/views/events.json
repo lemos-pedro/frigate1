@@ -45,17 +45,17 @@
     "aria": "Vali sündmused",
     "noFoundForTimePeriod": "Selle ajavahemiku kohta ei leidu sündmusi."
   },
-  "selected_one": "{{count}} valitud",
-  "selected_other": "{{count}} valitud",
+  "selected_one": "Valitud on {{count}}",
+  "selected_other": "Valitud on {{count}}",
   "markAsReviewed": "Märgi ülevaadatuks",
   "markTheseItemsAsReviewed": "Märgi need kirjed ülevaadatuks",
   "newReviewItems": {
     "label": "Vaata uusi ülevaatamiseks mõeldud kirjeid",
     "button": "Uued ülevaatamiseks mõeldud kirjed"
   },
-  "documentTitle": "Ülevaatamine - AMSS",
+  "documentTitle": "Ülevaatamine - Frigate",
   "recordings": {
-    "documentTitle": "Salvestised - AMSS",
+    "documentTitle": "Salvestised - Frigate",
     "invalidSharedLink": "Töötlemisvea tõttu ei õnnestu avada ajatempliga salvestuse linki.",
     "invalidSharedCamera": "Tundmatu või volituseta kaamera tõttu ei õnnestu avada ajatempliga salvestuse linki."
   },
@@ -74,7 +74,7 @@
     "menuItem": "Vaata liikumiste eelvaateid",
     "title": "Liikumiste eelvaated: {{camera}}",
     "mobileSettingsTitle": "Liikumiste eelvaadete seadistused",
-    "mobileSettingsDesc": "Kohenda taasesituse kiirust ja heledust ning vali kuupäev, et vaadata läbi ainult liikumist kajastavaid klipid.",
+    "mobileSettingsDesc": "Kohenda taasesituse kiirust, heledust ja kadreerimist ning vali kuupäev, et vaadata läbi ainult liikumist kajastavaid klipid.",
     "dim": "Hämarus",
     "dimAria": "Muuda hämarust",
     "dimDesc": "Kohenda hämarust parandamaks liikumisala nähtavust.",
@@ -87,6 +87,10 @@
     "seekAria": "Keri „{{camera}}“ kaamera vaade ajatempli juurde: {{time}}",
     "filter": "Filtreeri",
     "filterDesc": "Näitamaks ainult liikumisega klippe antud aladel, vali soovitud piirkonnad.",
-    "filterClear": "Tühjenda"
-  }
+    "filterClear": "Tühjenda",
+    "crop": "Kadreeri filtreerimiseks",
+    "cropAria": "Lülita filtreeritud alade kadreeritud eelvaated sisse/välja",
+    "cropDesc": "Täiskaadri kuvamise asemel suumi eelvaated valitud filtritega märgitud alani."
+  },
+  "subOnlyQuality": "Sellest ajavahemikust on saadaval vaid madala kvaliteediga salvestised"
 }

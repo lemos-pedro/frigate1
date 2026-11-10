@@ -62,7 +62,7 @@ import SaveAllPreviewPopover, {
   type SaveAllPreviewItem,
 } from "@/components/overlay/detail/SaveAllPreviewPopover";
 import { useDocDomain } from "@/hooks/use-doc-domain";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import type { SettingsPageProps } from "@/views/settings/SingleSectionPage";
 import type { ConfigSectionData } from "@/types/configForm";
 import { cn } from "@/lib/utils";
@@ -117,7 +117,7 @@ export default function Go2RtcStreamsSettingsView({
   const { t } = useTranslation(["views/settings", "common"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<AmssConfig>("config");
+    useSWR<FrigateConfig>("config");
   const { data: rawPaths, mutate: updateRawPaths } =
     useSWR<RawPathsResponse>("config/raw_paths");
 

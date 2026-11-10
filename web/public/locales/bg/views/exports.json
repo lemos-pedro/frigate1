@@ -1,8 +1,7 @@
 {
-  "documentTitle": "Експорт - AMSS",
+  "documentTitle": "Експорт - Frigate",
   "search": "Търси",
   "noExports": "Няма намерени експорти",
-  "deleteExport": "Изтрий експорт",
   "deleteExport.desc": "Сигурни ли сте, че искате да изтриете {{exportName}}?",
   "editExport": {
     "title": "Преименувай експорт",

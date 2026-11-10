@@ -1,13 +1,13 @@
 {
   "documentTitle": {
-    "cameras": "Στατιστικά Καμερών - AMSS",
-    "storage": "Στατιστικά αποθήκευσης - AMSS",
-    "general": "Γενικά στατιστικά - AMSS",
-    "enrichments": "Στατιστικά Εμπλουτισμού - AMSS",
+    "cameras": "Στατιστικά Καμερών - Frigate",
+    "storage": "Στατιστικά αποθήκευσης - Frigate",
+    "general": "Γενικά στατιστικά - Frigate",
+    "enrichments": "Στατιστικά Εμπλουτισμού - Frigate",
     "logs": {
-      "frigate": "AMSS αρχέιο καταγραφών - AMSS",
-      "go2rtc": "Αρχείο καταγραφής Go2RTC - AMSS",
-      "nginx": "Αρχείο καταγραφών Nginx - AMSS"
+      "frigate": "Frigate αρχέιο καταγραφών - Frigate",
+      "go2rtc": "Αρχείο καταγραφής Go2RTC - Frigate",
+      "nginx": "Αρχείο καταγραφών Nginx - Frigate"
     }
   },
   "title": "Σύστημα",

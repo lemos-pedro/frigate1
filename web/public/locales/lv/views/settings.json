@@ -1,12 +1,12 @@
 {
   "documentTitle": {
-    "default": "Iestatījumi - AMSS",
-    "authentication": "Autentifikācijas iestatījumi - AMSS",
-    "cameraManagement": "Pārvaldīt kameras - AMSS",
-    "cameraReview": "Kameras skata iestatījumi - AMSS",
-    "enrichments": "Bagātināšanas iestatījumi - AMSS",
-    "masksAndZones": "Masku un zonu rediģētājs - AMSS",
-    "motionTuner": "Kustības noteikšana - AMSS"
+    "default": "Iestatījumi - Frigate",
+    "authentication": "Autentifikācijas iestatījumi - Frigate",
+    "cameraManagement": "Pārvaldīt kameras - Frigate",
+    "cameraReview": "Kameras skata iestatījumi - Frigate",
+    "enrichments": "Bagātināšanas iestatījumi - Frigate",
+    "masksAndZones": "Masku un zonu rediģētājs - Frigate",
+    "motionTuner": "Kustības noteikšana - Frigate"
   },
   "cameraWizard": {
     "step1": {
@@ -66,7 +66,7 @@
   "menu": {
     "users": "Lietotāji",
     "roles": "Lomas",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "notifications": "Paziņojumi",
     "triggers": "Trigeri",
     "profiles": "Profili"

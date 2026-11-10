@@ -10,8 +10,8 @@ import useOptimisticState from "@/hooks/use-optimistic-state";
 import { cn } from "@/lib/utils";
 import {
   CustomClassificationModelConfig,
-  AmssConfig,
-} from "@/types/amssConfig";
+  FrigateConfig,
+} from "@/types/frigateConfig";
 import { ClassificationDatasetResponse } from "@/types/classification";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -58,7 +58,7 @@ export default function ModelSelectionView({
     setPage,
     100,
   );
-  const { data: config, mutate: refreshConfig } = useSWR<AmssConfig>(
+  const { data: config, mutate: refreshConfig } = useSWR<FrigateConfig>(
     "config",
     {
       revalidateOnFocus: false,
@@ -271,16 +271,15 @@ function ModelCard({ config, onClick, onUpdate, onDelete }: ModelCardProps) {
       (key) => key != "none" && key.toLowerCase() != "unknown",
     );
 
-    if (keys.length === 0) {
+    const selectedKey = keys.find(
+      (key) => (dataset.categories[key]?.length ?? 0) > 0,
+    );
+
+    if (!selectedKey) {
       return undefined;
     }
 
-    const selectedKey = keys[0];
     const images = dataset.categories[selectedKey];
-
-    if (!images || images.length === 0) {
-      return undefined;
-    }
 
     return {
       name: selectedKey,

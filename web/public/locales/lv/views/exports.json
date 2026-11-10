@@ -1,8 +1,7 @@
 {
-  "documentTitle": "Eksportēt - AMSS",
+  "documentTitle": "Eksportēt - Frigate",
   "search": "Meklēt",
   "noExports": "Eksporti nav atrasti",
-  "deleteExport": "Dzēst eksportu",
   "deleteExport.desc": "Vai esi pārliecināts, ka vēlies izdzēst{{exportName}}?",
   "editExport": {
     "title": "Pārdēvēt eksportu",

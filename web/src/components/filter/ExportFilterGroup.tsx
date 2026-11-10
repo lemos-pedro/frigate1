@@ -7,7 +7,7 @@ import {
 import { CamerasFilterButton } from "./CamerasFilterButton";
 import { useAllowedCameras } from "@/hooks/use-allowed-cameras";
 import { useMemo } from "react";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import useSWR from "swr";
 
 type ExportFilterGroupProps = {
@@ -22,7 +22,7 @@ export default function ExportFilterGroup({
   filters = DEFAULT_EXPORT_FILTERS,
   onUpdateFilter,
 }: ExportFilterGroupProps) {
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
   const allowedCameras = useAllowedCameras();

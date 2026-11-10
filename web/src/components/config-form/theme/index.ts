@@ -1,6 +1,5 @@
-// Custom RJSF Fields
-export { LayoutGridField } from "./fields/LayoutGridField";
-export { DetectorHardwareField } from "./fields/DetectorHardwareField";
-export { ReplaceRulesField } from "./fields/ReplaceRulesField";
-export { LiveStreamsField } from "./fields/LiveStreamsField";
-export { amssTheme } from "./amssTheme";
+// RJSF Custom Theme
+// Maps RJSF components to existing shadcn/ui components
+
+export { frigateTheme } from "./frigateTheme";
+export type { FrigateTheme } from "./frigateTheme";

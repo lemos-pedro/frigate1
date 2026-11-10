@@ -14,7 +14,6 @@
       "title": "Οι καταγραφές πρέπει να είναι ενεργοποιημένες"
     }
   },
-  "timeline": "Χρονολόγιο",
   "timeline.aria": "Επιλογή χρονοσειράς",
   "events": {
     "label": "Γεγονότα",
@@ -24,9 +23,9 @@
   "selected_other": "{{count}} επελεγμένα",
   "camera": "Κάμερα",
   "detected": "ανιχνέυτηκε",
-  "documentTitle": "Προεσκόπιση - AMSS",
+  "documentTitle": "Προεσκόπιση - Frigate",
   "recordings": {
-    "documentTitle": "Καταγραφές - AMSS"
+    "documentTitle": "Καταγραφές - Frigate"
   },
   "calendarFilter": {
     "last24Hours": "Τελευταίες 24 Ώρες"

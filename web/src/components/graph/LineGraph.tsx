@@ -1,8 +1,10 @@
 import { useTheme } from "@/context/theme-provider";
 import { useDateLocale } from "@/hooks/use-date-locale";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
+import { ApexAxisChartSeries } from "@/types/graph";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { useCallback, useEffect, useMemo, useRef } from "react";
+import ApexCharts from "apexcharts";
 import Chart from "react-apexcharts";
 import { isMobileOnly } from "react-device-detect";
 import { useTranslation } from "react-i18next";
@@ -29,7 +31,7 @@ export function CameraLineGraph({
   isActive = true,
 }: CameraLineGraphProps) {
   const { t } = useTranslation(["views/system", "common"]);
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
 
@@ -196,7 +198,7 @@ export function EventsPerSecondsLineGraph({
   data,
   isActive = true,
 }: EventsPerSecondLineGraphProps) {
-  const { data: config } = useSWR<AmssConfig>("config", {
+  const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
   });
 

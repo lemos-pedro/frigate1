@@ -1,5 +1,5 @@
 import Heading from "@/components/ui/heading";
-import { AmssConfig, SearchModelSize } from "@/types/amssConfig";
+import { FrigateConfig, SearchModelSize } from "@/types/frigateConfig";
 import useSWR from "swr";
 import axios from "axios";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { LuExternalLink } from "react-icons/lu";
-import { StatusBarMessagesContext } from "@/context/statusbar-provider";
+import { StatusBarMessagesContext } from "@/context/statusbar-context";
 import {
   Select,
   SelectContent,
@@ -60,7 +60,7 @@ export default function EnrichmentsSettingsView({
   const { t } = useTranslation("views/settings");
   const { getLocaleDocUrl } = useDocDomain();
   const { data: config, mutate: updateConfig } =
-    useSWR<AmssConfig>("config");
+    useSWR<FrigateConfig>("config");
   const [changedValue, setChangedValue] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isReindexDialogOpen, setIsReindexDialogOpen] = useState(false);

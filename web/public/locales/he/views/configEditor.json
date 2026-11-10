@@ -1,5 +1,5 @@
 {
-  "documentTitle": "עורך הגדרות - AMSS",
+  "documentTitle": "עורך הגדרות - Frigate",
   "configEditor": "עורך תצורה",
   "copyConfig": "העתקת הגדרות",
   "saveAndRestart": "שמירה והפעלה מחדש",
@@ -14,5 +14,5 @@
     }
   },
   "safeConfigEditor": "עורך תצורה (מצב בטוח)",
-  "safeModeDescription": "AMSS במצב בטוח עקב שגיאת אימות הגדרות."
+  "safeModeDescription": "Frigate במצב בטוח עקב שגיאת אימות הגדרות."
 }

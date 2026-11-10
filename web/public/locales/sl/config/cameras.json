@@ -6,7 +6,7 @@
     },
     "friendly_name": {
         "label": "Prijazno ime",
-        "description": "Prijazno ime kamere, ki se uporablja v vmesniku AMSS"
+        "description": "Prijazno ime kamere, ki se uporablja v vmesniku Frigate"
     },
     "enabled": {
         "label": "Omogočeno",
@@ -65,10 +65,6 @@
         "enabled": {
             "label": "Omogoči Birdseye",
             "description": "Vklopi ali izklopi funkcijo Birdseye."
-        },
-        "mode": {
-            "label": "Način sledenja",
-            "description": "Način vključitve kamer v Birdseye: 'objects' (objekti), 'motion' (gibanje) ali 'continuous' (neprekinjeno)."
         },
         "order": {
             "label": "Položaj",
@@ -631,10 +627,6 @@
             "label": "Posnetki omogočeni",
             "description": "Omogoči ali onemogoči shranjevanje posnetkov za to kamero."
         },
-        "clean_copy": {
-            "label": "Shrani čisto kopijo",
-            "description": "Poleg označenih shrani tudi čisto kopijo posnetkov brez anotacij."
-        },
         "timestamp": {
             "label": "Prekrivna časovna značka",
             "description": "Na shranjene posnetke dodaj časovno značko."
@@ -661,10 +653,6 @@
             "default": {
                 "label": "Privzeta hramba",
                 "description": "Privzeto število dni za hrambo posnetkov."
-            },
-            "mode": {
-                "label": "Način hrambe",
-                "description": "Način hrambe posnetkov."
             },
             "objects": {
                 "label": "Hramba po objektih",
@@ -853,7 +841,7 @@
         },
         "dashboard": {
             "label": "Prikaži v vmesniku",
-            "description": "Preklopi vidnost kamere povsod v vmesniku AMSS. Če to onemogočiš, boš moral ročno urediti konfiguracijo, da bo kamera spet vidna."
+            "description": "Preklopi vidnost kamere povsod v vmesniku Frigate. Če to onemogočiš, boš moral ročno urediti konfiguracijo, da bo kamera spet vidna."
         }
     },
     "webui_url": {
@@ -865,7 +853,7 @@
         "description": "Cone ti omogočajo določitev specifičnega območja slike, da lahko ugotoviš, ali je objekt znotraj določenega predela.",
         "friendly_name": {
             "label": "Ime cone",
-            "description": "Uporabniku prijazno ime cone, prikazano v vmesniku AMSS. Če ni nastavljeno, bo uporabljena formatirana različica imena cone."
+            "description": "Uporabniku prijazno ime cone, prikazano v vmesniku Frigate. Če ni nastavljeno, bo uporabljena formatirana različica imena cone."
         },
         "enabled": {
             "label": "Omogočeno",

@@ -4,24 +4,15 @@
     "title": "สตรีมออฟไลน์"
   },
   "noPreviewFound": "ไม่พบตัวอย่าง",
-  "submitAMSSPlus": {
-    "title": "ส่งเฟรมนี้ให้ AMSS+ ไหม?",
+  "submitFrigatePlus": {
+    "title": "ส่งเฟรมนี้ให้ Frigate+ ไหม?",
     "submit": "ส่ง"
   },
   "livePlayerRequiredIOSVersion": "ต้องใช้ iOS 17.1 ขึ้นไปสำหรับประเภทสตรีมสดนี้",
-  "cameraDisabled": "กล้องถูกปิดใช้งาน",
   "stats": {
     "streamType": {
       "title": "ประเภทสตรีม:",
       "short": "ประเภท"
-    },
-    "latency": {
-      "title": "ความหน่วง:",
-      "value": "{{seconds}} วินาที",
-      "short": {
-        "title": "ความหน่วง",
-        "value": "{{seconds}} วิ"
-      }
     },
     "totalFrames": "จำนวนเฟรมทั้งหมด:",
     "droppedFrames": {
@@ -40,10 +31,10 @@
   },
   "toast": {
     "error": {
-      "submitAMSSPlusFailed": "ไม่สามารถส่งเฟรมไปยัง AMSS+ ได้"
+      "submitFrigatePlusFailed": "ไม่สามารถส่งเฟรมไปยัง Frigate+ ได้"
     },
     "success": {
-      "submittedAMSSPlus": "ส่งเฟรมให้ AMSS+ เรียบร้อยแล้ว"
+      "submittedFrigatePlus": "ส่งเฟรมให้ Frigate+ เรียบร้อยแล้ว"
     }
   },
   "noRecordingsFoundForThisTime": "ไม่เจอการบันทึกในช่วงเวลานี้",

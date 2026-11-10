@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Statistika Kamera - AMSS",
-    "general": "Opća Statistika - AMSS",
+    "cameras": "Statistika Kamera - Frigate",
+    "general": "Opća Statistika - Frigate",
     "logs": {
-      "go2rtc": "Zapisnici Go2RTC - AMSS",
-      "nginx": "Zapisnici Nginx - AMSS",
-      "frigate": "Zapisnici AMSS - AMSS"
+      "go2rtc": "Zapisnici Go2RTC - Frigate",
+      "nginx": "Zapisnici Nginx - Frigate",
+      "frigate": "Zapisnici Frigate - Frigate"
     },
-    "storage": "Statistika Pohrane - AMSS",
-    "enrichments": "Statistika Obogaćenja - AMSS"
+    "storage": "Statistika Pohrane - Frigate",
+    "enrichments": "Statistika Obogaćenja - Frigate"
   },
   "title": "Sustav",
   "logs": {
@@ -76,12 +76,7 @@
         }
       },
       "npuUsage": "Upotreba NPU-a",
-      "npuMemory": "Memorija NPU-a",
-      "intelGpuWarning": {
-        "title": "Upozorenje Intel GPU Statistika",
-        "message": "Statistika GPU-a nije dostupna",
-        "description": "Ovo je poznata greška u Intelovim alatima za izvještavanje GPU statistike (intel_gpu_top) gdje će se podaci prekinuti i stalno prikazivati 0% korištenja GPU-a, čak i kada hardversko ubrzanje i detekcija objekata pravilno rade na (i)GPU-u. Ovo nije greška AMSS-a. Možete ponovno pokrenuti host da privremeno riješite problem i potvrdite da GPU radi ispravno. Ovo ne utječe na performanse."
-      }
+      "npuMemory": "Memorija NPU-a"
     },
     "otherProcesses": {
       "title": "Ostali Procesi",
@@ -101,7 +96,7 @@
     "overview": "Pregled",
     "recordings": {
       "title": "Snimke",
-      "tips": "Ova vrijednost predstavlja ukupno korištenje prostora za snimke u AMSS bazi podataka. AMSS ne prati korištenje prostora za sve datoteke na disku.",
+      "tips": "Ova vrijednost predstavlja ukupno korištenje prostora za snimke u Frigate bazi podataka. Frigate ne prati korištenje prostora za sve datoteke na disku.",
       "earliestRecording": "Najranija dostupna snimka:"
     },
     "shm": {
@@ -117,7 +112,7 @@
       "bandwidth": "Propusnost",
       "unused": {
         "title": "Neiskorišteno",
-        "tips": "Ova vrijednost možda ne prikazuje točno slobodan prostor dostupan AMSS-u ako imate druge datoteke pohranjene na disku osim AMSS snimaka. AMSS ne prati korištenje prostora izvan svojih snimki."
+        "tips": "Ova vrijednost možda ne prikazuje točno slobodan prostor dostupan Frigate-u ako imate druge datoteke pohranjene na disku osim Frigate snimaka. Frigate ne prati korištenje prostora izvan svojih snimki."
       }
     }
   },
@@ -169,14 +164,11 @@
   },
   "lastRefreshed": "Zadnje osvježavanje: ",
   "stats": {
-    "ffmpegHighCpuUsage": "{{camera}} ima visoku upotrebu CPU-a za FFmpeg ({{ffmpegAvg}}%)",
-    "detectHighCpuUsage": "{{camera}} ima visoku upotrebu CPU-a za detekciju ({{detectAvg}}%)",
     "healthy": "Sustav je zdrav",
     "reindexingEmbeddings": "Reindeksiranje embeddings ({{processed}}% završeno)",
     "cameraIsOffline": "{{camera}} je offline",
     "detectIsSlow": "{{detect}} je sporo ({{speed}} ms)",
-    "detectIsVerySlow": "{{detect}} je vrlo sporo ({{speed}} ms)",
-    "shmTooLow": "/dev/shm alokacija ({{total}} MB) treba biti povećana na najmanje {{min}} MB."
+    "detectIsVerySlow": "{{detect}} je vrlo sporo ({{speed}} ms)"
   },
   "enrichments": {
     "title": "Obogaćenja",

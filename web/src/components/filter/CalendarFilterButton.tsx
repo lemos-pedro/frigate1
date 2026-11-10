@@ -17,7 +17,7 @@ import { useState } from "react";
 import PlatformAwareDialog from "../overlay/dialog/PlatformAwareDialog";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 
 type CalendarFilterButtonProps = {
@@ -33,7 +33,7 @@ export default function CalendarFilterButton({
   updateSelectedDay,
 }: CalendarFilterButtonProps) {
   const { t } = useTranslation(["components/filter", "views/events"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [open, setOpen] = useState(false);
   const selectedDate = useFormattedTimestamp(
     day == undefined ? 0 : day?.getTime() / 1000 + 1,
@@ -104,7 +104,7 @@ export function CalendarRangeFilterButton({
   updateSelectedRange,
 }: CalendarRangeFilterButtonProps) {
   const { t } = useTranslation(["components/filter"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const timezone = useTimezone(config);
   const [weekStartsOn] = useUserPersistence("weekStartsOn", 0);
   const [open, setOpen] = useState(false);

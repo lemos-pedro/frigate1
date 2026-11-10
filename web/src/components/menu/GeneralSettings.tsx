@@ -70,7 +70,7 @@ import { useIsAdmin } from "@/hooks/use-is-admin";
 import SetPasswordDialog from "../overlay/SetPasswordDialog";
 import { toast } from "sonner";
 import axios from "axios";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import type { ProfilesApiResponse } from "@/types/profile";
 import { getProfileColor } from "@/utils/profileColors";
 import { Badge } from "@/components/ui/badge";
@@ -92,7 +92,7 @@ export default function GeneralSettings({
   const { t } = useTranslation(["common", "views/settings"]);
   const { getLocaleDocUrl } = useDocDomain();
   const { data: profile } = useSWR("profile");
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { data: profilesData, mutate: updateProfiles } =
     useSWR<ProfilesApiResponse>("profiles");
   const logoutUrl = config?.proxy?.logout_url || "/api/logout";
@@ -257,7 +257,7 @@ export default function GeneralSettings({
           className={
             isDesktop
               ? "scrollbar-container mr-5 w-72 overflow-y-auto"
-              : "max-h-[75dvh] overflow-hidden p-2"
+              : "max-h-[75dvh] overflow-hidden"
           }
         >
           {!isDesktop && (
@@ -270,7 +270,12 @@ export default function GeneralSettings({
               </DrawerDescription>
             </>
           )}
-          <div className="scrollbar-container w-full flex-col overflow-y-auto overflow-x-hidden">
+          <div
+            className={cn(
+              "scrollbar-container w-full flex-col overflow-y-auto overflow-x-hidden",
+              !isDesktop && "p-2",
+            )}
+          >
             {isMobile && (
               <div className="mb-2">
                 <DropdownMenuLabel>
@@ -321,7 +326,7 @@ export default function GeneralSettings({
                 <DropdownMenuLabel>{t("menu.system")}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup className={isDesktop ? "" : "flex flex-col"}>
-                  <Link to="/system#general">
+                  <Link to="/system">
                     <MenuItem
                       className={
                         isDesktop
@@ -759,7 +764,7 @@ export default function GeneralSettings({
                 className={
                   isDesktop ? "cursor-pointer" : "flex items-center p-2 text-sm"
                 }
-                aria-label="AMSS Github"
+                aria-label="Frigate Github"
               >
                 <LuGithub className="mr-2 size-4" />
                 <span>GitHub</span>

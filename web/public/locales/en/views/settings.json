@@ -1,21 +1,26 @@
 {
+  "analyticsPreview": {
+    "show": "Preview the report",
+    "desc": "Frigate sends this report once a day while sharing is on. It never includes camera names, zones, labels, or addresses.",
+    "error": "Unable to build the preview"
+  },
   "documentTitle": {
-    "default": "Settings - AMSS",
-    "authentication": "Authentication Settings - AMSS",
-    "cameraManagement": "Manage Cameras - AMSS",
-    "cameraReview": "Camera Review Settings - AMSS",
-    "enrichments": "Enrichments Settings - AMSS",
-    "masksAndZones": "Mask and Zone Editor - AMSS",
-    "motionTuner": "Motion Tuner - AMSS",
-    "object": "Debug - AMSS",
-    "general": "UI Settings - AMSS",
-    "globalConfig": "Global Configuration - AMSS",
-    "cameraConfig": "Camera Configuration - AMSS",
-    "frigatePlus": "AMSS+ Settings - AMSS",
-    "detectorsAndModel": "Detectors and model - AMSS",
-    "notifications": "Notification Settings - AMSS",
-    "maintenance": "Maintenance - AMSS",
-    "profiles": "Profiles - AMSS"
+    "default": "Settings - Frigate",
+    "authentication": "Authentication Settings - Frigate",
+    "cameraManagement": "Manage Cameras - Frigate",
+    "cameraReview": "Camera Review Settings - Frigate",
+    "enrichments": "Enrichments Settings - Frigate",
+    "masksAndZones": "Mask and Zone Editor - Frigate",
+    "motionTuner": "Motion Tuner - Frigate",
+    "object": "Debug - Frigate",
+    "general": "UI Settings - Frigate",
+    "globalConfig": "Global Configuration - Frigate",
+    "cameraConfig": "Camera Configuration - Frigate",
+    "frigatePlus": "Frigate+ Settings - Frigate",
+    "detectorsAndModel": "Detectors and model - Frigate",
+    "notifications": "Notification Settings - Frigate",
+    "maintenance": "Maintenance - Frigate",
+    "profiles": "Profiles - Frigate"
   },
   "button": {
     "overriddenGlobal": "Overridden (Global)",
@@ -23,6 +28,9 @@
     "overriddenGlobalHeading_one": "This camera overrides {{count}} field from the global config:",
     "overriddenGlobalHeading_other": "This camera overrides {{count}} fields from the global config:",
     "overriddenGlobalNoDeltas": "This camera overrides the global config, but no field values differ.",
+    "overriddenLive": "Overridden (Live)",
+    "overriddenLiveTooltip": "This camera is running with a different value than the one saved in your config, which is shown here. The live view, MQTT, or an active profile can change it while Frigate is running.",
+    "overriddenLiveValue": "Running value: {{value}}",
     "overriddenBaseConfig": "Overridden (Base Config)",
     "overriddenBaseConfigTooltip": "The {{profile}} profile overrides configuration settings in this section",
     "overriddenBaseConfigHeading_one": "The {{profile}} profile overrides {{count}} field from the base config:",
@@ -75,7 +83,7 @@
     "systemTelemetry": "Telemetry",
     "systemBirdseye": "Birdseye",
     "systemFfmpeg": "FFmpeg",
-    "systemDetectorsAndModel": "Detectors and model",
+    "systemDetectorsAndModel": "Detection models",
     "systemMqtt": "MQTT",
     "systemGo2rtcStreams": "go2rtc streams",
     "integrationSemanticSearch": "Semantic search",
@@ -113,7 +121,7 @@
     "notifications": "Notifications",
     "triggers": "Triggers",
     "debug": "Debug",
-    "frigateplus": "AMSS+",
+    "frigateplus": "Frigate+",
     "maintenance": "Maintenance",
     "mediaSync": "Media sync",
     "regionGrid": "Region grid"
@@ -164,6 +172,11 @@
         "label": "Always Show Camera Names",
         "desc": "Always show the camera names in a chip in the multi-camera live view dashboard."
       },
+      "naturalAspectLayout": {
+        "label": "Use Natural Aspect Ratios",
+        "desc": "On camera group live view dashboards, size each tile to its camera's own natural aspect ratio. When disabled, cameras are snapped to a standard wide, landscape, or tall tile shape.",
+        "descNote": "Toggling this setting on or off will clear the stored layout for all camera group live dashboards. Manual reconfiguration will be required."
+      },
       "liveFallbackTimeout": {
         "label": "Live Player Fallback Timeout",
         "desc": "When a camera's high quality live stream is unavailable, fall back to low bandwidth mode after this many seconds. Default: 3."
@@ -172,12 +185,42 @@
     "storedLayouts": {
       "title": "Stored Layouts",
       "desc": "The layout of cameras in a camera group can be dragged/resized. The positions are stored in your browser's local storage.",
-      "clearAll": "Clear All Layouts"
+      "clearAll": "Clear All Layouts",
+      "clearConfirm": "This will clear the stored layout for every camera group in this browser. This cannot be undone."
     },
     "cameraGroupStreaming": {
       "title": "Camera Group Streaming Settings",
       "desc": "Streaming settings for each camera group are stored in your browser's local storage.",
-      "clearAll": "Clear All Streaming Settings"
+      "clearAll": "Clear All Streaming Settings",
+      "clearConfirm": "This will clear the streaming settings for every camera group in this browser. This cannot be undone."
+    },
+    "backupRestore": {
+      "title": "Backup & Restore",
+      "transfer": {
+        "label": "Device Settings File",
+        "desc": "Camera group layouts, streaming settings, and UI preferences are stored in your browser. Export them to a file to back them up or to move them to another device.",
+        "export": "Export Settings",
+        "import": "Import Settings"
+      },
+      "importDialog": {
+        "title": "Import Settings",
+        "desc": "Choose what to apply from this file. Frigate will reload when the import finishes.",
+        "exportedFrom": "Exported {{date}} from Frigate config version {{version}}",
+        "layouts_one": "Camera group layouts ({{count}} group)",
+        "layoutsPhone": "Camera group layouts aren't imported on phones, which always use the standard grid.",
+        "layoutsModeOn": "These layouts use camera aspect ratio tile sizing, so importing them will also turn on \"Use Natural Aspect Ratios\".",
+        "layoutsModeOff": "These layouts use standard tile sizing, so importing them will also turn off \"Use Natural Aspect Ratios\".",
+        "layouts_other": "Camera group layouts ({{count}} groups)",
+        "streaming_one": "Streaming settings ({{count}} camera)",
+        "streaming_other": "Streaming settings ({{count}} cameras)",
+        "preferences_one": "UI preferences ({{count}} setting)",
+        "preferences_other": "UI preferences ({{count}} settings)",
+        "unknownGroups_one": "Camera group {{groups}} is not on this server. Its settings will be saved but unused.",
+        "unknownGroups_other": "Camera groups {{groups}} are not on this server. Their settings will be saved but unused.",
+        "unknownCameras_one": "Camera {{cameras}} is not on this server. Its streaming settings will be ignored.",
+        "unknownCameras_other": "Cameras {{cameras}} are not on this server. Their streaming settings will be ignored.",
+        "confirm": "Import"
+      }
     },
     "recordingsViewer": {
       "title": "Recordings Viewer",
@@ -198,11 +241,20 @@
     "toast": {
       "success": {
         "clearStoredLayout": "Cleared stored layout for {{cameraName}}",
-        "clearStreamingSettings": "Cleared streaming settings for all camera groups."
+        "clearStreamingSettings": "Cleared streaming settings for all camera groups.",
+        "exportUiSettings": "Exported settings",
+        "importUiSettings": "Imported settings"
       },
       "error": {
         "clearStoredLayoutFailed": "Failed to clear stored layout: {{errorMessage}}",
-        "clearStreamingSettingsFailed": "Failed to clear streaming settings: {{errorMessage}}"
+        "clearStreamingSettingsFailed": "Failed to clear streaming settings: {{errorMessage}}",
+        "exportUiSettingsFailed": "Failed to export settings",
+        "importNothingToApply": "Failed to import settings: file contains no settings",
+        "importInvalidJson": "Failed to import settings: file is not valid JSON",
+        "importWrongType": "Failed to import settings: file is not a Frigate settings export",
+        "importUnsupportedVersion": "Failed to import settings: file requires a newer version of Frigate",
+        "importInvalidSchema": "Failed to import settings: file is malformed",
+        "importUiSettingsFailed": "Failed to import settings"
       }
     }
   },
@@ -215,7 +267,7 @@
     },
     "semanticSearch": {
       "title": "Semantic Search",
-      "desc": "Semantic Search in AMSS allows you to find tracked objects within your review items using either the image itself, a user-defined text description, or an automatically generated one.",
+      "desc": "Semantic Search in Frigate allows you to find tracked objects within your review items using either the image itself, a user-defined text description, or an automatically generated one.",
       "reindexNow": {
         "label": "Reindex Now",
         "desc": "Reindexing will regenerate embeddings for all tracked objects. This process runs in the background and may max out your CPU and take a fair amount of time depending on the number of tracked objects you have.",
@@ -241,7 +293,7 @@
     },
     "faceRecognition": {
       "title": "Face Recognition",
-      "desc": "Face recognition allows people to be assigned names and when their face is recognized AMSS will assign the person's name as a sub label. This information is included in the UI, filters, as well as in notifications.",
+      "desc": "Face recognition allows people to be assigned names and when their face is recognized Frigate will assign the person's name as a sub label. This information is included in the UI, filters, as well as in notifications.",
       "modelSize": {
         "label": "Model Size",
         "desc": "The size of the model used for face recognition.",
@@ -257,17 +309,17 @@
     },
     "licensePlateRecognition": {
       "title": "License Plate Recognition",
-      "desc": "AMSS can recognize license plates on vehicles and automatically add the detected characters to the recognized_license_plate field or a known name as a sub_label to objects that are of type car. A common use case may be to read the license plates of cars pulling into a driveway or cars passing by on a street."
+      "desc": "Frigate can recognize license plates on vehicles and automatically add the detected characters to the recognized_license_plate field or a known name as a sub_label to objects that are of type car. A common use case may be to read the license plates of cars pulling into a driveway or cars passing by on a street."
     },
     "restart_required": "Restart required (Enrichments settings changed)",
     "toast": {
-      "success": "Enrichments settings have been saved. Restart AMSS to apply your changes.",
+      "success": "Enrichments settings have been saved. Restart Frigate to apply your changes.",
       "error": "Failed to save config changes: {{errorMessage}}"
     }
   },
   "cameraWizard": {
     "title": "Add Camera",
-    "description": "Follow the steps below to add a new camera to your AMSS installation.",
+    "description": "Follow the steps below to add a new camera to your Frigate installation.",
     "steps": {
       "nameAndConnection": "Name & Connection",
       "probeOrSnapshot": "Probe or Snapshot",
@@ -320,7 +372,8 @@
         "nameLength": "Camera name must be 64 characters or less",
         "invalidCharacters": "Camera name contains invalid characters",
         "nameExists": "Camera name already exists",
-        "customUrlRtspRequired": "Custom URLs must begin with \"rtsp://\" or \"rtsps://\". Manual configuration is required for non-RTSP camera streams."
+        "customUrlRtspRequired": "Custom URLs must begin with \"rtsp://\" or \"rtsps://\". Manual configuration is required for non-RTSP camera streams.",
+        "onvifPortInvalid": "ONVIF port must be a whole number from 1 to 65535"
       }
     },
     "step2": {
@@ -364,7 +417,7 @@
       }
     },
     "step3": {
-      "description": "Configure stream roles and add additional streams for your camera.",
+      "description": "Configure features, stream roles, and add additional streams for your camera.",
       "streamsTitle": "Camera Streams",
       "addStream": "Add Stream",
       "addAnotherStream": "Add Another Stream",
@@ -393,16 +446,31 @@
       "notConnected": "Not Connected",
       "featuresTitle": "Features",
       "go2rtc": "Reduce connections to camera",
+      "appleCompatibility": {
+        "title": "Improve playback on Apple devices",
+        "description": "Turn this on if you watch recordings in Safari or on an iPhone, iPad, or Mac."
+      },
       "detectRoleWarning": "At least one stream must have the \"detect\" role to proceed.",
       "rolesPopover": {
         "title": "Stream Roles",
         "detect": "Main feed for object detection.",
         "record": "Saves segments of the video feed based on configuration settings.",
+        "record_sub": "Lower quality recordings for adaptive playback and extended retention (typically the camera sub stream).",
         "audio": "Feed for audio based detection."
       },
       "featuresPopover": {
         "title": "Stream Features",
         "description": "Use go2rtc restreaming to reduce connections to your camera."
+      },
+      "ptz": {
+        "title": "Enable PTZ Controls",
+        "detectedNote": "PTZ support has been detected via ONVIF. If this is a PTZ camera, enabling this option will allow you to control the camera's pan/tilt/zoom functions from the UI.",
+        "connectionDetails": "ONVIF connection details",
+        "host": "ONVIF Host",
+        "port": "ONVIF Port",
+        "username": "ONVIF Username",
+        "password": "ONVIF Password",
+        "hostRequiredWarning": "An ONVIF host and port are required when PTZ controls are enabled."
       }
     },
     "step4": {
@@ -424,7 +492,7 @@
       "estimatedBandwidth": "Estimated Bandwidth",
       "roles": "Roles",
       "ffmpegModule": "Use stream compatibility mode",
-      "ffmpegModuleDescription": "If the stream does not load after several attempts, try enabling this. When enabled, AMSS will use the ffmpeg module with go2rtc. This may provide better compatibility with some camera streams.",
+      "ffmpegModuleDescription": "If the stream does not load after several attempts, try enabling this. When enabled, Frigate will use the ffmpeg module with go2rtc. This may provide better compatibility with some camera streams.",
       "none": "None",
       "error": "Error",
       "streamValidated": "Stream {{number}} validated successfully",
@@ -463,7 +531,7 @@
     "deleteCameraDialog": {
       "title": "Delete Camera",
       "description": "Deleting a camera will permanently remove all recordings, tracked objects, and configuration for that camera. Any go2rtc streams associated with this camera may still need to be manually removed.",
-      "selectPlaceholder": "Choose camera...",
+      "selectPlaceholder": "Choose camera…",
       "confirmTitle": "Are you sure?",
       "confirmWarning": "Deleting <strong>{{cameraName}}</strong> cannot be undone.",
       "deleteExports": "Also delete exports for this camera",
@@ -477,14 +545,14 @@
     "streams": {
       "title": "Camera State and Details",
       "label": "Camera state",
-      "description": "Set the operating state for each camera.<br /><br /><strong>On</strong>: streams are processed normally.<br /><strong>Off</strong>: temporarily pauses processing. Does not persist across AMSS restarts.<br /><strong>Disabled</strong>: stops processing and saves the change to your configuration. A restart is required to re-enable a disabled camera.<br /><br /><em>Note: Disabling does not affect go2rtc restreams.</em><br /><br />Drag the handle to reorder active cameras as they appear throughout the UI, including the Live dashboard and camera selection dropdowns.",
+      "description": "Set the operating state for each camera.<br /><br /><strong>On</strong>: streams are processed normally.<br /><strong>Off</strong>: temporarily pauses processing. Does not persist across Frigate restarts.<br /><strong>Disabled</strong>: stops processing and saves the change to your configuration. A restart is required to re-enable a disabled camera.<br /><br /><em>Note: Disabling does not affect go2rtc restreams.</em><br /><br />Drag the handle to reorder active cameras as they appear throughout the UI, including the Live dashboard and camera selection dropdowns.",
       "disabledSubheading": "Disabled in configuration",
       "status": {
         "on": "On",
         "off": "Off",
         "disabled": "Disabled"
       },
-      "enableSuccess": "Enabled {{cameraName}}. Restart AMSS to apply.",
+      "enableSuccess": "Enabled {{cameraName}}. Restart Frigate to apply.",
       "disableSuccess": "Disabled {{cameraName}} and saved to configuration.",
       "reorderHandle": "Drag to reorder",
       "saving": "Saving…",
@@ -492,9 +560,9 @@
       "details": {
         "edit": "Edit camera details",
         "title": "Edit Camera Details",
-        "description": "Update the display name, external URL, and visibility used for this camera throughout the AMSS UI.",
+        "description": "Update the display name, external URL, and visibility used for this camera throughout the Frigate UI.",
         "friendlyNameLabel": "Display Name",
-        "friendlyNameHelp": "Friendly name shown for this camera throughout the AMSS UI. Leave blank to use the camera ID.",
+        "friendlyNameHelp": "Friendly name shown for this camera throughout the Frigate UI. Leave blank to use the camera ID.",
         "webuiUrlLabel": "Camera Web UI URL",
         "webuiUrlHelp": "URL to visit the camera's web UI directly from the Debug view. Leave blank to disable the link.",
         "webuiUrlInvalid": "Must be a valid URL (e.g., https://example.com).",
@@ -547,7 +615,7 @@
       "description": "Set the type for each camera. Dedicated LPR cameras are single-purpose cameras with powerful optical zoom to capture license plates on distant vehicles. Most cameras should use the normal camera type unless the camera is specifically for LPR and has a tightly focused view on license plates.",
       "normal": "Normal",
       "dedicatedLpr": "Dedicated LPR",
-      "saveSuccess": "Updated camera type for {{cameraName}}. Restart AMSS to apply the changes."
+      "saveSuccess": "Updated camera type for {{cameraName}}. Restart Frigate to apply the changes."
     },
     "clone": {
       "sectionTitle": "Clone settings",
@@ -613,7 +681,6 @@
         }
       },
       "footer": {
-        "changeCount_zero": "No changes selected",
         "changeCount_one": "{{count}} change will be applied",
         "changeCount_other": "{{count}} changes will be applied",
         "restartNeeded": "Restart will be required for some changes.",
@@ -623,11 +690,11 @@
       },
       "toast": {
         "success": "Settings copied to {{cameraName}}",
-        "successWithRestart": "Settings copied to {{cameraName}}. Restart AMSS to apply all changes.",
+        "successWithRestart": "Settings copied to {{cameraName}}. Restart Frigate to apply all changes.",
         "successMulti_one": "Settings copied to {{count}} camera",
         "successMulti_other": "Settings copied to {{count}} cameras",
-        "successMultiWithRestart_one": "Settings copied to {{count}} camera. Restart AMSS to apply all changes.",
-        "successMultiWithRestart_other": "Settings copied to {{count}} cameras. Restart AMSS to apply all changes.",
+        "successMultiWithRestart_one": "Settings copied to {{count}} camera. Restart Frigate to apply all changes.",
+        "successMultiWithRestart_other": "Settings copied to {{count}} cameras. Restart Frigate to apply all changes.",
         "partialFailure": "{{successCount}} sections applied; '{{failedSection}}' failed: {{errorMessage}}",
         "partialFailureMulti": "Copied to {{successCount}} camera(s); failed for {{failed}}: {{errorMessage}}",
         "newCameraPartialFailure": "Camera {{cameraName}} was created but some settings failed to copy: {{errorMessage}}",
@@ -640,21 +707,21 @@
     "title": "Camera Review Settings",
     "object_descriptions": {
       "title": "Generative AI Object Descriptions",
-      "desc": "Temporarily enable/disable Generative AI object descriptions for this camera until AMSS restarts. When disabled, AI generated descriptions will not be requested for tracked objects on this camera."
+      "desc": "Temporarily enable/disable Generative AI object descriptions for this camera until Frigate restarts. When disabled, AI generated descriptions will not be requested for tracked objects on this camera."
     },
     "review_descriptions": {
       "title": "Generative AI Review Descriptions",
-      "desc": "Temporarily enable/disable Generative AI review descriptions for this camera until AMSS restarts. When disabled, AI generated descriptions will not be requested for review items on this camera."
+      "desc": "Temporarily enable/disable Generative AI review descriptions for this camera until Frigate restarts. When disabled, AI generated descriptions will not be requested for review items on this camera."
     },
     "review": {
       "title": "Review",
-      "desc": "Temporarily enable/disable alerts and detections for this camera until AMSS restarts. When disabled, no new review items will be generated. ",
+      "desc": "Temporarily enable/disable alerts and detections for this camera until Frigate restarts. When disabled, no new review items will be generated. ",
       "alerts": "Alerts ",
       "detections": "Detections "
     },
     "reviewClassification": {
       "title": "Review Classification",
-      "desc": "AMSS categorizes review items as Alerts and Detections. By default, all <em>person</em> and <em>car</em> objects are considered Alerts. You can refine categorization of your review items by configuring required zones for them.",
+      "desc": "Frigate categorizes review items as Alerts and Detections. By default, all <em>person</em> and <em>car</em> objects are considered Alerts. You can refine categorization of your review items by configuring required zones for them.",
       "noDefinedZones": "No zones are defined for this camera.",
       "objectAlertsTips": "All {{alertsLabels}} objects on {{cameraName}} will be shown as Alerts.",
       "zoneObjectAlertsTips": "All {{alertsLabels}} objects detected in {{zone}} on {{cameraName}} will be shown as Alerts.",
@@ -669,7 +736,7 @@
       "selectDetectionsZones": "Select zones for Detections",
       "limitDetections": "Limit detections to specific zones",
       "toast": {
-        "success": "Review Classification configuration has been saved. Restart AMSS to apply changes."
+        "success": "Review Classification configuration has been saved. Restart Frigate to apply changes."
       }
     }
   },
@@ -765,7 +832,7 @@
     },
     "zones": {
       "label": "Zones",
-      "documentTitle": "Edit Zone - AMSS",
+      "documentTitle": "Edit Zone - Frigate",
       "desc": {
         "title": "Zones allow you to define a specific area of the frame so you can determine whether or not an object is within a particular area.",
         "documentation": "Documentation"
@@ -821,7 +888,7 @@
     },
     "motionMasks": {
       "label": "Motion Mask",
-      "documentTitle": "Edit Motion Mask - AMSS",
+      "documentTitle": "Edit Motion Mask - Frigate",
       "desc": {
         "title": "Motion masks are used to prevent unwanted types of motion from triggering detection. Over masking will make it more difficult for objects to be tracked.",
         "documentation": "Documentation"
@@ -853,7 +920,7 @@
     },
     "objectMasks": {
       "label": "Object Masks",
-      "documentTitle": "Edit Object Mask - AMSS",
+      "documentTitle": "Edit Object Mask - Frigate",
       "desc": {
         "title": "Object filter masks are used to filter out false positives for a given object type based on location.",
         "documentation": "Documentation"
@@ -892,7 +959,7 @@
     "title": "Motion Detection Tuner",
     "unsavedChanges": "Unsaved Motion Tuner changes ({{camera}})",
     "desc": {
-      "title": "AMSS uses motion detection as a first line check to see if there is anything happening in the frame worth checking with object detection.",
+      "title": "Frigate uses motion detection as a first line check to see if there is anything happening in the frame worth checking with object detection.",
       "documentation": "Read the Motion Tuning Guide"
     },
     "Threshold": {
@@ -913,7 +980,7 @@
   },
   "debug": {
     "title": "Debug",
-    "detectorDesc": "AMSS uses your detectors ({{detectors}}) to detect objects in your camera's video stream.",
+    "detectorDesc": "Frigate uses your detectors ({{detectors}}) to detect objects in your camera's video stream.",
     "desc": "Debugging view shows a real-time view of tracked objects and their statistics. The object list shows a time-delayed summary of detected objects.",
     "openCameraWebUI": "Open {{camera}}'s Web UI",
     "debugging": "Debugging",
@@ -980,7 +1047,8 @@
     "title": "Users",
     "management": {
       "title": "User Management",
-      "desc": "Manage this AMSS instance's user accounts."
+      "desc": "Manage this Frigate instance's user accounts.",
+      "authDisabled": "Built-in authentication is disabled. These accounts are only used to log in once it's enabled."
     },
     "addUser": "Add User",
     "updatePassword": "Reset Password",
@@ -1023,13 +1091,6 @@
             "title": "Confirm Password",
             "placeholder": "Confirm Password"
           },
-          "strength": {
-            "title": "Password strength: ",
-            "weak": "Weak",
-            "medium": "Medium",
-            "strong": "Strong",
-            "veryStrong": "Very Strong"
-          },
           "requirements": {
             "title": "Password requirements:",
             "length": "At least 12 characters"
@@ -1053,8 +1114,9 @@
       },
       "createUser": {
         "title": "Create New User",
-        "desc": "Add a new user account and specify a role for access to areas of the AMSS UI.",
+        "desc": "Add a new user account and specify a role for access to areas of the Frigate UI.",
         "usernameOnlyInclude": "Username may only include letters, numbers, . or _",
+        "usernameOnlyDots": "Username cannot contain only periods",
         "confirmPassword": "Please confirm your password"
       },
       "deleteUser": {
@@ -1092,7 +1154,7 @@
   "roles": {
     "management": {
       "title": "Viewer Role Management",
-      "desc": "Manage custom viewer roles and their camera access permissions for this AMSS instance."
+      "desc": "Manage custom viewer roles and their camera access permissions for this Frigate instance."
     },
     "addRole": "Add Role",
     "table": {
@@ -1101,7 +1163,9 @@
       "actions": "Actions",
       "noRoles": "No custom roles found.",
       "editCameras": "Edit Cameras",
-      "deleteRole": "Delete Role"
+      "deleteRole": "Delete Role",
+      "cameraCount_one": "{{count}} camera",
+      "cameraCount_other": "{{count}} cameras"
     },
     "toast": {
       "success": {
@@ -1154,12 +1218,11 @@
     "title": "Notifications",
     "notificationSettings": {
       "title": "Notification Settings",
-      "desc": "AMSS can natively send push notifications to your device when it is running in the browser or installed as a PWA."
+      "desc": "Frigate can natively send push notifications to your device when it is running in the browser or installed as a PWA."
     },
     "notificationUnavailable": {
-      "title": "Notifications Unavailable",
-      "desc": "Web push notifications require a secure context (<code>https://…</code>). This is a browser limitation. Access AMSS securely to use notifications.",
-      "descPwa": "On iOS, web push notifications are only available when AMSS is installed to your Home Screen. Open the <strong>Share</strong> menu, choose <strong>Add to Home Screen</strong>, then open AMSS from the new icon to register this device for notifications."
+      "desc": "Web push notifications require a secure context (https://…). This is a browser limitation. Access Frigate securely to use notifications.",
+      "descPwa": "On iOS, web push notifications are only available when Frigate is installed to your Home Screen. Open the Share menu, choose Add to Home Screen, then open Frigate from the new icon to register this device for notifications."
     },
     "globalSettings": {
       "title": "Global Settings",
@@ -1191,12 +1254,19 @@
       "1hour": "Suspend for 1 hour",
       "12hours": "Suspend for 12 hours",
       "24hours": "Suspend for 24 hours",
+      "custom": "Suspend until...",
       "untilRestart": "Suspend until restart"
+    },
+    "customSuspension": {
+      "title": "Custom suspension time",
+      "description": "Suspend notifications for this camera until the selected time.",
+      "untilLabel": "Suspend until",
+      "invalidTime": "Pick a time in the future."
     },
     "cancelSuspension": "Cancel Suspension",
     "toast": {
       "success": {
-        "registered": "Successfully registered for notifications. Restarting AMSS is required before any notifications (including a test notification) can be sent.",
+        "registered": "Successfully registered for notifications. Restarting Frigate is required before any notifications (including a test notification) can be sent.",
         "settingSaved": "Notification settings have been saved."
       },
       "error": {
@@ -1205,8 +1275,8 @@
     }
   },
   "frigatePlus": {
-    "title": "AMSS+ Settings",
-    "description": "AMSS+ is a subscription service that provides access to additional features and capabilities for your AMSS instance, including the ability to use custom object detection models trained on your own data. You can manage your AMSS+ model settings here.",
+    "title": "Frigate+ Settings",
+    "description": "Frigate+ is a subscription service that provides access to additional features and capabilities for your Frigate instance, including the ability to use custom object detection models trained on your own data. You can manage your Frigate+ model settings here.",
     "cardTitles": {
       "api": "API",
       "currentModel": "Current Model",
@@ -1214,15 +1284,20 @@
       "configuration": "Configuration"
     },
     "apiKey": {
-      "title": "AMSS+ API Key",
-      "validated": "AMSS+ API key is detected and validated",
-      "notValidated": "AMSS+ API key is not detected or not validated",
-      "desc": "The AMSS+ API key enables integration with the AMSS+ service.",
-      "plusLink": "Read more about AMSS+"
+      "title": "Frigate+ API Key",
+      "formatValid": "Frigate+ API key is detected and matches the expected format",
+      "formatInvalid": "Frigate+ API key is not detected or does not match the expected format",
+      "validate": "Validate with Frigate+",
+      "validating": "Validating…",
+      "serverValid": "Frigate+ accepted this API key",
+      "serverInvalid": "Frigate+ rejected this API key",
+      "serverUnreachable": "Unable to reach Frigate+ to validate this API key",
+      "desc": "The Frigate+ API key enables integration with the Frigate+ service.",
+      "plusLink": "Read more about Frigate+"
     },
     "snapshotConfig": {
       "title": "Snapshot Configuration",
-      "desc": "Submitting to AMSS+ requires snapshots to be enabled in your config.",
+      "desc": "Submitting to Frigate+ requires snapshots to be enabled in your config.",
       "cleanCopyWarning": "Some cameras have snapshots disabled",
       "table": {
         "camera": "Camera",
@@ -1242,55 +1317,30 @@
       "cameras": "Cameras",
       "loading": "Loading model information…",
       "error": "Failed to load model information",
-      "noModelLoaded": "No AMSS+ model is currently loaded.",
-      "availableModels": "Available AMSS+ models",
+      "noModelLoaded": "No Frigate+ model is currently loaded.",
+      "availableModels": "Available Frigate+ models",
       "loadingAvailableModels": "Loading available models…",
       "selectModel": "Select a model",
       "noModelsAvailable": "No models available",
+      "showIncompatible": "Show incompatible models",
       "filter": {
         "ariaLabel": "Filter models by type",
         "baseModels": "Base Models",
         "fineTunedModels": "Fine-tuned Models"
       },
-      "modelSelect": "Your available models on AMSS+ can be selected here. Note that only models compatible with your current detector configuration can be selected."
+      "modelSelect": "Your available models on Frigate+ can be selected here. Note that only models compatible with your current detector configuration can be selected."
     },
     "changeInDetectorsAndModel": "Change model",
-    "unsavedChanges": "Unsaved AMSS+ settings changes",
-    "restart_required": "Restart required (AMSS+ model changed)",
+    "unsavedChanges": "Unsaved Frigate+ settings changes",
+    "restart_required": "Restart required (Frigate+ model changed)",
     "toast": {
-      "success": "AMSS+ settings have been saved. Restart AMSS to apply changes.",
+      "success": "Frigate+ settings have been saved. Restart Frigate to apply changes.",
       "error": "Failed to save config changes: {{errorMessage}}"
     }
-  },
-  "detectorsAndModel": {
-    "title": "Detectors and model",
-    "description": "Configure the detector backend that runs object detection and the model it uses. Changes are saved together so the detector and model stay in sync.",
-    "cardTitles": {
-      "detector": "Detector Hardware",
-      "model": "Detection Model"
-    },
-    "tabs": {
-      "plus": "AMSS+",
-      "custom": "Custom Model"
-    },
-    "mismatch": {
-      "warning": "The current AMSS+ model \"{{model}}\" requires the {{required}} detector. Pick a compatible model below or switch to Custom Model before saving."
-    },
-    "plusModel": {
-      "requiresDetector": "Requires: {{detector}}",
-      "noModelSelected": "Select a AMSS+ model"
-    },
-    "toast": {
-      "saveSuccess": "Detectors and model settings saved. Restart AMSS to apply changes.",
-      "saveError": "Failed to save detector and model settings"
-    },
-    "unsavedChanges": "Unsaved detector and model changes",
-    "restartRequired": "Restart required (detector or model changed)"
   },
   "triggers": {
     "documentTitle": "Triggers",
     "semanticSearch": {
-      "title": "Semantic Search is disabled",
       "desc": "Semantic Search must be enabled to use Triggers."
     },
     "management": {
@@ -1371,7 +1421,7 @@
         },
         "actions": {
           "title": "Actions",
-          "desc": "By default, AMSS fires an MQTT message for all triggers. Sub labels add the trigger name to the object label. Attributes are searchable metadata stored separately in the tracked object metadata.",
+          "desc": "By default, Frigate fires an MQTT message for all triggers. Sub labels add the trigger name to the object label. Attributes are searchable metadata stored separately in the tracked object metadata.",
           "error": {
             "min": "At least one action must be selected."
           }
@@ -1412,7 +1462,7 @@
     "title": "Maintenance",
     "sync": {
       "title": "Media Sync",
-      "desc": "AMSS will periodically clean up media on a regular schedule according to your retention configuration. It is normal to see a few orphaned files as AMSS runs. Use this feature to remove orphaned media files from disk that are no longer referenced in the database.",
+      "desc": "Frigate will periodically clean up media on a regular schedule according to your retention configuration. It is normal to see a few orphaned files as Frigate runs. Use this feature to remove orphaned media files from disk that are no longer referenced in the database.",
       "started": "Media sync started.",
       "alreadyRunning": "A sync job is already running",
       "error": "Failed to start sync",
@@ -1446,6 +1496,8 @@
         "filesChecked": "Files Checked",
         "orphansFound": "Orphans Found",
         "orphansDeleted": "Orphans Deleted",
+        "spaceToReclaim": "Space To Reclaim",
+        "spaceReclaimed": "Space Reclaimed",
         "aborted": "Aborted. Deletion would exceed safety threshold.",
         "error": "Error",
         "totals": "Totals"
@@ -1459,10 +1511,10 @@
     },
     "regionGrid": {
       "title": "Region Grid",
-      "desc": "The region grid is an optimization that learns where objects of different sizes typically appear in each camera's field of view. AMSS uses this data to efficiently size detection regions. The grid is automatically built over time from tracked object data.",
+      "desc": "The region grid is an optimization that learns where objects of different sizes typically appear in each camera's field of view. Frigate uses this data to efficiently size detection regions. The grid is automatically built over time from tracked object data.",
       "clear": "Clear region grid",
       "clearConfirmTitle": "Clear Region Grid",
-      "clearConfirmDesc": "Clearing the region grid is not recommended unless you have recently changed your detector model size or have changed your camera's physical position and are having object tracking issues. The grid will be automatically rebuilt over time as objects are tracked. A AMSS restart is required for changes to take effect.",
+      "clearConfirmDesc": "Clearing the region grid is not recommended unless you have recently changed your detector model size or have changed your camera's physical position and are having object tracking issues. The grid will be automatically rebuilt over time as objects are tracked. A Frigate restart is required for changes to take effect.",
       "clearSuccess": "Region grid cleared successfully",
       "clearError": "Failed to clear region grid",
       "restartRequired": "Restart required for region grid changes to take effect"
@@ -1500,8 +1552,13 @@
       "keyPatternError": "Use only letters, numbers, hyphens, and underscores (no spaces)"
     },
     "knownPlates": {
+      "assignedTo": "Assigned to {{name}}",
+      "detected": "Detected plates",
       "namePlaceholder": "e.g., Wife's Car",
-      "platePlaceholder": "Plate number or regex"
+      "noneDetected": "No plates detected yet",
+      "platePlaceholder": "Plate number or regex",
+      "search": "Search or enter a plate",
+      "useCustom": "Use \"{{value}}\""
     },
     "liveStreams": {
       "streamNameLabel": "Stream name",
@@ -1512,7 +1569,27 @@
       "noGo2rtcStreams": "No go2rtc streams configured",
       "availableStreams": "Available streams",
       "useCustom": "Use \"{{value}}\"",
-      "addStream": "Add stream"
+      "addStream": "Add stream",
+      "reorderHandle": "Drag to reorder",
+      "transcodedBadge": "Transcoded",
+      "autoOrder": "Auto order",
+      "autoOrderTips": "Measure each stream's bitrate and sort highest first",
+      "measuring": "Measuring…",
+      "rate": "{{kbps}} kbps",
+      "rateSet": "{{kbps}} kbps (set)",
+      "rateFailed": "Couldn't measure"
+    },
+    "liveTranscode": {
+      "title": "Transcoded streams",
+      "description": "Adds lower-quality streams that go2rtc transcodes in real time while someone is watching.",
+      "unavailable": "Transcoded streams need a go2rtc stream to read from. Add one under go2rtc streams first.",
+      "enable": "Enable transcoded streams",
+      "source": "Source stream",
+      "height": "Height",
+      "heightOption": "{{height}}p",
+      "bitrate": "Bitrate (kbps)",
+      "addQuality": "Add quality",
+      "removeQuality": "Remove quality"
     },
     "timezone": {
       "defaultOption": "Use browser timezone"
@@ -1529,12 +1606,15 @@
       "manual": "Manual arguments",
       "inherit": "Inherit from camera setting",
       "none": "None",
+      "sameAsRecord": "Same as record output arguments",
       "useGlobalSetting": "Inherit from global setting",
       "selectPreset": "Select preset",
       "manualPlaceholder": "Enter FFmpeg arguments",
       "presetLabels": {
         "preset-rpi-64-h264": "Raspberry Pi (H.264)",
         "preset-rpi-64-h265": "Raspberry Pi (H.265)",
+        "preset-apple-silicon-h264": "Apple Silicon (H.264)",
+        "preset-apple-silicon-h265": "Apple Silicon (H.265)",
         "preset-vaapi": "VAAPI (Intel/AMD GPU)",
         "preset-intel-qsv-h264": "Intel QuickSync (H.264)",
         "preset-intel-qsv-h265": "Intel QuickSync (H.265)",
@@ -1605,16 +1685,6 @@
     "detect": {
       "title": "Detection Settings"
     },
-    "detectors": {
-      "title": "Detector Settings",
-      "singleType": "Only one {{type}} detector is allowed.",
-      "keyRequired": "Detector name is required.",
-      "keyDuplicate": "Detector name already exists.",
-      "noSchema": "No detector schemas are available.",
-      "none": "No detector instances configured.",
-      "add": "Add detector",
-      "addCustomKey": "Add custom key"
-    },
     "record": {
       "title": "Recording Settings"
     },
@@ -1646,12 +1716,25 @@
       "summary": "{{count}} selected",
       "empty": "No zones available"
     },
+    "birdseyeModes": {
+      "summary": "{{count}} selected",
+      "options": {
+        "continuous": "Continuous",
+        "motion": "Motion",
+        "all_objects": "All objects",
+        "alerts": "Alerts",
+        "detections": "Detections"
+      }
+    },
     "inputRoles": {
       "summary": "{{count}} roles selected",
       "empty": "No roles available",
+      "roleInUse": "Already assigned to another stream",
+      "recordSubConflict": "A stream cannot have both record and record_sub roles",
       "options": {
         "detect": "Detect",
         "record": "Record",
+        "record_sub": "Record (Sub Stream)",
         "audio": "Audio"
       }
     },
@@ -1659,7 +1742,8 @@
       "options": {
         "embeddings": "Embedding",
         "descriptions": "Descriptions",
-        "chat": "Chat"
+        "chat": "Chat",
+        "transcribe": "Transcription"
       }
     },
     "semanticSearchModel": {
@@ -1706,7 +1790,16 @@
     },
     "defaultRole": {
       "admin": "Admin",
-      "viewer": "Viewer"
+      "viewer": "Viewer",
+      "none": "None (deny access)"
+    },
+    "audioTranscriptionModel": {
+      "placeholder": "Select model…",
+      "builtIn": "Built-in Models",
+      "genaiProviders": "GenAI Providers"
+    },
+    "audioTranscriptionModelSize": {
+      "notApplicable": "Not applicable for GenAI providers"
     }
   },
   "globalConfig": {
@@ -1731,15 +1824,16 @@
   "toast": {
     "success": "Settings saved successfully",
     "applied": "Settings applied successfully",
-    "successRestartRequired": "Settings saved successfully. Restart AMSS to apply your changes.",
+    "go2rtcSyncFailed": "Saved, but go2rtc couldn't be updated. Restart Frigate to apply.",
+    "successRestartRequired": "Settings saved successfully. Restart Frigate to apply your changes.",
     "error": "Failed to save settings",
     "validationError": "Validation failed: {{message}}",
     "resetSuccess": "Reset to global defaults",
     "resetError": "Failed to reset settings",
     "saveAllSuccess_one": "Saved {{count}} section successfully.",
     "saveAllSuccess_other": "All {{count}} sections saved successfully.",
-    "saveAllSuccessRestartRequired_one": "Saved {{count}} section successfully. Restart AMSS to apply your changes.",
-    "saveAllSuccessRestartRequired_other": "All {{count}} sections saved successfully. Restart AMSS to apply your changes.",
+    "saveAllSuccessRestartRequired_one": "Saved {{count}} section successfully. Restart Frigate to apply your changes.",
+    "saveAllSuccessRestartRequired_other": "All {{count}} sections saved successfully. Restart Frigate to apply your changes.",
     "saveAllPartial_one": "{{successCount}} of {{totalCount}} section saved. {{failCount}} failed.",
     "saveAllPartial_other": "{{successCount}} of {{totalCount}} sections saved. {{failCount}} failed.",
     "saveAllFailure": "Failed to save all sections."
@@ -1842,11 +1936,6 @@
     }
   },
   "birdseye": {
-    "trackingMode": {
-      "objects": "Objects",
-      "motion": "Motion",
-      "continuous": "Continuous"
-    },
     "cameraOrder": {
       "label": "Camera order",
       "description": "Drag cameras to set their order in the Birdseye layout.",
@@ -1854,6 +1943,10 @@
       "saving": "Saving…",
       "saved": "Saved"
     }
+  },
+  "notificationTtl": {
+    "immediate": "Immediate",
+    "reliable": "Reliable"
   },
   "retainMode": {
     "all": "All",
@@ -1882,6 +1975,10 @@
     "imageSource": {
       "recordings": "Recordings",
       "previews": "Previews"
+    },
+    "frameMode": {
+      "frames": "Frames",
+      "annotated_frames": "Annotated frames"
     }
   },
   "logger": {
@@ -1911,19 +2008,29 @@
   "configMessages": {
     "review": {
       "recordDisabled": "Recording is disabled, review items will not be generated.",
+      "recordRuntimeDisabled": "Recording is enabled in your config, but it is currently turned off for this camera, so review items will not be generated. Turn it back on from the camera's live view, or check whether an active profile is disabling it.",
       "detectDisabled": "Object detection is disabled. Review items require detected objects to categorize alerts and detections.",
+      "detectRuntimeDisabled": "Object detection is enabled in your config, but it is currently turned off for this camera. Review items require detected objects to categorize alerts and detections. Turn it back on from the camera's live view, or check whether an active profile is disabling it.",
       "allNonAlertDetections": "All non-alert activity will be included as detections.",
-      "genaiImageSourceRecordingsRecordDisabled": "Image source is set to 'recordings', but recording is disabled. AMSS will fall back to preview images."
+      "genaiImageSourceRecordingsRecordDisabled": "Image source is set to 'recordings', but recording is disabled. Frigate will fall back to preview images.",
+      "genaiImageSourceRecordingsRecordRuntimeDisabled": "Image source is set to 'recordings', but recording is currently turned off for this camera even though your config enables it. Frigate will fall back to preview images."
+    },
+    "live": {
+      "noGo2rtcStream": "Live view for this camera is using a basic player with a lower frame rate and no audio. Set up a go2rtc stream for this camera to get smoother video and audio."
     },
     "audio": {
       "noAudioRole": "No streams have the audio role defined. You must enable the audio role for audio detection to function."
     },
     "audioTranscription": {
-      "audioDetectionDisabled": "Audio detection is not enabled for this camera. Audio transcription requires audio detection to be active."
+      "audioDetectionDisabled": "Audio detection is not enabled for this camera. Audio transcription requires audio detection to be active.",
+      "audioDetectionRuntimeDisabled": "Audio detection is enabled in your config, but it is currently turned off for this camera, so audio transcription will not run. Turn it back on from the camera's live view, or check whether an active profile is disabling it.",
+      "genaiProviderSelected": "A GenAI provider is selected, so the device and model size settings are ignored."
     },
     "detect": {
       "fpsGreaterThanFive": "Setting the detect FPS higher than 5 is not recommended. Higher values may cause performance issues and will not provide any benefit.",
       "disabled": "Object detection is disabled. Snapshots, review items, and enrichments such as face recognition, license plate recognition, and Generative AI will not function.",
+      "runtimeDisabled": "Object detection is enabled in your config, but it is currently turned off for this camera. Snapshots, review items, and enrichments such as face recognition, license plate recognition, and Generative AI will not function until it is turned back on from the camera's live view, or until the active profile stops disabling it.",
+      "sceneWithoutModel": "No detection model is configured for this scene, so this camera falls back to the Default model. Add a model for this scene to give the camera its own.",
       "resolutionShouldBeMultipleOfFour": "For best results, detect width and height should be multiples of 4. Other even values may produce visual artifacts or slight distortion in the detect stream.",
       "aspectRatioMismatch": "The width and height you've entered don't match the aspect ratio of your current detect resolution. This may produce a stretched or distorted image.",
       "maxFramesSet": "Setting max frames overrides default behavior and disables stationary object tracking. There are very few situations where this is needed, use with caution.",
@@ -1932,7 +2039,7 @@
       "globalResolutionMultipleCameras": "A global detect resolution is set while multiple cameras are configured. Unless all cameras share the same resolution and aspect ratio, the detect width and height should be defined per camera to match each camera's native aspect ratio."
     },
     "model": {
-      "optimizedFor320": "AMSS is optimized for a 320x320 model, which is the best choice for most setups. A 640x640 model is slower and only helps in specific scenarios.",
+      "optimizedFor320": "Frigate is optimized for a 320x320 model, which is the best choice for most setups. A 640x640 model is slower and only helps in specific scenarios.",
       "inputDimensionsNotDetectResolution": "Model input width and height are the input dimensions of the object detection model, not your camera's detect resolution. They should match the dimensions of the model you're using — typically a square size like 320x320 or 640x640."
     },
     "ffmpeg": {
@@ -1949,27 +2056,67 @@
     },
     "lpr": {
       "globalDisabled": "The license plate recognition enrichment must be enabled for LPR features to function on this camera.",
-      "vehicleNotTracked": "License plate recognition requires 'car' or 'motorcycle' to be tracked. Enable 'car' or 'motorcycle' in Objects for this camera.",
+      "vehicleNotTracked": "License plate recognition requires a vehicle to be tracked. Enable 'car' or another vehicle type in Objects for this camera.",
       "modelSizeLarge": "The 'large' model is optimized for multi-line license plates. The 'small' model provides better performance over 'large' and should be used unless your region uses multi-line plate formats."
     },
     "record": {
-      "noRecordRole": "No streams have the record role defined. Recording will not function."
+      "noRecordRole": "No streams have the record role defined. Recording will not function.",
+      "noRecordSubRole": "No streams have the record_sub role defined. Sub stream recording will not function.",
+      "profileBaseDisabled": "Recording is disabled in this camera's base config, so enabling it in a profile has no effect. Enable recording in the base config and use a profile to disable it instead."
+    },
+    "notifications": {
+      "profileBaseDisabled": "No cameras have notifications enabled in their base config, so enabling them in a profile has no effect. Enable notifications in the base config of at least one camera.",
+      "ttlDelay": "Notifications can arrive up to 30 seconds late and still link to the live view after the review item has ended."
     },
     "birdseye": {
-      "objectsModeDetectDisabled": "Birdseye is set to 'objects' mode, but object detection is disabled for this camera. The camera will not appear in Birdseye."
+      "objectTrackingDetectDisabled": "Birdseye includes tracked objects, but object detection is disabled for this camera. The camera will not appear in Birdseye.",
+      "objectTrackingDetectRuntimeDisabled": "Birdseye includes tracked objects, but object detection is currently turned off for this camera even though your config enables it. The camera will not appear in Birdseye until it is turned back on from the camera's live view, or until the active profile stops disabling it."
     },
     "snapshots": {
-      "detectDisabled": "Object detection is disabled. Snapshots are generated from tracked objects and will not be created."
-    },
-    "detectors": {
-      "mixedTypes": "All detectors must use the same type. Remove existing detectors to use a different type.",
-      "mixedTypesSuggestion": "All detectors must use the same type. Remove existing detectors or select {{type}}."
+      "detectDisabled": "Object detection is disabled. Snapshots are generated from tracked objects and will not be created.",
+      "detectRuntimeDisabled": "Object detection is enabled in your config, but it is currently turned off for this camera, so snapshots will not be created. Turn it back on from the camera's live view, or check whether an active profile is disabling it."
     },
     "semanticSearch": {
       "jinav2SmallModelSize": "The 'small' size with the Jina V2 model has high RAM and inference cost. The 'large' model with a discrete GPU is recommended."
     },
     "onvif": {
       "autotrackingNoZones": "Autotracking requires at least one zone. Define a zone for this camera in Masks / Zones, then set it as a required zone below."
+    }
+  },
+  "detectionModels": {
+    "title": "Detection models",
+    "description": "Configure the object detection models and the hardware each one runs on. Add a model for a scene only when some cameras need a differently trained model, such as thermal cameras. Cameras choose a model by their scene in the camera's detect settings.",
+    "addModel": "Add model",
+    "cameras_one": "{{count}} camera",
+    "cameras_other": "{{count}} cameras",
+    "scene": {
+      "label": "Scene",
+      "placeholder": "thermal",
+      "description": "A name for the cameras this model is for. Cameras pick a model by setting the same scene in their detect settings, and the Default model is used by any camera that does not set one. Use scenes to run different models, not to split one model across hardware, since models that use the same model file are combined."
+    },
+    "scenes": {
+      "default": "Default"
+    },
+    "hardware": {
+      "label": "Hardware",
+      "placeholder": "Select hardware",
+      "loading": "Looking for detection hardware...",
+      "none": "No hardware selected",
+      "claimedBy": "used by {{scene}}",
+      "detectorCount": "Detectors",
+      "countRecommended_one": "Recommended for {{count}} camera",
+      "countRecommended_other": "Recommended for {{count}} cameras",
+      "unrecognized": "This model is configured for hardware that was not found on this system: {{devices}}",
+      "description": "The hardware this model runs its detection on.",
+      "detectorCountDescription": "How many detection processes to run on this hardware. More detectors keep up with more cameras, at the cost of extra device memory.",
+      "unitsDescription": "Each unit runs its own detection process. A unit that can't be shared, such as a Coral, can only be used by one model."
+    },
+    "tabs": {
+      "plus": "Frigate+",
+      "custom": "Custom Model"
+    },
+    "plusModel": {
+      "noModelSelected": "Select a Frigate+ model"
     }
   }
 }

@@ -15,7 +15,7 @@ import {
   FieldDelta,
   useCamerasOverridingSection,
 } from "@/hooks/use-config-override";
-import type { AmssConfig } from "@/types/amssConfig";
+import type { FrigateConfig } from "@/types/frigateConfig";
 import type { ProfilesApiResponse } from "@/types/profile";
 import { useCameraFriendlyName } from "@/hooks/use-camera-friendly-name";
 import { formatList } from "@/utils/stringUtil";
@@ -25,24 +25,7 @@ import {
   pathMatchesHiddenPattern,
 } from "@/utils/configUtil";
 import { useOverrideFieldLabel } from "./useOverrideFieldLabel";
-
-const CAMERA_PAGE_BY_SECTION: Record<string, string> = {
-  detect: "cameraDetect",
-  ffmpeg: "cameraFfmpeg",
-  record: "cameraRecording",
-  snapshots: "cameraSnapshots",
-  motion: "cameraMotion",
-  objects: "cameraObjects",
-  review: "cameraReview",
-  audio: "cameraAudioEvents",
-  audio_transcription: "cameraAudioTranscription",
-  notifications: "cameraNotifications",
-  live: "cameraLivePlayback",
-  birdseye: "cameraBirdseye",
-  face_recognition: "cameraFaceRecognition",
-  lpr: "cameraLpr",
-  timestamp_style: "cameraTimestampStyle",
-};
+import { CAMERA_PAGE_BY_SECTION } from "@/components/config-form/sectionPages";
 
 const MAX_FIELDS_PER_CAMERA = 5;
 
@@ -51,7 +34,7 @@ const MAX_FIELDS_PER_CAMERA = 5;
  * Includes enrichment sections that aren't meaningfully per-camera
  * (face recognition and LPR are intentionally omitted so the badge does show
  * there) and every System sub-page (detector hardware, database, networking,
- * etc.) which configures AMSS as a whole, not per-camera state.
+ * etc.) which configures Frigate as a whole, not per-camera state.
  */
 const SECTIONS_WITHOUT_OVERRIDE_BADGE = new Set([
   // Enrichments (face_recognition and lpr remain enabled)
@@ -72,8 +55,7 @@ const SECTIONS_WITHOUT_OVERRIDE_BADGE = new Set([
   "environment_vars",
   "telemetry",
   "birdseye",
-  "detectors",
-  "model",
+  "models",
 ]);
 
 type CameraEntryProps = {
@@ -180,7 +162,7 @@ type Props = {
 };
 
 export function CameraOverridesBadge({ sectionPath, className }: Props) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { t } = useTranslation(["views/settings"]);
   const rawEntries = useCamerasOverridingSection(config, sectionPath);
 

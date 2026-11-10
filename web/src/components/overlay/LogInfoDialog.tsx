@@ -118,7 +118,7 @@ function useHelpfulLinks(content: string | undefined) {
         link: getLocaleDocUrl(
           "configuration/record#will-frigate-delete-old-recordings-if-my-storage-runs-out",
         ),
-        text: "AMSS Automatic Storage Cleanup",
+        text: "Frigate Automatic Storage Cleanup",
       });
     }
 

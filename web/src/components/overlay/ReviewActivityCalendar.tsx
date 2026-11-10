@@ -1,13 +1,19 @@
 import { RecordingsSummary, ReviewSummary } from "@/types/review";
 import { Calendar } from "../ui/calendar";
-import { ButtonHTMLAttributes, useEffect, useMemo, useRef } from "react";
+import {
+  ButtonHTMLAttributes,
+  ComponentProps,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import { FaCircle } from "react-icons/fa";
 import { getUTCOffset } from "@/utils/dateUtil";
 import { type DayButtonProps } from "react-day-picker";
 import { LAST_24_HOURS_KEY } from "@/types/filter";
 import { useUserPersistence } from "@/hooks/use-user-persistence";
 import { cn } from "@/lib/utils";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import useSWR from "swr";
 import { useTimezone } from "@/hooks/use-date-utils";
 
@@ -52,7 +58,7 @@ export default function ReviewActivityCalendar({
   selectedDay,
   onSelect,
 }: ReviewActivityCalendarProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const timezone = useTimezone(config);
   const [weekStartsOn] = useUserPersistence("weekStartsOn", 0);
 
@@ -178,12 +184,14 @@ type TimezoneAwareCalendarProps = {
   timezone?: string;
   selectedDay?: Date;
   onSelect: (day?: Date) => void;
+  disabled?: ComponentProps<typeof Calendar>["disabled"];
   recordingsSummary?: RecordingsSummary;
 };
 export function TimezoneAwareCalendar({
   timezone,
   selectedDay,
   onSelect,
+  disabled,
   recordingsSummary,
 }: TimezoneAwareCalendarProps) {
   const [weekStartsOn] = useUserPersistence("weekStartsOn", 0);
@@ -211,13 +219,14 @@ export function TimezoneAwareCalendar({
     [timezone],
   );
 
-  const disabledDates = useMemo(() => {
+  const defaultDisabledDates = useMemo(() => {
     // midday: ranges match by calendar day, so this dodges DST edges
     const from = new Date(year, month, day + 1, 12);
     const to = new Date(from);
     to.setFullYear(from.getFullYear() + 10);
     return { from, to };
   }, [year, month, day]);
+  const disabledDates = disabled ?? defaultDisabledDates;
 
   const today = useMemo(
     () => new Date(year, month, day, 12),

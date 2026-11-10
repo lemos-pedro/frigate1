@@ -1,8 +1,7 @@
 {
-  "documentTitle": "Exportar - AMSS",
+  "documentTitle": "Exportar - Frigate",
   "search": "Pesquisar",
   "noExports": "Nenhuma exportação encontrada",
-  "deleteExport": "Excluir exportação",
   "editExport": {
     "title": "Renomear exportação",
     "desc": "Digite um novo nome para esta exportação.",

@@ -1,15 +1,16 @@
 {
   "documentTitle": {
-    "general": "Üldine statistika - AMSS",
-    "cameras": "Kaamerate statistika - AMSS",
-    "storage": "Andmeruumi statistika - AMSS",
+    "general": "Üldine statistika - Frigate",
+    "cameras": "Kaamerate statistika - Frigate",
+    "storage": "Andmeruumi statistika - Frigate",
     "logs": {
-      "frigate": "AMSS logid - AMSS",
-      "go2rtc": "Go2RTC logid - AMSS",
-      "nginx": "Nginx logid - AMSS",
-      "websocket": "Sõnumite logid - AMSS"
+      "frigate": "Frigate logid - Frigate",
+      "go2rtc": "Go2RTC logid - Frigate",
+      "nginx": "Nginx logid - Frigate",
+      "websocket": "Sõnumite logid - Frigate"
     },
-    "enrichments": "Rikastus statistika - AMSS"
+    "enrichments": "Rikastus statistika - Frigate",
+    "health": "Süsteemi korrasolek - Frigate"
   },
   "logs": {
     "download": {
@@ -144,7 +145,7 @@
       "camera": "Kaamera",
       "unused": {
         "title": "Kasutamata",
-        "tips": "See väärtus ei pruugi AMSS'i jaoks saadaolevat vaba ruumi täpselt kajastada, kui teie draivil on lisaks AMSS'i salvestistele ka muid faile. AMSS ei jälgi salvestusruumi kasutamist väljaspool oma salvestisi."
+        "tips": "See väärtus ei pruugi Frigate'i jaoks saadaolevat vaba ruumi täpselt kajastada, kui teie draivil on lisaks Frigate'i salvestistele ka muid faile. Frigate ei jälgi salvestusruumi kasutamist väljaspool oma salvestisi."
       },
       "bandwidth": "Ribalaius",
       "storageUsed": "Salvestusmaht",
@@ -202,11 +203,7 @@
       "title": "Riistvara info",
       "npuUsage": "NPU kasutus",
       "npuMemory": "NPU mälu",
-      "npuTemperature": "NPU temperatuur",
-      "intelGpuWarning": {
-        "title": "Inteli GPU statistika hoiatus",
-        "message": "GPU statistika pole saadaval"
-      }
+      "npuTemperature": "NPU temperatuur"
     },
     "otherProcesses": {
       "series": {
@@ -226,5 +223,34 @@
       "inferenceSpeed": "Detektori järelduskiirus",
       "cpuUsageInformation": "Protsessori võimsus, mida kasutatakse tuvastusmudelite sisend- ja väljundandmete ettevalmistamisel. See väärtus ei mõõda järelduste kasutamist isegi siis, kui kasutatakse graafikaprotsessorit või kiirendit."
     }
-  }
+  },
+  "health": {
+    "hardware": {
+      "enrichments": {
+        "face_recognition": "Näotuvastus",
+        "lpr": "Sõidukite numbrimärkide tuvastus",
+        "audio_transcription": "Heli üleskirjutus"
+      },
+      "objectDetection": "Objektituvastus",
+      "title": "Riistvara",
+      "hardwareAcceleration": "Raudvaraline kiirendus",
+      "allCameras": "Kõik kaamerad",
+      "probeUnavailable": "Riistvara tuvastamine pole saadaval",
+      "justStarted": "Frigate on just käivitunud",
+      "deviceNotFound": "{{devices}} polnud siit süsteemist leitav",
+      "detectorNotRunning": "Tuvastusprotsess pole töös",
+      "inferenceVerySlow": "Järeldamine on väga aeglane ({{speed}} msek)",
+      "inferenceSlow": "Järeldamine on aeglane ({{speed}} msek)",
+      "inferenceMs": "{{speed}} msek",
+      "customArgs": "Sinu lisatavad ffmpeg-i argumendid",
+      "customArgsNotVerified": "Sinu lisatavad ffmpeg-i argumendid, mida ei kontrollita"
+    },
+    "title": "Korrasolek",
+    "notices": {
+      "title": "Teated",
+      "empty": "Sinu Frigate'i paigaldus on korras"
+    }
+  },
+  "showAllTabs": "Näita kõiki vahekaarte",
+  "showLessTabs": "Näita vähem"
 }

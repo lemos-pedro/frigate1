@@ -59,7 +59,7 @@
     },
     "ago": "Преди {{timeAgo}}",
     "untilForTime": "До {{time}}",
-    "untilForRestart": "Докато AMSS рестартира.",
+    "untilForRestart": "Докато Frigate рестартира.",
     "untilRestart": "До рестарт",
     "mo": "{{time}}мес",
     "m": "{{time}}м",

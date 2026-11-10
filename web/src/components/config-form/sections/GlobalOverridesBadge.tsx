@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { useTranslation } from "react-i18next";
 
 import { useCameraSectionDeltas } from "@/hooks/use-config-override";
-import type { AmssConfig } from "@/types/amssConfig";
+import type { FrigateConfig } from "@/types/frigateConfig";
 import { OverrideDeltaPopover } from "./OverrideDeltaPopover";
 
 type Props = {
@@ -16,7 +16,7 @@ export function GlobalOverridesBadge({
   cameraName,
   className,
 }: Props) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { t } = useTranslation(["views/settings"]);
   const deltas = useCameraSectionDeltas(config, cameraName, sectionPath);
 

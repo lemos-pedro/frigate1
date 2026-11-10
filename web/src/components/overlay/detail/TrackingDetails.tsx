@@ -13,7 +13,7 @@ import { useFullscreen } from "@/hooks/use-fullscreen";
 import { Event } from "@/types/event";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { TrackingDetailsSequence } from "@/types/timeline";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { formatUnixTimestampToDateTime } from "@/utils/dateUtil";
 import { use24HourTime } from "@/hooks/use-date-utils";
 import { getIconForLabel } from "@/utils/iconUtil";
@@ -113,7 +113,7 @@ export function TrackingDetails({
     },
   );
 
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   // Fetch recording segments for the event's time range to handle motion-only gaps.
   // Use the source offset (stable per event) so recordings don't refetch on every
@@ -599,7 +599,6 @@ export function TrackingDetails({
       playlist,
       startPosition: 0,
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event]);
 
   // Determine camera aspect ratio category
@@ -845,6 +844,7 @@ export function TrackingDetails({
                       <div className="text-sm text-secondary-foreground">
                         <Link
                           to={`/explore?recognized_license_plate=${event.data.recognized_license_plate}`}
+                          state={{ canGoBack: true }}
                           className="text-sm"
                         >
                           {event.data.recognized_license_plate}
@@ -933,7 +933,7 @@ function LifecycleIconRow({
   annotationOffset,
 }: LifecycleIconRowProps) {
   const { t } = useTranslation(["views/explore", "components/player"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const [isOpen, setIsOpen] = useState(false);
   const [showAdvancedScores, setShowAdvancedScores] = useState(false);
   const navigate = useNavigate();
@@ -1243,7 +1243,7 @@ function LifecycleIconRow({
                             }
 
                             toast.success(
-                              t("toast.success.submittedAmssPlus", {
+                              t("toast.success.submittedFrigatePlus", {
                                 ns: "components/player",
                               }),
                               {
@@ -1252,7 +1252,7 @@ function LifecycleIconRow({
                             );
                           } catch {
                             toast.error(
-                              t("toast.error.submitAmssPlusFailed", {
+                              t("toast.error.submitFrigatePlusFailed", {
                                 ns: "components/player",
                               }),
                               {

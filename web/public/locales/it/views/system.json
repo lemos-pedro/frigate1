@@ -1,14 +1,14 @@
 {
   "documentTitle": {
-    "cameras": "Statistiche telecamere - AMSS",
-    "enrichments": "Statistiche di miglioramento - AMSS",
-    "storage": "Statistiche archiviazione - AMSS",
-    "general": "Statistiche generali - AMSS",
+    "cameras": "Statistiche telecamere - Frigate",
+    "enrichments": "Statistiche di miglioramento - Frigate",
+    "storage": "Statistiche archiviazione - Frigate",
+    "general": "Statistiche generali - Frigate",
     "logs": {
-      "frigate": "Registri AMSS - AMSS",
-      "go2rtc": "Registri Go2RTC - AMSS",
-      "nginx": "Registri Nginx - AMSS",
-      "websocket": "Registri dei messaggi - AMSS"
+      "frigate": "Registri Frigate - Frigate",
+      "go2rtc": "Registri Go2RTC - Frigate",
+      "nginx": "Registri Nginx - Frigate",
+      "websocket": "Registri dei messaggi - Frigate"
     }
   },
   "logs": {
@@ -94,11 +94,6 @@
       "gpuMemory": "Memoria GPU",
       "npuUsage": "Utilizzo NPU",
       "npuMemory": "Memoria NPU",
-      "intelGpuWarning": {
-        "title": "Avviso statistiche GPU Intel",
-        "message": "Statistiche GPU non disponibili",
-        "description": "Si tratta di un problema noto negli strumenti di reportistica delle statistiche GPU di Intel (intel_gpu_top), che si interrompe e restituisce ripetutamente un utilizzo della GPU pari a 0% anche nei casi in cui l'accelerazione hardware e il rilevamento degli oggetti funzionano correttamente sulla (i)GPU. Non si tratta di un problema di AMSS. È possibile riavviare il sistema per risolvere temporaneamente il problema e verificare che la GPU funzioni correttamente. Ciò non influisce sulle prestazioni."
-      },
       "gpuTemperature": "Temperatura GPU",
       "npuTemperature": "Temperatura NPU",
       "gpuCompute": "Calcolo / Codifica GPU"
@@ -168,7 +163,20 @@
       "tips": {
         "title": "Informazioni analisi telecamera"
       },
-      "aspectRatio": "rapporto d'aspetto"
+      "aspectRatio": "rapporto d'aspetto",
+      "keyframes": {
+        "title": "Analisi fotogramma chiave",
+        "analyzing": "Analisi dei fotogrammi chiave in corso... {{seconds}} secondi rimanenti",
+        "stillAnalyzing": "Analisi dei fotogrammi chiave ancora in corso...",
+        "recordStream": "Flusso di trasmissione:",
+        "keyframeCount": "Fotogrammi chiave rilevati:",
+        "observedDuration": "Durata osservata:",
+        "gap": "Intervallo fotogramma chiave (min / media / max):",
+        "segmentLength": "Lunghezza segmento di registrazione:",
+        "ok": "Fotogramma chiave ogni ~{{seconds}}s, ottimale per registrazione e riproduzione.",
+        "unknown": "Impossibile determinare la spaziatura dei fotogrammi chiave.",
+        "recordDisabled": "La registrazione è disabilitata per questa telecamera."
+      }
     },
     "title": "Telecamere",
     "overview": "Sommario",
@@ -214,14 +222,11 @@
     }
   },
   "stats": {
-    "detectHighCpuUsage": "{{camera}} ha un utilizzo elevato della CPU con il rilevamento ({{detectAvg}}%)",
-    "ffmpegHighCpuUsage": "{{camera}} ha un elevato utilizzo della CPU con FFmpeg ({{ffmpegAvg}}%)",
     "healthy": "Il sistema è integro",
     "reindexingEmbeddings": "Reindicizzazione degli incorporamenti (completata al {{processed}}%)",
     "cameraIsOffline": "{{camera}} è disconnessa",
     "detectIsSlow": "{{detect}} è lento ({{speed}} ms)",
     "detectIsVerySlow": "{{detect}} è molto lento ({{speed}} ms)",
-    "shmTooLow": "L'allocazione /dev/shm ({{total}} MB) dovrebbe essere aumentata almeno a {{min}} MB.",
     "debugReplayActive": "La sessione di riproduzione delle correzioni è attiva"
   },
   "title": "Sistema",
@@ -231,7 +236,7 @@
     "overview": "Sommario",
     "recordings": {
       "title": "Registrazioni",
-      "tips": "Questo valore rappresenta lo spazio di archiviazione totale utilizzato dalle registrazioni nel database di AMSS. AMSS non tiene traccia dell'utilizzo dello spazio di archiviazione per tutti i file presenti sul disco.",
+      "tips": "Questo valore rappresenta lo spazio di archiviazione totale utilizzato dalle registrazioni nel database di Frigate. Frigate non tiene traccia dell'utilizzo dello spazio di archiviazione per tutti i file presenti sul disco.",
       "earliestRecording": "Prima registrazione disponibile:"
     },
     "cameraStorage": {
@@ -243,13 +248,12 @@
       "bandwidth": "Larghezza di banda",
       "unused": {
         "title": "Liberi",
-        "tips": "Questo valore potrebbe non rappresentare accuratamente lo spazio libero disponibile per AMSS se nel disco sono archiviati altri file oltre alle registrazioni di AMSS. AMSS non tiene traccia dell'utilizzo dello spazio di archiviazione al di fuori delle sue registrazioni."
+        "tips": "Questo valore potrebbe non rappresentare accuratamente lo spazio libero disponibile per Frigate se nel disco sono archiviati altri file oltre alle registrazioni di Frigate. Frigate non tiene traccia dell'utilizzo dello spazio di archiviazione al di fuori delle sue registrazioni."
       }
     },
     "shm": {
       "title": "Allocazione SHM (memoria condivisa)",
       "warning": "La dimensione SHM attuale di {{total}} MB è troppo piccola. Aumentarla ad almeno {{min_shm}} MB.",
-      "readTheDocumentation": "Leggi la documentazione",
       "frameLifetime": {
         "title": "Durata del fotogramma",
         "description": "Ogni telecamera dispone di {{frames}} posti per i fotogrammi nella memoria condivisa. Alla frequenza di fotogrammi più elevata della telecamera, ogni fotogramma è disponibile per circa {{lifetime}} secondi prima di essere sovrascritto."

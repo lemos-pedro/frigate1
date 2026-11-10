@@ -1,5 +1,5 @@
 import { useFormattedTimestamp, useTimeFormat } from "@/hooks/use-date-utils";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
@@ -34,7 +34,7 @@ export function MinimapBounds({
   firstMinimapSegmentRef,
   dense,
 }: MinimapSegmentProps) {
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const { t } = useTranslation(["common"]);
   const timeFormat = useTimeFormat(config);
 
@@ -102,7 +102,7 @@ export function Timestamp({
   segmentKey,
 }: TimestampSegmentProps) {
   const { t } = useTranslation(["common"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
 
   const timeFormat = useTimeFormat(config);
   const format = t(`time.formattedTimestampHourMinute.${timeFormat}`);

@@ -5,7 +5,6 @@
       "short": "Etiquetas",
       "title": "Todas as etiquetas"
     },
-    "count": "{{count}} etiquetas",
     "count_one": "{{count}} Etiqueta",
     "count_other": "{{count}} Etiquetas"
   },
@@ -37,9 +36,9 @@
     "label": "Funcionalidades",
     "hasSnapshot": "Tem uma captura",
     "hasVideoClip": "Tem um videoclipe",
-    "submittedToAMSSPlus": {
-      "label": "Submetido para AMSS+",
-      "tips": "Primeiro, deve filtrar os objetos rastreados que têm uma captura.<br /><br />Os objetos rastreados sem uma captura não podem ser submetidos para AMSS+."
+    "submittedToFrigatePlus": {
+      "label": "Submetido para Frigate+",
+      "tips": "Primeiro, deve filtrar os objetos rastreados que têm uma captura.<br /><br />Os objetos rastreados sem uma captura não podem ser submetidos para Frigate+."
     }
   },
   "sort": {

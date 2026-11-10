@@ -2,7 +2,7 @@ import TimeAgo from "../dynamic/TimeAgo";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import useSWR from "swr";
-import { AmssConfig } from "@/types/amssConfig";
+import { FrigateConfig } from "@/types/frigateConfig";
 import { REVIEW_PADDING, ReviewSegment } from "@/types/review";
 import { useNavigate } from "react-router-dom";
 import { RecordingStartingPoint } from "@/types/record";
@@ -36,7 +36,7 @@ export function AnimatedEventCard({
   updateEvents,
 }: AnimatedEventCardProps) {
   const { t } = useTranslation(["views/events"]);
-  const { data: config } = useSWR<AmssConfig>("config");
+  const { data: config } = useSWR<FrigateConfig>("config");
   const apiHost = useApiHost();
 
   const currentHour = useMemo(() => isCurrentHour(event.start_time), [event]);

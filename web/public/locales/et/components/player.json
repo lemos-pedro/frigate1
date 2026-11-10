@@ -2,12 +2,11 @@
   "noRecordingsFoundForThisTime": "Hetkel ei leidu ühtegi salvestust",
   "noPreviewFound": "Eelvaadet ei leidu",
   "noPreviewFoundFor": "{{cameraName}} kaamera eelvaadet ei leidu",
-  "submitAMSSPlus": {
+  "submitFrigatePlus": {
     "submit": "Saada",
-    "title": "Kas saadad selle kaadri AMSS+ teenusesse?",
+    "title": "Kas saadad selle kaadri Frigate+ teenusesse?",
     "previewError": "Hetktõmmise eelvaate laadimine ei õnnestu. Salvestus ei pruugi olla hetkel saadaval."
   },
-  "cameraDisabled": "Kaamera on kasutuselt eemaldatud",
   "stats": {
     "streamType": {
       "title": "Voogedastuse tüüp:",
@@ -16,14 +15,6 @@
     "bandwidth": {
       "title": "Ribalaius:",
       "short": "Ribalaius"
-    },
-    "latency": {
-      "title": "Latentsus:",
-      "value": "{{seconds}} sekundit",
-      "short": {
-        "title": "Latentsus",
-        "value": "{{seconds}} sek"
-      }
     },
     "totalFrames": "Kaadreid kokku:",
     "droppedFrames": {
@@ -34,7 +25,9 @@
       }
     },
     "decodedFrames": "Dekodeeritud kaadreid:",
-    "droppedFrameRate": "Vahelejäänud kaadrite sagedus:"
+    "droppedFrameRate": "Vahelejäänud kaadrite sagedus:",
+    "stream": "Voogedastus:",
+    "streamAuto": "{{stream}} (automaatne)"
   },
   "livePlayerRequiredIOSVersion": "Selle voogedastuse tüübi jaoks on vajalik iOS-i versioon 17.1 või uuem.",
   "streamOffline": {
@@ -43,11 +36,26 @@
   },
   "toast": {
     "success": {
-      "submittedAMSSPlus": "Kaadri saatmine AMSS+ teenusesse õnnestus"
+      "submittedFrigatePlus": "Kaadri saatmine Frigate+ teenusesse õnnestus"
     },
     "error": {
-      "submitAMSSPlusFailed": "Kaadri saatmine AMSS+ teenusesse ei õnnestunud"
+      "submitFrigatePlusFailed": "Kaadri saatmine Frigate+ teenusesse ei õnnestunud",
+      "playRecordingsFailed": "Salvestiste esitamine ei õnnestunud (viga {{code}}): {{message}}"
     }
   },
-  "cameraOff": "Kaamera on lülitatud välja"
+  "cameraOff": "Kaamera on lülitatud välja",
+  "quality": {
+    "auto": "Automaatne",
+    "autoLow": "Esita madala kvaliteediga (väiksem ribalaius)",
+    "autoLowCodec": "Esitamisel madala kvaliteediga (see brauser ei toeta algset vormingut)",
+    "autoLowSaveData": "Esitamisel madala kvaliteediga (säästab andmeruumi)",
+    "main": "Algne kvaliteet",
+    "sub": "Madal kvaliteet",
+    "notSupportedBrowser": "Pole selles brauseris toetatud",
+    "label": "Kvaliteet",
+    "noAudio": "Ilma heliribata",
+    "audioRate": "{{rate}} kHz heliriba",
+    "audioCodecRate": "{{codec}} {{rate}} kHz",
+    "noRecordings": "Sellest ajavahemikust pole salvestisi"
+  }
 }
