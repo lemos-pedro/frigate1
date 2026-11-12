@@ -1,13 +1,9 @@
 # =============================================================================
-#  Frigate NVR - config.yml
-#  IPs das câmaras: folha NOC (IP Cameras Master / IP CCTV Nagios), validados
-#  pela regra do A-code (A150 -> .150.20 ; A201.161 -> .201.180).
-#  Nomes: <SiteID>_<NOME>. O stream do go2rtc tem o MESMO nome da câmara.
-#  Organização: por província.
+#  Frigate NVR - config.yml  (versão leve: só gravação, sem IA)
+#  Password RTSP vem do .env (FRIGATE_RTSP_PASSWORD) via compose.
 # =============================================================================
 version: 0.18-0
 
-# ----------------------------- Geral -----------------------------------------
 mqtt:
   enabled: false
 
@@ -23,47 +19,38 @@ profiles:
   viewer:
     friendly_name: viewer
 
-# ------------------- Defaults herdados por TODAS as câmaras ------------------
+# ---- Desligar tudo o que cria processos/threads extra ----
+audio:
+  enabled: false
+semantic_search:
+  enabled: false
+birdseye:
+  enabled: false
+snapshots:
+  enabled: false
+
+# ---- Defaults herdados por todas as câmaras ----
 ffmpeg:
   input_args: preset-rtsp-restream
 
-# Deteção DESLIGADA (110 câmaras + CPU detector não aguentam).
-# Para ligar numa câmara: roles: [record, detect] + detect: {enabled: true},
-# de preferência com um sub-stream de baixa resolução.
 detect:
   enabled: false
   width: 1280
   height: 720
   fps: 5
 
-birdseye:
-  enabled: false
-
+# Gravação contínua. Ajusta os dias ao espaço em disco (ver nota).
 record:
   enabled: true
-  alerts:
-    retain:
-      days: 1
-      mode: motion
-  detections:
-    retain:
-      days: 1
-      mode: motion
   continuous:
-    days: 7
+    days: 3
 
-snapshots:
-  enabled: true
-  retain:
-    default: 14
-
-# ------------------------------ go2rtc ---------------------------------------
 go2rtc:
   streams:
     # ---- Bengo (4) ----
     BGDAN002_BR_KAWANGO: rtsp://noc:QYXF84o2@192.168.203.180:554/stream
     BGDAN003_TN_LIBONGO: rtsp://noc:QYXF84o2@192.168.132.20:554/stream
-    BGDAN004_CNT_BUCULA: rtsp://noc:QYXF84o2@192.168.200.52:554/stream
+    BGDAN004_CNT_BUCULA: rtsp://noc:QYXF84o2@192.168.200.52:554/stream  # FALHA user/pass no log: confirmar credenciais desta câmara
     BGDEM001_PAREDES: rtsp://noc:QYXF84o2@192.168.135.20:554/stream
     # ---- Benguela (10) ----
     BEBEN001_S_ANTONIO: rtsp://noc:QYXF84o2@192.168.146.20:554/stream
@@ -77,8 +64,8 @@ go2rtc:
     BECUB001_BR_VACARIA: rtsp://noc:QYXF84o2@192.168.119.20:554/stream
     BECUB002_200_CASAS: rtsp://noc:QYXF84o2@192.168.118.20:554/stream
     # ---- Bié (4) ----
-    BIAND001_ANDULO_E: rtsp://noc:QYXF84o2@192.168.202.148:554/stream  # master da folha (192.168.200.148) não bate com o A-code; usado Nagios
-    BICAM001_KAMACUPA2_E: rtsp://noc:QYXF84o2@192.168.201.212:554/stream  # master da folha (192.168.202.116) não bate com o A-code; usado Nagios
+    BIAND001_ANDULO_E: rtsp://noc:QYXF84o2@192.168.202.148:554/stream  # IP Nagios (master da folha: 200.148)
+    BICAM001_KAMACUPA2_E: rtsp://noc:QYXF84o2@192.168.201.212:554/stream  # IP Nagios (master da folha: 202.116)
     BIKUI002_CTR_KUITO2: rtsp://noc:QYXF84o2@192.168.126.20:554/stream
     BIKUI003_BI_MILITAR: rtsp://noc:QYXF84o2@192.168.202.212:554/stream
     # ---- Cabinda (5) ----
@@ -92,7 +79,7 @@ go2rtc:
     KKMEN002_PANDEIRA_O: rtsp://noc:QYXF84o2@192.168.185.20:554/stream
     KKMEN003_KK_BJUVENT: rtsp://noc:QYXF84o2@192.168.203.244:554/stream
     KKMEN004_KK_BVITORIA: rtsp://noc:QYXF84o2@192.168.204.20:554/stream
-    KKMEN005_KK_BRSAUDE: rtsp://noc:QYXF84o2@192.168.204.52:554/stream  # A-code repetido na folha (= CAMP_AVI_N); usado IP master 204.52
+    KKMEN005_KK_BRSAUDE: rtsp://noc:QYXF84o2@192.168.204.52:554/stream  # A-code repetido na folha; usado IP master 204.52
     KKMEN006_BR_COMBOIO: rtsp://noc:QYXF84o2@192.168.204.116:554/stream
     # ---- Cuanza Norte (6) ----
     KNCAZ001_BR_CAJI: rtsp://noc:QYXF84o2@192.168.204.148:554/stream
@@ -129,12 +116,12 @@ go2rtc:
     LDBEL010_VILA_FLOR5: rtsp://noc:QYXF84o2@192.168.205.180:554/stream
     LDBEL011_VILA_ALTA2: rtsp://noc:QYXF84o2@192.168.200.244:554/stream
     LDCAC001_NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
-    LDCAC006_SP_BARRA: rtsp://noc:QYXF84o2@192.168.202.116:554/stream  # master da folha (192.168.104.20) não bate com o A-code; usado Nagios
+    LDCAC006_SP_BARRA: rtsp://noc:QYXF84o2@192.168.202.116:554/stream  # IP Nagios (master da folha: 104.20)
     LDICB002_QUIMINHA: rtsp://noc:QYXF84o2@192.168.148.20:554/stream
     LDKIK001_CALEMBA_2_1: rtsp://noc:QYXF84o2@192.168.204.212:554/stream
     LDKIK006_NOVA_VIDA_5: rtsp://noc:QYXF84o2@192.168.162.20:554/stream
     LDKIK007_BCA_KAPOLO: rtsp://noc:QYXF84o2@192.168.190.20:554/stream
-    LDKIK008_KAPOLO_SW: rtsp://noc:QYXF84o2@192.168.200.148:554/stream  # master da folha (192.168.200.20) não bate com o A-code; usado Nagios
+    LDKIK008_KAPOLO_SW: rtsp://noc:QYXF84o2@192.168.200.148:554/stream  # IP Nagios (master da folha: 200.20)
     LDKIK009_MAR_ENETO: rtsp://noc:QYXF84o2@192.168.203.116:554/stream
     LDKIK010_NV_VIDA06: rtsp://noc:QYXF84o2@192.168.205.116:554/stream
     LDKIK012_SAPU_KPOL3: rtsp://noc:QYXF84o2@192.168.212.52:554/stream
@@ -189,10 +176,8 @@ go2rtc:
     ZANZE001_NZETO_ESTE: rtsp://noc:QYXF84o2@192.168.195.20:554/stream
     ZASOY001_BR_MPINDA: rtsp://noc:QYXF84o2@192.168.202.20:554/stream
 
-# ------------------------------ Câmaras --------------------------------------
-# Só-gravação (roles: [record]); o resto vem dos defaults globais.
 cameras:
-  # ======================= Bengo =======================
+  # ======== Bengo ========
   BGDAN002_BR_KAWANGO:
     friendly_name: "BR_KAWANGO (BGDAN002)"
     ffmpeg:
@@ -217,7 +202,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/BGDEM001_PAREDES
           roles: [record]
-  # ======================= Benguela =======================
+  # ======== Benguela ========
   BEBEN001_S_ANTONIO:
     friendly_name: "S_ANTONIO (BEBEN001)"
     ffmpeg:
@@ -261,7 +246,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/BECAT001_BIOPIO1
           roles: [record]
   BECAT002_NEGRAO_S:
-    friendly_name: "NEGRÃO_S (BECAT002)"
+    friendly_name: "NEGRAO_S (BECAT002)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/BECAT002_NEGRAO_S
@@ -278,7 +263,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/BECUB002_200_CASAS
           roles: [record]
-  # ======================= Bié =======================
+  # ======== Bié ========
   BIAND001_ANDULO_E:
     friendly_name: "ANDULO_E (BIAND001)"
     ffmpeg:
@@ -303,9 +288,9 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/BIKUI003_BI_MILITAR
           roles: [record]
-  # ======================= Cabinda =======================
+  # ======== Cabinda ========
   CACAB001_RESISTENCIA_EVARISTO:
-    friendly_name: "RESISTÊNCIA/EVARISTO (CACAB001)"
+    friendly_name: "RESISTENCIA_EVARISTO (CACAB001)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/CACAB001_RESISTENCIA_EVARISTO
@@ -334,9 +319,9 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/CACAC002_DINGE
           roles: [record]
-  # ======================= Cuando Cubango =======================
+  # ======== Cuando Cubango ========
   KKMEN001_BR_TOMAS_E:
-    friendly_name: "BR TOMAS_E (KKMEN001)"
+    friendly_name: "BR_TOMAS_E (KKMEN001)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/KKMEN001_BR_TOMAS_E
@@ -360,7 +345,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/KKMEN004_KK_BVITORIA
           roles: [record]
   KKMEN005_KK_BRSAUDE:
-    friendly_name: "KK_BRSAÚDE (KKMEN005)"
+    friendly_name: "KK_BRSAUDE (KKMEN005)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/KKMEN005_KK_BRSAUDE
@@ -371,7 +356,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/KKMEN006_BR_COMBOIO
           roles: [record]
-  # ======================= Cuanza Norte =======================
+  # ======== Cuanza Norte ========
   KNCAZ001_BR_CAJI:
     friendly_name: "BR_CAJI (KNCAZ001)"
     ffmpeg:
@@ -397,7 +382,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/KNCAZ004_BOTANICO
           roles: [record]
   KNCAZ005_SAO_FILIPE:
-    friendly_name: "SÃO_FILIPE (KNCAZ005)"
+    friendly_name: "SAO_FILIPE (KNCAZ005)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/KNCAZ005_SAO_FILIPE
@@ -408,7 +393,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/KNDON001_MUCOSO
           roles: [record]
-  # ======================= Cuanza Sul =======================
+  # ======== Cuanza Sul ========
   KSAMB001_CUDISSANGA:
     friendly_name: "CUDISSANGA (KSAMB001)"
     ffmpeg:
@@ -451,7 +436,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/KSSUM002_BR_ATANCO
           roles: [record]
-  # ======================= Cunene =======================
+  # ======== Cunene ========
   CUCHM001_KAFIMA:
     friendly_name: "KAFIMA (CUCHM001)"
     ffmpeg:
@@ -464,7 +449,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/CUOND001_CAFITO_SO
           roles: [record]
-  # ======================= Huambo =======================
+  # ======== Huambo ========
   HBHUB003_CHILATA:
     friendly_name: "CHILATA (HBHUB003)"
     ffmpeg:
@@ -477,7 +462,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/HBHUB004_NDANGO_SUL
           roles: [record]
-  # ======================= Huíla =======================
+  # ======== Huíla ========
   HLLUG001_EYWA2:
     friendly_name: "EYWA2 (HLLUG001)"
     ffmpeg:
@@ -502,7 +487,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/HLLUG004_INST_INDEP
           roles: [record]
-  # ======================= Luanda =======================
+  # ======== Luanda ========
   IBQUI001_COXI:
     friendly_name: "COXI (IBQUI001)"
     ffmpeg:
@@ -570,7 +555,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/LDKIK001_CALEMBA_2_1
           roles: [record]
   LDKIK006_NOVA_VIDA_5:
-    friendly_name: "NOVA VIDA_5 (LDKIK006)"
+    friendly_name: "NOVA_VIDA_5 (LDKIK006)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/LDKIK006_NOVA_VIDA_5
@@ -618,7 +603,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/LDPLN012_BR_KASSALA
           roles: [record]
   LDPLN013_BITA_TANQUE_OP2_PN:
-    friendly_name: "BITA TANQUE OP2_PN (LDPLN013)"
+    friendly_name: "BITA_TANQUE_OP2_PN (LDPLN013)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/LDPLN013_BITA_TANQUE_OP2_PN
@@ -660,7 +645,7 @@ cameras:
         - path: rtsp://127.0.0.1:8554/LDVIA001_SAPU2_NW
           roles: [record]
   LDVIA002_VIANA_NORTE_ISTA:
-    friendly_name: "VIANA NORTE_ISTA (LDVIA002)"
+    friendly_name: "VIANA_NORTE_ISTA (LDVIA002)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/LDVIA002_VIANA_NORTE_ISTA
@@ -731,7 +716,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/LDVIA036_REFRIANGO1
           roles: [record]
-  # ======================= Lunda Norte =======================
+  # ======== Lunda Norte ========
   LNCAG001_BR_MALANJE:
     friendly_name: "BR_MALANJE (LNCAG001)"
     ffmpeg:
@@ -768,7 +753,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/LNXAM002_CAVUBA_NE
           roles: [record]
-  # ======================= Lunda Sul =======================
+  # ======== Lunda Sul ========
   LSMUD001_CASSAI_S:
     friendly_name: "CASSAI_S (LSMUD001)"
     ffmpeg:
@@ -787,7 +772,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/LSSAU001_MUANGUEJI
           roles: [record]
-  # ======================= Malange =======================
+  # ======== Malange ========
   MAMAJ001_CAMP_AVI_N:
     friendly_name: "CAMP_AVI_N (MAMAJ001)"
     ffmpeg:
@@ -800,7 +785,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/MAMAJ002_VOANVOALA
           roles: [record]
-  # ======================= Moxico =======================
+  # ======== Moxico ========
   MOAZB001_CAVUNGO:
     friendly_name: "CAVUNGO (MOAZB001)"
     ffmpeg:
@@ -813,26 +798,26 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/MOLUA001_LUAU2
           roles: [record]
-  # ======================= Namibe =======================
+  # ======== Namibe ========
   NAMOC001_CTR5ABRIL1:
-    friendly_name: "CTR5ABRIL1 (NAMOÇ001)"
+    friendly_name: "CTR5ABRIL1 (NAMOC001)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/NAMOC001_CTR5ABRIL1
           roles: [record]
   NAMOC002_NA_BELAVIST:
-    friendly_name: "NA_BELAVIST (NAMOÇ002)"
+    friendly_name: "NA_BELAVIST (NAMOC002)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/NAMOC002_NA_BELAVIST
           roles: [record]
   NAMOC003_VALODIA2:
-    friendly_name: "VALODIA2 (NAMOÇ003)"
+    friendly_name: "VALODIA2 (NAMOC003)"
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/NAMOC003_VALODIA2
           roles: [record]
-  # ======================= Uíge =======================
+  # ======== Uíge ========
   UIDAM001_NSOSSO:
     friendly_name: "NSOSSO (UIDAM001)"
     ffmpeg:
@@ -851,7 +836,7 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/UIUIG004_URB_KATAPA
           roles: [record]
-  # ======================= Zaire =======================
+  # ======== Zaire ========
   ZAMBC002_ZA_BVISTA:
     friendly_name: "ZA_BVISTA (ZAMBC002)"
     ffmpeg:
@@ -870,7 +855,3 @@ cameras:
       inputs:
         - path: rtsp://127.0.0.1:8554/ZASOY001_BR_MPINDA
           roles: [record]
-
-# --------------------------------------------------------------------------
-# Sites da folha SEM IP de câmara (não incluídos):
-#   LDPLN005 BELAS_PN | LNLUC002 LUCAPTNOVA | LSSAU002 CASSENGO | HLLUG007 NAMBAMBI
