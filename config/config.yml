@@ -2,7 +2,7 @@ auth:
   enabled: true
 
 mqtt:
-  enabled: false
+  enabled: true
 
 detectors:
   cpu_detector:
@@ -29,13 +29,93 @@ snapshots:
 go2rtc:
   streams:
     URB_KATAPA: rtsp://noc:QYXF84o2@192.168.153.20:554/stream
-    MU_CAMBAX: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
     B_4ABRIL_N: rtsp://noc:QYXF84o2@192.168.113.20:554/stream
     BEIRA_ALT2: rtsp://noc:QYXF84o2@192.168.111.20:554/stream
     BR_4ABRIL2: rtsp://noc:QYXF84o2@192.168.112.20:554/stream
     NEGRAO_S: rtsp://noc:QYXF84o2@192.168.115.20:554/stream
     COXI: rtsp://noc:QYXF84o2@192.168.210.20:554/stream
     NOVAURBAN4: rtsp://noc:QYXF84o2@192.168.201.180:554/stream
+    TN_LIBONGO: rtsp://noc:QYXF84o2@192.168.132.20:554/stream
+    CNT_BUCULA: rtsp://noc:QYXF84o2@192.168.200.52:554/stream
+    PAREDES: rtsp://noc:QYXF84o2@192.168.135.20:554/stream
+    S_ANTONIO: rtsp://noc:QYXF84o2@192.168.146.20:554/stream
+    CAOTINHA: rtsp://noc:QYXF84o2@192.168.114.20:554/stream
+    BOCOIO3: rtsp://noc:QYXF84o2@192.168.147.20:554/stream
+    BIOPIO1: rtsp://noc:QYXF84o2@192.168.142.20:554/stream
+    BR_VACARIA: rtsp://noc:QYXF84o2@192.168.119.20:554/stream
+    200_CASAS: rtsp://noc:QYXF84o2@192.168.118.20:554/stream
+    ANDULO_E: rtsp://noc:QYXF84o2@192.168.202.148:554/stream  
+    KAMACUPA2_E: rtsp://noc:QYXF84o2@192.168.201.212:554/stream
+    CTR_KUITO2: rtsp://noc:QYXF84o2@192.168.126.20:554/stream
+    BI_MILITAR: rtsp://noc:QYXF84o2@192.168.202.212:554/stream
+    RESISTENCIA_EVARISTO: rtsp://noc:QYXF84o2@192.168.102.20:554/stream
+    SIMINDELESW: rtsp://noc:QYXF84o2@192.168.200.116:554/stream
+    CPX_APLON: rtsp://noc:QYXF84o2@192.168.205.244:554/stream
+    URB_TENDA: rtsp://noc:QYXF84o2@192.168.103.20:554/stream
+    DINGE: rtsp://noc:QYXF84o2@192.168.189.20:554/stream
+    BR_TOMAS_E: rtsp://noc:QYXF84o2@192.168.182.20:554/stream
+    PANDEIRA_O: rtsp://noc:QYXF84o2@192.168.185.20:554/stream
+    KK_BJUVENT: rtsp://noc:QYXF84o2@192.168.203.244:554/stream
+    KK_BVITORIA: rtsp://noc:QYXF84o2@192.168.204.20:554/stream
+    KK_BRSAUDE: rtsp://noc:QYXF84o2@192.168.204.52:554/stream  # A-code repetido na folha; usado IP master 204.52
+    BR_COMBOIO: rtsp://noc:QYXF84o2@192.168.204.116:554/stream
+    BR_CAJI: rtsp://noc:QYXF84o2@192.168.204.148:554/stream
+    MORRO_BINDA: rtsp://noc:QYXF84o2@192.168.175.20:554/stream
+    CAMUNDAY: rtsp://noc:QYXF84o2@192.168.152.20:554/stream
+    BOTANICO: rtsp://noc:QYXF84o2@192.168.138.20:554/stream
+    SAO_FILIPE: rtsp://noc:QYXF84o2@192.168.204.244:554/stream
+    MUCOSO: rtsp://noc:QYXF84o2@192.168.205.20:554/stream
+    CUDISSANGA: rtsp://noc:QYXF84o2@192.168.123.20:554/stream
+    WKUNGO2: rtsp://noc:QYXF84o2@192.168.120.20:554/stream
+    WKUNGO3: rtsp://noc:QYXF84o2@192.168.121.20:554/stream
+    CONDE2: rtsp://noc:QYXF84o2@192.168.122.20:554/stream
+    CALULO3: rtsp://noc:QYXF84o2@192.168.179.20:554/stream
+    CHINGO_O: rtsp://noc:QYXF84o2@192.168.124.20:554/stream
+    BR_ATANCO: rtsp://noc:QYXF84o2@192.168.125.20:554/stream
+    KAFIMA: rtsp://noc:QYXF84o2@192.168.117.20:554/stream
+    CAFITO_SO: rtsp://noc:QYXF84o2@192.168.202.180:554/stream
+    CHILATA: rtsp://noc:QYXF84o2@192.168.140.20:554/stream
+    NDANGO_SUL: rtsp://noc:QYXF84o2@192.168.201.244:554/stream
+    EYWA2: rtsp://noc:QYXF84o2@192.168.139.20:554/stream
+    Crismel: rtsp://noc:QYXF84o2@192.168.201.20:554/stream
+    ENTRPOS_LG: rtsp://noc:QYXF84o2@192.168.201.52:554/stream
+    INST_INDEP: rtsp://noc:QYXF84o2@192.168.200.212:554/stream
+    V_KILAMBA: rtsp://noc:QYXF84o2@192.168.161.20:554/stream
+    CABOLOMBO7: rtsp://noc:QYXF84o2@192.168.203.84:554/stream
+    COPE_N: rtsp://noc:QYXF84o2@192.168.149.20:554/stream
+    CTR_COMAND: rtsp://noc:QYXF84o2@192.168.136.20:554/stream
+    VILA_FLOR5: rtsp://noc:QYXF84o2@192.168.205.180:554/stream
+    VILA_ALTA2: rtsp://noc:QYXF84o2@192.168.200.244:554/stream
+    SP_BARRA: rtsp://noc:QYXF84o2@192.168.202.116:554/stream  # IP Nagios (master da folha: 104.20)
+    QUIMINHA: rtsp://noc:QYXF84o2@192.168.148.20:554/stream
+    CALEMBA_2_1: rtsp://noc:QYXF84o2@192.168.204.212:554/stream
+    NOVA_VIDA_5: rtsp://noc:QYXF84o2@192.168.162.20:554/stream
+    BCA_KAPOLO: rtsp://noc:QYXF84o2@192.168.190.20:554/stream
+    KAPOLO_SW: rtsp://noc:QYXF84o2@192.168.200.148:554/stream  # IP Nagios (master da folha: 200.20)
+    MAR_ENETO: rtsp://noc:QYXF84o2@192.168.203.116:554/stream
+    NV_VIDA06: rtsp://noc:QYXF84o2@192.168.205.116:554/stream
+    SAPU_KPOL3: rtsp://noc:QYXF84o2@192.168.212.52:554/stream
+    RUA_PRIO: rtsp://noc:QYXF84o2@192.168.133.20:554/stream
+    BR_KASSALA: rtsp://noc:QYXF84o2@192.168.204.84:554/stream
+    BITA_TANQUE_OP2_PN: rtsp://noc:QYXF84o2@192.168.213.84:554/stream
+    ALPHA: rtsp://noc:QYXF84o2@192.168.108.20:554/stream
+    SIMIONE_S: rtsp://noc:QYXF84o2@192.168.165.20:554/stream
+    MBONDO_CHA: rtsp://noc:QYXF84o2@192.168.110.20:554/stream
+    TALATONA_S: rtsp://noc:QYXF84o2@192.168.202.84:554/stream
+    MU_CAMBAXI: rtsp://noc:QYXF84o2@192.168.104.20:554/stream
+    SAPU2_NW: rtsp://noc:QYXF84o2@192.168.192.20:554/stream
+    VIANA_NORTE_ISTA: rtsp://noc:QYXF84o2@192.168.170.20:554/stream
+    KPALAN_S15: rtsp://noc:QYXF84o2@192.168.107.20:554/stream
+    MULENCIMA3: rtsp://noc:QYXF84o2@192.168.203.20:554/stream
+    MUXIMOXI_N: rtsp://noc:QYXF84o2@192.168.163.20:554/stream
+    MDC: rtsp://noc:QYXF84o2@192.168.109.20:554/stream
+    CASSACA_II: rtsp://noc:QYXF84o2@192.168.137.20:554/stream
+    VILA_FLOR6: rtsp://noc:QYXF84o2@192.168.205.212:554/stream
+    SAPU_06: rtsp://noc:QYXF84o2@192.168.201.148:554/stream
+    JEANPIAGET: rtsp://noc:QYXF84o2@192.168.202.52:554/stream
+    SAPVIANA_2: rtsp://noc:QYXF84o2@192.168.205.148:554/stream
+    KPALANCA04: rtsp://noc:QYXF84o2@192.168.203.212:554/stream
+    REFRIANGO1: rtsp://noc:QYXF84o2@192.168.210.116:554/stream
 
 cameras:
   URB_KATAPA:
@@ -66,14 +146,14 @@ cameras:
       user: Ariclene.lemos
       password: Towercore2026
 
-  MU_CAMBAX:
+  MU_CAMBAXI:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/MU_CAMBAX
+        - path: rtsp://127.0.0.1:8554/MU_CAMBAXI
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   B_4ABRIL_N:
     ffmpeg:
@@ -82,7 +162,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   BEIRA_ALT2:
     ffmpeg:
@@ -91,7 +171,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   BR_4ABRIL2:
     ffmpeg:
@@ -100,7 +180,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   NEGRAO_S:
     ffmpeg:
@@ -109,7 +189,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   COXI:
     ffmpeg:
@@ -118,7 +198,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
 
   # stream problemativo - timestamps invalidos da camera
   NOVAURBAN4:
@@ -128,7 +208,737 @@ cameras:
           input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
           roles: [record]
     detect:
-      enabled: false
+      enabled: true
+  
+  TN_LIBONGO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/TN_LIBONGO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  CNT_BUCULA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CNT_BUCULA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  
+  PAREDES:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/PAREDES
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  S_ANTONIO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/S_ANTONIO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  CAOTINHA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CAOTINHA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  BOCOIO3:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BOCOIO3
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  BIOPIO1:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BIOPIO1
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  BR_VACARIA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_VACARIA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  200_CASAS:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/200_CASAS
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true      
+
+  Andulo_E:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ANDULO_E
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  KAMACUPA2_E:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KAMACUPA2_E
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CTR_KUITO2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CTR_KUITO2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  BI_MILITAR:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BI_MILITAR
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  RESISTENCIA_EVARISTO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/RESISTENCIA_EVARISTO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  SIMINDELESW:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SIMINDELESW
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  CPX_APLON:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CPX_APLON
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  URB_TENDA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/URB_TENDA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  DINGE:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/DINGE
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+  
+  BR_TOMAS:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_TOMAS_E
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  PANDEIRA_O:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/PANDEIRA_O
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  KK_BJUVENT:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KK_BJUVENT
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+    
+  KK_BVITORIA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KK_BVITORIA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  KK_BRSAUDE:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KK_BRSAUDE
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  BR_COMBOIO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_COMBOIO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  BR_CAJI:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_CAJI
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  MORRO_BINDA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MORRO_BINDA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  CAMUNDAY:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CAMUNDAY
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  BOTANICO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BOTANICO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  SAO_FILIPE:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SAO_FILIPE
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  MUCOSO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MUCOSO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CUDISSANGA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CUDISSANGA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  WKUNGO2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/WKUNGO2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  WKUNGO3:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/WKUNGO3
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CONDE2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CONDE2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  CALULO3:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CALULO3
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  CHINGO_O:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CHINGO_O
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  BR_ATANCO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_ATANCO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  KAFIMA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KAFIMA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CAFITO_SO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CAFITO_SO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+  
+  CHILATA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CHILATA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  NDANGO_SUL:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NDANGO_SUL
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  EYWA2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/EYWA2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  Crismel:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/Crismel
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  ENTRPOS_LG:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ENTRPOS_LG
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  INST_INDEP:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/INST_INDEP
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  V_KILAMBA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/V_KILAMBA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  CABOLOMBO7:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CABOLOMBO7
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  COPE_N:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/COPE_N
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CTR_COMAND:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CTR_COMAND
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  VILA_FLOR5:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/VILA_FLOR5
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  VILA_ALTA2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/VILA_ALTA2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+  
+  SP_BARRA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SP_BARRA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  QUIMINHA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/QUIMINHA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  CALEMBA_2_1:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CALEMBA_2_1
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  NOVA_VIDA_5:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NOVA_VIDA_5
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  BCA_KAPOLO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BCA_KAPOLO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  KAPOLO_SW:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KAPOLO_SW
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  MAR_ENETO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MAR_ENETO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  NV_VIDA06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/NV_VIDA06
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  SAPU_KPOL3:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SAPU_KPOL3
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  RUA_PRIO:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/RUA_PRIO
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  BR_KASSALA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BR_KASSALA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  BITA_TANQUE_OP2_PN:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/BITA_TANQUE_OP2_PN
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  ALPHA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/ALPHA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  SIMIONE_S:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SIMIONE_S
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  MBONDO_CHA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MBONDO_CHA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  TALATONA_S:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/TALATONA_S
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  SAPU2_NW:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SAPU2_NW
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  VIANA_NORTE_ISTA:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/VIANA_NORTE_ISTA
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  KPALAN_S15:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KPALAN_S15
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  MULENCIMA3:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MULENCIMA3
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  MUXIMOXI_N:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MUXIMOXI_N
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  MDC:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/MDC
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  CASSACA_II:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/CASSACA_II
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  VILA_FLOR6:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/VILA_FLOR6
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true  
+
+  SAPU_06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SAPU_06
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true
+
+  JEANPIAGET:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/JEANPIAGET
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  SAPVIANA_2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/SAPVIANA_2
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+
+  KPALANCA04:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/KPALANCA04
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
+
+  REFRIANGO1:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/REFRIANGO1
+          input_args: -fflags +genpts+discardcorrupt -use_wallclock_as_timestamps 1 -rtsp_transport tcp
+          roles: [record]
+    detect:
+      enabled: true 
 
 version: 0.18-0
 
